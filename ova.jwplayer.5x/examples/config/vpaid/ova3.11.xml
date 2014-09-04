@@ -1,0 +1,21 @@
+<config>
+  <ova.title>
+     VAST 2 VPAID Linear VPAID with Companion
+  </ova.title>
+  <ova.json>
+  {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+         "ads": {
+             "schedule": [
+                 {
+                    "position": "pre-roll",
+                    "tag": "../../../../dist/templates/error-responses/vast2.0/security-exception.xml"
+                 }
+             ]
+        }
+  }
+</ova.json>
+</config>

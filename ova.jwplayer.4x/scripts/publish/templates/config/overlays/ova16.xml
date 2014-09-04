@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+        Example 16 - Scaling SWF overlays with "maintainAspectRatio=false"
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10",
+                       "tag": "OVA_VAST_OVERLAY_SCALED_NOT_MAINTAINED_TAG"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

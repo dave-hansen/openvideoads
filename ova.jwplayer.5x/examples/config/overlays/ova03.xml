@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+        Example 3 - User Defined Overlay Ad Templates
+   </ova.title>
+   <ova.json>
+        {
+            "ads": {
+                "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+                ],
+                "companions": {
+                   "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                    {
+                        "zone": "31",
+                        "startTime": "00:00:05",
+                        "duration": "15",
+                        "templates": {
+                            "html": "&lt;body&gt;MY NEW TEMPLATE: _code_&lt;/body&gt;"
+                        }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

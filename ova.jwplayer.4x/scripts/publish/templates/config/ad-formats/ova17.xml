@@ -1,0 +1,48 @@
+<config>
+   <ova.title>
+       Example 17 - Multiple pre-rolls followed by multiple overlays during the show stream
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API",
+                       "allowAdRepetition": true
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    },
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    },
+                    {
+                      "zone": "30",
+                      "startTime": "00:00:01",
+                      "duration": 15,
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "zone": "30",
+                      "startTime": "00:00:20",
+                      "duration": 10,
+                      "width": 450,
+                      "height": 50
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

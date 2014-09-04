@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - A duration-less stream with a pre-roll that does not have a VAST duration</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_3ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_3global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='no-duration/ads/ova01.xml';</script>
+<h2>Example 1 - A duration-less stream with a pre-roll that does not have a VAST duration</h2>
+<p class="example">
+This example illustrates how to use the JW flashvar configuration to specify a show stream
+(without a duration specified) and have an OVA ad served against it. In this example
+a pre-roll ad is served and there is no duration set in the VAST response for the ad.
+The ad duration is determined from the stream metadata.
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=OVA_PSEUDO_SHOW_STREAM_1OVA_PSEUDO_STREAMER_PARAMS"));</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=OVA_PSEUDO_SHOW_STREAM_1OVA_PSEUDO_STREAMER_PARAMS")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 1 - A duration-less stream with a pre-roll that does not have a VAST duration
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "ads": {
+              "pauseOnClickThrough": true,
+              "servers": [
+                  {
+                     "type": "Direct",
+                     "apiAddress": "OVA_ZERO_DURATION_VAST"
+                  }
+              ],
+              "schedule": [
+                  {
+                     "zone": "5",
+                     "position": "pre-roll"
+                  }
+              ]
+          }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

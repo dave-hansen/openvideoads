@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 7 - Specifying a max duration timeout timer
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "vpaid": {
+                    "enableMaxDurationTimeout": true,
+                    "maxDurationTimeout": 30
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "http://ad3.liverail.com/?LR_CAMPAIGN_ID=4435__amp__LR_PUBLISHER_ID=3996__amp__LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

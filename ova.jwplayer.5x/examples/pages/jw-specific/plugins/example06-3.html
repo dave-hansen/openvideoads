@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 6-3 - Operating with the Related plugin - single clip - loadOnDemand Empty</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../../dist/js/jwplayer-5.6.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 6-3 - Operating with the Related plugin - single clip - loadOnDemand Empty</h2>
+<p class="example">
+</p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_3, 
+       file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4",
+       image: "http://static.openvideoads.org/shows/the-black-hole-thumbnail.png",
+       duration: 10,
+       'controlbar.position': 'bottom',
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": {
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              },
+
+              "supportExternalPlaylistLoading": true,
+              "autoPlayOnExternalLoad": true,
+              "delayAdRequestUntilPlay": true,
+              "allowPlaylistControl": true,
+              
+              "ads": {
+                 "enforceLinearAdsOnPlaylistSelection": true,
+                 "servers": [
+                     {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                     }
+                 ],
+                 "schedule": [
+                     {
+                        "zone": "500",
+                        "position": "pre-roll",
+                        "loadOnDemand": true,
+                        "refreshOnReplay": true
+                     }
+                 ]
+              }
+           },
+           "http://static.openvideoads.org/downloads/plugins/jw5/related.swf": {
+              "file": "http://static.openvideoads.org/downloads/plugins/jw5/related_blenders.xml",
+              "onclick": "play"
+           }
+       },
+       height: 300,
+       width: 450
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;jwplayer("container").setup({
+       flashplayer: "<script type='text/javascript'>document.write(OVA_PLAYER_3)</script>", 
+       file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4",
+       image: "http://static.openvideoads.org/shows/the-black-hole-thumbnail.png",
+       duration: 10,
+       'controlbar.position': 'bottom',
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": { 
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              },
+
+              "supportExternalPlaylistLoading": true,
+              "autoPlayOnExternalLoad": true,
+              "delayAdRequestUntilPlay": true,
+              "allowPlaylistControl": true,
+              
+              "ads": {
+                 "enforceLinearAdsOnPlaylistSelection": true,
+                 "servers": [
+                     {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                     }
+                 ],
+                 "schedule": [
+                     {
+                        "zone": "500",
+                        "position": "pre-roll",
+                        "loadOnDemand": true,
+                        "refreshOnReplay": true
+                     }
+                 ]
+              }
+           },
+           "http://static.openvideoads.org/downloads/plugins/jw5/related.swf": {
+              "file": "http://static.openvideoads.org/downloads/plugins/jw5/related_blenders.xml",
+              "onclick": "play"
+           }
+       },
+       height: 300,
+       width: 450
+});
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

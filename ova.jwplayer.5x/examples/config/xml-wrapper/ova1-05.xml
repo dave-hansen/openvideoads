@@ -1,0 +1,41 @@
+<config>
+   <ova.title>
+       Single VAST 1.0 Wrapper to VAST 1 VPAID ad
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "streams": [
+                    {
+                        "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+               "servers": [
+                   {
+                      "type": "direct",
+                      "apiAddress": "../../../dist/templates/wrapper/vast1-wrapper-to-vast1-vpaid-ad.xml"
+                   }
+               ],
+               "companions": {
+                   "regions": [
+                      { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+               },
+               "schedule": [
+                  {
+                    "zone": "46",
+                    "position": "pre-roll"
+                  }
+               ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

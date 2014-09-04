@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1.03.02: Post-roll ad calls made "On Demand", no splash image, no delay (mixed)</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1.03.02: Post-roll ad calls made "On Demand", no splash image, no delay (mixed)</h2>
+<p class="example">
+</p>
+<a class="example" style="width:450px;height:300px;"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+       {
+           url: OVA_RTMP_SHOW_STREAM_FILE,
+           netConnectionUrl: OVA_RTMP_BASE_URL,
+           provider: "rtmp",
+           duration: 15
+       },
+       {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           duration: 16
+       }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+        rtmp: {
+            url: FP_RTMP_SWF_2
+        },
+        
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "ads": {
+               "schedule": [
+                   {
+                      "position": "post-roll",
+                      "loadOnDemand": true,
+                      "applyToParts": [0],
+                      "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.8062691302038729__amp__block=1__amp__format=vast__amp__charset=UTF-8"
+                   },
+                   {
+                      "position": "post-roll",
+                      "loadOnDemand": true,
+                      "applyToParts": [1],
+                      "tag": OVA_VPAID_LINEAR_2_VAST
+                   }
+               ]
+            },
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+       {
+           url: "<script type="text/javascript">document.write(OVA_RTMP_SHOW_STREAM_FILE)</script>",
+           netConnectionUrl: "<script type="text/javascript">document.write(OVA_RTMP_BASE_URL)</script>",
+           provider: "rtmp",
+           duration: 15
+       },
+       {
+           url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+           duration: 16
+       }
+    ],
+
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "ads": {
+               "schedule": [
+                   {
+                      "position": "post-roll",
+                      "loadOnDemand": true,
+                      "applyToParts": [0],
+                      "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?
+                              script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__
+                              zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.8062691302038729__amp__
+                              block=1__amp__format=vast__amp__charset=UTF-8"
+                   },
+                   {
+                      "position": "post-roll",
+                      "loadOnDemand": true,
+                      "applyToParts": [1],
+                      "tag": "http://www.adotube.com/kernel/vast/vast.php?
+                              omlSource=http://www.adotube.com/php/services/player/OMLService.php?
+                              avpid=UDKjuff__amp__ad_type=pre-rolls__amp__platform_version=vast20as3
+                              __amp__vpaid=1__amp__rtb=0__amp__publisher=adotube.com
+                              __amp__title=[VIDEO_TITLE]__amp__tags=[VIDEO_TAGS]__amp__
+                              description=[VIDEO_DESCRIPTION]__amp__videoURL=[VIDEO_FILE_URL]"
+                   }
+               ]
+            },
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

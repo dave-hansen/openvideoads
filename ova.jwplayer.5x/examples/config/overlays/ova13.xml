@@ -1,0 +1,23 @@
+<config>
+   <ova.title>
+        Example 13 - Scaling SWF overlays
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:20",
+                       "tag": "../../../../dist/templates/overlays/scaled-maintain-aspect.xml"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

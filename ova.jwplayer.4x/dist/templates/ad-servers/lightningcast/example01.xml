@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+  <Ad>
+    <InLine>
+      <AdSystem>AOL-Video</AdSystem>
+      <AdTitle>Ad - 15 Lupus (HTML ct)</AdTitle>
+      <Impression>
+        <URL id="AuditUrl"><![CDATA[http://stats.lightningcast.net/servlets/audit?js=t&version=6.0&ioId=60274&creativeId=81692&contentId=343644&streamId=403414&fr=1278351008878&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&uid=LC1278351008875%3A275190&geo=sw1a&content=nocontent&playId=A8CyJ4uzrSXIQnh4zyLb0pO]]></URL>
+      </Impression>
+      <TrackingEvents>
+        <Tracking event="start">
+          <URL id="PTAGPRE2"><![CDATA[http://stream11.instream.com/img/test/3rdparty_pre?A8CyJ4uzrSXIQnh4zyLb0pO]]></URL>
+          <URL id="PTAGPRE1"><![CDATA[http://view.atdmt.com/AVE/view/117974755/direct;wi.1;hi.1/01/A8CyJ4uzrSXIQnh4zyLb0pO]]></URL>
+          <URL id="LCPercentAudit-0"><![CDATA[http://stats2.lightningcast.net/spotAudit.html?js=t&version=6.0&ioId=60274&creativeId=81692&contentId=343644&streamId=403414&fr=1278351008878&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&uid=LC1278351008875%3A275190&geo=sw1a&content=nocontent&playId=A8CyJ4uzrSXIQnh4zyLb0pO&pct=0]]></URL>
+        </Tracking>
+        <Tracking event="midpoint">
+          <URL id="PTAGMID2"><![CDATA[http://secure-us.imrworldwide.com/cgi-bin/m?ci=us-ade&cg=12024&si=%esid!_%epid!_%ecid!_%eaid!&cc=1&ut=1&c0=sID,%esid!&c1=pID,%epid!&c2=aid,%eadv!&c3=adID,%eaid!&c4=cID,%ecid!&c5=rID,%erid!&c6=camp,12024]]></URL>
+          <URL id="PTAGMID1"><![CDATA[http://ad.doubleclick.net/imp;v1;f;202702022;0-0;0;26820435;1|1;26467822|26485679|1;;cs=h%3fhttp://ad.doubleclick.net/dot.gif?A8CyJ4uzrSXIQnh4zyLb0pO]]></URL>
+          <URL id="LCPercentAudit-50"><![CDATA[http://stats2.lightningcast.net/spotAudit.html?js=t&version=6.0&ioId=60274&creativeId=81692&contentId=343644&streamId=403414&fr=1278351008878&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&uid=LC1278351008875%3A275190&geo=sw1a&content=nocontent&playId=A8CyJ4uzrSXIQnh4zyLb0pO&pct=50]]></URL>
+        </Tracking>
+        <Tracking event="complete">
+          <URL id="PTAGPOST1"><![CDATA[http://stream11.instream.com/img/test/3rdparty_post?A8CyJ4uzrSXIQnh4zyLb0pO]]></URL>
+          <URL id="LCPercentAudit-100"><![CDATA[http://stats2.lightningcast.net/spotAudit.html?js=t&version=6.0&ioId=60274&creativeId=81692&contentId=343644&streamId=403414&fr=1278351008878&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&uid=LC1278351008875%3A275190&geo=sw1a&content=nocontent&playId=A8CyJ4uzrSXIQnh4zyLb0pO&pct=100&pf=t]]></URL>
+        </Tracking>
+      </TrackingEvents>
+      <Video>
+        <Duration>00:00:15</Duration>
+        <AdID>60274-81692-343644</AdID>
+        <VideoClicks>
+          <ClickThrough>
+            <URL id="videoclick"><![CDATA[http://click.lightningcast.net/servlets/clickThru?v=6.0&cr=81692&ct=343644&io=60274&st=403414&ip=212.36.54.130&upid=A8CyJ4uzrSXIQnh4zyLb0pO&content=nocontent&uid=LC1278351008878%3A303380&geo=sw1a&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D]]></URL>
+          </ClickThrough>
+        </VideoClicks>
+        <MediaFiles>
+          <MediaFile delivery="progressive" bitrate="400" width="400" height="300" type="video/x-flv">
+            <URL><![CDATA[http://stream11.instream.com/flash/psa/lupas_400_480_270.flv]]></URL>
+          </MediaFile>
+        </MediaFiles>
+      </Video>
+      <CompanionAds>
+        <Companion id="StandardBanner" width="300" height="250" resourceType="iframe" creativeType="text/html">
+          <URL><![CDATA[http://stats.lightningcast.com/servlets/getElement?creativeid=81692&clickTag=http%3A%2F%2Fclick.lightningcast.net%2Fservlets%2FclickThru%3Fv%3D6.0%26cr%3D81692%26ct%3D343640%26io%3D60274%26st%3D403414%26ip%3D212.36.54.130%26upid%3DA8CyJ4uzrSXIQnh4zyLb0pO%26content%3Dnocontent%26uid%3DLC1278351008878%253A198004%26geo%3Dsw1a%26attr%3D%255B302%252C444%255D%255B302%252C33070%255D%255B302%252C35210%255D%255B302%252C33082%255D%255B302%252C153938%255D&streamid=403414&formatid=32&bId=343640&upid=A8CyJ4uzrSXIQnh4zyLb0pO&ioid=60274&ip=212.36.54.130&region=StandardBanner&resp=REDIR&fr=1278351008879&content=nocontent&geo=sw1a&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&ext=.html]]></URL>
+        </Companion>
+        <Companion id="728x90" width="728" height="90" resourceType="iframe" creativeType="text/html">
+          <URL><![CDATA[http://stats.lightningcast.com/servlets/getElement?creativeid=81692&clickTag=http%3A%2F%2Fclick.lightningcast.net%2Fservlets%2FclickThru%3Fv%3D6.0%26cr%3D81692%26ct%3D344310%26io%3D60274%26st%3D403414%26ip%3D212.36.54.130%26upid%3DA8CyJ4uzrSXIQnh4zyLb0pO%26content%3Dnocontent%26uid%3DLC1278351008879%253A665339%26geo%3Dsw1a%26attr%3D%255B302%252C444%255D%255B302%252C33070%255D%255B302%252C35210%255D%255B302%252C33082%255D%255B302%252C153938%255D&streamid=403414&formatid=50&bId=344310&upid=A8CyJ4uzrSXIQnh4zyLb0pO&ioid=60274&ip=212.36.54.130&region=728x90&resp=REDIR&fr=1278351008879&content=nocontent&geo=sw1a&attr=%5B302%2C444%5D%5B302%2C33070%5D%5B302%2C35210%5D%5B302%2C33082%5D%5B302%2C153938%5D&ext=.html]]></URL>
+        </Companion>
+      </CompanionAds>
+      <Extensions>
+        <Extension type="adServer">
+          <SpotType><![CDATA[AD]]></SpotType>
+        </Extension>
+      </Extensions>
+    </InLine>
+  </Ad>
+  <!--template name=adonly_vast-->
+  <!--template id=101243-->
+  <!--template ver=1-->
+  <!--gpserver=ntc-dmz-g39.prod.root-->
+  <!--uid=LC1278351008875:536901-->
+  <!--upid=A8CyJ4uzrSXIQnh4zyLb0pO-->
+  <!--exclusive_attributes=-->
+</VideoAdServingTemplate>

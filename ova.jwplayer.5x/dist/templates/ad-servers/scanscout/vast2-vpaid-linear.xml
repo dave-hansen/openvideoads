@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+  <Ad id="preroll-1">
+    <InLine>
+      <AdSystem>scanscout</AdSystem>
+      <AdTitle>5862259</AdTitle>
+      <Video>
+        <Duration>00:00:01</Duration>
+        <AdID>preroll-1</AdID>
+        <AdParameters apiFramework="vpaid"/>
+        <MediaFiles>
+          <MediaFile width="400" type="application/x-shockwave-flash" height="300">
+            <URL><![CDATA[http://static.scanscout.com/ads/vpaidad3.swf?adData=http%3A//app.scanscout.com/ssframework/adStreamJSController.xml%3Fa%3Dgetadscheduleforcontent%26PI%3D567%26scheduleVersion%3Dnull%26HI%3D567|preroll|8557430166643764711%26AI%3D0]]></URL>
+          </MediaFile>
+        </MediaFiles>
+      </Video>
+    </InLine>
+  </Ad>
+</VideoAdServingTemplate>

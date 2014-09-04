@@ -1,0 +1,21 @@
+<config>
+   <ova.title>
+       VPAID Linear pre-roll with no visible control bar or show stream before or after ad playback
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+                }
+             ]
+          },
+
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          }
+       }
+   </ova.json>
+</config>

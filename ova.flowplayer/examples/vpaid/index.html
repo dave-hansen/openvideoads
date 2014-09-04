@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>OVA for Flowplayer - VPAID Examples</title>
+<link rel="stylesheet" type="text/css" href="../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for Flowplayer - VPAID Examples</h2>
+<p class="example">Linear VPAID Examples</p>
+<ol>
+	<li>Pre-roll Examples (with Non-Linear/Linear Transitions)</li>
+	<ul>
+		<li><a href="linear/example1.1.html">'Fixed' control bar hidden during linear ad playback</a></li>
+		<li><a href="linear/example1.2.html">'Fixed' control bar shown and disabled during linear ad playback</a></li>
+		<li>'Fixed' control bar shown and active during linear ad playback</a></li>
+		<li><a href="linear/example1.4.html">'autoHide' control bar hidden during linear ad playback</a></li>
+		<li><a href="linear/example1.8.html">'autoHide' control bar shown and disabled during linear ad playback</a></li>
+		<li>'autoHide' control bar shown and active during linear ad playback</a></li>
+		<li><a href="linear/example1.3.html">No visible control bar or show stream before or after ad playback</a></li>
+		<li><a href="linear/example1.7.html">Live stream (with auto-start)</a></li>
+		<li><a href="linear/example3.7.html">VPAID pre-roll with a splash image</a></li>
+		<li><a href="linear/example3.10.html">VPAID pre-roll with Companion</a></li>
+	</ul>
+	<li>Mid-roll Examples (with Non-Linear/Linear Transitions)</li>
+	<ul>
+		<li><a href="linear/example1.10.html">VPAID mid-roll, stream has duration</a> (<a href="linear/example1.10-1.html">without stream duration</a>)</li>
+	</ul>
+	<li>Post-roll Examples (with Non-Linear/Linear Transitions)</li>
+	<ul>
+		<li><a href="linear/example1.9.html">VPAID post-roll</a> (<a href="linear/example1.9-1.html">with splash image</a>)</li>
+		<li><a href="linear/example1.5.html">VPAID pre-roll and post-rolls with 2 show streams</a> (<a href="linear/example1.5-1.html">with splash image</a>)</li>
+	</ul>
+	<li>Event Tracking</li>
+	<ul>
+		<li><a href="linear/example4.0.html">Event tracking and callback test</a></li>
+	</ul>
+	<li>Special Cases</li>
+	<ul>
+		<li><a href="linear/example3.1.html">Enabling the referrer URL to be automatically passed to a VPAID ad</a></li>
+		<li><a href="linear/example3.9.html">Enabling the referrer URL to be manually passed to a VPAID ad</a></li>
+		<li><a href="linear/example3.2.html">Specifying a max duration timeout timer</a></li>
+		<li><a href="linear/example3.5.html">Autostarting a VPAID Linear</a></li>
+		<li><a href="linear/example3.8.html">VPAID Javascript Callback API</a></li>
+		<li><a href="linear/example3.11.html">Security Exception on VPAID Ad Tag</a></li>
+		<li><a href="linear/example3.13.html">Preventing OVA from Scaling Linear VPAID Ads</a></li>
+		<li><a href="linear/example3.15.html">Forcing OVA to Stop a VPAID ad given a specific log message</a></li>
+	</ul>
+</ol>
+<p class="example">Non-Linear (Overlay) VPAID Examples</p>
+<ol>
+	<li>General Configuration</li>
+	<ul>
+		<li><a href="non-linear/example2.1.html">autoHide control bar always active</a></li>
+		<li><a href="non-linear/example2.4.html">Fixed control bar always active</a></li>
+		<li><a href="non-linear/example2.2.html">Two VPAID non-linears and a single show stream</a></li>
+<!--		<li><a href="non-linear/example2.5.html">Stopping Non-Linear VPAID ads re-initialising when seeking on the timeline</a></li> -->
+	</ul>
+	<li>Sizing and Scaling</li>
+	<ul>
+		<li><a href="">VAST default sizing, not VAST or VPAID scalable, no expanded sizing provided</a></li>
+		<li><a href="">VAST default sizing, not VAST but is VPAID scalable, no expanded sizing provided</a></li>
+		<li><a href="">VAST default sizing, VAST and VPAID scalable, no expanded sizing provided</a> (<a href="">Disabled Scaling</a>)</li>
+		<li><a href="">VAST default sizing, VAST scalable but not VPAID scalable, no expanded sizing provided</a></li>
+		<li><a href="">VAST expandable sizing, not VAST or VPAID scalable</a></li>
+		<li><a href="">VAST expandable sizing, not VAST but is VPAID scalable</a></li>
+		<li><a href="">VAST expandable sizing, scalable VAST and VPAID</a> (<a href="">Disabled Scaling</a>)</li>
+		<li><a href="">VAST expandable sizing, scalable VAST but not VPAID</a></li>
+	</ul>
+	<li>Positioning</li>
+	<ul>
+		<li><a href="">Auto positioning - bottom</a>, <a href="">center</a>, <a href="">top</a></li>
+		<li><a href="">Custom region positioning</a> (<a href="">Depreciated option</a>)</li>
+	</ul>
+	<li>Duration</li>
+	<ul>
+		<li><a href="">Using the recommended VAST declared duration</a></li>
+		<li><a href="non-linear/example5.0.html">Ad slot declared duration</a></li>
+	</ul>
+	<li>Pause/Resume</li>
+	<ul>
+		<li><a href="non-linear/example6.0.html">Default behaviour - no pause/resume on expand/collapse without linear state change</a></li>
+		<li><a href="non-linear/example6.1.html">Default behaviour - pause/resume with linear state change</a></li>
+		<li><a href="non-linear/example6.2.html">Forcing pause/resume on expand/collapse</a></li>
+	</ul>	
+	<li>Event Tracking</li>
+	<ul>
+		<li><a href="non-linear/example4.0.html">Event tracking and callback test</a></li>
+	</ul>
+	<li>Special Cases</li>
+	<ul>
+		<li><a href="non-linear/example3.12.html">Test for Non-Linear VPAID &lt;AdParameters></a> (<a href="non-linear/example3.12-1.html">Nested AdParameters</a>)</li>
+		<li><a href="non-linear/example3.13-1.html">Preventing OVA from Scaling Non-Linear VPAID Ads</a></li>
+	</ul>
+	
+</ol>
+<p>
+<a href="../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>

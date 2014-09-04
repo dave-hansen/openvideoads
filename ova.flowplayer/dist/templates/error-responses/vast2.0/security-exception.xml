@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<VAST version="2.0">
+		    <Ad id="Adotube">
+		        <InLine>
+		            <AdSystem>Adotube</AdSystem>
+		            <AdTitle>Adotube VAST 2.0 Video Ad</AdTitle>
+		            <Description/>
+		            <Impression></Impression>
+
+		            <Creatives>
+		                <Creative>
+		                    <Linear>
+		                    	<Duration>00:00:15</Duration>
+		                    	<VideoClicks>
+		                    		<ClickThrough/>
+		                    	</VideoClicks>
+		                    	<MediaFiles>
+
+		                    		<MediaFile delivery="progressive" width="300" height="250" type="application/x-shockwave-flash" apiFramework="VPAID">
+		                    		    <![CDATA[OR_BANNER_LOADER_VPAID_AS3_URL?mode=vpaid&adLinear=true&omlSource=http%3A%2F%2Fwww.adotube.com%2Fphp%2Fservices%2Fplayer%2FOMLService.php%3Favpid%3DUDKjuff%26platform_version%3Das3%26ad_type%3Dpre-rolls%26vast_cache_get%3D7-92a1632ff1c69244c522ce8cd5e93c94%26publisher_id%3D1797&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]]]>
+		                    		</MediaFile>
+		                    	</MediaFiles>
+		                    </Linear>
+		                </Creative>
+		            </Creatives>
+
+		        </InLine>
+		    </Ad>
+		</VAST>

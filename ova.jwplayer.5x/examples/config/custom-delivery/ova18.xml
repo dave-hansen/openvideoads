@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 18 - Turning off VAST tracking on ad replays
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "resetTrackingOnReplay": false,
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+	            "companions": {
+	                "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "Direct",
+                          "tag": "http://v.movad.de/stream.ad?cid=101226"
+
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

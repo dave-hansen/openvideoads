@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - Process Ad Events with Javascript</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 2 - Process Ad Events with Javascript</h2>
+<p class="example">
+This example illustrates the javascript callback API for Ad related events. Events are
+fired by the Open Ad Streamer when a linear ad starts, reaches the first quartile,
+midpoint, 3rd quartile and on completion. Events are also fired when non-linear ads
+are shown, hidden, companions shown and hidden, and the ad notice shown and hidden.
+Finally events are fired when an ad is clicked.
+</p>
+<p class="example">
+To start receiving these events, the "canFireAPICalls" config
+property must be set to "true". It is "true" by default.
+</p>
+<p class="example">
+In this example, a series of DIVs are displayed around the player. As each event fires,
+the corresponding DIV is turned green. If you have Firebug installed, bring up the console.
+Debug output is shown as each event fires so you can see the javascript callback event occur.
+</p>
+<br/>
+<div id="container">
+     <div id="player-left-500" style="height:492px;">
+        <a class="player614x345-2"></a>
+        <div id="event-container-614x160">
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-start">
+	               <br/>Linear Start
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-first-quartile">
+	               <br/>Linear 1st Quartile
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-midpoint">
+	               <br/>Linear Midpoint
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-third-quartile">
+	               <br/>Linear 3rd Quartile
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-complete">
+	               <br/>Linear Complete
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-clicked">
+	               <br/>Linear Clicked
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="ad-notice-show">
+	               <br/>Ad Notice Show
+	            </div>
+	            <div class="event-container-148x68" id="ad-notice-hide">
+	               <br/>Ad Notice Hide
+	            </div>
+            </div>        
+        </div>
+     </div>
+     <div id="player-right-500" style="height:492px;">
+        <div id="event-container-160x505">
+            <div class="event-container-160x68" id="ad-nl-show">
+               <br/>Non Linear Show
+            </div>
+            <div class="event-container-160x68" id="ad-nl-hide">
+               <br/>Non Linear Hide
+            </div>
+            <div class="event-container-160x68" id="ad-nl-click">
+               <br/>Non Linear Click
+            </div>
+            <div class="event-container-160x68" id="ad-nl-close-click">
+               <br/>Non Linear Close Click
+            </div>
+            <div class="event-container-160x68" id="linear-ad-skipped">
+               <br/>Linear Ad Skipped
+            </div>
+            <div class="event-container-160x68" id="companion-show">
+               <br/>Companion Show
+            </div>
+            <div class="event-container-160x68" id="companion-hide">
+               <br/>Companion Hide
+            </div>
+        </div>
+     </div>
+</div>
+<div id="event-container-614x160">
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-stop">
+           <br/>Ad Stop
+        </div>
+        <div class="event-container-148x68" id="ad-pause">
+           <br/>Ad Pause
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-resume">
+           <br/>Ad Resume
+        </div>
+        <div class="event-container-148x68" id="ad-replay">
+           <br/>Ad Replay
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-mute">
+           <br/>Ad Mute
+        </div>
+        <div class="event-container-148x68" id="ad-unmute">
+           <br/>Ad Unmute
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-fullscreen">
+           <br/>Ad Fullscreen Entry
+        </div>
+        <div class="event-container-148x68" id="ad-fullscreen-exit">
+           <br/>Ad Fullscreen Exit
+        </div>
+    </div>        
+</div>
+<div id="event-container-614x160">
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-start">
+           <br/>VPAID Ad Start
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-complete">
+           <br/>VPAID Ad Complete
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-error">
+           <br/>VPAID Ad Error
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-expanded-change">
+           <br/>VPAID Ad Expanded Change
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-linear-change">
+           <br/>VPAID Ad Linear Change
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-remaining-time-change">
+           <br/>VPAID Ad Time Change
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="">
+        </div>
+        <div class="event-container-148x68" id="">
+        </div>
+    </div>        
+</div>
+
+<script type="text/javascript">
+function onLinearAdStart(ad) {
+	debug("OVA CALLBACK EVENT: linear ad start");
+	debug(ad);
+    document.getElementById('linear-ad-start').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFirstQuartileComplete(ad) {
+	debug("OVA CALLBACK EVENT: linear ad first quartile");
+	debug(ad);
+    document.getElementById('linear-ad-first-quartile').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdMidPointComplete(ad) {
+	debug("OVA CALLBACK EVENT: linear ad midpoint");
+	debug(ad);
+    document.getElementById('linear-ad-midpoint').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdThirdQuartileComplete(ad) {
+	debug("OVA CALLBACK EVENT: linear ad third quartile");
+	debug(ad);
+    document.getElementById('linear-ad-third-quartile').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFinish(ad) {
+	debug("OVA CALLBACK EVENT: linear ad finish");
+	debug(ad);
+    document.getElementById('linear-ad-complete').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdClick(ad) {
+	debug("OVA CALLBACK EVENT: linear ad click");
+	debug(ad);
+    document.getElementById('linear-ad-clicked').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdSkipped(ad) {
+	debug("OVA CALLBACK EVENT: linear ad skipped");
+	debug(ad);
+    document.getElementById('linear-ad-skipped').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdStop(ad) {
+	debug("OVA CALLBACK EVENT: Ad stop");
+	debug(ad);
+    document.getElementById("ad-stop").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdPause(ad) {
+	debug("OVA CALLBACK EVENT: Ad pause");
+	debug(ad);
+    document.getElementById("ad-pause").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdResume(ad) {
+	debug("OVA CALLBACK EVENT: Ad resume");
+	debug(ad);
+    document.getElementById("ad-resume").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdMute(ad) {
+	debug("OVA CALLBACK EVENT: Ad mute");
+	debug(ad);
+    document.getElementById("ad-mute").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdUnmute(ad) {
+	debug("OVA CALLBACK EVENT: Ad unmute");
+	debug(ad);
+    document.getElementById("ad-unmute").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFullscreen(ad) {
+	debug("OVA CALLBACK EVENT: Ad fullscreen");
+	debug(ad);
+    document.getElementById("ad-fullscreen").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFullscreenExit(ad) {
+	debug("OVA CALLBACK EVENT: Ad fullscreen exit");
+	debug(ad);
+    document.getElementById("ad-fullscreen-exit").style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdShow(ad) {
+	debug("OVA CALLBACK EVENT: non linear ad show");
+	debug(ad);
+    document.getElementById('ad-nl-show').style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdHide(ad) {
+	debug("OVA CALLBACK EVENT: non linear ad hide");
+	debug(ad);
+    document.getElementById('ad-nl-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdClick(ad) {
+	debug("OVA CALLBACK EVENT: non linear ad click");
+	debug(ad);
+    document.getElementById('ad-nl-click').style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdCloseClick(ad) {
+	debug("OVA CALLBACK EVENT: non linear ad click");
+	debug(ad);
+    document.getElementById('ad-nl-click').style.backgroundColor = "#00CC00";	
+}
+
+function onCompanionAdShow(ad) {
+	debug("OVA CALLBACK EVENT: companion ad show");
+	debug(ad);
+    document.getElementById('companion-show').style.backgroundColor = "#00CC00";	
+}
+
+function onCompanionAdHide(ad) {
+	debug("OVA CALLBACK EVENT: companion ad hide");
+	debug(ad);
+    document.getElementById('companion-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onAdNoticeShow() {
+	debug("OVA CALLBACK EVENT: ad notice show");
+    document.getElementById('ad-notice-show').style.backgroundColor = "#00CC00";	
+}
+
+function onAdNoticeHide() {
+	debug("OVA CALLBACK EVENT: ad notice hide");
+    document.getElementById('ad-notice-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onAdNoticeTick(remainingDuration) {
+	debug("OVA CALLBACK EVENT: ad notice tick - remaining duration is " + remainingDuration);
+    document.getElementById('ad-notice-tick').style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdStart(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Start");
+    document.getElementById("vpaid-ad-start").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdComplete(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Complete");
+	debug(ad);	
+    document.getElementById("vpaid-ad-complete").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdError(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Error");
+	debug(ad);
+    document.getElementById("vpaid-ad-error").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdExpandedChange(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Expanded Change");
+	debug(ad);
+    document.getElementById("vpaid-ad-expanded-change").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdLinearChange(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Linear Change");
+	debug(ad);
+    document.getElementById("vpaid-ad-linear-change").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdRemainingTimeChange(ad) {
+	debug("OVA CALLBACK EVENT: VPAID Ad Remaining Time Change");
+	debug(ad);
+    document.getElementById("vpaid-ad-remaining-time-change").style.backgroundColor = "#00CC00";	
+}
+
+flowplayer("a.player614x345", FP_SWF_2, {
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+			"canFireAPICalls": true,
+
+            "shows": {
+                 "streams": [
+                      {
+                          "file":OVA_HTTP_SHOW_STREAM_1,
+                          "duration": "00:00:30"
+                      }
+                 ]
+            },
+			
+            "ads": {
+                 "skipAd": {
+                     "enabled": true
+                 },
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": OVA_OPENX_API,
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "pre-roll"
+                      },
+                      {
+                          "zone": "33",
+                          "width": 450,
+                          "height": 50,
+                          "startTime": "00:00:05",
+                          "duration": "15"
+                      }
+                 ],
+            },
+
+            "debug": {
+                 "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+// An example ad event Javascript callback
+
+function onLinearAdStart(ad) {
+    debug("OVA CALLBACK EVENT: linear ad begin");
+    debug(ad);
+    document.getElementById("linear-ad-start").style.backgroundColor = "#00CC00";	
+}
+
+//... the other callback functions go in here
+
+flowplayer("a.player614x345", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "canFireAPICalls": true,
+            
+            "shows": {
+                 "streams": [
+                      {
+                          "file": "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+                          "duration":"00:00:30"
+                      }
+                 ]
+            },
+
+            "ads": {
+                 "skipAd": {
+                     "enabled": true
+                 },
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "pre-roll"
+                      },
+                      {
+                          "zone": "33",
+                          "width": 450,
+                          "height": 50,
+                          "startTime": "00:00:05",
+                          "duration": "15"
+                      }
+                 ],
+            },
+
+            "debug": {
+                 "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

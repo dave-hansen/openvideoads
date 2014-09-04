@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">    <Ad id="227">
+    	<InLine>
+    		<AdSystem version="3.0">LiveRail</AdSystem>
+    		<AdTitle><![CDATA[Peperami Overlay - Tenderness]]></AdTitle>
+    		<Description><![CDATA[]]></Description>
+    		<Impression id="LR"><![CDATA[http://t3.liverail.com/?metric=impression&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=29&y=29&xy=9413]]></Impression>
+    		<Impression id="LR"><![CDATA[http://t3.liverail.com/?metric=adslot&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075]]></Impression>
+    		<Impression id="LR"><![CDATA[http://t3.liverail.com/?metric=uniqueadslot&pos=1&pid=1331&coid=0&nid=0&cid=&kid=&vid=&amid=&cc=default&pp=&url=&cb=8075]]></Impression>
+
+            <Impression id="QC"><![CDATA[http://pixel.quantserve.com/pixel/p-d05JkuPGiy-jY?labels=inventory.publisher.1331&r=8075]]></Impression>
+            <Impression id="QC"><![CDATA[http://pixel.quantserve.com/pixel/p-d05JkuPGiy-jY?labels=inventory.network.0&r=8075]]></Impression>
+            <Impression id="QC"><![CDATA[http://pixel.quantserve.com/pixel/p-d05JkuPGiy-jY?labels=impression.campaign.227&r=8075]]></Impression>
+			<Creatives>
+				<Creative sequence="2" id="329">
+            		<Linear>
+            			<Duration>00:00:22</Duration>
+            			<VideoClicks>
+
+            				<ClickThrough><![CDATA[http://t3.liverail.com/?metric=clickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></ClickThrough>
+
+
+            			</VideoClicks>
+        	   			<MediaFiles>
+        					<MediaFile delivery="progressive" bitrate="256" width="640" height="368" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/227/329/lo.flv]]></MediaFile>
+        					<MediaFile delivery="progressive" bitrate="512" width="640" height="368" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/227/329/me.flv]]></MediaFile>
+        					<MediaFile delivery="progressive" bitrate="768" width="640" height="368" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/227/329/hi.flv]]></MediaFile>
+    					</MediaFiles>
+    			    	<TrackingEvents>
+
+							<Tracking event="firstQuartile"><![CDATA[http://t3.liverail.com/?metric=view25&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="midpoint"><![CDATA[http://t3.liverail.com/?metric=view50&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="thirdQuartile"><![CDATA[http://t3.liverail.com/?metric=view75&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="complete"><![CDATA[http://t3.liverail.com/?metric=view100&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="mute"><![CDATA[http://t3.liverail.com/?metric=mute&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="pause"><![CDATA[http://t3.liverail.com/?metric=pause&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="close"><![CDATA[http://t3.liverail.com/?metric=close&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="acceptInvitation"><![CDATA[http://t3.liverail.com/?metric=accept&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+    					</TrackingEvents>
+    				</Linear>
+
+    			</Creative>
+				<Creative sequence="1" id="329">
+        			<NonLinearAds>
+            			<NonLinear width="300" height="50">
+            				<StaticResource creativeType="application/x-shockwave-flash"><![CDATA[http://cdn.liverail.com/adasset/227/329/overlay.swf]]></StaticResource>
+            				            			</NonLinear>
+            			<TrackingEvents>
+							<Tracking event="acceptInvitation"><![CDATA[http://t3.liverail.com/?metric=accept&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+							<Tracking event="collapse"><![CDATA[http://t3.liverail.com/?metric=minimize&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+    					</TrackingEvents>
+    				</NonLinearAds>
+				</Creative>
+    			<Creative sequence="1" id="329">
+    				<CompanionAds>
+        				<Companion width="300" height="60">
+                            <StaticResource creativeType="image/jpeg"><![CDATA[http://cdn.liverail.com/adasset/166/240/300x60.jpg]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="300" height="60">
+                            <IFrameResource creativeType="text/html"><![CDATA[http://ad3.liverail.com/util/companions.php?type=image&content=http%3A%2F%2Fcdn.liverail.com%2Fadasset%2F166%2F240%2F300x60.jpg&clickthru=http%3A%2F%2Ft3.liverail.com%2F%3Fmetric%3Dcclickthru%26pos%3D1%26pid%3D1331%26coid%3D135%26nid%3D0%26cid%3D329%26kid%3D227%26vid%3D%26amid%3D%26cc%3Ddefault%26pp%3D%26url%3D%26cb%3D8075%26x%3D%26y%3D%26xy%3D%26redirect%3Dhttp%253A%252F%252Fliverail.com%252F]]></IFrameResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+                            </TrackingEvents>
+
+                        </Companion>
+        				<Companion width="728" height="90">
+                            <StaticResource creativeType="image/jpeg"><![CDATA[http://cdn.liverail.com/adasset/166/240/728x90.jpg]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="728" height="90">
+
+                            <IFrameResource creativeType="text/html"><![CDATA[http://ad3.liverail.com/util/companions.php?type=image&content=http%3A%2F%2Fcdn.liverail.com%2Fadasset%2F166%2F240%2F728x90.jpg&clickthru=http%3A%2F%2Ft3.liverail.com%2F%3Fmetric%3Dcclickthru%26pos%3D1%26pid%3D1331%26coid%3D135%26nid%3D0%26cid%3D329%26kid%3D227%26vid%3D%26amid%3D%26cc%3Ddefault%26pp%3D%26url%3D%26cb%3D8075%26x%3D%26y%3D%26xy%3D%26redirect%3Dhttp%253A%252F%252Fliverail.com%252F]]></IFrameResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+                            </TrackingEvents>
+                        </Companion>
+        				<Companion width="300" height="250">
+                            <StaticResource creativeType="image/jpeg"><![CDATA[http://cdn.liverail.com/adasset/166/240/300x250.jpg]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="300" height="250">
+                            <IFrameResource creativeType="text/html"><![CDATA[http://ad3.liverail.com/util/companions.php?type=image&content=http%3A%2F%2Fcdn.liverail.com%2Fadasset%2F166%2F240%2F300x250.jpg&clickthru=http%3A%2F%2Ft3.liverail.com%2F%3Fmetric%3Dcclickthru%26pos%3D1%26pid%3D1331%26coid%3D135%26nid%3D0%26cid%3D329%26kid%3D227%26vid%3D%26amid%3D%26cc%3Ddefault%26pp%3D%26url%3D%26cb%3D8075%26x%3D%26y%3D%26xy%3D%26redirect%3Dhttp%253A%252F%252Fliverail.com%252F]]></IFrameResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://t3.liverail.com/?metric=companion&pos=1&pid=1331&coid=135&nid=0&cid=329&kid=227&vid=&amid=&cc=default&pp=&url=&cb=8075&x=&y=&xy=]]></Tracking>
+
+
+                            </TrackingEvents>
+                        </Companion>
+    				</CompanionAds>
+    			</Creative>
+    		</Creatives>
+    	</InLine>
+    </Ad>
+</VAST><!-- 34 GB_LONDON__LONDON -->

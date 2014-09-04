@@ -1,0 +1,26 @@
+<config>
+  <ova.title>
+     VAST 2 VPAID Linear
+  </ova.title>
+  <ova.json>
+  {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          },
+
+    "ads": {
+         "pauseOnClickThrough": true,
+         "schedule": [
+            {
+               "position": "pre-roll",
+               "server": {
+                   "type": "direct",
+                   "tag": "http://search.spotxchange.com/vast/2.00/73460?VPAID=1&content_page_url=http%3A%2F%2Fwww.example.com%2Fexample%2Fuser%2Findex.php&ses_id=www.example.com"
+               }
+            }
+         ]
+     }
+  }
+</ova.json>
+</config>

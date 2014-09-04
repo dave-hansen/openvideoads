@@ -1,0 +1,61 @@
+<config>
+   <ova.title>
+       Stream Sequencing Test
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "baseURL": "OVA_HTTP_BASE_URL",
+	            "streams": [
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE" }
+               ]
+            },
+
+            "ads": {
+              "servers": [
+                  {
+                     "type": "OpenX",
+                     "apiAddress": "OVA_OPENX_API",
+                     "allowAdRepetition": true
+                  }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "pre-roll",
+                    "applyToParts": [2, 4, 7]
+                  },
+                  {
+                    "zone": "19",
+                    "position": "mid-roll",
+                    "applyToParts": [5, 9],
+                    "startTime": "00:00:05"
+                  },
+                  {
+                    "zone": "19",
+                    "position": "post-roll",
+                    "applyToParts": [5, 7, 11]
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

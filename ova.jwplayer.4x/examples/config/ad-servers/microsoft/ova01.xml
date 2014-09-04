@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 1 - A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "deliveryType": "flv",
+                "companions": [
+	                  { "id":"companion-300x250", "width":"300", "height":"250" },
+	                  { "id":"companion-300x60-1", "width":"300", "height":"60", "resourceType": "static" },
+	                  { "id":"companion-300x60-2", "width":"300", "height":"60", "resourceType": "iframe" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://api.atdmt.com/adserv.api/viewad/sa=115571748;sf=VAST20_PreRoll_XML_alpha;pf=FLV;br=500;strm=0"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

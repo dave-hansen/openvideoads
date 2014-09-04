@@ -1,0 +1,47 @@
+<config>
+   <ova.title>
+       Example 1 - Mixing Ad Servers
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                   {
+                       "id": "AdTech",
+                       "type": "AdTech",
+                       "defaultAdServer": true,
+                       "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1"
+                   }
+                ],
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                       { "id":"companion-160x600", "width":"160", "height":"600" },
+                       { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+                },
+                "schedule": [
+                   {
+                       "zone": "5",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                           "customProperties" : {
+  	                          "target": "category=food"
+                           }
+                       }
+                   },
+                   {
+                       "zone": "2366662/0/1725",
+                       "position": "post-roll"
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

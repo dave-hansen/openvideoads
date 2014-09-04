@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+        Example 4 - User Defined Regions
+   </ova.title>
+   <ova.json>
+        {
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+	            "companions": [
+	                { "id":"companion", "width":"150", "height":"360" }
+	            ],
+                "schedule": [
+                    {
+                        "zone": "29",
+                        "startTime": "00:00:05",
+                        "duration": "15",
+                        "regions": {
+                            "text": "reserved-bottom-center-w450px-h50px-transparent"
+                        }
+                    }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            }
+        }
+   </ova.json>
+</config>

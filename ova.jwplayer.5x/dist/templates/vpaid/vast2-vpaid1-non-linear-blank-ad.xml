@@ -1,0 +1,22 @@
+<VAST version="2.0">
+  <Ad id="overlay-1">
+    <InLine>
+      <AdSystem>2.0</AdSystem>
+      <AdTitle>VPAID Example</AdTitle>
+      <Impression><![CDATA[http://localhost/impression]]></Impression>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear apiFramework="VPAID" id="overlay-1"  width="300" height="50" scalable="false" >
+              <StaticResource creativeType="application/x-shockwave-flash">
+              	<![CDATA[http://static.openvideoads.org/ads/vpaid/vpaid1-non-linear-blank.swf]]>
+              </StaticResource>
+            </NonLinear>
+			<TrackingEvents>
+			</TrackingEvents>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

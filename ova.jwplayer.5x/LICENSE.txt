@@ -1,0 +1,84 @@
+COMMERCIAL LICENSE FOR OPEN VIDEO ADS
+
+Please read this License carefully before using, downloading or installing any of the Licensed Programs (as defined below). By using, downloading or installing any of the Licensed Programs, Licensee is agreeing to be bound by this License and the licenses granted hereunder are subject to compliance with any and all terms of this License. IF YOU DO NOT ACCEPT THE TERMS AND CONDITIONS OF THIS LICENSE, DO NOT USE, DOWNLOAD OR INSTALL ANY OF THE LICENSED PROGRAMS.
+
+Definitions
+
+1. "Adaptation" means a derivative work based upon the Licensed Programs resulting from any addition to, editing of or deletion from the substance or structure of the original source code or a compiled version of the Licensed Programs or any previous Adaptations or a work that programmatically interacts with the Licensed Programs.
+2. "Development Purposes" means the process of altering, debugging, designing, editing or creating an Adaptation.
+3. "JW Player" means the JW Player for Flash and the JW Player for HTML5, which are media playback components written in ActionScript 3.0 and JavaScript that can be embedded in a website, web service, desktop software or any Flash environment to play video, audio and/or images.
+4. "Flowplayer" means the video player by Flowplayer.org, which is a media playback component written in ActionScript 3.0 and JavaScript that can be embedded in a website, web service, desktop software or any Flash environment to play video, audio and/or images.
+5. "OVA for AS3" means the Open Video Ads framework, which is a video advertising component written in ActionScript 3 that can be integrated into a Flash video player.
+6. "OVA for JW Player" means a specific implementation of the Open Video Ads framework, written as a JW Player plugin.
+7. "OVA for Flowplayer" means a specific implementation of the Open Video Ads framework, written as a Flowplayer plugin.
+8. "OVA Product" means one of the following: (1) OVA for AS3, (2) OVA for JW Player, or (3) OVA for Flowplayer. Each OVA Product is a separately licensed product within the Open Video Ads product family. 
+9. "License" means this document.
+10. "Licensor" means LongTail Ad Solutions, Inc.
+11. "Licensed Program" means a single OVA Product for which the Licensee has purchased a license.
+12. "Licensed Domains" means the domain(s) for which the Licensee has purchased an OVA Product license.  A domain refers to any top-level domain or sub-domain, owned by the Licensee, on which a unique website is operated.
+13. "Licensee" means an individual or entity exercising rights under and complying with the terms of this License who has not previously violated the terms of this License with respect to a Licensed Program, or who has received express permission from the Licensor to exercise rights under this License despite a previous violation.
+14. "Reproduce" means to make copies of the Licensed Program.
+
+License Grant
+
+Subject to the terms and conditions hereof, Licensor hereby grants and Licensee accepts, a non-exclusive, limited right and license to use the Licensed Program for its own use on the Licensed Domains.  Further, Licensor grants Licensee the right to use, modify, and compile the source code for the Licensed Program subject to the Limitations on License described below.
+
+Notwithstanding anything set forth in this License, and except as specifically agreed between Licensor and Licensee, any use whatsoever of the Licensed Programs or any Adaptation that results in excess of 500,000 served advertisements per month shall be prohibited.
+
+Limitations on License
+
+The Licensed Program is licensed solely for use by Licensee and Licensee shall use the Licensed Program only for the specific purposes stated therein. Specifically, OVA for JW Player and OVA for Flowplayer may not be repurposed for use within another Flash video player, and only OVA for AS3 may be licensed for such purpose. All rights not expressly granted by Licensor are hereby reserved.
+
+Licensee may not (a) remove any product identification, copyright notices or other notices or proprietary restrictions from the Licensed Program; (b) copy, distribute, relicense, sell, lease, transfer, encumber, assign or make available for public use the Licensed Programs; or (c) cause or permit reverse engineering, disassembly or decompilation of any Licensed Program. Any attempt to take any such actions will automatically terminate your rights under this License.
+
+Approval
+
+The terms of each Licensed Program shall set forth any approval necessary. If Licensee is not approved to use the Licensed Program for any reason, or if approval is revoked by Licensor for any reason, Licensee shall immediately cease using the Licensed Programs and return any copies of the Licensed Programs to Licensor or certify to Licensor that it has destroyed all copies of the Licensed Programs.
+
+License Fee; Effective Date; Term
+
+The terms of each Licensed Program shall set forth any license fee payable there under and any Licensee that uses a fee-based Licensed Program hereunder must pay the License Fee specified in the invoice provided by Licensor to Licensee. Licensor reserves the right to modify the License Fee in its sole discretion without notice or justification at any time. The rights and licenses granted hereunder shall commence on the date any of the Licensed Programs are electronically delivered to Licensee. Licensor agrees to make the Licensed Programs available for use to Licensee promptly after receipt by Licensor of any applicable License Fee. Unless otherwise stated by the Licensor, the term of the License shall be twelve (12) months.
+
+Termination of License
+
+This License is subject to termination by Licensor at any time if (a) Licensee violates any terms of this License, (b) Licensor has a reasonable basis to believe that Licensee's business is impairing Licensor's business, or (c) Licensor has a reasonable basis to believe that Licensee is not abiding by the spirit of this License, or (d) Licensee becomes insolvent, declares bankruptcy or a receiver or trustee is appointed for Licensee. Upon termination of this License for any reason, Licensee shall immediately cease using the Licensed Programs and return any copies of the Licensed Programs to Licensor or certify to Licensor that it has destroyed all copies of the Licensed Programs.
+
+Maintenance and Support
+
+All installations of the Licensed Programs for use by Licensee shall be at the sole expense of Licensee. Licensor shall not at any time have any obligation to provide any technical support, updates, enhancement or maintenance for the Licensed Programs.
+
+Ownership of Intellectual Property
+
+Licensor is the sole owner of all intellectual property rights pertaining to Licensed Programs.
+
+No Warranty
+
+Except as expressly set forth in this License, the Licensed Programs are provided on an "as is" basis, without warranties or conditions of any kind, either express or implied including, without limitation, any warranties or conditions of title, non-infringement, merchantability or fitness for a particular purpose. Each Licensee is solely responsible for determining the appropriateness of using the Licensed Programs and assumes all risks associated with its exercise of rights under this agreement, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, suitability for hosting and unavailability or interruption of operations.
+
+Limitation of Liability
+
+Except to the extent required by applicable law, in no event will Licensor be liable on any legal theory for any special, incidental, consequential, punitive or exemplary damages arising out of this License or the use of the Licensed Programs, even if Licensor has been advised of the possibility of such damages.
+
+Indemnity
+
+Licensee shall indemnify Licensor, its employees, officers, licensee and agents for all damages, costs and expenses, including, without limitation, attorneys' fees, arising from any claims arising as a result of Licensee's use of the Licensed Programs as provided hereunder.
+
+Export
+
+Licensee agrees and certifies that it will not export or re-export, directly or indirectly, the Licensed Programs contrary to the laws of the United States or any other country.
+
+Severability
+
+If for any reason a court of competent jurisdiction finds any provision of this License or portion thereof, to be unenforceable, that provision of the License shall be enforced to the maximum extent permissible so as to affect the intent of the parties, and the remainder of this License shall continue in full force and effect.
+
+Governing Law
+
+This License shall be governed by the laws of the State of New York. Any disputes arising under this License shall be heard in New York County, New York.
+
+Complete Agreement
+
+This License constitutes the entire agreement between Licensor and Licensee with respect to the use of the Licensed Programs and supersedes all prior or contemporaneous understandings or agreements, written or oral, regarding such subject matter. No one other than Licensor has the right to modify or amend this License.
+
+Waiver of Breach
+
+No term or provision of this License shall be deemed waived and no breach excused, unless such waiver or consent shall be in writing and signed by Licensor. Any consent by Licensor to, or waiver of, a breach by Licensee whether expressed or implied, shall not constitute a consent to, waiver of, or excuse for, any other breach or any subsequent breach, except as may be expressly provided by Licensor.

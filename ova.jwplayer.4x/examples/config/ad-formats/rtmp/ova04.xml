@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+       Example 4 - A pre-roll, 2 show streams with post-roll ads after each
+   </ova.title>
+   <ova.json>
+       {
+            "playOnce": true,
+            "autoPlay": true,
+
+            "shows": {
+              "baseURL": "rtmp://ne7c0nwbit.rtmphost.com/videoplayer",
+              "streams": [
+                    { "file":"mp4:the-black-hole.mp4", "duration":"00:00:15" },
+                    { "file":"mp4:the-black-hole.mp4", "duration":"00:00:15" }
+               ]
+            },
+
+            "ads": {
+               "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+               ],
+
+               "schedule": [
+                    {
+                       "zone": "1",
+                       "position": "pre-roll",
+                       "applyToParts": [ 0 ]
+                    },
+                    {
+                       "zone": "1",
+                       "position": "post-roll"
+                    }
+               ]
+            },
+
+            "debug": {
+               "debugger": "firebug",
+               "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

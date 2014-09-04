@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>OVA for JW5x - Supporting the VAST XML Wrapper</title>
+<link rel="stylesheet" type="text/css" href="../../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for JW5x - Supporting the VAST XML Wrapper</h2>
+<p class="example"></p>
+
+<b>Different Wrapper Versions</b>
+<ol>
+<li>Wrapped Non-Interactive Linear Ad</li>
+<ul>
+<li><a href="example1-01.html">Single VAST 1 Wrapper to a VAST 1 ad</a> (<a href="example1-01-1.html">VAST 2 ad</a>)</li>
+<li><a href="example1-02.html">Single VAST 2 Wrapper to a VAST 2 ad</a> (<a href="example1-02-1.html">VAST 1 ad</a>)</li>
+</ul>
+<li>Wrapped Non-Interactive Non-Linear Ad</li>
+<ul>
+<li>Single VAST 1 Wrapper</a> (VAST 2 ad</a>)</li>
+<li>Single VAST 2 Wrapper</a> (VAST 1 ad</a>)</li>
+<!--
+<li><a href="example1-03.html">Single VAST 1 Wrapper</a> (<a href="example1-03-1.html">VAST 2 ad</a>)</li>
+<li><a href="example1-04.html">Single VAST 2 Wrapper</a> (<a href="example1-04-1.html">VAST 1 ad</a>)</li>
+-->
+</ul>
+<li>Wrapped VPAID Linear Ad</li>
+<ul>
+<li><a href="example1-05.html">Single VAST 1 Wrapper to VAST 1 VPAID ad</a> (<a href="example1-05-1.html">VAST 2 ad</a>)</li>
+<li><a href="example1-06.html">Single VAST 2 Wrapper to VAST 2 VPAID ad</a> (<a href="example1-06-1.html">VAST 1 ad</a>)</li>
+</ul>
+</ol>
+<b>Special Cases</b>
+<ol>
+<li><a href="example2-01.html">Turning on the Cache Buster parameter for wrapped linear ad tags</a></li>
+<li><a href="example2-04.html">Turning on OVA Variable parsing for wrapped ad tags</a></li>
+<li><a href="example2-02.html">VAST1 Wrapper with empty ad tag URL</a></li>
+<li><a href="example2-03.html">VAST2 Wrapper with empty ad tag URL</a></li>
+<li><a href="../companions/example12.html">Supporting Fallback Companions from VAST Wrappers</a></li>
+<li><a href="example2-05.html">Multiple wrappers, some empty</a> (<a href="example2-06.html">with "forceImpressionServing" enabled</a>)</li>
+</ol>
+<b>Chaining Wrappers (with VAST2 Ad Templates, Impression and Click Tracking Tags)</b>
+<ol>
+<li>Wrapped Linear Ad</li>
+<ul>
+<li><a href="example4-01.html">VAST1 wrapper to a VAST1 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-02.html">VAST1 wrapper to a VAST1 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-03.html">VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-04.html">VAST1 wrapper to a VAST2 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-05.html">VAST2 wrapper to a VAST2 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-06.html">VAST2 wrapper to a VAST2 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-07.html">VAST2 wrapper to a VAST1 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-08.html">VAST2 wrapper to a VAST1 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-09.html">VAST1 wrapper to a VAST1 wrapper to a VAST1 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-10.html">VAST2 wrapper to a VAST2 wrapper to a VAST2 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-11.html">VAST1 wrapper to a VAST2 wrapper to a VAST1 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-12.html">VAST2 wrapper to a VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</a></li>
+<li><a href="example4-13.html">VAST1 wrapper to a VAST2 wrapper to a VAST1 wrapper to a VAST2 ad</a></li>
+<li><a href="example4-14.html">VAST2 wrapper to a VAST1 wrapper to a VAST2 wrapper to a VAST2 ad</a></li>
+</ul>
+<li>Wrapped Non-Linear Ad</li>
+<ul>
+<li>TO BE COMPLETED</li>
+</ul>
+</ol>
+<!--
+<b>Chaining Wrappers (without VAST2 Ad Templates but with Impression and Click Tracking Tags)</b>
+<ol>
+<li>VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</li>
+<li>VAST1 wrapper to a VAST2 wrapper to a VAST2 ad</li>
+<li>VAST2 wrapper to a VAST2 wrapper to a VAST2 ad</li>
+<li>VAST2 wrapper to a VAST1 wrapper to a VAST2 ad</li>
+<li>VAST1 wrapper to a VAST2 wrapper to a VAST2 wrapper to a VAST1 ad</li>
+<li>VAST1 wrapper to a VAST2 wrapper to a VAST2 wrapper to a VAST2 ad</li>
+<li>VAST2 wrapper to a VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</li>
+<li>VAST2 wrapper to a VAST2 wrapper to a VAST2 wrapper to a VAST2 ad</li>
+</ol>
+<b>Mixed Wrapper Chains - Wrappers with Templates and Without Templates</b>
+<ol>
+<li>VAST2 wrapper (with Template) to a VAST2 wrapper (without Template) to a VAST2 wrapper (with Template) to a VAST2 ad</li>
+</ol>
+<b>Multiple Wrappers in a Single VAST Response</b>
+<ol>
+<li>VAST1 response with 1 VAST1 wrapped linear ad and 1 actual linear ad and 1 overlay</li>
+<li>VAST2 response with 1 VAST2 wrapped linear ad and 1 actual linear ad and 1 overlay</li>
+<li>VAST1 response with 1 VAST2 wrapped linear ad and 1 actual linear ad and 1 overlay</li>
+<li>VAST2 response with 1 VAST1 wrapped linear ad and 1 actual linear ad and 1 overlay</li>
+<li>VAST1 response with 2 VAST1 wrapped linear ads and an overlay</li>
+<li>VAST1 response with 1 VAST1 wrapped linear ad and 1 VAST2 wrapped linear ad and an overlay</li>
+<li>VAST2 response with 2 VAST2 wrapped linear ads and an overlay</li>
+</ol>
+-->
+<p class="example">
+These examples use an OpenX installation that we are running at Open Video Ads. To gain more insight
+into the zone/banner setup that we have in place for the examples, please read this <a href="../openx-config.html">short guide</a>.
+</p>
+<p>
+<a href="../../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>

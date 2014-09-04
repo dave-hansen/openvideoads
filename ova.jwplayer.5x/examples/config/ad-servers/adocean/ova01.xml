@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+       A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "AdOcean",
+                      "apiAddress": "http://myao.adocean.pl/ad.xml?id=3vSgBYmXlxZyWPJifZWPdpr7obNjbEcaLYfaLQI6nRb.y7",
+                      "oneAdPerRequest": false
+                    }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "repeat": 2
+                    },
+                    {
+                      "position": "mid-roll",
+                      "startTime": "00:00:08"
+                    },
+                    {
+                      "position": "mid-roll",
+                      "startTime": "00:00:15"
+                    },
+                    {
+                       "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

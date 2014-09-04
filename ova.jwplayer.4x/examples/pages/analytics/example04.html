@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 4 - Disabling OVA Default Google Analytics while Enabling Custom Google Analytics</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='analytics/ova04.xml';</script>
+<h2>Example 4 - Disabling OVA Default Google Analytics while Enabling Custom Google Analytics</h2>
+<p class="example"></p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300));</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300)));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 4 - Disabling OVA Default Google Analytics while Enabling Custom Google Analytics
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "analytics": {
+                "google": {
+                    "ova": {
+                        "enable": false
+                    },
+                    "custom": {
+                        "enable": true,
+                        "accountId": "UA-10158120-1",
+                        "impressions": {
+                            "linear": "/ova/impression-counter/custom-test/linear",
+                            "nonLinear": "/ova/impression-counter/custom-test/nonLinear",
+                            "companion": "/ova/impression-counter/custom-test/companion"
+                        }
+                    }
+                }
+            },
+            
+            "shows": {
+              "streams": [ 
+                 { 
+                    "file":"http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", 
+                    "duration":"00:00:30" 
+                 } 
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

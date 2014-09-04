@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3.8 - VPAID Javascript Callback API</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='vpaid/ova3.8.xml';</script>
+<h2>Example 3.8 - VPAID Javascript Callback API</h2>
+<p class="example">
+</p>
+<script type="text/javascript">
+function printDebug(message, o1, o2) {
+	console.log("OVA CALLBACK EVENT: " + message);
+	console.log(o1);
+	console.log(o2);
+}
+
+function onVPAIDAdStart(ad, runtimeState) {
+	printDebug("onVPAIDAdStart", ad, runtimeState);
+}
+
+function onVPAIDAdComplete(ad, runtimeState) {
+	printDebug("onVPAIDAdComplete", ad, runtimeState);
+}
+
+function onVPAIDAdLoaded(ad, runtimeState) {
+	printDebug("onVPAIDAdLoaded", ad, runtimeState);
+}
+
+function onVPAIDAdImpression(ad, runtimeState) {
+	printDebug("onVPAIDAdImpression", ad, runtimeState);
+}
+
+function onVPAIDAdError(ad, runtimeState) {
+	printDebug("onVPAIDAdStart", ad, runtimeState);
+}
+
+function onVPAIDAdVideoStart(ad, runtimeState) {
+	printDebug("onVPAIDAdVideoStart", ad, runtimeState);
+}
+
+function onVPAIDAdVideoFirstQuartile(ad, runtimeState) {
+	printDebug("onVPAIDAdVideoFirstQuartile", ad, runtimeState);
+}
+
+function onVPAIDAdVideoMidpoint(ad, runtimeState) {
+	printDebug("onVPAIDAdVideoMidpoint", ad, runtimeState);
+}
+
+function onVPAIDAdVideoThirdQuartile(ad, runtimeState) {
+	printDebug("onVPAIDAdVideoThirdQuartile", ad, runtimeState);
+}
+
+function onVPAIDAdVideoComplete(ad, runtimeState) {
+	printDebug("onVPAIDAdVideoComplete", ad, runtimeState);
+}
+
+function onVPAIDAdClickThru(ad, runtimeState) {
+	printDebug("onVPAIDAdClickThru", ad, runtimeState);
+}
+
+function onVPAIDAdUserAcceptInvitation(ad, runtimeState) {
+	printDebug("onVPAIDAdUserAcceptInvitation", ad, runtimeState);
+}
+
+function onVPAIDAdUserMinimize(ad, runtimeState) {
+	printDebug("onVPAIDAdUserMinimize", ad, runtimeState);
+}
+
+function onVPAIDAdUserClose(ad, runtimeState) {
+	printDebug("onVPAIDAdUserClose", ad, runtimeState);
+}
+
+function onVPAIDAdPaused(ad, runtimeState) {
+	printDebug("onVPAIDAdPaused", ad, runtimeState);
+}
+
+function onVPAIDAdPlaying(ad, runtimeState) {
+	printDebug("onVPAIDAdPlaying", ad, runtimeState);
+}
+
+function onVPAIDAdExpandedChange(ad, runtimeState) {
+	printDebug("onVPAIDAdExpandedChange", ad, runtimeState);
+}
+
+function onVPAIDAdLinearChange(ad, runtimeState) {
+	printDebug("onVPAIDAdLinearChange", ad, runtimeState);
+}
+ 
+function onVPAIDAdRemainingTimeChange(ad, runtimeState) {
+	printDebug("onVPAIDAdRemainingTimeChange", ad, runtimeState);
+}
+
+function onVPAIDAdLog(ad, event) {
+	printDebug("onVPAIDAdLog", ad, event);
+}
+
+document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 3.8 - VPAID Javascript Callback API
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          },
+
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                },
+                {
+                   "position": "post-roll",
+                   "tag": "../../../dist/templates/ad-servers/iroll/vpaid-linear-01.xml"
+                }                
+             ]
+          }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

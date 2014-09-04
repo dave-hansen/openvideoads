@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+       Example 16 - Filtering Accepted Non-Linear Ad Mime Types
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "acceptedNonLinearAdMimeTypes": [ "image/gif", "image/jpg", "image/png" ],
+                "filterOnNonLinearAdMimeTypes": true,
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                       "zone": "28",
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10"
+                    }
+                ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

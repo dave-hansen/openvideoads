@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       VPAID Linear pre-roll with standard control bar hidden during ad playback (default)
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "companions": [
+                  { "id":"companion-300x250", "width":"300", "height":"250" }
+             ],
+             "schedule": [
+                  {
+                       "startTime": "00:00:02",
+                       "position": "auto:bottom",
+                       "duration": "recommended:20",
+                       "server": {
+                           "type": "Adotube",
+                           "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Prod.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=OBpMj3k__amp__platform_version=as3__amp__publisher=www.longtailvideo.com__amp__title=The Black Hole__amp__tags=ova,test__amp__description=ova test stream"
+                       }
+                  }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          }
+       }
+   </ova.json>
+</config>

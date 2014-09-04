@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 15 - Enforcing VAST size definitions on SWF overlays</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 15 - Enforcing VAST size definitions on SWF overlays</h2>
+<p class="example">By default SWF ads will be scaled based on the width and height of the actual SWF canvas. This example
+illustrates how to force OVA to use the dimensions reported in the VAST response.</p>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example",  FP_SWF_2, {
+    playlist: [
+       {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           duration: 20
+       }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            "url": OVA_OAS_URL_2,
+            
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+                "enforceOverlayRecommendedSizing": true,
+                "schedule": [
+                    {
+                       "position": "auto:bottom",
+                       "startTime": "00:00:02",
+                       "duration": "recommended:10",
+                       "tag": OVA_VAST_OVERLAY_SCALED_MAINTAIN_TAG
+//                       "tag": "http://ad.de.doubleclick.net/pfadx/DE_AS.computerbildde/_default;dcmt=text/xml;sz=30x1;pos=1;vpos=1;u=pos=1,vpos=1,xx=vp,tile=1,NUGGVARS;vi=4;xx=vp;tile=1;ord=__random-number__"
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("example", "<script type='text/javascript'>document.write(FP_SWF_2)</script>", {
+    playlist: [
+       {
+           url: "<script type='text/javascript'>document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+           duration: 20
+       }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        openAdStreamer: {
+            "url": "<script type='text/javascript'>document.write(OVA_OAS_URL_2)</script>",
+
+            "shows": {
+                "baseURL": "<script type='text/javascript'>document.write(OVA_HTTP_BASE_URL)</script>",
+                "streams": [ { "file":"<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_FILE)</script>", "duration":"00:00:34" } ]
+            },
+
+            "ads": {
+                "enforceOverlayRecommendedSizing": true,
+                "schedule": [
+                    {
+                       "position": "auto:bottom",
+                       "startTime": "00:00:02",
+                       "duration": "recommended:10",
+                       "tag": "<script type='text/javascript'>document.write(OVA_VAST_OVERLAY_SCALED_MAINTAIN_TAG)</script>"
+                    }
+                ]
+            }
+            
+            "debug": {
+                "levels": "<script type='text/javascript'>document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

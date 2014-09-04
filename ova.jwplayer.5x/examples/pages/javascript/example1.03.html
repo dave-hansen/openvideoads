@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1.03 - Processing Show (With Duration) Playback Events with the Javascript</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='javascript/ova02.xml';</script>
+<h2>Example 1.03 - Processing Show (With Duration) Playback Events with the Javascript</h2>
+<p class="example">
+This example illustrates the javascript callback API for show stream related events. Events are
+fired by the Open Ad Streamer when a show stream is started, stopped, complete, resumed,
+muted, unmuted or goes fullscreen</p>
+<p class="example">
+To start receiving these events, the "fireTrackingEvents" show streams config
+property must be set to "true". It is "false" by default. In addition, "canFireAPICalls"
+must also be set to "true" (it is "true" by default).
+</p>
+<p class="example">
+In this example, a series of DIVs are displayed around the player. As each event fires,
+the corresponding DIV is turned green. If you have Firebug installed, bring up the console.
+Debug output is shown as each event fires so you can see the javascript callback event occur.
+</p>
+<br/>
+
+<script type="text/javascript">
+function onShowStart(streamName, streamIndex) {
+	debug("OVA EVENT: onShowStart('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-start').style.backgroundColor = "#00CC00";	
+}
+
+function onShowComplete(streamName, streamIndex) {
+	debug("OVA EVENT: onShowComplete('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-complete').style.backgroundColor = "#00CC00";	
+}
+
+function onShowStopped(streamName, streamIndex) {
+	debug("OVA EVENT: onShowComplete('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-stopped').style.backgroundColor = "#00CC00";	
+}
+
+function onShowPaused(streamName, streamIndex) {
+	debug("OVA EVENT: onShowPaused('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-paused').style.backgroundColor = "#00CC00";	
+}
+
+function onShowResumed(streamName, streamIndex) {
+	debug("OVA EVENT: onShowResumed('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-resumed').style.backgroundColor = "#00CC00";	
+}
+
+function onShowMute(streamName, streamIndex) {
+	debug("OVA EVENT: onShowMute('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-mute').style.backgroundColor = "#00CC00";	
+}
+
+function onShowUnmute(streamName, streamIndex) {
+	debug("OVA EVENT: onShowUnmute('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-unmute').style.backgroundColor = "#00CC00";	
+}
+
+function onShowFullscreen(streamName, streamIndex) {
+	debug("OVA EVENT: onShowFullscreen('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-fullscreen').style.backgroundColor = "#00CC00";	
+}
+</script>
+<div id="container">
+     <div id="player-left-500">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 614, 345));</script>
+        <div id="event-container-614x160">
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-start">
+	               <br/>Show Start
+	            </div>
+	            <div class="event-container-148x68" id="show-complete">
+	               <br/>Show Complete
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-paused">
+	               <br/>Show Paused
+	            </div>
+	            <div class="event-container-148x68" id="show-stopped">
+	               <br/>Show Stopped
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-resumed">
+	               <br/>Show Resumed
+	            </div>
+	            <div class="event-container-148x68" id="show-mute">
+	               <br/>Show Muted
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-unmute">
+	               <br/>Show Unmuted
+	            </div>
+	            <div class="event-container-148x68" id="show-fullscreen">
+	               <br/>Show Fullscreen
+	            </div>
+            </div>        
+        </div>
+     </div>
+</div>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+// An example ad event Javascript callback
+
+function onShowStart(streamName, streamIndex) {
+	debug("OVA EVENT: onShowStart('" + streamName + "', " + streamIndex + ")");
+    document.getElementById('show-start').style.backgroundColor = "#00CC00";	
+}
+
+//... the other callback functions go in here
+
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 614, 345)));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 2 - Process Show Stream Events with Javascript API
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "canFireAPICalls": true,
+
+            "shows": {
+                 "fireTrackingEvents": true,
+                 "streams": [
+                      {
+                          "file":"http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                          "duration":"00:00:30"
+                      }
+                 ]
+            },
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "post-roll"
+                      }
+                 ]
+            },
+
+            "debug": {
+                 "debugger": "firebug",
+                 "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

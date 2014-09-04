@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+       Managing the Control Bar Disable States
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+             "controls": {
+                  "enablePlay": true,
+                  "enablePause": true,
+                  "enablePlaylist": false,
+                  "enableTime": false,
+                  "enableMute": false,
+                  "enableVolume": false
+             },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

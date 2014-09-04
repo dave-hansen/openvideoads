@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+<Ad id="pre-roll0-0">
+<InLine>
+<AdSystem>Custom</AdSystem>
+<AdTitle>preroll</AdTitle>
+<Impression>
+	<URL id="myadserver"><![CDATA[http://localhost/test?impression]]></URL>
+</Impression>
+<TrackingEvents>
+<Tracking event="firstQuartile">
+		<URL id="myadserver"><![CDATA[http://localhost/test?firstQuartile]]></URL>
+</Tracking>
+<Tracking event="midpoint">
+		<URL id="myadserver"><![CDATA[http://localhost/test?midpoint]]></URL>
+</Tracking>
+<Tracking event="thirdQuartile">
+		<URL id="myadserver"><![CDATA[http://localhost/test?thirdQuartile]]></URL>
+</Tracking>
+<Tracking event="complete">
+		<URL id="myadserver"><![CDATA[http://localhost/test?complete]]></URL>
+</Tracking>
+<Tracking event="mute">
+		<URL id="myadserver"><![CDATA[http://localhost/test?mute]]></URL>
+</Tracking>
+<Tracking event="pause">
+		<URL id="myadserver"><![CDATA[http://localhost/test?pause]]></URL>
+</Tracking>
+<Tracking event="replay">
+		<URL id="myadserver"><![CDATA[http://localhost/test?replay]]></URL>
+</Tracking>
+<Tracking event="fullscreen">
+		<URL id="myadserver"><![CDATA[http://localhost/test?fullscreen]]></URL>
+</Tracking>
+</TrackingEvents>
+<Video><Duration>00:00:11</Duration>
+<AdID></AdID>
+<VideoClicks>
+<ClickThrough>
+<URL><![CDATA[http://www.apple.com]]></URL>
+</ClickThrough>
+<ClickTracking>
+<URL id="myadserver"><![CDATA[[http://localhost/test?click]]]></URL>
+</ClickTracking>
+</VideoClicks>
+<MediaFiles>
+<MediaFile delivery="progressive" bitrate="256" width="800" height="528" type="video/x-flv"><URL><![CDATA[http://cdn.liverail.com/adasset/229/331/lo.flv]]></URL></MediaFile>
+<MediaFile delivery="progressive" bitrate="512" width="800" height="528" type="video/x-flv"><URL><![CDATA[http://cdn.liverail.com/adasset/229/331/me.flv]]></URL></MediaFile>
+<MediaFile delivery="progressive" bitrate="768" width="800" height="528" type="video/x-flv"><URL><![CDATA[http://cdn.liverail.com/adasset/229/331/hi.flv]]></URL></MediaFile>
+</MediaFiles>
+</Video>
+<CompanionAds>
+<Companion id="vast_companion_300x250_image" width="300" height="250" resourceType="static" creativeType="image/jpeg">
+    <URL>
+        <![CDATA[http://cdn.liverail.com/adasset/229/331/300x250.jpg]]>
+    </URL>
+</Companion>
+<Companion id="vast_companion_300x250_flash" width="300" height="250" resourceType="static" creativeType="application/x-shockwave-flash">
+    <URL>
+        <![CDATA[http://static.openvideoads.org/ads/companions/Schwab_300x250.swf]]>
+    </URL>
+    <AdParameters><![CDATA[click=http://localhost/companion-click-through-url]]></AdParameters>
+    <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+</Companion>
+<Companion id="vast_companion_300x250_js" width="300" height="250" resourceType="script" creativeType="any">
+    <URL>
+        <![CDATA[http://static.openvideoads.org/ads/companions/300x250-script.js]]>
+    </URL>
+</Companion>
+<Companion id="vast_companion_300x250_iframe" width="300" height="250" resourceType="iframe" creativeType="any">
+    <URL>
+        <![CDATA[http://ad3.liverail.com/util/companions.php?type=image&content=http%3A%2F%2Fcdn.liverail.com%2Fadasset%2F229%2F331%2F300x250.jpg&clickthru=http%3A%2F%2Ft3.liverail.com%2F%3Fmetric%3Dcclickthru%26pos%3D50%26pid%3D1331%26coid%3D135%26nid%3D0%26cid%3D331%26kid%3D229%26vid%3D%26amid%3D%26cc%3Ddefault%26pp%3D%26url%3D%26cb%3D7114%26x%3D%26y%3D%26xy%3D%26redirect%3Dhttp%253A%252F%252Fliverail.com%252F]]>
+    </URL>
+</Companion>
+<Companion id="vast_companion_300x250_html" width="300" height="250" resourceType="html" creativeType="any">
+    <Code>
+        <![CDATA[<a href="http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=1389&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F" target="_blank"><img src="http://cdn.liverail.com/adasset/229/331/300x250.jpg" border="0" style="border: 0px; margin: 0px;" /></a>]]>
+    </Code>
+</Companion>
+<Companion id="vast_companion_300x250_html_js" width="300" height="250" resourceType="script" creativeType="any">
+    <Code>
+        <![CDATA[document.write('<a href="http://www.apple.com"><img src="http://cdn.liverail.com/adasset/229/331/300x250.jpg"></a>');]]>
+    </Code>
+</Companion>
+</CompanionAds>
+</InLine>
+</Ad>
+</VideoAdServingTemplate>

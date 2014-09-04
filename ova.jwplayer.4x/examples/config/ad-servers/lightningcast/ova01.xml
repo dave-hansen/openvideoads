@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+       Example 1 - A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+                "displayCompanions": true,
+	            "companions": [
+                    { "id":"companion", "width":"300", "height":"250" }
+                ],
+                "servers": [
+                    {
+                       "type": "Lightningcast",
+                       "tag": "http://web.lightningcast.net/servlets/getPlaylist?ver=2.0__amp__nwid=106414__amp__content=http%3A//streaming.openvideoads.org/shows/the-black-hole.mp4__amp__level=Test_Implent%3ATest_400_300__amp__format=Video-Flash-400-400x300__amp__uid=ABC__amp__regions=Standardbanner__amp__crlen=t__amp__resp=VAST"
+                    }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll"
+                    },
+                    {
+                       "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Example 1 - VPAID VAST 2
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "vpaid": {
+                    "holdingClipUrl": "http://static.openvideoads.org/ads/blank/blank-pixel.jpg"
+                },
+                "pauseOnClickThrough": true,
+                "companions": [
+                	{ "id": "companion-1", "width": 300, "height": 250 }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+  	                   "server": {
+		                  "type": "direct",
+		                  "tag": "../../../../dist/templates/ad-servers/telemetry/telemetry-wrapper-vast2.xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

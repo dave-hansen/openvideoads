@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="102101">
+    <InLine>
+      <AdSystem>mov.ad</AdSystem>
+      <AdTitle>megamind_600x338</AdTitle>
+      <Description>Megamind - kleiner Player</Description>
+      <Survey>mov.ad</Survey>
+      <Error><![CDATA[http://event.movad.de/c.ount?ci=102101&et=66&po=21&ad=1&t=0]]></Error>
+      <Impression id="mov.ad"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=1&po=21&ad=1&t=0]]></Impression>
+      <Creatives>
+        <Creative id="Linear">
+          <Linear>
+            <Duration/>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=10&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=35&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=32&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=37&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="complete"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=40&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="mute"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=14&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="fullscreen"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=16&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="pause"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=11&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="expand"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=3&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="collapse"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=4&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="unmute"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=15&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="close"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=4&po=21&ad=1&t=0]]></Tracking>
+              <Tracking event="acceptInvitation"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=20&po=21&ad=1&t=0]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough id="mov.ad"></ClickThrough>
+              <ClickTracking id="mov.ad"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=2&po=21&ad=1&t=0]]></ClickTracking>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile apiFramework="VPAID" delivery="progressive" bitrate="700" width="720" height="405" type="swf">
+                  <![CDATA[http://v.movad.de/vp/linear.swf?c=http://v.movad.de/c/102101/vpaid.xml]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+      <Extensions>
+        <Extension type="CustomTracking">
+          <Interaction id="i1"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=70&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i2"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=71&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i3"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=72&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i4"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=73&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i5"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=74&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i6"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=75&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i7"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=76&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i8"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=77&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i9"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=78&po=21&ad=1&t=0]]></Interaction>
+          <Interaction id="i10"><![CDATA[http://event.movad.de/c.ount?ci=102101&et=79&po=21&ad=1&t=0]]></Interaction>
+        </Extension>
+      </Extensions>
+    </InLine>
+  </Ad>
+</VAST>

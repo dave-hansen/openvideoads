@@ -1,0 +1,21 @@
+<config>
+   <ova.title>
+       Example 1 - VAST 2 Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "tag": "http://media.adrcdn.com/ads/Weborama/37393136/20841/20111115_063108_vast_generated.xml"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

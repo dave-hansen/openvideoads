@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+    <Ad id="127">
+        <InLine>
+            <AdSystem version="1.0">OpenX Enterprise</AdSystem>
+            <AdTitle>NonLinear Ad 12</AdTitle>
+            <Impression>http://localhost/non-linear/iframe/impression1</Impression>
+            <Impression>http://localhost/non-linear/iframe/impression2</Impression>
+            <Creatives>
+                <Creative id="12" sequence="">
+                    <NonLinearAds>
+                        <TrackingEvents>
+                            <Tracking event="creativeView">http://localhost/non-linear/iframe/creativeView</Tracking>
+                            <Tracking event="fullscreen">http://localhost/non-linear/iframe/fullscreen</Tracking>
+                            <Tracking event="expand">http://localhost/non-linear/iframe/expand</Tracking>
+                            <Tracking event="collapse">http://localhost/non-linear/iframe/collapse</Tracking>
+                            <Tracking event="acceptInvitation">http://localhost/non-linear/iframe/acceptInvitation</Tracking>
+                            <Tracking event="close">http://localhost/non-linear/iframe/close</Tracking>
+                        </TrackingEvents>
+                        <NonLinear id="12" width="450" height="50" minSuggestedDuration="00:00:20">
+                            <StaticResource creativeType="image/gif">
+                            	http://openx.openvideoads.org/openx-2.8.2/www/images/8e19787394a3c7870acc4c4c16fe2172.gif
+                        	</StaticResource>
+                        	<NonLinearClickThrough>http://www.openx.org</NonLinearClickThrough>
+                    	</NonLinear>
+               	  </NonLinearAds>
+            	</Creative>
+	            <Creative id="7" sequence="">
+	                <CompanionAds>
+	                    <Companion id="7" width="300" height="250">
+	                        <TrackingEvents>
+	                            <Tracking event="creativeView">http://localhost/companion/creativeView</Tracking>
+	                        </TrackingEvents>
+	                        <StaticResource creativeType="image/png">http://localhost/test/ads/468x60-centos.png</StaticResource>
+	                        <CompanionClickThrough>http://www.openx.org</CompanionClickThrough>
+	                    </Companion>
+	                </CompanionAds>
+	            </Creative>
+        </Creatives>
+    </InLine>
+</Ad>
+</VAST>

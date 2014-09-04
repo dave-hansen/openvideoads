@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+       Example 17 - Turning off the automatic splitting of aggregated VAST1 inline ads
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+	            "companions": [
+                    { "id":"companion", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "Direct",
+                          "ensureSingleAdUnitRecordedPerInlineAd": false,
+                          "tag": "http://v.movad.de/stream.ad?cid=101226"
+
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,22 @@
+<config>
+   <ova.title>
+       Example 1 - VAST MP4 RTMP Media Files Containing File Markers
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "ads": {
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "OVA_VAST_MP4_RTMP_AD_WITH_MARKERS"
+                  }
+              ]
+          }
+       }
+   </ova.json>
+</config>

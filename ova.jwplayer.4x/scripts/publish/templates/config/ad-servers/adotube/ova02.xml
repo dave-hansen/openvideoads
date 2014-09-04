@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 2 - VAST 2.0 Non-Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                       "startTime": "00:00:02",
+                       "position": "auto:bottom",
+                       "duration": "recommended:20",
+                       "server": {
+	                       "type": "Adotube",
+                           "tag": "http://www.adotube.com/kernel/vast/vast2.0AS3Prod.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=OBpMj3k&platform_version=as3&integration=__partner-id__&displayWidth=__player-width__&displayHeight=__player-height__&publisher=__domain__&title=__media-title__&tags=__media-keywords__&description=__media-description__",
+      	                   "customProperties": {
+      	                        "partner-id": "longtail",
+                                "media-title": "ova test",
+                                "media-keywords": "ova",
+                                "media-description": "video description"
+      	                   }
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

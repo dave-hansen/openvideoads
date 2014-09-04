@@ -1,0 +1,84 @@
+<html>
+<title>OVA for JW4x (1.0.0) - No or Incorrect Duration Examples</title>
+<link rel="stylesheet" type="text/css" href="../../../dist/css/global.css" />
+<body>
+<a href="www.openvideoads.org"><img src="../../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for JW4x (1.0.0) - No or Incorrect Duration Examples</h2>
+<h3>1. Always forcing Show Duration from Metadata</h3>
+<p class="example">
+</p>
+01: <a href="force/example01.html">Forcing show duration to be taken from the clip metadata</a>
+<br/>
+<h3>1. The Duration-less Ad Stream Examples</h3>
+<p class="example">
+In the following cases, either an ad does not have a duration provided in the VAST response
+or the duration specified varies from the value extracted from the stream meta data. In
+each case, the duration is changed to reflect the correct value and the tracking points
+are updated accordingly.
+</p>
+01: <a href="ads/example01.html">A duration-less stream with a pre-roll that does not have a VAST duration</a>
+<br/>
+02: <a href="ads/example02.html">A duration-less stream with a pre-roll with an incorrect VAST duration</a>
+<br/>
+03: <a href="ads/example03.html">Leaving the original VAST duration untouched</a>
+<br/>
+<p>
+<h3>2. The Duration-less Show Stream Examples</h3>
+<p class="example">
+In all of the following cases, the show streams do not have a duration specified. This automatically puts 
+the OAS into "duration-less" mode. "duration-less" mode can be forciby activated by using the
+"setDurationFromMetaData" shows configuration parameter in the "shows" config group. This will force
+the stream metadata value to override any specified duration value.
+<p>
+01: <a href="shows/example01.html">1 stream with a pre-roll = 2 streams</a>
+<br/>
+02: <a href="shows/example02.html">1 stream with a mid-roll = 2 streams</a>
+<br/>
+03: <a href="shows/example03.html">1 stream with a post-roll = 2 streams</a>
+<br/>
+04: <a href="shows/example04.html">1 stream with an overlay = 1 stream</a>
+<br/>
+05: <a href="shows/example05.html">1 stream with pre, mid and post rolls = 4 streams</a>
+<br/>
+06: <a href="shows/example06.html">1 stream with pre, mid and post rolls + overlay = 4 streams</a>
+<br/>
+07: <a href="shows/example07.html">2 streams with a pre-roll limited to the first stream = 3 streams</a>
+<br/>
+08: <a href="shows/example08.html">2 streams with a pre-roll on the second stream = 3 streams</a>
+<br/>
+09: <a href="shows/example09.html">2 streams with a pre-roll on each stream = 4 streams</a>
+<br/>
+10: <a href="shows/example10.html">2 streams with a mid-roll on the first stream = 3 streams</a>
+<br/>
+11: <a href="shows/example11.html">2 streams with a mid-roll on the second stream = 3 streams</a>
+<br/>
+12: <a href="shows/example12.html">2 streams with a mid-roll on each stream = 4 streams</a>
+<br/>
+13: <a href="shows/example13.html">2 streams with a post-roll on the first stream = 3 streams</a>
+<br/>
+14: <a href="shows/example14.html">2 streams with a post-roll on the second stream = 3 streams</a>
+<br/>
+15: <a href="shows/example15.html">2 streams with a post-roll on each stream = 4 streams</a>
+<br/>
+16: <a href="shows/example16.html">2 streams with an overlay on the first stream = 2 streams</a>
+<br/>
+17: <a href="shows/example17.html">2 streams with an overlay on the second stream = 2 streams</a>
+<br/>
+18: <a href="shows/example18.html">2 streams with an overlay on each stream = 2 streams</a>
+<br/>
+19: <a href="shows/example19.html">14 streams, pre-rolls at 2, 4 and 7, mid-rolls at 5, 9, post-rolls at 5, 7 and 11 = 24 streams</a>
+<br/>
+20: <a href="shows/example20.html">6 streams, post-roll at 2, mid-roll at 4 = 9 streams</a>
+<br/>
+21: <a href="shows/example21.html">7 streams, mid-roll at 3, pre-roll at 5 = 10 streams</a>
+<br/>
+22: <a href="shows/example22.html">5 streams, mid-rolls at 1 and 5, pre-roll at 3 = 10 streams</a>
+<br/>
+23: <a href="shows/example23.html">14 streams, repeated (3 times) pre-rolls at 2, 4 and 7, mid-rolls at 5, 9, post-rolls at 5, 7 and 11 = 40 streams</a>
+<p>
+<a href="../../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2010 Open Video Ads
+</p>
+

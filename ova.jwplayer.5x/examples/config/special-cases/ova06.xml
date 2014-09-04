@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+       Example 6 - No Ads, No Streams, Autostart
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "../../../dist/templates/error-responses/vast1.0/blank-vast-response.xml"
+                    }
+                ],
+
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+           }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       Example 1 - A pre-roll with companion before a live stream
+   </ova.title>
+   <ova.json>
+       {
+           "blockUntilOriginalPlaylistLoaded": true,
+           "ads": {
+               "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+               ],
+               "companions": [
+                   { "id":"companion", "width":"150", "height":"360" }
+               ],
+
+               "schedule": [
+                   {
+                      "zone": "6",
+                      "position": "pre-roll",
+                      "playOnce": true
+                   }
+               ]
+            },
+
+            "debug": {
+               "debugger": "firebug",
+               "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

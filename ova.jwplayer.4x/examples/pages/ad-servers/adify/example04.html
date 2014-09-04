@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 4 - Using the 'out of the box' configuration options</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/adify/ova04.xml';</script>
+<h2>Example 4 - Using the 'out of the box' configuration options</h2>
+<p class="example">
+This example illustrates how to use the 'out of the box' configuration options to make calls to the
+Adify ad server.
+</p>
+<div id="container" style="height:260px;">
+  <div id="player_row" style="height:260px;">
+     <div id="player_left" style="width:320px;height:254px;">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 320, 254, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+     </div>
+     <div id="player_right" style="height:250px;">
+        <div id="companion" style="width:300px;height:250px;">
+           COMPANION AD APPEARS HERE
+        </div>
+     </div>
+  </div>
+</div>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 320, 254, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 4 - Using the 'out of the box' configuration options
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+                "displayCompanions": true,
+	            "companions": [
+                    { "id":"companion", "width":"300", "height":"250" }
+                ],
+                "servers": [
+                    {
+                      "type": "Adify",
+                      "apiAddress": "http://ad.afy11.net"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "1000004375407",
+                        "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

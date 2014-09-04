@@ -1,0 +1,237 @@
+<html>
+<head>
+<title>OVA for Flowplayer - Configuring Overlays</title>
+<link rel="stylesheet" type="text/css" href="../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for Flowplayer - Configuring Overlays</h2>
+<p class="example">
+</p>
+<ul>
+<li><b>Minimal setup</b></li>
+<ul>
+<li><b>Flash display mode only</b></li>
+<ul>
+<li><a href="minimal-flash/example01.html">Default "auto:bottom" position, default content selection</a></li>
+<li><a href="minimal-flash/example02.html">Default "auto:bottom" position, size based content selection</a></li>
+<li><a href="minimal-flash/example03.html">Default "auto:bottom" position, ad type based content selection</a></li>
+</ul>
+<li><b>HTML 5 display mode only</b></li>
+<ul>
+<li><a href="minimal-html5/example01.html">Default "auto:bottom" position, default content selection</a></li>
+<li><a href="minimal-html5/example02.html">Default "auto:bottom" position, size based content selection</a></li>
+<li><a href="minimal-html5/example03.html">Default "auto:bottom" position, ad type based content selection</a></li>
+</ul>
+</ul>
+<li><b>Illustrating the supported non-linear types</b></li>
+<ul>
+<li><b>Flash display mode (overlay)</b></li>
+<ul>
+<li><b>Image:</b> <a href="ad-types-flash/example01.html">VAST1 URL</a><!--, VAST1 Code, VAST2 StaticResource URL --></li>
+<li><b>HTML:</b> <a href="ad-types-flash/example02.html">VAST1 Code</a><!--, VAST2 HTMLResource Code--></li>
+<li><b>Text:</b> <a href="ad-types-flash/example03.html">VAST1 Code</a></li>
+<li><b>Flash:</b> <a href="ad-types-flash/example04.html">VAST1 URL</a><!--, VAST1 Code, VAST2 StaticResource URL--></li>
+<li><b>VPAID:</b> <a href="ad-types-flash/example05.html">VAST2 VPAID URL (fixed VAST sizing)</a> <a href="ad-types-flash/example06.html">(expandable VAST sizing)</a> <!--<a href="ad-types-flash/example07.html">(expandable and scalable)</a>--></li>
+</ul>
+<li><b>HTML 5 display mode (overlay)</b></li>
+<ul>
+<li><b>Image:</b> <a href="ad-types-html5/example01.html">VAST1 URL</a><!--, VAST1 Code, VAST2 StaticResource URL--></li>
+<li><b>HTML:</b> <a href="ad-types-html5/example02.html">VAST1 Code</a><!--, VAST2 HTMLResource Code--></li>
+<li><b>Text:</b> <a href="ad-types-html5/example03.html">VAST1 Code</a></li>
+<li><b>Flash:</b> <a href="ad-types-html5/example04.html">VAST1 URL</a><!--, VAST1 Code, VAST2 StaticResource URL--></li>
+<li><b>iFrame:</b> <a href="ad-types-html5/example05.html">VAST1 iFrame URL</a><!--, VAST1 Code, VAST2 IFrameResource URL--></li>
+<li><b>Script:</b></li>
+<ul>
+<li><a href="ad-types-html5/example06.html">VAST1 Code Tag</a></li>
+<li><a href="ad-types-html5/example07.html">VAST1 URL Tag</a></li>
+<li><a href="ad-types-html5/example08.html">VAST2 StaticResource Tag</a></li>
+<li><a href="ad-types-html5/example09.html">VAST2 HTMLResource Tag with document.write()</a></li>
+<li><a href="ad-types-html5/example10.html">VAST2 HTMLResource Tag with Script Tags</a></li>
+</ul>
+</ul>
+</ul>
+<li><b>Positioning Non-Linear Ads</b></li>
+<ul>
+<li><a href="positioning/example01.html">Default positioning - "auto:bottom"</a></li>
+<li><a href="positioning/example02.html">Using explicit "auto" positioning - bottom</a>, <a href="positioning/example03.html">top</a>, <a href="positioning/example04.html">center</a></li>
+<li><a href="positioning/example11.html">Using custom region declarations</a></li>
+<li><a href="positioning/example12.html">Backward compatibility test with the depreciated "position" option</a></li>
+<li><b>Position all Ad Slots at once via the "Ads.Overlays" config group</b></li>
+<ul>
+<li><a href="positioning/example05.html">Using a single "region" setting - all ad types</a></li> 
+<li><a href="positioning/example06.html">Using a single "region" setting but specifying different positions per ad type</a></li> 
+<li><a href="positioning/example07.html">Specifying different regions based on the display mode (flash or html5)</a></li> 
+</ul>
+<li><b>Position Ad Slots individually</b></li>
+<ul>
+<li><a href="positioning/example08.html">Using the Ad Slot "region" option - all ad types</a></li>
+<li><a href="positioning/example09.html">Using a single "region" setting but specifying different positions per ad type</a></li> 
+<li><a href="positioning/example10.html">Specifying different regions based on the display mode</a></li> 
+</ul>
+<li><b>Positioning HTML5 regions</b></li>
+<ul>
+<li><b>Non-Overlays</b></li>
+<ul>
+<li><a href="positioning/example13.html">Default positioning - HTML5 regions as "non-overlays"</a></li>
+<li><a href="positioning/example14.html">Explicitly positioning all HTML5 enabled regions across all ad slots as "non-overlays"</a></li>
+<li><a href="positioning/example15.html">Positioning all HTML5 enabled regions per ad slot as "non-overlays"</a></li>
+<li><a href="positioning/example16.html">Positioning specific HTML5 enabled regions as "non-overlays"</a></li>
+</ul>
+<li><b>Overlays (Default Mode)</b></li>
+<ul>
+<li><a href="positioning/example17.html">Explicitly positioning all HTML5 enabled regions as "overlays"</a></li>
+<li><a href="positioning/example18.html">Positioning specific ad slots as HTML5 "overlays"</a></li>
+</ul>
+</ul>
+</ul>
+<li><b>Restricting Content Selection</b></li>
+<ul>
+<li><b>By Count</b></li>
+<ul>
+<li><a href="max-display/example01.html">Setting the maximum number of overlays that can display at once</a></li>
+</ul>
+<li><b>By Size</b></li>
+<ul>
+<li><b>Declaring size properties once for all Ad Slots via "Ads.Overlays"</b></li>
+<ul>
+<li><a href="restrictions-size/example01.html">Declaring a single sized display position for all Ad Slots</a></li>
+<li><a href="restrictions-size/example02.html">Declaring multiple display positions of different sizes for all Ad Slots</a></li>
+</ul>
+<li><b>Applying size rules per Ad Slot</b></li>
+<ul>
+<li><a href="restrictions-size/example03.html">Declaring a single sized display position for an individual Ad Slots</a></li>
+<li><a href="restrictions-size/example04.html">Declaring multiple display positions of different sizes for an Ad Slot</a></li>
+</ul>
+</ul>
+<li><b>By Ad Type</b></li>
+<ul>
+<li><a href="restrictions-type/example01.html">Restricting content selection based on ad type across all ad slots</a></li>
+<li><a href="restrictions-type/example02.html">Restricting based on ad type per ad slot</a></li>
+<li><a href="restrictions-type/example03.html">Restricting based on ad type per ad slot and display mode</a></li>
+</ul>
+<li><b>By Mime Type</b></li>
+<ul>
+<li>Restricting content selection based on mime type across all ad slots</a></li>
+<li>Restricting based on mime type per ad slot</a></li>
+<li>Restricting based on mime type per ad slot and display mode</a></li>
+</ul>
+<li><b>By Size and Ad Type</b></li>
+<ul>
+<li><a href="restrictions-size-type/example01.html">Restricting content selection based on ad type and size for all Ad Slots</a></li>
+<li><a href="restrictions-size-type/example02.html">Restricting based on ad type and size for an individual Ad Slot</a></li>
+</ul>
+</ul>
+<li><b>Customising the Display Templates</b></li>
+<ul>
+<li><a href="templates/example01.html">Declaring custom Ad Templates for all ad slots and all ad display modes</a></li>
+<li><a href="templates/example02.html">Declaring different Ad Templates for all ad slots per ad display mode</a></li>
+<li><a href="templates/example03.html">Declaring Ad Templates per ad slot, all display modes</a></li>
+<li><a href="templates/example04.html">Defining new Ad Templates per ad slot, per display mode</a></li>
+<li><a href="templates/example05.html">Defining new Ad Templates per ad slot, per display mode, per position</a></li>
+</ul>
+<li><b>General HTML 5 Display Options</b></li>
+<ul>
+<li><a href="enabling-html5/example01.html">Enabling HTML 5 display mode (with Flash display enabled)</a></li>
+<li><a href="enabling-html5/example02.html">Enabling HTML 5 display while disabling Flash display mode</a></li>
+<li><a href="enabling-html5/example03.html">Delivering overlays to multiple regions concurrently via Flash and HTML 5</a></li>
+<li><a href="enabling-html5/example07.html">Displaying Non-Linear Ads via an External Javascript Library</a></li>
+<li>Stopping HTML5 non-overlays from restoring upon completion</a></li>
+<li><b>Click and Event Tracking via HTML5 Display Mode</b></li>
+<ul>
+<li><a href="enabling-html5/example06.html">Firing VAST2 "close" events on overlay close</a></li>
+<li><a href="enabling-html5/example05.html">Tracking "clicks" with VAST2 "acceptInvitation" events</a></li>
+</ul>
+</ul>
+<li><b>Scaling Overlays</b></li>
+<ul>
+<li><a href="scaling/example01.html">Turning on scaling - all ad slots</a></li>
+<li><a href="scaling/example02.html">Turning on scaling for a specific ad slot</a></li>
+<li><b>Flash Display Mode</b></li>
+<ul>
+<li><b>Images</b></li>
+<ul>
+<li><a href="scaling/flash/images/example05.html">Default config - 728x90 scalable image wider than player, no "enableScaling" set</a></li>
+<li><a href="scaling/flash/images/example01.html">728x90 image scaled to player width</a></li>
+<li><a href="scaling/flash/images/example02.html">728x90 image scaled to declared ad slot width and height</a></li>
+<li><a href="scaling/flash/images/example03.html">728x90 image scaled to maintain aspect ratio</a></li>
+<li><a href="scaling/flash/images/example04.html">728x90 image forcibly not scaled</a></li>
+</ul>
+<li><b>SWF (non-VPAID)</b></li>
+<ul>
+<li><a href="scaling/flash/swf/example09.html">Default config - 728x90 scalable SWF wider than player, no "enableScaling" set</a></li>
+<li><a href="scaling/flash/swf/example01.html">728x90 scaled to player width normal display</a></li>
+<li><a href="scaling/flash/swf/example02.html">728x90 scaled to declared ad slot width and height</a></li>
+<li><a href="scaling/flash/swf/example03.html">728x90 scaled to maintain aspect ratio</a></li>
+<li><a href="scaling/flash/swf/example04.html">728x90 forcibly not scaled - masked normal display</a></li>
+<li><a href="scaling/flash/swf/example08.html">468x60 fits, no scaling declared in VAST but ad slot scaling enabled</a></li>
+<li><a href="scaling/flash/swf/example06.html">468x60 fits, explicitly not scalable anyway but ad slot scaling enabled</a></li>
+<li><a href="scaling/flash/swf/example07.html">468x60 scalable but scaling not required, ad slot size declared - ensures masking</a></li>
+<li><a href="scaling/flash/swf/example05.html">Turning off VAST enforced SWF sizing and using actual SWF size</a></li>
+</ul>
+<li><b>VPAID (SWF)</b></li>
+<ul>
+<li><a href="scaling/flash/vpaid/example01.html">Default mode - auto scaling non-linear VPAID ads</a></li>
+</ul>
+</ul>
+<li><b>HTML5 Display Mode</b></li>
+<ul>
+<li><b>Images</b></li>
+<ul>
+<li>Scaling not implemented</li>
+</ul>
+<li><b>SWF (non-VPAID)</b></li>
+<ul>
+<li>Scaling not implemented</li>
+</ul>
+</ul>
+</ul>
+<li><b>Setting the Preferred Display Mode</b></li>
+<ul>
+<li><a href="preferred-mode/example01.html">Setting Flash (by default) as the preferred display mode</a></li>
+<li><a href="preferred-mode/example02.html">Explicitly setting Flash as the preferred display mode</a></li>
+<li><a href="preferred-mode/example03.html">Setting HTML5 as the preferred display mode</a></li>
+<li><a href="preferred-mode/example04.html">Setting the preferred display mode per ad slot</a></li>
+</ul>
+<li><b>Customising the Close and Minimize Buttons</b></li>
+<ul>
+<li><b>Flash Display Mode</b></li>
+<ul>
+<li><b>The Close Button</b></li>
+<ul>
+<li><a href="close-flash/example01.html">Enabling the standard cross-hair close button</a></li>
+<li><a href="close-flash/example02.html">Enabling the standard image close button</a></li>
+<li><a href="close-flash/example03.html">Using a custom image for the close button</a></li>
+<li><a href="close-flash/example04.html">Turning off the close button</a> (<a href="close-flash/example05.html">depreciated option</a>)</li>
+</ul>
+</ul>
+<li><b>HTML5 Display Mode</b></li>
+<ul>
+<li><b>The Close Button</b></li>
+<ul>
+<li><a href="close-html5/example01.html">Enabling the close button</a></li>
+</ul>
+</ul>
+</ul>
+<li><b>General Settings</b></li>
+<ul>
+<li><a href="general/example01.html">Keeping overlays visible after click through</a></li>
+<li><a href="general/example02.html">Turning off overlay ad replay</a></li>
+<li><a href="general/example03.html">Forcing OVA to not "alwaysMatch"</a> (<a href="general/example04.html">Forcing OVA to "alwaysMatch" when size specified</a>)</li>
+<li><a href="general/example05.html">Showing non-linear ads indefinitely</a></li>
+<li>Allowing the same non-linear ad to be displayed multiple times per impression</a></li>
+<li>Using the VAST recommended duration for non-linear ads</li>
+</ul>
+</ul>
+<p class="example">
+These examples use an OpenX installation that we are running at Open Video Ads. To gain more insight
+into the zone/banner setup that we have in place for the examples, please read this <a href="../openx-config.html">short guide</a>.
+</p>
+<p>
+<a href="../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>
+</html>

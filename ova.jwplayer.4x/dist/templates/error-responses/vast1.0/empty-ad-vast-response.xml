@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+  <Ad id="">
+     <InLine>
+        <AdSystem>Adtech</AdSystem>
+        <AdTitle />
+        <Description />
+        <Survey>
+           <URL />
+        </Survey>
+        <Error>
+           <URL />
+        </Error>
+        <Impression>
+           <URL id="myadsever">
+              <![CDATA[http://de.at.atwola.com/adcount/3.0/515/2306518/0/1725/AdId=2649607;BnId=1;ct=818113100;st=506;adcid=1;itime=603056618;reqtype=25]]>
+           </URL>
+        </Impression>
+     </InLine>
+  </Ad>
+</VideoAdServingTemplate>

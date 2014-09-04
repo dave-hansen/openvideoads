@@ -1,0 +1,9 @@
+<rss version="2.0" xmlns:jwplayer="http://developer.longtailvideo.com/">
+  <channel>
+    <item>
+      <title>My first video</title>
+      <jwplayer:file>http://content.bitsontherun.com/videos/rO8PIVrl-393434.mp4</jwplayer:file>
+      <jwplayer:hd.file>http://content.bitsontherun.com/videos/rO8PIVrl-393434.mp4</jwplayer:hd.file>
+    </item>
+  </channel>
+</rss>

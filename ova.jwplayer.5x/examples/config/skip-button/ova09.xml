@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+       Close tracking event test - fires on SkipAd
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+              "skipAd": {
+                  "enabled": true
+              },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "../../../dist/templates/skip-ad/vast1.xml"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

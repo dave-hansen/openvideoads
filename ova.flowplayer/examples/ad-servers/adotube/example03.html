@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - VAST 2 VPAID Linear Ad</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 3 - VAST 2 VPAID Linear Ad</h2>
+<p class="example"></p>
+<br/>
+<div id="container" style="height:260px;">
+  <div id="player_row" style="height:260px;">
+     <div id="player_left" style="width:444px;height:252px;">
+        <a class="example" style="width:444px;height:252px;"></a>
+     </div>
+<!--     
+     <div id="player_right" style="height:250px;">
+        <div id="companion" style="width:300px;height:250px;">
+           COMPANION AD APPEARS HERE
+        </div>
+     </div>
+-->
+  </div>
+</div>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF, {
+    playlist: [
+        {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           duration: 20
+        }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+        	"url": OVA_OAS_URL,
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+
+            "player": {
+                "controls": {
+                    "vpaid": { "visible": true }
+                }
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+	            "companions": {
+	                "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },                
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff__amp__ad_type=pre-rolls__amp__platform_version=vast20as3__amp__vpaid=1__amp__rtb=0__amp__publisher=adotube.com__amp__title=[VIDEO_TITLE]__amp__tags=[VIDEO_TAGS]__amp__description=[VIDEO_DESCRIPTION]__amp__videoURL=[VIDEO_FILE_URL]"
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<!--
+                       "server": {
+                           "type": "Adotube",
+      	                   "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Preroll.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=2ChPxDe__amp__platform_version=as3__amp__integration=__partner-id____amp__publisher=__domain____amp__title=__media-title____amp__tags=__media-keywords____amp__description=__media-description__",
+      	                   "customProperties": {
+      	                        "partner-id": "longtail",
+                                "media-title": "ova test",
+                                "media-keywords": "ova",
+                                "media-description": "video description"
+      	                   }
+                       }
+-->
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+    playlist: [
+        {
+           url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+           duration: 20
+        }
+    ],
+
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            "url": "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "player": {
+                "controls": {
+                    "vpaid": { "visible": true }
+                }
+            },
+            
+            "ads": {
+                "pauseOnClickThrough": true,
+	            "companions": {
+	                "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },                
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=
+                               http://www.adotube.com/php/services/player/OMLService.php?
+                               avpid=UDKjuff__amp__ad_type=pre-rolls__amp__platform_version=
+                               vast20as3__amp__vpaid=1__amp__rtb=0__amp__publisher=adotube.com
+                               __amp__title=[VIDEO_TITLE]__amp__tags=[VIDEO_TAGS]__amp__
+                               description=[VIDEO_DESCRIPTION]__amp__videoURL=[VIDEO_FILE_URL]"
+                    }
+                ]
+            }
+        }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

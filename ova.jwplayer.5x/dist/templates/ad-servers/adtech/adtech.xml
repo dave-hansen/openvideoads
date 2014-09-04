@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+<Ad id="pre-roll0-0">
+<InLine>
+<AdSystem>Adtech</AdSystem>
+<AdTitle>preroll</AdTitle>
+<Impression>
+	<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_START]]></URL>
+	<URL id="myadserver2"><![CDATA[http://de.at.atwola.com/adcount/3.0/515/2188758/0/1725/AdId=2597126;BnId=1;ct=2649753469;st=401;adcid=1;itime=661519475;reqtype=25;counttype=VID_START]]></URL>
+	<URL id="anotheradserver"></URL>
+</Impression>
+<TrackingEvents>
+
+<Tracking event="firstQuartile">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_25]]></URL>
+		<URL id="anotheradserver"></URL>
+</Tracking>
+<Tracking event="midpoint">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_MID]]></URL>
+		<URL id="anotheradserver"></URL>
+</Tracking>
+<Tracking event="thirdQuartile">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_75]]></URL>
+		<URL id="anotheradserver"></URL>
+
+</Tracking>
+<Tracking event="complete">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_END]]></URL>
+		<URL id="anotheradserver"></URL>
+</Tracking>
+<Tracking event="mute">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_MUTE]]></URL>
+</Tracking>
+<Tracking event="pause">
+		<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_PAUSE]]></URL>
+</Tracking>
+<Tracking event="replay">
+	<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_REPLAY]]></URL>
+
+</Tracking>
+<Tracking event="fullscreen">
+	<URL id="myadserver"><![CDATA[http://de.at.atwola.com/utrack|3.0|515|0|0|0|BeaconId=4080;rettype=img;subnid=1;Section=VID_FULLSCREEN]]></URL>
+</Tracking>
+</TrackingEvents>
+<Video><Duration>00:00:16</Duration>
+<AdID></AdID>
+<VideoClicks>
+<ClickThrough>
+<URL><![CDATA[http://de.at.atwola.com/adlink/515/2188758/0/1725/AdId=2597126;BnId=1;itime=661519475;key=key1+key2;nodecode=yes;link=http://www.schmeck-die-power.de]]></URL>
+</ClickThrough>
+<ClickTracking>
+<URL id="anotheradserver"></URL>
+<URL id="athirdadserver"><![CDATA[[click2]]]></URL>
+</ClickTracking>
+
+</VideoClicks>
+<MediaFiles>
+<MediaFile delivery="progressive" bitrate="400" width="400" height="300" type="video/x-flv"><URL><![CDATA[http://stream11.instream.com/de/flash/2009/mllr/mul_coffee_F3_720x480_preroll_090807_v1_sk_400x300.flv]]></URL></MediaFile>
+<MediaFile delivery="progressive" bitrate="200" width="400" height="300" type="video/x-flv"><URL><![CDATA[http://stream11.instream.com/de/flash/2009/mllr/mul_coffee_F3_720x480_preroll_090807_v1_sk_400x300.flv]]></URL></MediaFile>
+<MediaFile delivery="progressive" bitrate="75" width="320" height="240" type="video/x-flv"><URL><![CDATA[http://stream11.instream.com/de/flash/2009/mllr/mul_coffee_F3_720x480_preroll_090807_v1_sk_320x240.flv]]></URL></MediaFile>
+</MediaFiles>
+</Video>
+<CompanionAds>
+
+<Companion id="vast_companion_728x90_js" width="728" height="90" resourceType="script" creativeType="any"><URL><![CDATA[http://de.at.atwola.com/addyn/3.0/515.1/2138396/0/225/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475]]></URL></Companion>
+<Companion id="vast_companion_300x250_js" width="300" height="250" resourceType="script" creativeType="any"><URL><![CDATA[http://de.at.atwola.com/addyn/3.0/515.1/2138396/0/170/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475]]></URL></Companion>
+
+<Companion id="vast_companion_160x600_js" width="160" height="600" resourceType="script" creativeType="any"><URL><![CDATA[http://de.at.atwola.com/addyn/3.0/515.1/2138396/0/154/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475]]></URL></Companion>
+
+<Companion id="vast_companion_728x90_iframe" width="728" height="90" resourceType="HTML"><Code><![CDATA[ <IFRAME WIDTH="728" HEIGHT="90" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://de.at.atwola.com/adiframe/3.0/515.1/2193111/0/225/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475"><noscript><a href="http://de.at.atwola.com/adlink/515/2188758/0/1725/AdId=2597126;BnId=1;itime=661519475;key=key1+key2;nodecode=yes;link=http://de.at.atwola.com/adlink/3.0/515.1/2193111/0/225/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" target="_blank"><img src="http://de.at.atwola.com/adserv/3.0/515.1/2193111/0/225/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" border="0" width="728" height="90"></a></noscript></IFRAME>]]></Code></Companion>
+<Companion id="vast_companion_300x250_iframe" width="300" height="250" resourceType="HTML"><Code><![CDATA[ <IFRAME WIDTH="300" HEIGHT="250" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://de.at.atwola.com/adiframe/3.0/515.1/2193111/0/170/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475"><noscript><a href="http://de.at.atwola.com/adlink/515/2188758/0/1725/AdId=2597126;BnId=1;itime=661519475;key=key1+key2;nodecode=yes;link=http://de.at.atwola.com/adlink/3.0/515.1/2193111/0/170/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" target="_blank"><img src="http://de.at.atwola.com/adserv/3.0/515.1/2193111/0/170/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" border="0" width="300" height="250"></a></noscript></IFRAME>]]></Code></Companion>
+
+<Companion id="vast_companion_160x600_iframe" width="160" height="600" resourceType="HTML"><Code><![CDATA[ <IFRAME WIDTH="160" HEIGHT="600" SCROLLING="No" FRAMEBORDER="0" MARGINHEIGHT="0" MARGINWIDTH="0" SRC="http://de.at.atwola.com/adiframe/3.0/515.1/2193111/0/154/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475"><noscript><a href="http://de.at.atwola.com/adlink/515/2188758/0/1725/AdId=2597126;BnId=1;itime=661519475;key=key1+key2;nodecode=yes;link=http://de.at.atwola.com/adlink/3.0/515.1/2193111/0/154/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" target="_blank"><img src="http://de.at.atwola.com/adserv/3.0/515.1/2193111/0/154/ADTECH;loc=100;target=_blank;adid=2596908;bnid=-1;misc=661519475" border="0" width="160" height="600"></a></noscript></IFRAME>]]></Code></Companion>
+</CompanionAds>
+</InLine>
+</Ad>
+</VideoAdServingTemplate>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - MRSS playlist, VPAID pre-rolls, linear post-rolls, no delay</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 3 - MRSS playlist, VPAID pre-rolls, linear post-rolls, no delay</h2>
+<p class="example"></p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_3,        
+
+       width: 650,
+       height: 240,
+
+       'playlistfile': 'http://content.bitsontherun.com/jwp/482jsTAr.xml',
+       'playlist.position': 'right',
+       'playlist.size': 250,
+
+       'controlbar.position':'bottom',
+
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": {
+               "allowPlaylistControl": true,
+             
+               "ads": {
+                   "schedule": [
+                       {
+                           "position": "pre-roll",
+                           "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+                       },
+                       {
+                           "zone": "5",
+                           "position": "post-roll",
+                           "server": {
+                               "type": "OpenX",
+                               "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                           }                       
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           } 
+       }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;jwplayer("container").setup({
+       flashplayer: "<script>document.write(OVA_PLAYER_3)</script>", 
+
+       width: 650,
+       height: 240,
+
+       'playlistfile': 'http://content.bitsontherun.com/jwp/482jsTAr.xml',
+       'playlist.position': 'right',
+       'playlist.size': 250,
+
+       'controlbar.position':'bottom',
+
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": { 
+               "allowPlaylistControl": true,
+             
+               "ads": {
+                   "schedule": [
+                       {
+                           "position": "pre-roll",
+                           "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+                       },
+                       {
+                           "zone": "5",
+                           "position": "post-roll",
+                           "server": {
+                               "type": "OpenX",
+                               "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                           }                       
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           }
+       }
+});
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

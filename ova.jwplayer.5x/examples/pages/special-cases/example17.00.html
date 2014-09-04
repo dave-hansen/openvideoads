@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 17 - Supporting VAST 3 millisecond durations - linear ad</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 17 - Supporting VAST 3 millisecond durations - linear ad</h2>
+<p class="example"></p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_2,        
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4",
+              duration: 10 
+          }
+       ],
+
+       width: 450,
+       height: 300,
+       
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+           		"tag": "../../../dist/templates/vast3/event-tracking/vast3-linear-stream.xml" 
+           }
+       }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;
+jwplayer("container").setup({
+       flashplayer: "<script>document.write(OVA_PLAYER_2)</script>", 
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4",
+              duration: 10 
+          }
+       ],
+
+       width: 650,
+       height: 240,
+
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+           		"tag": "../../../dist/templates/vast3/event-tracking/vast3-linear-stream.xml" 
+           }
+       }
+});
+}
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

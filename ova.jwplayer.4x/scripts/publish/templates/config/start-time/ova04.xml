@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Example 4 - A post-roll on a show stream with a start time but no duration
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+              		{
+              			"file":"OVA_PSEUDO_SHOW_STREAM_1",
+              			"startTime": "00:00:15"
+              		}
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+              "schedule": [
+                  {
+                    "zone": "5",
+                      "position": "post-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

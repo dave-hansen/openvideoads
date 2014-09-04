@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 7 - A mid-roll on a flashvar defined stream with a duration</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='start-time/ova07.xml';</script>
+<h2>Example 7 - A mid-roll on a flashvar defined stream with a duration</h2>
+<p class="example">
+A mid-roll will play 10 seconds into the show stream.
+</p>
+<p class="example">
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org:81/shows/the-black-hole.mp4&duration=30&provider=lighttpd"));</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org:81/shows/the-black-hole.mp4&duration=30&provider=lighttpd")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 7 - A mid-roll on a flashvar defined stream with a duration
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+             "playOnce": false,
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "mid-roll",
+                   "startTime": "00:00:10"
+                }
+             ]
+          }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

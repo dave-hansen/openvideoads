@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+       Example 4 - An example SWF pre-roll
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OASIS",
+                      "apiAddress": "http://ahs2.adhostingsolutions.com/oasisi-i.php",
+                      "customProperties": {
+                           "k": "flash"
+                      }
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "1566",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

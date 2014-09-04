@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+  <Ad id="">
+     <InLine>
+        <AdSystem>Adtech</AdSystem>
+        <AdTitle />
+        <Description />
+        <Survey>
+           <URL />
+        </Survey>
+		<Error><URL><![CDATA[http://localhost/vast1-empty-ad-error-1?error=[ERRORCODE]]]></URL></Error>
+        <Impression>
+           <URL id="myadsever">
+              <![CDATA[http://localhost/empty-impression]]>
+           </URL>
+        </Impression>
+     </InLine>
+  </Ad>
+</VideoAdServingTemplate>

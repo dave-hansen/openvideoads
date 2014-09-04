@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 7 - Supporting dynamic player resizing</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 7 - Supporting dynamic player resizing</h2>
+<p class="example"></p>
+<div><button type="button" onClick="resizePlayer();">Change Player Size</div>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+var newWidth = 600;
+var newHeight = 440;
+
+function resizePlayer() {
+	console.log("Resizing the player to " + newWidth + "x" + newHeight);
+
+	var tmp = document.getElementById("container");
+    if(tmp) { 
+       var unitStr = 'px';
+       tmp.style.width = parseInt(newWidth)+unitStr; 
+       tmp.style.height = parseInt(newHeight)+unitStr; 
+
+	   if(newWidth == 600) {
+          newWidth = 300;
+          newHeight = 220;
+       }
+       else {
+          newWidth = 600;
+          newHeight = 440;
+       }
+    }    
+}
+
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_3,        
+
+       playlist: [
+	       { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 10 }
+       ],
+
+       width: 300,
+       height: 220,
+
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": {
+               "ads": {
+                   "servers": [
+                       {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                       }
+                   ],
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           } 
+       }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;button type="button" onClick="resizePlayer();"&gt;Change Player Size&lt;/div&gt;
+...
+&lt;script type="text/javascript"&gt;
+function resizePlayer() {
+	console.log("Resizing the player to " + newWidth + "x" + newHeight);
+
+	var tmp = document.getElementById("container");
+    if(tmp) { 
+       var unitStr = 'px';
+       tmp.style.width = parseInt(newWidth)+unitStr; 
+       tmp.style.height = parseInt(newHeight)+unitStr; 
+
+	   if(newWidth == 600) {
+          newWidth = 300;
+          newHeight = 220;
+       }
+       else {
+          newWidth = 600;
+          newHeight = 440;
+       }
+    }    
+}
+
+jwplayer("container").setup({
+       flashplayer: "<script>document.write(OVA_PLAYER_3)</script>", 
+
+       playlist: [
+	       { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 10 }
+       ],
+
+       width: 300,
+       height: 220,
+
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": { 
+               "ads": {
+                   "servers": [
+                       {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                       }
+                   ],
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           }
+       }
+});
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+       Example 2 - Process Show Stream Events with Javascript API
+   </ova.title>
+   <ova.json>
+       {
+			"canFireAPICalls": true,
+
+            "shows": {
+                 "fireTrackingEvents": true,
+                 "streams": [
+                      {
+                          "file":"http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                          "duration":"00:00:30"
+                      }
+                 ]
+            },
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "post-roll"
+                      }
+                 ]
+            },
+
+            "debug": {
+                 "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

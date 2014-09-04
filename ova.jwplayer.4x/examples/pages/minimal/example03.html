@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - A pre-roll ad only using ova.tag flashvar</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/swfobject.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='minimal/ova02.xml';</script>
+<h2>Example 3 - A pre-roll ad only using ova.tag flashvar</h2>
+<div id="player">This will be replaced by the SWF.</div>
+<script type="text/javascript">
+   var flashvars = {
+      'plugins':    	OVA_PLUGIN_2,
+      'playlist':   	'none',
+      'repeat': 	    'list',
+      'autostart':	    'false',
+      'dock':		    'true',
+      'frontcolor':	    'ffffff',
+      'title':		    'Big%20Buck%20Bunny%20Trailer',
+      'image':		    'http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg',
+      'stretching':	    'uniform',
+      'ping.script':	'http://content.bitsontherun.com/pings/',
+      'lightcolor':	    '009999',
+      'controlbar':	    'over',
+      'displayclick':	'play',
+      'backcolor':	    '000000',
+      'playlistsize':	'200',
+      'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',  
+      'file':		    'http://content.bitsontherun.com/jwp/nPripu9l.xml',
+      'ova.tag':        'http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=__random-number____amp__block=1__amp__format=vast__amp__charset=UTF-8'
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   };
+
+   var attributes = {
+      'id':             'player1',
+      'name':           'player1'
+   };
+
+   swfobject.embedSWF(OVA_PLAYER_2, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+   var flashvars = {
+      'plugins':    	OVA_PLUGIN_2,
+      'playlist':       'none',
+      'repeat':         'list',
+      'autostart':      'false',
+      'dock':	        'true',
+      'frontcolor':     'ffffff',
+      'title':	        'Big%20Buck%20Bunny%20Trailer',
+      'image':	        'http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg',
+      'stretching':     'uniform',
+      'ping.script':    'http://content.bitsontherun.com/pings/',
+      'lightcolor':     '009999',
+      'controlbar':     'over',
+      'displayclick':   'play',
+      'backcolor':      '000000',
+      'playlistsize':   '200',
+      'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',  
+      'file':           'http://content.bitsontherun.com/jwp/nPripu9l.xml',
+      'ova.tag':        'http://openx.openvideoads.org/openx/www/delivery/fc.php?
+                         script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__
+                         zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=__random-number__
+                         __amp__block=1__amp__format=vast__amp__charset=UTF-8'
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   };
+
+   var attributes = {
+      'id':             'player1',
+      'name':           'player1'
+   };
+
+   swfobject.embedSWF(OVA_PLAYER_2, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+</code>
+</pre>
+</div>
+</body>
+</html>

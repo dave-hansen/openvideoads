@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "playOnce": true,
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                      "allowAdRepetition": true
+                    }
+              ],
+
+              "schedule": [
+                   {
+                      "zone": "5",
+                      "position": "pre-roll"
+                   },
+                   {
+                      "zone": "5",
+                      "position": "mid-roll",
+                      "startTime": "00:00:10"
+                   },
+                   {
+                      "zone": "5",
+                      "position": "post-roll"
+                   }
+              ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

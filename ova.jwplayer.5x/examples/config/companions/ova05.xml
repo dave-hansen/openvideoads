@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+	   Example 5 - Selective Display of Companion Types
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api, display_events"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "companions": {
+                    "regions": [
+	                  { "id":"companion-300x250-image", "width": 300, "height": 250, "index": 1 }
+                    ]
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=1331__amp__LR_CAMPAIGN_ID=229__amp__LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

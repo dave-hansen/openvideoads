@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VAST version="2.0">
+    <Ad id="468365">
+        <InLine>
+            <AdSystem>
+                MediaMind
+            </AdSystem>
+            <AdTitle>
+                In Stream Scope Complete 22.6.10
+            </AdTitle>
+            <Description>
+
+                In Stream Scope Complete 22.6.10
+            </Description>
+            <Survey />
+            <Error />
+            <Creatives>
+                <Creative id="863191" sequence="1" AdID="863191">
+                    <Linear>
+                        <MediaFiles>
+                            <MediaFile
+                            id = "1322504"
+                            delivery = ""
+                            type = "video/x-mp4"
+                            bitrate = "494"
+                            width = "300"
+                            height = "252"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/baileys_5sec.mp4]]></MediaFile>
+
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+                <Creative id="863191" sequence="1" AdID="863191">
+                    <NonLinearAds>
+                        <NonLinear id="1576739" width="600" height="200">
+                            <StaticResource creativeType="application/x-shockwave-flash">
+                                <![CDATA[http://ds.serving-sys-dev4.com/BurstingCachedScripts/res/ebAdLoader.swf?adData=http://ds.serving-sys-dev4.com/BurstingRes/Site-14718/Type-24/863191_1bdf99ab-28df-49ab-9df5-0f492b59b68d_AdData.xml&ResourceID=1576739&isPreview=false]]>
+                            </StaticResource>
+
+                        </NonLinear>
+                    </NonLinearAds>
+                </Creative>
+                <Creative id="863191" sequence="1" AdID="863191">
+                    <CompanionAds>
+                        <Companion
+                        id = "1544108"
+                        width = "128"
+                        height = "95">
+                        <StaticResource creativeType = "image/jpg"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/house.jpg]]></StaticResource>
+                    </Companion>
+                    </CompanionAds>
+
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>

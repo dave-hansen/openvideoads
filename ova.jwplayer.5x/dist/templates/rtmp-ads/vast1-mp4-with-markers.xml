@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="pre-roll0-0" >
+        <InLine>
+            <AdSystem>OpenX</AdSystem>
+            <AdTitle><![CDATA[RTMP - demographic specific ad - 1]]></AdTitle>
+            <Description><![CDATA[Inline Video Ad]]></Description>
+            <Impression>
+               <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/lg.php?bannerid=16&campaignid=2&zoneid=1&loc=1&cb=fe0083f395]]></URL>
+            </Impression>
+               <Video>
+                    <Duration>00:00:30</Duration>
+                    <AdID><![CDATA[16]]></AdID>
+
+                    <VideoClicks>
+                        <ClickThrough>
+                            <URL id="destination"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/ck.php?oaparams=2__bannerid=16__zoneid=1__cb=fe0083f395__oadest=http%3A%2F%2Fwww.countrylifebutter.co.uk]]></URL>
+                        </ClickThrough>
+                    </VideoClicks>
+                    <MediaFiles>
+                        <MediaFile delivery="streaming" bitrate="400" width="640" height="480" type="video/x-mp4">
+                            <URL><![CDATA[rtmp://ne7c0nwbit.rtmphost.com/videoplayer/mp4:ads/30secs/country_life_butter.mp4]]></URL>
+                        </MediaFile>
+                    </MediaFiles>
+                </Video>
+
+                <TrackingEvents>
+                    <Tracking event="start">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=start]]></URL>
+                    </Tracking>
+                    <Tracking event="midpoint">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=midpoint]]></URL>
+                    </Tracking>
+
+                    <Tracking event="firstQuartile">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=firstquartile]]></URL>
+                    </Tracking>
+                    <Tracking event="thirdQuartile">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=thirdquartile]]></URL>
+                    </Tracking>
+                    <Tracking event="complete">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=complete]]></URL>
+                    </Tracking>
+
+                    <Tracking event="mute">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=mute]]></URL>
+                    </Tracking>
+                    <Tracking event="pause">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=pause]]></URL>
+                    </Tracking>
+                    <Tracking event="replay">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=replay]]></URL>
+                    </Tracking>
+
+                    <Tracking event="fullscreen">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=fullscreen]]></URL>
+                    </Tracking>
+                    <Tracking event="stop">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=stop]]></URL>
+                    </Tracking>
+                    <Tracking event="unmute">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=unmute]]></URL>
+                    </Tracking>
+                   <Tracking event="resume">
+                        <URL id="primaryAdServer"><![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=16&zone_id=1&source=&vast_event=resume]]></URL>
+                    </Tracking>
+                </TrackingEvents>
+           </InLine>
+    </Ad>
+
+</VideoAdServingTemplate>

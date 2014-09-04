@@ -1,0 +1,46 @@
+<config>
+   <ova.title>
+       Example 2 (HTTP) - An overlay ad
+   </ova.title>
+   <ova.json>
+       {
+            "regions": {
+              "declarations": [
+                 {
+                    "id": "bottom",
+                    "verticalAlign": "bottom",
+                    "horizontalAlign": "center",
+                    "backgroundColor": "#000000",
+                    "padding": "-10 -10 -10 -10",
+                    "width": 450,
+                    "height": 50
+                 }
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "33",
+                      "position": "bottom",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:05",
+                      "duration": "15"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

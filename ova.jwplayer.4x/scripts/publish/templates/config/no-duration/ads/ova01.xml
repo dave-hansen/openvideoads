@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+		A duration-less stream with a pre-roll that does not have a VAST duration
+   </ova.title>
+   <ova.json>
+       {
+			"debug": {
+			    "debugger": "firebug",
+			    "levels": "OVA_DEBUG"
+			},
+
+			"ads": {
+			    "pauseOnClickThrough": true,
+			    "servers": [
+			        {
+			          "type": "Direct",
+			          "apiAddress": "OVA_ZERO_DURATION_VAST"
+			        }
+			    ],
+			    "schedule": [
+			        {
+			          "zone": "5",
+			          "position": "pre-roll"
+			        }
+			    ]
+			}
+       }
+   </ova.json>
+</config>

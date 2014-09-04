@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+    <Ad id="127">
+        <InLine>
+            <AdSystem version="1.0">OpenX Enterprise</AdSystem>
+            <AdTitle>NonLinear Ad 12</AdTitle>
+            <Impression>http://localhost/non-linear/iframe/impression1</Impression>
+            <Impression>http://localhost/non-linear/iframe/impression2</Impression>
+            <Creatives>
+                <Creative id="12" sequence="">
+                    <NonLinearAds>
+                        <TrackingEvents>
+                            <Tracking event="creativeView">http://localhost/non-linear/iframe/creativeView</Tracking>
+                            <Tracking event="fullscreen">http://localhost/non-linear/iframe/fullscreen</Tracking>
+                            <Tracking event="expand">http://localhost/non-linear/iframe/expand</Tracking>
+                            <Tracking event="collapse">http://localhost/non-linear/iframe/collapse</Tracking>
+                            <Tracking event="acceptInvitation">http://localhost/non-linear/iframe/acceptInvitation</Tracking>
+                            <Tracking event="close">http://localhost/non-linear/iframe/close</Tracking>
+                        </TrackingEvents>
+                        <NonLinear id="12" width="728" height="90" minSuggestedDuration="00:00:20">
+                            <StaticResource creativeType="image/gif">
+                            	http://static.openvideoads.org/ads/overlays/yu-gi-oh-728x90.gif
+                        	</StaticResource>
+                        	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+                    	</NonLinear>
+               	  </NonLinearAds>
+            	</Creative>
+        </Creatives>
+    </InLine>
+</Ad>
+</VAST>

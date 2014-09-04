@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+       1 stream with a pre, mid and post-roll
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                      "allowAdRepetition": true
+                   }
+                ],
+	            "companions": {
+	               "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                   {
+                      "zone": "17",
+                      "position": "pre-roll",
+                      "playOnce": true
+                   },
+                   {
+                      "zone": "17",
+                      "position": "mid-roll",
+                      "startTime": "00:00:10",
+                      "playOnce": true
+                   },
+                   {
+                      "zone": "17",
+                      "position": "post-roll",
+                      "playOnce": true
+                   }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

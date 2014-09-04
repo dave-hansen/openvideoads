@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - Extracting the raw VAST response from OVA</title>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1 - Extracting the raw VAST response from OVA</h2>
+<p class="example">
+This example illustrates how to use the Javascript callback API to obtain the raw
+VAST response data. The data can be obtained via the onTemplateLoadSuccess(templateData)
+callback API or the getVASTResponseAsString() OVA Javascript API.
+</p>
+<a class="example"></a>
+<script type="text/javascript">
+function onTemplateLoadSuccess(templateData) {
+    htmlFriendlyXMLData = templateData.replace(/</g, "&lt;");
+    htmlFriendlyXMLData = htmlFriendlyXMLData.replace(/>/g, "&gt;");
+	$("#vast_response_callback").html(htmlFriendlyXMLData);
+}
+
+function fetchVASTResponse() {
+    debug("== START VAST RESPONSE OUTPUT ===============================================");
+	debug($f().getPlugin("ova").getVASTResponseAsString());
+    debug("== END VAST RESPONSE OUTPUT =================================================");
+}
+
+flowplayer("a.example", FP_SWF_2, {
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+        	"url": OVA_OAS_URL_2,
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<!-- hidden div used to hold the VAST response when the onVASTLoadSuccess() function is called by the OAS --> 
+<div style="display:none;overflow:auto;width:800px;height:400px;background-color:#ffffff;border:2px solid #000;margin-top:10px;" id="vast_response_callback">
+ 
+VAST RESPONSE GOES IN HERE
+ 
+</div>
+<br/>
+<button type="button" onClick="javascript:fetchVASTResponse()">Call OVA now to get VAST response data - (Firebug Console Output)</button>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>"
+                   }
+                ],
+                "schedule": [
+                    {
+                       "zone": "5",
+                       "position": "pre-roll"
+                    }
+                 ]
+             }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

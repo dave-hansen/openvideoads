@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+       A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "restore": false,
+                    "regions": [
+                        { "id":"bottom-companion", "width":"468", "height":"60" },
+                        { "id":"companion-300x250", "width":"300", "height":"250" }
+                    ]
+                },
+                "servers": [
+                    {
+                      "type": "OASIS",
+                      "apiAddress": "http://ahs2.adhostingsolutions.com/oasisi-i.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "1566",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

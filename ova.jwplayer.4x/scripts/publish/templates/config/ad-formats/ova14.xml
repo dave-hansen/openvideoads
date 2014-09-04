@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 14 - A Non-Scaled Pre-Roll Linear Interactive Ad
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "OVA_INTERACTIVE_PREROLL_2"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

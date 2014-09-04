@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="overlay-1">
+    <InLine>
+      <AdSystem>OVA Static Template</AdSystem>
+      <AdTitle>Simple Count Down Example</AdTitle>
+      <Impression>
+        <URL id="test">http://localhost/log?impression</URL>
+      </Impression>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+		      <TrackingEvents>
+		        <Tracking event="creativeView">http://localhost/log?creativeView</Tracking>
+		        <Tracking event="start">http://localhost/log?start</Tracking>
+		        <Tracking event="firstQuartile">http://localhost/log?firstQuartile</Tracking>
+		        <Tracking event="midpoint">http://localhost/log?midpoint</Tracking>
+		        <Tracking event="thirdQuartile">http://localhost/log?thirdQuartile</Tracking>
+		        <Tracking event="complete">http://localhost/log?complete</Tracking>
+		        <Tracking event="pause">http://localhost/log?pause</Tracking>
+		        <Tracking event="resume">http://localhost/log?resume</Tracking>
+		        <Tracking event="rewind">http://localhost/log?rewind</Tracking>
+		        <Tracking event="mute">http://localhost/log?mute</Tracking>
+		        <Tracking event="unmute">http://localhost/log?unmute</Tracking>
+		        <Tracking event="fullscreen">http://localhost/log?fullscreen</Tracking>
+		        <Tracking event="expand">http://localhost/log?expand</Tracking>
+		        <Tracking event="collapse">http://localhost/log?collapse</Tracking>
+		        <Tracking event="acceptInvitation">http://localhost/log?acceptInvitation</Tracking>
+		        <Tracking event="close">http://localhost/log?close</Tracking>
+		      </TrackingEvents>
+	          <NonLinear apiFramework="VPAID" id="eyewonder-linear">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://cdn1.eyewonder.com/200125/instream/documentation_test_tags/vpaid/as3/VPAID_2_0.swf?adLoaderWidth=320&adLoaderHeight=240&cp=http://cdn.eyewonder.com/100125/754851/1262098/&loaderCreative=Linear_Interactive_Holder_as3.swf%3Fcp%3Dhttp://cdn.eyewonder.com/100125/754851/1262098/%26ewbase%3Dhttp://cdn.eyewonder.com/100125/754851/1262098/%26adLoaderWidth%3D300%26adLoaderHeight%3D225%26hAlign%3Dcenter%26vAlign%3Dmiddle%26keywordNames%3Dinstream_VAST_2_0_TEST%26keywordIDs%3D[103]%26ewbust%3D[timestamp]&adInstreamType=fixedroll&adTagAlignHorizontal=center&adTagAlignVertical=middle&adMode=prog&qaReportUUID=common]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="fails-scanscout-example">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://static.scanscout.com/ads/vpaidad3.swf?adData=http%3A//app.scanscout.com/ssframework/adStreamJSController.xml%3Fa%3Dgetadscheduleforcontent%26PI%3D17001%26scheduleVersion%3Dnull%26HI%3D17001|overlay|-7624378829885428179%26AI%3D0]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="eyewonder-linear-http://www.kickdeveloper.com/api/index.php/OSMF_Video_Player">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://cdn1.eyewonder.com/200125/instream/_modules/loaders/Custom/VPAID_as3/loader.swf?adLoaderWidth=300&adLoaderHeight=225&cp=http://cdn.eyewonder.com/100125/754851/1242700/&loaderCreative=Linear_Holder_as3.swf%3Fcp%3Dhttp%3A//cdn.eyewonder.com/100125/754851/1242700/%26amp%3Bewbase%3Dhttp%3A//cdn.eyewonder.com/100125/754851/1242700/%26amp%3BadLoaderWidth%3D300%26amp%3BadLoaderHeight%3D225%26amp%3BhAlign%3Dcenter%26amp%3BvAlign%3Dmiddle%26amp%3BkeywordNames%3DenableFriendlyIframe%2Cinflow_iframe_div%26amp%3BkeywordIDs%3D%5B48%5D%2C%5B52%5D%26amp%3Bewbust%3D%5Btimestamp%5D&adInstreamType=fixedroll&adTagAlignHorizontal=center&adTagAlignVertical=middle&adMode=prog&qaReportUUID=common]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="eyewonder-non-linear-expand-to-play-video-http://www.kickdeveloper.com/api/index.php/OSMF_Video_Player">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://cdn1.eyewonder.com/200125/instream/_modules/loaders/Custom/VPAID_as3/loader.swf?adLoaderWidth=320&adLoaderHeight=240&cp=http://cdn1.eyewonder.com/200125/752457/1224933/&loaderCreative=Ticker_Holder_as3.swf%3Fcp%3Dhttp%3A//cdn1.eyewonder.com/200125/752457/1224933/%26ewbase%3Dhttp%3A//cdn1.eyewonder.com/200125/752457/1224933/%26adLoaderWidth%3D320%26adLoaderHeight%3D240%26hAlign%3Dcenter%26vAlign%3Dbottom%26keywordNames%3DenableFriendlyIframe%2Cinflow_iframe_div%26keywordIDs%3D[48]%2C[52]%26ewbust%3D[timestamp]&adInstreamType=ticker&adTagAlignHorizontal=center&adTagAlignVertical=bottom&adMode=prog&qaReportUUID=common]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="works-ova-static-brightcove-1.1.0-example">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://static.openvideoads.org/ads/vpaid/brightcove-example.swf]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="works-ova-countdown-ad">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://localhost/ova/ova.vpaid.ads/dist/vpaid1-countdown-example.swf]]>
+	              </StaticResource>
+	          </NonLinear>
+	          <NonLinear apiFramework="VPAID" id="failed-no-linear-attribute-exception-mov.de">
+	              <StaticResource creativeType="application/x-shockwave-flash">
+	                 <![CDATA[http://dev.v.movad.de/vpaid/linear_nodebug.swf?c=nodebug_pagepeel]]>
+	              </StaticResource>
+	          </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
+

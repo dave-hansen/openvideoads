@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+       Example 16 - Delivering Linear Interactive Ad Without Scaling or Aspect Declared
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "../../../dist/templates/interactive/interactive-preroll4.xml"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+       A VAST 1.0 pre-roll ad only with extra parameters in the ad request
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "customProperties": {
+                          a: "aa",
+                          b: "bb"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

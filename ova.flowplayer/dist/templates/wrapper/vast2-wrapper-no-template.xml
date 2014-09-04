@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="AdForm">
+    <Wrapper>
+      <AdSystem>AdForm</AdSystem>
+      <VASTAdTagURI><![CDATA[http://track.adform.net/serving/videoad/?bn=453599&ord=1298928458467]]></VASTAdTagURI>
+      <Impression>http://localhost/vast2-wrapper-impression</Impression>
+    </Wrapper>
+  </Ad>
+</VAST>

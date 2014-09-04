@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+       Example 11 - Adding parameters to the default Companion SWF embed/object tags
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+            "companions": [
+                { "id":"companion", "width":"300", "height":"250", "index": 1 }
+            ],
+              "additionalParamsForSWFCompanions": [
+                  { "name": "wmode", "value": "transparent" }
+              ],
+
+              "schedule": [
+               {
+                  "position": "pre-roll",
+                  "tag": "../../../dist/templates/companions/companions-vast1.xml"
+               }
+              ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

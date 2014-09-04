@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+       Example 5 - Impression serving on an empty Ad VAST response
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" },
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" }
+                ]
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "forceImpressionServing": true,
+                       "apiAddress": "../../../dist/templates/error-responses/vast1.0/empty-ad-vast-response.xml"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                       "zone": "5",
+                       "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

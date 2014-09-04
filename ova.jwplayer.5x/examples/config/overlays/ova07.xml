@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+        Example 7 - Auto region sizing
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "zone": "28",
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

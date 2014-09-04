@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Using OVA with SWFObject with "ova.xxx" Longhand Flashvars</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/swfobject.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Using OVA with SWFObject with "ova.xxx" Longhand Flashvars</h2>
+<p class="example">
+</p>
+<div id="player">This will be replaced by the SWF.</div>
+<script type="text/javascript">
+   var flashvars = {
+      'plugins':    					OVA_PLUGIN_2,
+      'file':							'http://streaming.openvideoads.org:81/shows/the-black-hole.mp4',
+      'ova.debug.levels':      			'fatal, config, vast_template',
+      'ova.ads.schedule[0].position':	'pre-roll',
+      'ova.ads.schedule[0].tag':		'http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll:0.0-0%3D5&nz=1&source=&r=R0.700881268363446&block=1&format=vast&charset=UTF-8'
+   }
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   }
+
+   var attributes = {
+      'id':                 'player1',
+      'name':               'player1'
+   }
+
+   swfobject.embedSWF(OVA_PLAYER_2, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;
+   var flashvars = {
+      'plugins':    	                '<script type='text/javascript'>document.write(OVA_PLUGIN_2)</script>',
+      'file':                           'http://streaming.openvideoads.org:81/shows/the-black-hole.mp4',
+      'ova.debug.levels':      		    'fatal, config, vast_template',
+      'ova.ads.schedule[0].position':	'pre-roll',
+      'ova.ads.schedule[0].tag':        'http://openx.openvideoads.org/openx...&charset=UTF-8'
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   };
+
+   var attributes = {
+      'id':                 'player1',
+      'name':               'player1'
+   };
+
+   swfobject.embedSWF("<script type='text/javascript'>document.write(OVA_PLAYER_2)</script>", 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>
+
+<!--
+netstreambasepath=http%3A%2F%2Flocalhost%2Fova%2Fova.jwplayer.5x%2Fexamples%2Fpages%2Fsetup%2Fjw-embedder.html&id=container&
+plugins=http%3A%2F%2Flocalhost%2Fova%2Fova.jwplayer.5x%2Fdist%2Fswf%2Fova-jw.swf&playlist=%5B%5BJSON%5D%5D%5B%7B%22file%22%3A%22http%3A%2F%2Fstreaming.openvideoads.org%3A81%2Fshows%2Fthe-black-hole.mp4%22%2C%22duration%22%3A10%7D%5D&
+ova.ads=%5B%5BJSON%5D%5D%7B%22schedule%22%3A%5B%7B%22position%22%3A%22pre-roll%22%2C%22tag%22%3A%22http%3A%2F%2Fopenx.openvideoads.org%2Fopenx%2Fwww%2Fdelivery%2Ffc.php%3Fscript%3DbannerTypeHtml%3AvastInlineBannerTypeHtml%3AvastInlineHtml%26zones%3Dpre-roll%3A0.0-0%253D5%26nz%3D1%26source%3D%26r%3DR0.700881268363446%26block%3D1%26format%3Dvast%26charset%3DUTF-8%22%7D%5D%7D
+&ova.debug=%5B%5BJSON%5D%5D%7B%22levels%22%3A%22fatal%2C%20config%2C%20vast_template%2C%20vpaid%2C%20http_calls%2C%20playlist%2C%20api%2C%20segment_formation%2C%20analytics%2C%20display_events%2C%20region_formation%22%7D&ova.pluginmode=FLASH&controlbar.position=bottom
+-->

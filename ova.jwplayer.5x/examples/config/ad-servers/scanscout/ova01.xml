@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+       Example 2 - VAST 1 VPAID Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                 	   { "id": "companion-1", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "scanscout",
+                           "maxDuration": 60,
+                           "mediaUrl": "__stream-url__",
+                           "pageStreamUrl": "__page-url__",
+                           "pageUrl": "__page-url__",
+                           "playerWidth": 400,
+                           "playerHeight": 300,
+                           "partnerId": "17001",
+                           "mediaId": "id-not-declared",
+                           "mediaTitle": "title-not-declared",
+                           "mediaDescription": "description-not-declared",
+                           "mediaCategories": "categories-not-declared",
+                           "mediaKeywords": "keywords-not-declared",
+                           "customProperties": {
+                              "jsa": "Y",
+                              "no-log": "1"
+                           }
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

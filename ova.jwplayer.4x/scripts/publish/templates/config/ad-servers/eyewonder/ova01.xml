@@ -1,0 +1,22 @@
+<config>
+   <ova.title>
+       VAST 2 Linear VPAID (Pre-roll)
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_1_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

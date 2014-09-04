@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 01 - Process Ad Events with Javascript</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='javascript/ova01.xml';</script>
+<h2>Example 01 - Process Ad Events with Javascript</h2>
+<p class="example">
+This example illustrates the javascript callback API for Ad related events. Events are
+fired by the Open Ad Streamer when a linear ad starts, reaches the first quartile,
+midpoint, 3rd quartile and on completion. Events are also fired when non-linear ads
+are shown, hidden, companions shown and hidden, and the ad notice shown and hidden.
+Finally events are fired when an ad is clicked.
+</p>
+<p class="example">
+To start receiving these events, the "canFireAPICalls" config
+property must be set to "true". It is "true" by default.
+</p>
+<p class="example">
+In this example, a series of DIVs are displayed around the player. As each event fires,
+the corresponding DIV is turned green. If you have Firebug installed, bring up the console.
+Debug output is shown as each event fires so you can see the javascript callback event occur.
+</p>
+<script type="text/javascript">
+function onLinearAdStart(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad start");
+	console.log(ad);
+    document.getElementById('linear-ad-start').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFirstQuartileComplete(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad first quartile");
+	console.log(ad);
+    document.getElementById('linear-ad-first-quartile').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdMidPointComplete(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad midpoint");
+	console.log(ad);
+    document.getElementById('linear-ad-midpoint').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdThirdQuartileComplete(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad third quartile");
+	console.log(ad);
+    document.getElementById('linear-ad-third-quartile').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFinish(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad finish");
+	console.log(ad);
+    document.getElementById('linear-ad-complete').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdClick(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad click");
+	console.log(ad);
+    document.getElementById('linear-ad-clicked').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdSkipped(ad) {
+	console.log("OVA CALLBACK EVENT: linear ad skipped");
+	console.log(ad);
+    document.getElementById('linear-ad-skipped').style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdStop(ad) {
+	console.log("OVA CALLBACK EVENT: Ad stop");
+	console.log(ad);
+    document.getElementById("ad-stop").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdPause(ad) {
+	console.log("OVA CALLBACK EVENT: Ad pause");
+	console.log(ad);
+    document.getElementById("ad-pause").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdResume(ad) {
+	console.log("OVA CALLBACK EVENT: Ad resume");
+	console.log(ad);
+    document.getElementById("ad-resume").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdMute(ad) {
+	console.log("OVA CALLBACK EVENT: Ad mute");
+	console.log(ad);
+    document.getElementById("ad-mute").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdUnmute(ad) {
+	console.log("OVA CALLBACK EVENT: Ad unmute");
+	console.log(ad);
+    document.getElementById("ad-unmute").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFullscreen(ad) {
+	console.log("OVA CALLBACK EVENT: Ad fullscreen");
+	console.log(ad);
+    document.getElementById("ad-fullscreen").style.backgroundColor = "#00CC00";	
+}
+
+function onLinearAdFullscreenExit(ad) {
+	console.log("OVA CALLBACK EVENT: Ad fullscreen exit");
+	console.log(ad);
+    document.getElementById("ad-fullscreen-exit").style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdShow() {
+	console.log("OVA CALLBACK EVENT: non linear ad show");
+    document.getElementById('ad-nl-show').style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdClickThrough() {
+	console.log("OVA CALLBACK EVENT: non linear ad click");
+    document.getElementById('ad-nl-click').style.backgroundColor = "#00CC00";	
+}
+
+function onNonLinearAdHide() {
+	console.log("OVA CALLBACK EVENT: non linear ad hide");
+    document.getElementById('ad-nl-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onCompanionAdShow() {
+	console.log("OVA CALLBACK EVENT: companion ad show");
+    document.getElementById('companion-show').style.backgroundColor = "#00CC00";	
+}
+
+function onCompanionAdHide() {
+	console.log("OVA CALLBACK EVENT: companion ad hide");
+    document.getElementById('companion-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onAdNoticeShow() {
+	console.log("OVA CALLBACK EVENT: ad notice show");
+    document.getElementById('ad-notice-show').style.backgroundColor = "#00CC00";	
+}
+
+function onAdNoticeHide() {
+	console.log("OVA CALLBACK EVENT: ad notice hide");
+    document.getElementById('ad-notice-hide').style.backgroundColor = "#00CC00";	
+}
+
+function onRegionCloseClicked() {
+	console.log("OVA CALLBACK EVENT: region close clicked");
+    document.getElementById('region-close-click').style.backgroundColor = "#00CC00";	
+}
+
+function onRegionClicked() {
+	console.log("OVA CALLBACK EVENT: region clicked");
+    document.getElementById('region-click').style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdStart(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Start");
+	console.log(ad);
+    document.getElementById("vpaid-ad-start").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdComplete(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Complete");
+	console.log(ad);	
+    document.getElementById("vpaid-ad-complete").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdError(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Error");
+	console.log(ad);
+    document.getElementById("vpaid-ad-error").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdExpandedChange(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Expanded Change");
+	console.log(ad);
+    document.getElementById("vpaid-ad-expanded-change").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdLinearChange(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Linear Change");
+	console.log(ad);
+    document.getElementById("vpaid-ad-linear-change").style.backgroundColor = "#00CC00";	
+}
+
+function onVPAIDAdRemainingTimeChange(ad) {
+	console.log("OVA CALLBACK EVENT: VPAID Ad Remaining Time Change");
+	console.log(ad);
+    document.getElementById("vpaid-ad-remaining-time-change").style.backgroundColor = "#00CC00";	
+}
+</script>
+<div id="container">
+     <div id="player-left-500">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 614, 345, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+        <div id="event-container-614x160">
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-start">
+	               <br/>Linear Start
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-first-quartile">
+	               <br/>Linear 1st Quartile
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-midpoint">
+	               <br/>Linear Midpoint
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-third-quartile">
+	               <br/>Linear 3rd Quartile
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="linear-ad-complete">
+	               <br/>Linear Complete
+	            </div>
+	            <div class="event-container-148x68" id="linear-ad-clicked">
+	               <br/>Linear Clicked
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="ad-notice-show">
+	               <br/>Ad Notice Show
+	            </div>
+	            <div class="event-container-148x68" id="ad-notice-hide">
+	               <br/>Ad Notice Hide
+	            </div>
+            </div>        
+        </div>
+     </div>
+     <div id="player-right-500">
+        <div id="event-container-160x505">
+            <div class="event-container-160x68" id="ad-nl-show">
+               <br/>Non Linear Show
+            </div>
+            <div class="event-container-160x68" id="ad-nl-hide">
+               <br/>Non Linear Hide
+            </div>
+            <div class="event-container-160x68" id="ad-nl-click">
+               <br/>Non Linear Click
+            </div>
+            <div class="event-container-160x68" id="companion-show">
+               <br/>Companion Show
+            </div>
+            <div class="event-container-160x68" id="companion-hide">
+               <br/>Companion Hide
+            </div>
+            <div class="event-container-160x68" id="region-close-click">
+               <br/>Region Close Click
+            </div>
+            <div class="event-container-160x68" id="region-click">
+               <br/>Region Click
+            </div>
+            <div class="event-container-160x68" id="linear-ad-skipped">
+               <br/>Linear Ad Skipped
+            </div>
+        </div>
+     </div>
+</div>
+<div id="event-container-614x160">
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-stop">
+           <br/>Ad Stop
+        </div>
+        <div class="event-container-148x68" id="ad-pause">
+           <br/>Ad Pause
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-resume">
+           <br/>Ad Resume
+        </div>
+        <div class="event-container-148x68" id="ad-replay">
+           <br/>Ad Replay
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-mute">
+           <br/>Ad Mute
+        </div>
+        <div class="event-container-148x68" id="ad-unmute">
+           <br/>Ad Unmute
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="ad-fullscreen">
+           <br/>Ad Fullscreen Entry
+        </div>
+        <div class="event-container-148x68" id="ad-fullscreen-exit">
+           <br/>Ad Fullscreen Exit
+        </div>
+    </div>        
+</div>
+<div id="event-container-614x160">
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-start">
+           <br/>VPAID Ad Start
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-complete">
+           <br/>VPAID Ad Complete
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-error">
+           <br/>VPAID Ad Error
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-expanded-change">
+           <br/>VPAID Ad Expanded Change
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="vpaid-ad-linear-change">
+           <br/>VPAID Ad Linear Change
+        </div>
+        <div class="event-container-148x68" id="vpaid-ad-remaining-time-change">
+           <br/>VPAID Ad Time Change
+        </div>
+    </div>
+    <div id="event-container-150x140">
+        <div class="event-container-148x68" id="">
+        </div>
+        <div class="event-container-148x68" id="">
+        </div>
+    </div>        
+</div>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+// An example ad event Javascript callback
+
+function onLinearAdStart(ad) {
+    console.log("OVA CALLBACK EVENT: linear ad begin");
+    console.log(ad);
+    document.getElementById('linear-ad-start').style.backgroundColor = "#00CC00";	
+}
+
+//... the other callback functions go in here
+
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 614, 345, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 01 - Process Ad Events with Javascript
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "canFireAPICalls": true,
+
+            "ads": {
+                 "controls": {
+                     "skipAd": {
+                         "enabled": true
+                     }
+                 },
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "pre-roll"
+                      },
+                      {
+                          "zone": "33",
+                          "width": 450,
+                          "height": 50,
+                          "startTime": "00:00:05",
+                          "duration": "15"
+                      }
+                 ]
+            },
+
+            "debug": {
+                 "debugger": "firebug",
+                 "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

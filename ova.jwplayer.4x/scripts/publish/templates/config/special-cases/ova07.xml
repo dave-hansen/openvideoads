@@ -1,0 +1,9 @@
+<config>
+   <ova.title>
+       Example 7 - Empty OVA Configuration
+   </ova.title>
+   <ova.json>
+       {
+       }
+   </ova.json>
+</config>

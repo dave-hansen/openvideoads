@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+        Example 5 - Keep overlay visible after click
+   </ova.title>
+   <ova.json>
+        {
+            "ads": {
+               "keepOverlayVisibleAfterClick": true,
+               "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+               ],
+               "schedule": [
+                  {
+                      "zone": "30",
+                      "startTime": "00:00:01",
+                      "duration": 15,
+                      "width": 450,
+                      "height": 50
+                  }
+               ]
+            },
+
+            "debug": {
+               "debugger": "firebug",
+               "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+        }
+   </ova.json>
+</config>

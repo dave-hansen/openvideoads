@@ -1,0 +1,21 @@
+<config>
+  <ova.title>
+     VAST 2 VPAID Linear
+  </ova.title>
+  <ova.json>
+  {
+    "ads": {
+         "pauseOnClickThrough": true,
+         "schedule": [
+            {
+               "position": "pre-roll",
+               "server": {
+                   "type": "direct",
+                   "tag": "http://ad.de.doubleclick.net/ad/testadvertiser.smartclip/vast2vpaid_4.3;sz=400x320;dcmt=text/xml;ord=__random__?"
+               }
+            }
+         ]
+     }
+  }
+</ova.json>
+</config>

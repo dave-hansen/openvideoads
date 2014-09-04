@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+       Example 2 - Bad VAST Response
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            },
+            "shows": {
+                "baseURL": "OVA_HTTP_BASE_URL",
+                "streams": [
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE", "duration":"00:01:00" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE", "duration":"00:01:00" }
+                ]
+            },
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "OVA_BLANK_VAST_RESPONSE"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "applyToParts": [ 0 ]
+                    },
+                    {
+                      "zone": "5",
+                      "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

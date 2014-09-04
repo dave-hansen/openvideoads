@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="2.0">
+  <Ad xmlns="" id="404d8e58-4da9-4ddd-9006-b740beb1ec92">
+    <InLine>
+		<AdSystem>AdJuggler</AdSystem>
+		<AdTitle><![CDATA[PB Casino Title]]></AdTitle>
+		<Impression><![CDATA[http://twc.rotator.hadj7.adjuggler.net:80/servlet/ajrotator/31536/0/vx?z=twc&kw=&click=&b=31126&c=30949]]></Impression>
+        <Creatives>
+	        <Creative>
+	        	<Linear>
+					<Duration>00:00:10</Duration>
+					<TrackingEvents>
+			          <Tracking event="start"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=0&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="close"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=10&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="midpoint"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=1&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="complete"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=2&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="mute"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=3&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="pause"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=5&eventType=0&eventCount=1]]></Tracking>
+			          <Tracking event="fullscreen"><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949&ajtrack=y&eventId=2&eventType=2&eventCount=1]]></Tracking>
+			        </TrackingEvents>
+					<VideoClicks>
+				         <ClickThrough><![CDATA[http://www.pbpgaming.com/]]></ClickThrough>
+				         <ClickTracking><![CDATA[http://twc.rotator.hadj7.adjuggler.net/servlet/ajrotator/31536/0/cc?z=twc&?ajkey=V12DEFD7FD3J-573I700K22041187C0474187C0474K31126K30949QK31120QQP1G01G0G0Q6C&b=31126&c=30949]]></ClickTracking>
+				       </VideoClicks>
+				    <MediaFiles>
+				         <MediaFile width="300" height="250" delivery="progressive" type="video/x-flv"><![CDATA[http://cdn.hadj7.adjuggler.net/banners/Client30948/1271171993275_pbcasino.flv]]></MediaFile>
+				    </MediaFiles>
+				</Linear>
+	        </Creative>
+	    </Creatives>
+	</InLine>
+  </Ad>
+</VAST>

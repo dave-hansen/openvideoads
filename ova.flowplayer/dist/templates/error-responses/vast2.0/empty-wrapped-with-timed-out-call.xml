@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+  <Ad id="AdForm">
+    <Wrapper>
+      <AdSystem>AdForm</AdSystem>
+      <VASTAdTagURI><![CDATA[http://static.openvideoads.org/tests/delayed-ad-tag-processor.php]]></VASTAdTagURI>
+      <Impression>http://localhost/vast2-wrapper-impression</Impression>
+      <Error>http://localhost/vast2-wrapper-error-1?error=[ERRORCODE]</Error>
+      <Creatives>
+         <Creative>
+         </Creative>
+      </Creatives>
+    </Wrapper>
+  </Ad>
+</VAST>

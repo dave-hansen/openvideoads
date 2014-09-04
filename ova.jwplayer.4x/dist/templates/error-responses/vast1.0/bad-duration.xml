@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+  <Ad id="">
+<InLine>
+      <AdSystem>DFP</AdSystem>  <AdTitle>Tic Tac</AdTitle>  <Description/>
+    <Survey>
+          <URL><![CDATA[]]></URL>
+    </Survey>
+    <Error>
+          <URL><![CDATA[]]></URL>
+    </Error>
+    <Impression>
+          <URL id="ipd_vast_i"><![CDATA[]]></URL>  <URL id="ipd_vast_e"><![CDATA[]]></URL>
+<URL id="3rdparty"><![CDATA[]]></URL>
+    </Impression>
+    <TrackingEvents>
+        <Tracking event="start">
+             <URL
+id="ipd_vast_e"><![CDATA[http://ad.de.doubleclick.net/adj/sternde/;sz=1x1;adid=221748323;
+dcmt=text/xml;ord=7652526?]]></URL>
+        </Tracking>
+        <Tracking event="midpoint">
+              <URL
+id="ipd_vast_e"><![CDATA[http://ad.de.doubleclick.net/adj/sternde/;sz=1x1;adid=221771919;
+dcmt=text/xml;ord=7652526?]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+        <Tracking event="firstQuartile">
+              <URL
+id="ipd_vast_e"><![CDATA[http://ad.de.doubleclick.net/adj/sternde/;sz=1x1;adid=221771909;
+dcmt=text/xml;ord=7652526?]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+        <Tracking event="thirdQuartile">
+              <URL
+id="ipd_vast_e"><![CDATA[http://ad.de.doubleclick.net/adj/sternde/;sz=1x1;adid=221771920;
+dcmt=text/xml;ord=7652526?]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+        <Tracking event="complete">
+              <URL
+id="ipd_vast_e"><![CDATA[http://ad.de.doubleclick.net/adj/sternde/;sz=1x1;adid=221771918;
+dcmt=text/xml;ord=7652526?]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+        <Tracking event="mute">
+              <URL id="ipd_vast_e"><![CDATA[]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+        <Tracking event="fullscreen">
+              <URL id="ipd_vast_e"><![CDATA[]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+        </Tracking>
+    </TrackingEvents>
+    <Video>
+          <Duration>19</Duration>  <AdID>219999139</AdID>
+        <VideoClicks>
+            <ClickThrough>
+                <URL id="dfp"><![CDATA[http://www.ip-deutschland.de]]></URL>
+            </ClickThrough>
+            <ClickTracking>
+                  <URL
+id="ipd_vast_i"><![CDATA[http://ad.de.doubleclick.net/click%3Bh=v8/3946/3/0/%2a/k%3B2199
+99139%3B0-0%3B1%3B42717742%3B780-
+320/240%3B34455631/34473509/1%3B%3B%7Eaopt%3D2/1/ff/2%3B%7Esscs%3D%3f]]></URL>
+<URL id="ipd_vast_e"><![CDATA[]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+            </ClickTracking>
+        </VideoClicks>
+        <MediaFiles>
+            <MediaFile delivery="streaming" bitrate="400" width="512" height="288" type="video/x-mp4">
+                <URL><![CDATA[http://static.bouncingminds.com/ads/30secs/heinz_deli_mayo.mp4]]></URL>
+            </MediaFile>
+        </MediaFiles>
+
+    </Video>
+    <NonLinearAds>
+
+        <NonLinear id="" width="" height="" resourceType="static" creativeType="SWF"
+maintainAspectRatio="true" scalable="true">
+             <URL><![CDATA[]]></URL>
+            <NonLinearClickThrough>
+                  <URL><![CDATA[]]></URL>
+            </NonLinearClickThrough>
+            <ClickTracking>
+                  <URL id="ipd_vast_i"><![CDATA[]]></URL>  <URL
+id="ipd_vast_e"><![CDATA[]]></URL>  <URL id="3rdparty"><![CDATA[]]></URL>
+            </ClickTracking>
+        </NonLinear>
+
+    </NonLinearAds>
+    <Extensions>
+
+        <Extension type="dfp">
+
+            <AdServingData>
+                <Industry/>
+                <LinearSwf>
+                      <Dimension width="300" height="250"/>
+                </LinearSwf>
+            </AdServingData>
+
+        </Extension>
+    </Extensions>
+
+</InLine>
+  </Ad>
+</VideoAdServingTemplate>

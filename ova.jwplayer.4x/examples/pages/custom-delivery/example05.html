@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 5 - Impression serving on an empty Ad VAST response</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='custom-delivery/ova05.xml';</script>
+<h2>Example 5 - Impression serving on an empty Ad VAST response</h2>
+<p class="example">
+This example illustrates how an ad server configuration can be set to ensure that
+the impression URL is called even if the VAST response provides no ad.
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300));</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300)));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 5 - Impression serving on an empty Ad VAST response
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" },
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" }
+                ]
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "forceImpressionServing": true,
+                       "apiAddress": "../../../dist/templates/error-responses/vast1.0/empty-ad-vast-response.xml"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                       "zone": "5",
+                       "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

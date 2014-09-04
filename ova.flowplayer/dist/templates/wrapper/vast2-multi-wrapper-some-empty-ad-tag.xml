@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<VAST version="2.0">
+  <Ad id="243485">
+    <Wrapper>
+      <AdSystem>VAST</AdSystem>
+      <VASTAdTagURI>http://static.openvideoads.org/tests/empty-ad-vast-response.xml</VASTAdTagURI>
+      <Error>http://ad.auditude.com/assetserver/e?type=aderr&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Error>
+      <Impression id="urn:aeid:243485">http://ad.auditude.com/assetserver/e?type=adimp&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Impression>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <TrackingEvents>
+              <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=243485;a1=105;br=1;sq=1;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              <Tracking event="start">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243485&amp;a1=105&amp;ref=urn:asset:243485:105&amp;unit=percent&amp;progress=0&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="firstQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243485&amp;a1=105&amp;ref=urn:asset:243485:105&amp;unit=percent&amp;progress=25&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="midpoint">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243485&amp;a1=105&amp;ref=urn:asset:243485:105&amp;unit=percent&amp;progress=50&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="thirdQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243485&amp;a1=105&amp;ref=urn:asset:243485:105&amp;unit=percent&amp;progress=75&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="complete">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243485&amp;a1=105&amp;ref=urn:asset:243485:105&amp;unit=percent&amp;progress=100&amp;cid=1782140533&amp;z=112235&amp;a=243485&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=1&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="start">http://tags.bluekai.com/site/4256</Tracking>
+              <Tracking event="start">http://b.scorecardresearch.com/p?c1=&amp;c2=7395021&amp;c3=&amp;c4=&amp;c5=01&amp;c6=</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickTracking>http://ad.auditude.com/assetserver/l/z=112235%3Bv=0%3Bu=b6988767c97155f8611ef6d61f70547f%3Bcid=1782140533%3Ba1=105%3Ba2=1%3Buid=xGhvLutTSJW94EUSMjZO-w%3Ba=243485%3Bbr=1%3Bsq=1%3Bpod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1</ClickTracking>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+        <Creative>
+          <CompanionAds>
+            <Companion width="0" height="0">
+              <TrackingEvents>
+                <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=243485;a1=103;br=1;sq=1;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              </TrackingEvents>
+              <AdParameters>campaign_id=6089</AdParameters>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </Wrapper>
+  </Ad>
+  <Ad id="243486">
+    <Wrapper>
+      <AdSystem>VAST</AdSystem>
+      <VASTAdTagURI>http://addirector.vindicosuite.com/feeds/addirector/vast/2/?rotationid=Certification_Auditude_XUMO&amp;frt=vast-xumo&amp;usage=vpaid&amp;imps=false</VASTAdTagURI>
+      <Error>http://ad.auditude.com/assetserver/e?type=aderr&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Error>
+      <Impression id="urn:aeid:243486">http://ad.auditude.com/assetserver/e?type=adimp&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Impression>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <TrackingEvents>
+              <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=243486;a1=105;br=1;sq=2;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              <Tracking event="start">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243486&amp;a1=105&amp;ref=urn:asset:243486:105&amp;unit=percent&amp;progress=0&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="firstQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243486&amp;a1=105&amp;ref=urn:asset:243486:105&amp;unit=percent&amp;progress=25&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="midpoint">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243486&amp;a1=105&amp;ref=urn:asset:243486:105&amp;unit=percent&amp;progress=50&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="thirdQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243486&amp;a1=105&amp;ref=urn:asset:243486:105&amp;unit=percent&amp;progress=75&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="complete">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=243486&amp;a1=105&amp;ref=urn:asset:243486:105&amp;unit=percent&amp;progress=100&amp;cid=1782140533&amp;z=112235&amp;a=243486&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=2&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="start">http://tags.bluekai.com/site/4256</Tracking>
+              <Tracking event="start">http://b.scorecardresearch.com/p?c1=&amp;c2=7395021&amp;c3=&amp;c4=&amp;c5=01&amp;c6=</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickTracking>http://ad.auditude.com/assetserver/l/z=112235%3Bv=0%3Bu=b6988767c97155f8611ef6d61f70547f%3Bcid=1782140533%3Ba1=105%3Ba2=1%3Buid=xGhvLutTSJW94EUSMjZO-w%3Ba=243486%3Bbr=1%3Bsq=2%3Bpod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1</ClickTracking>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+        <Creative>
+          <CompanionAds>
+            <Companion width="0" height="0">
+              <TrackingEvents>
+                <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=243486;a1=103;br=1;sq=2;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              </TrackingEvents>
+              <AdParameters>campaign_id=6089</AdParameters>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </Wrapper>
+  </Ad>
+  <Ad id="244462">
+    <Wrapper>
+      <AdSystem>VAST</AdSystem>
+      <VASTAdTagURI>http://static.openvideoads.org/tests/empty-ad-vast-response.xml</VASTAdTagURI>
+      <Error>http://ad.auditude.com/assetserver/e?type=aderr&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Error>
+      <Impression id="urn:aeid:244462">http://ad.auditude.com/assetserver/e?type=adimp&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Impression>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <TrackingEvents>
+              <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=244462;a1=105;br=1;sq=3;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              <Tracking event="start">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=244462&amp;a1=105&amp;ref=urn:asset:244462:105&amp;unit=percent&amp;progress=0&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="firstQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=244462&amp;a1=105&amp;ref=urn:asset:244462:105&amp;unit=percent&amp;progress=25&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="midpoint">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=244462&amp;a1=105&amp;ref=urn:asset:244462:105&amp;unit=percent&amp;progress=50&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="thirdQuartile">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=244462&amp;a1=105&amp;ref=urn:asset:244462:105&amp;unit=percent&amp;progress=75&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="complete">http://ad.auditude.com/assetserver/e?type=AD_PROGRESS&amp;a=244462&amp;a1=105&amp;ref=urn:asset:244462:105&amp;unit=percent&amp;progress=100&amp;cid=1782140533&amp;z=112235&amp;a=244462&amp;w=1&amp;uid=xGhvLutTSJW94EUSMjZO-w&amp;u=b6988767c97155f8611ef6d61f70547f&amp;br=1&amp;sq=3&amp;pod=id:1,ctype:l,ptype:p,dur:30,lot:1,cpos:1,edur:30,elot:1&amp;ax=0,0,0,0</Tracking>
+              <Tracking event="start">http://tags.bluekai.com/site/4256</Tracking>
+              <Tracking event="start">http://b.scorecardresearch.com/p?c1=&amp;c2=7395021&amp;c3=&amp;c4=&amp;c5=01&amp;c6=</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickTracking>http://ad.auditude.com/assetserver/l/z=112235%3Bv=0%3Bu=b6988767c97155f8611ef6d61f70547f%3Bcid=1782140533%3Ba1=105%3Ba2=1%3Buid=xGhvLutTSJW94EUSMjZO-w%3Ba=244462%3Bbr=1%3Bsq=3%3Bpod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1</ClickTracking>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+        <Creative>
+          <CompanionAds>
+            <Companion width="0" height="0">
+              <TrackingEvents>
+                <Tracking event="creativeView">http://ad.auditude.com/assetserver/i/z=112235;u=b6988767c97155f8611ef6d61f70547f;uid=xGhvLutTSJW94EUSMjZO-w;cid=1782140533;w=1;a=244462;a1=103;br=1;sq=3;pod=id%3a1%2cctype%3al%2cptype%3ap%2cdur%3a30%2clot%3a1%2ccpos%3a1%2cedur%3a30%2celot%3a1/c0x0</Tracking>
+              </TrackingEvents>
+              <AdParameters>campaign_id=6089</AdParameters>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </Wrapper>
+  </Ad>
+</VAST>

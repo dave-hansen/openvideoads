@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1-1 - Backward compatibility test - overlays definition</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1-1 - Backward compatibility test - overlays definition</h2>
+<p class="example">
+This example illustrates how to place overlays in different positions on the player screen. Several different regions are defined -
+bottom regions for center, left and right placement, a region for the center of the screen and a centered region for the top of
+the screen. 2 seconds into the program, an overlay will appear in each of these regions one after each other for a duration of
+5 seconds.
+</p>
+<a class="example"></a>
+
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    plugins: {
+        rtmp: {
+            url: FP_RTMP_SWF_2
+        },
+        rtmpInstream: {
+            url: FP_RTMP_SWF_2
+        },
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+          "shows": {
+            "baseURL": OVA_RTMP_BASE_URL,
+              "streams": [ { "file": OVA_RTMP_SHOW_STREAM_FILE, "duration":"00:00:34" } ]
+          },
+
+            "overlays": {
+              "regions": [
+                  {
+                      "id": "bottom-center",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-left",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "left",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-right",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "right",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "screen-center",
+                      "verticalAlign": "center",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "top-center",
+                      "verticalAlign": "top",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  }
+              ]
+            },
+
+            "ads": {
+               "keepOverlayVisibleAfterClick": true,
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": OVA_OPENX_API,
+                       "allowAdRepetition": true
+                    }
+                ],
+              "schedule": [
+                  {   "zone": "30",
+                      "position": "bottom-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:02",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "bottom-left",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:08",
+                      "duration": "5"
+                  },
+                  {   "zone": "30",
+                      "position": "bottom-right",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:14",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "screen-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:20",
+                      "duration": "5"
+                  },
+                  {   "zone": "30",
+                      "position": "top-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:26",
+                      "duration": "5"
+                  }
+              ]
+            },
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG,
+              "debugger": "firebug"
+            }
+        }
+    }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        rtmpInstream: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "shows": {
+                "baseURL": "<script type="text/javascript">document.write(OVA_RTMP_BASE_URL)</script>",
+                "streams": [ { "file":"<script type="text/javascript">document.write(OVA_RTMP_SHOW_STREAM_FILE)</script>", "duration":"00:00:34" } ]
+            },
+
+            "overlays": {
+                "regions": [
+                    {
+                      "id": "bottom-center",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "id": "bottom-left",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "left",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "id": "bottom-right",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "right",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "id": "screen-center",
+                      "verticalAlign": "center",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "id": "top-center",
+                      "verticalAlign": "top",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                    }
+                ]
+            },
+
+            "ads": {
+                "keepOverlayVisibleAfterClick": true,
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                       "allowAdRepetition": true
+                    }
+                ],
+                "schedule": [
+                    {   
+                      "zone": "30",
+                      "position": "bottom-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:02",
+                      "duration": "5"
+                    },
+                    {    
+                      "zone": "41",
+                      "position": "bottom-left",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:08",
+                      "duration": "5"
+                    },
+                    {   
+                      "zone": "30",
+                      "position": "bottom-right",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:14",
+                      "duration": "5"
+                    },
+                    {    
+                      "zone": "41",
+                      "position": "screen-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:20",
+                      "duration": "5"
+                    },
+                    {   
+                      "zone": "30",
+                      "position": "top-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:26",
+                      "duration": "5"
+                    }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

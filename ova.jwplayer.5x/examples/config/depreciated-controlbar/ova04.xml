@@ -1,0 +1,49 @@
+<config>
+   <ova.title>
+        Hiding the Controlbar during Ad Playback
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+		  "regions": {
+               "declarations": [
+                  {
+                      "id": "my-ad-notice",
+                      "verticalAlign": "top",
+                      "horizontalAlign": "right",
+                      "backgroundColor": "transparent",
+                      "width": "100pct",
+                      "height": 40,
+                      "style": ".smalltext { font-style: italic; font-size:10; }"
+                  }
+               ]
+          },
+
+          "ads": {
+             "controls": {
+                  "visible": false
+             },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll",
+                   "notice": {
+                      "show": true,
+                      "region": "my-ad-notice",
+                      "message": "&lt;p class=\"smalltext\" align=\"right\"&gt;Your programme resumes in _countdown_ seconds&lt;/p&gt;"
+                   }
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

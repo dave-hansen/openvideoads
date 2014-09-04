@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+	   2 stream with a pre-roll on the second stream
+   </ova.title>
+   <ova.json>
+       {
+           "shows": {
+              "baseURL": "OVA_HTTP_BASE_URL",
+              "streams": [
+                   { "file":"OVA_HTTP_SHOW_STREAM_FILE" },
+                   { "file":"OVA_HTTP_SHOW_STREAM_FILE" }
+              ]
+           },
+
+           "ads": {
+              "servers": [
+	              {
+	                "type": "OpenX",
+	                "apiAddress": "OVA_OPENX_API",
+	 	            "allowAdRepetition": true
+	              }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "pre-roll",
+                    "applyToParts": [1]
+                  }
+              ]
+           },
+
+           "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+           }
+       }
+   </ova.json>
+</config>

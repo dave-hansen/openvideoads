@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>    <Ad id="57212888-7908">
+    	<InLine>
+    		<AdSystem>LiveRail</AdSystem>
+    		<AdTitle><![CDATA[Toyota Prius Intro 15s]]></AdTitle>
+    		<Description><![CDATA[]]></Description>
+    		<Impression>
+    			<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=impression&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=29&y=489&xy=8eb2]]></URL>
+    			
+    			<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=adslot&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705]]></URL>
+				<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=uniqueadslot&pos=0&coid=0&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705]]></URL>    			
+				    			
+                <URL id="QC"><![CDATA[http://pixel.quantserve.com/pixel/p-d05JkuPGiy-jY.gif?labels=inventory.6372&r=7705]]></URL>
+                <URL id="QC"><![CDATA[http://pixel.quantserve.com/pixel/p-d05JkuPGiy-jY.gif?labels=impression.57212859&r=7705]]></URL>
+    			
+				<URL><![CDATA[http://ads.undertone.com/avw.php?zoneid=13579&n=ad3fb3ed&cb=1296514113]]></URL>
+				<URL><![CDATA[http://haku.vizu.com/a.gif?cid=1415;adid=preroll;siteid=undertoneproper;]]></URL>
+				<URL><![CDATA[http://beacon.securestudies.com/scripts/beacon.dll?CXNID=5000002&CGID=010000&CDID=&CPID=&CBID=&rn=8463749]]></URL>
+    		</Impression>
+    		<TrackingEvents>
+				<Tracking event="accept">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=accept&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="firstQuartile">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=view25&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="midpoint">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=view50&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="thirdQuartile">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=view75&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="complete">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=view100&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="mute">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=mute&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="unmute">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=unmute&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="pause">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=pause&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="minimize">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=minimize&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+				<Tracking event="close">
+					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=close&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=]]></URL>
+				</Tracking>
+    		</TrackingEvents>	
+    		<Video>
+    			<Duration>00:00:16</Duration>
+    			<VideoClicks>
+    				<ClickThrough>
+    					<URL id="LR"><![CDATA[http://t4.liverail.com/?metric=clickthru&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=&redirect=http%3A%2F%2Fads.undertone.com%2Fck.php%3Fzoneid%3D13579%26n%3Dad3fb3ed%26cb%3D1296514113]]></URL>
+    				</ClickThrough>
+    				<ClickTracking>
+					</ClickTracking>
+					<CustomClick>
+ 				
+					</CustomClick>	
+    			</VideoClicks>
+	   			<MediaFiles>
+					<MediaFile delivery="progressive" bitrate="256" width="1280" height="720" type="video/x-flv">
+    					<URL><![CDATA[http://cdn.liverail.com/adasset/5335/7908/lo.flv]]></URL>
+    				</MediaFile>
+					<MediaFile delivery="progressive" bitrate="512" width="1280" height="720" type="video/x-flv">
+    					<URL><![CDATA[http://cdn.liverail.com/adasset/5335/7908/me.flv]]></URL>
+    				</MediaFile>
+					<MediaFile delivery="progressive" bitrate="1024" width="1280" height="720" type="video/x-flv">
+    					<URL><![CDATA[http://cdn.liverail.com/adasset/5335/7908/hi.flv]]></URL>
+    				</MediaFile>
+    			</MediaFiles>
+    		</Video>
+    		<CompanionAds>
+				<Companion width="300" height="250" resourceType="static">
+					<URL><![CDATA[http://ads.undertone.com/avw.php?zoneid=13580&n=a2df3702&cb=1296514113]]></URL>
+					<Code><![CDATA[]]></Code>
+					<CompanionClickThrough>
+						<URL><![CDATA[http://t4.liverail.com/?metric=cclickthru&pos=0&coid=4437&pid=6372&oid=57212888&olid=57212859&cid=7908&vid=&amid=&cc=default&pp=&url=&cb=7705&x=&y=&xy=&redirect=http%3A%2F%2Fads.undertone.com%2Fck.php%3Fzoneid%3D13580%26n%3Da2df3702%26cb%3D1296514113]]></URL>
+					</CompanionClickThrough>
+				</Companion>
+    		</CompanionAds>
+    	</InLine>
+    </Ad>
+</VideoAdServingTemplate>
+<!-- 14 US_NEWYORK_NEWYORKNY_NEWYORK -->

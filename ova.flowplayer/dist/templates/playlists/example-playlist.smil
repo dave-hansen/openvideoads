@@ -1,0 +1,8 @@
+<smil>
+  <head>
+    <meta base="rtmp://ne7c0nwbit.rtmphost.com/videoplayer" />
+  </head>
+  <body>
+    <video src="mp4:the-black-hole.mp4"/>
+  </body>
+</smil>

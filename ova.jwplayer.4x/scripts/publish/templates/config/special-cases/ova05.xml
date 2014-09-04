@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 5 - Explicitly Turning Ads Off
+   </ova.title>
+   <ova.json>
+       {
+          "shows": {
+              "streams": [ { "file": "OVA_HTTP_SHOW_STREAM_1", "duration":"00:00:30" } ]
+          },
+
+	      "debug": {
+	              "debugger": "firebug",
+	              "levels": "OVA_DEBUG"
+	      },
+
+	      "ads": {
+	      	  "activelySchedule": false,
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+	          "schedule": [
+	          		{
+	          			"zone": "5",
+	          			"position": "pre-roll"
+	          		}
+	          ]
+	      }
+       }
+   </ova.json>
+</config>

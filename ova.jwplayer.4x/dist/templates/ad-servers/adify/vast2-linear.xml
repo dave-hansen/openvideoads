@@ -1,0 +1,27 @@
+<VAST version="2.0">
+<!-- new format with multiple impression tracking -->
+  <Ad id="Adify">
+    <InLine>
+      <AdSystem>Adify</AdSystem>
+      <AdTitle>For Publishers Esurance Revised 6/18</AdTitle>
+      <Description></Description>
+      <Impression>http://ad.afy11.net/ad?ipc=KgzWibqvqE6auFnMQ3giQ2DHrXMLvSYrPqDO5Zllan10PC51zy7fAYjpZPzFAPJ6ibVY5t91Ngq4zZgL7QHZjE6AEVtOrMfh24FBjtSLPU8=</Impression>
+      <Impression><![CDATA[http://ad.doubleclick.net/ad/N6059.152239.NCM.COM/B4151081]]></Impression>
+      <Creatives>
+        <Creative sequence="1" id="1000006905818">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <VideoClicks>
+              <ClickTracking></ClickTracking>
+              <ClickThrough><![CDATA[http://ad.doubleclick.net/clk;225795565;49638894;k?http://www.esurance.com/welcome/landing/get_your_quote_today774.aspx?ts=7&PromoID=NCMOV0001]]></ClickThrough>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile delivery="progressive" width="640" height="360" type="video/x-flv" bitrate="350"><![CDATA[http://streaming.openvideoads.org:81/shows/the-black-hole.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+</VAST>

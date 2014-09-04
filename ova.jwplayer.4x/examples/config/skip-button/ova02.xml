@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+       Customising the "skip ad" button image
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          },
+
+          "ads": {
+             "controls": {
+                  "skipAd": {
+                      "enabled": true,
+                      "image": "../../../dist/images/skip-ad-alt-1.jpg",
+                      "width": 65,
+                      "height": 15
+                  }
+             },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

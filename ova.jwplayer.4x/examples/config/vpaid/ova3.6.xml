@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+       Deferred ad call for a VPAID pre-roll
+   </ova.title>
+   <ova.json>
+       {
+          "delayAdRequestUntilPlay": true,
+
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          }
+       }
+   </ova.json>
+</config>

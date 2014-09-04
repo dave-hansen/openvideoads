@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:jwplayer="http://developer.longtailvideo.com/trac/" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>Blender - Movies</title>
+  <description></description>
+  <link>http://content.bitsontherun.com/previews/482jsTAr-ALJ3XQCI</link>
+
+  <item>
+    <title>Big Buck Bunny</title>
+
+    <link>http://bigbuckbunny.org/</link>
+    <pubDate>Fri, 28 Nov 2008 11:23:00 -0000</pubDate>
+    <description>Big Buck Bunny is a short animated film by the Blender Institute. It is made using free and open source software.</description>
+
+    <media:group>
+      <media:content bitrate="1370" url="conversions/ifNSlhVa/videos/ntPYsD4L-329.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b3933bf764d1d5f046f1a8e277ccebb87f0b6" width="720" />
+      <media:content bitrate="770" url="conversions/ifNSlhVa/videos/ntPYsD4L-60830.mp4?eee6cc8084bc02b30964434689d6269a54a506af9cc90963e644fc6d77001641e8112a79cc1574030bb5609e03ec896539032d836cff2e0ef2f0e2babcd7810fb2b96d0089bebe56056240f56deee31c05d49e2cdd3ecde5d840ed0a05336d6143555cd6232faff0d60422f2d1e1" width="480" />
+      <media:content bitrate="300" url="conversions/ifNSlhVa/videos/ntPYsD4L-327.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b3933bf764d1d5f046f1a8e277cc06122d22b" width="320" />
+
+    </media:group>
+    <jwplayer:provider>rtmp</jwplayer:provider>
+    <jwplayer:duration>596.48</jwplayer:duration>
+    <jwplayer:streamer>rtmpe://fms.413C.edgecastcdn.net/00413C/content/</jwplayer:streamer>
+    <jwplayer:image>http://thumbs.bitsontherun.com/ntPYsD4L-720.jpg</jwplayer:image>
+    <jwplayer:playlist.image>http://thumbs.bitsontherun.com/ntPYsD4L-120.jpg</jwplayer:playlist.image>
+
+    <jwplayer:tags>blender</jwplayer:tags>
+    <jwplayer:mediaid>ntPYsD4L</jwplayer:mediaid>
+  </item>
+  <item>
+    <title>Sintel</title>
+    <link>http://www.sintel.org/</link>
+    <pubDate>Wed, 21 Jul 2010 20:00:00 -0000</pubDate>
+
+    <description>Sintel is a fantasy computer generated short movie. It&#39;s the third release from the Blender Open Movie Project.</description>
+
+    <media:group>
+      <media:content bitrate="1890" url="conversions/ifNSlhVa/videos/r3ABWwdO-67067.mp4?eee6cc8084bc02b30964434689d6269a54a506af9cc90963e644fc6d77001641e8112a79cc1574030bb5609e03ec896539032d836cff2e0ef2f0e2babcd7810fb2b96d0089bebe56056240f56deee31c05d49e2cdd3ecde5d840ed0a19747c7a576306fbebbb304ef07734fa57ce" width="1280" />
+      <media:content bitrate="1140" url="conversions/ifNSlhVa/videos/r3ABWwdO-329.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b3933a3315c063f1e7b167a7dc35d52fdec30" width="720" />
+      <media:content bitrate="650" url="conversions/ifNSlhVa/videos/r3ABWwdO-60830.mp4?eee6cc8084bc02b30964434689d6269a54a506af9cc90963e644fc6d77001641e8112a79cc1574030bb5609e03ec896539032d836cff2e0ef2f0e2babcd7810fb2b96d0089bebe56056240f56deee31c05d49e2cdd3ecde5d840ed0a19747c7a576306fbebbb3746c674bcedfd04" width="480" />
+      <media:content bitrate="420" url="conversions/ifNSlhVa/videos/r3ABWwdO-327.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b3933a3315c063f1e7b167a7dc35378767f1d" width="320" />
+    </media:group>
+
+    <jwplayer:provider>rtmp</jwplayer:provider>
+    <jwplayer:duration>888.00</jwplayer:duration>
+    <jwplayer:streamer>rtmpe://fms.413C.edgecastcdn.net/00413C/content/</jwplayer:streamer>
+    <jwplayer:image>http://thumbs.bitsontherun.com/r3ABWwdO-720.jpg</jwplayer:image>
+    <jwplayer:playlist.image>http://thumbs.bitsontherun.com/r3ABWwdO-120.jpg</jwplayer:playlist.image>
+    <jwplayer:tags>blender</jwplayer:tags>
+
+    <jwplayer:mediaid>r3ABWwdO</jwplayer:mediaid>
+  </item>
+  <item>
+    <title>Elephants Dream</title>
+    <link>http://orange.blender.org/</link>
+    <pubDate>Tue, 04 Apr 2006 16:23:00 -0000</pubDate>
+    <description>Elephants Dream is the world’s first open movie, made entirely with open source graphics software such as Blender.</description>
+
+    <media:group>
+      <media:content bitrate="1390" url="conversions/ifNSlhVa/videos/LJSVMnCF-67067.mp4?eee6cc8084bc02b30964434689d6269a54a506af9cc90963e644fc6d77001641e8112a79cc1574030bb5609e03ec896539032d836cff2e0ef2f0e2babcd7810fb2b96d0089bebe56056240f56deee31c05d49e2cdd3ecde5d840ed0a270d6e6ecd6bdfa4511398dd6d3ffba6329a" width="1080" />
+      <media:content bitrate="1320" url="conversions/ifNSlhVa/videos/LJSVMnCF-329.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b39339d484e1244aec624c18de4681823fa9c" width="720" />
+      <media:content bitrate="790" url="conversions/ifNSlhVa/videos/LJSVMnCF-60830.mp4?eee6cc8084bc02b30964434689d6269a54a506af9cc90963e644fc6d77001641e8112a79cc1574030bb5609e03ec896539032d836cff2e0ef2f0e2babcd7810fb2b96d0089bebe56056240f56deee31c05d49e2cdd3ecde5d840ed0a270d6e6ecd6bdfa451139fd56fbb2e66bbe8" width="480" />
+      <media:content bitrate="630" url="conversions/ifNSlhVa/videos/LJSVMnCF-327.mp4?eee6cc8084bc02b30964434781d6269ae02da8ff122f2b28fd731f2b8f92732d8ad867b0f0b3fb55f382d36bc7ee4ec4e377f44f7944dc142ad4eec467ec497bfd5a8577da0a5f8c8ec010550ac3c1bbb3c36c39ed6264c7fb2b39339d484e1244aec624c18de466dd646bda" width="320" />
+    </media:group>
+    <jwplayer:provider>rtmp</jwplayer:provider>
+    <jwplayer:duration>653.79</jwplayer:duration>
+
+    <jwplayer:streamer>rtmpe://fms.413C.edgecastcdn.net/00413C/content/</jwplayer:streamer>
+    <jwplayer:image>http://thumbs.bitsontherun.com/LJSVMnCF-720.jpg</jwplayer:image>
+    <jwplayer:playlist.image>http://thumbs.bitsontherun.com/LJSVMnCF-120.jpg</jwplayer:playlist.image>
+    <jwplayer:tags>blender</jwplayer:tags>
+    <jwplayer:mediaid>LJSVMnCF</jwplayer:mediaid>
+  </item>
+
+</channel>
+</rss>

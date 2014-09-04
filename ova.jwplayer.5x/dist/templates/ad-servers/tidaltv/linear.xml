@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+  <Ad id="TidalTv">
+    <InLine>
+      <AdSystem>TidalTv</AdSystem>
+      <AdTitle>F11M8</AdTitle>
+      <Description>
+      http://pbint.tidaltv.com/adserver2.0/tpas1.aspx?mt=1&pid=1&pd1=broadscaler&fmid=11&xf=12&rand=1234
+      </Description>
+      <Impression />
+      <Creatives>
+
+        <Creative>
+          <Linear>
+            <Duration>00:00:30</Duration>
+            <MediaFiles>
+              <MediaFile width="400" type="application/x-shockwave-flash" height="300" apiFramework="VPAID">http://http.tidaltv.com/admanager/vpaid/TidalTV_VPAID_V1_0_04.swf</MediaFile>
+            </MediaFiles>
+            <AdParameters><![CDATA[<TidalTV><TTVRequest /><TTVXML><VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Ad id="TidalTv"><InLine><AdSystem>TidalTv</AdSystem><AdTitle>F11M8</AdTitle><Description /><Impression><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=imp&amp;type=1&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;fmid=11&amp;mt=1&amp;pid=1&amp;rand=1936654018&amp;mid=8&amp;pcid=&amp;pcv=&amp;g=5078&amp;udcs=0&amp;hhudcs=0&amp;udps=3%3d3%3b4%3d0&amp;pd1=broadscaler</URL></Impression><TrackingEvents><Tracking event="firstQuartile"><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=imp&amp;type=2&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;fmid=11&amp;mt=1&amp;pid=1&amp;rand=1936654018&amp;mid=8&amp;pcid=&amp;pcv=&amp;g=5078</URL></Tracking><Tracking event="midpoint"><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=imp&amp;type=3&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;fmid=11&amp;mt=1&amp;pid=1&amp;rand=1936654018&amp;mid=8&amp;pcid=&amp;pcv=&amp;g=5078</URL></Tracking><Tracking event="thirdQuartile"><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=imp&amp;type=4&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;fmid=11&amp;mt=1&amp;pid=1&amp;rand=1936654018&amp;mid=8&amp;pcid=&amp;pcv=&amp;g=5078</URL></Tracking><Tracking event="complete"><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=imp&amp;type=5&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;fmid=11&amp;mt=1&amp;pid=1&amp;rand=1936654018&amp;mid=8&amp;pcid=&amp;pcv=&amp;g=5078</URL></Tracking></TrackingEvents><Video><Duration>00:00:30</Duration><VideoClicks><ClickThrough><URL>http://whatadifference.org</URL></ClickThrough><ClickTracking><URL id="TidalTv">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=redir&amp;pid=1&amp;fmid=11&amp;mid=8&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;rand=1936654018</URL></ClickTracking><CustomClick><URL /></CustomClick></VideoClicks><MediaFiles><MediaFile id="8" delivery="progressive" bitrate="0" width="400" height="300" type="video/x-flv"><URL>http://http.tidaltv.com/media/adcouncil/video_game_1.flv</URL></MediaFile></MediaFiles></Video><CompanionAds><Companion width="300" height="250" resourceType="static" creativeType="image/gif"><URL>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=comp&amp;pid=1&amp;fmid=11&amp;mid=37&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;comp=1&amp;rand=1936654018</URL><CompanionClickThrough><URL>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=redir&amp;pid=1&amp;fmid=11&amp;mid=37&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;rand=1936654018</URL></CompanionClickThrough></Companion><Companion width="300" height="250" resourceType="iframe"><URL>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=comp&amp;pid=1&amp;fmid=11&amp;mid=53&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;comp=1&amp;rand=1936654018</URL><CompanionClickThrough><URL>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=redir&amp;pid=1&amp;fmid=11&amp;mid=53&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;rand=1936654018</URL></CompanionClickThrough></Companion></CompanionAds><Extensions><Extension><MyData><ops tm="0" mn="156064-TST1" /><usr ttid="dbf2cf9f-f951-43f8-904f-d92ea9dff2bf" a2="1012" g2="3" s2="3%3d3%3b4%3d0" /></MyData></Extension><Extension type="LR-Pricing"><Price model="CPM" currency="USD" source="TidalTV">0</Price></Extension></Extensions></InLine></Ad></VideoAdServingTemplate></TTVXML></TidalTV>]]></AdParameters>
+          </Linear>
+
+        </Creative>
+        <Creative>
+          <CompanionAds>
+            <Companion width="300" height="250">
+              <StaticResource creativeType="image/gif">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=comp&amp;pid=1&amp;fmid=11&amp;mid=37&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;comp=1&amp;rand=1936654018</StaticResource>
+
+              <CompanionClickThrough>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=redir&amp;pid=1&amp;fmid=11&amp;mid=37&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;rand=1936654018</CompanionClickThrough>
+            </Companion>
+            <Companion width="300" height="250">
+              <IFrameResource creativeType="text/html">http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=comp&amp;pid=1&amp;fmid=11&amp;mid=53&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;comp=1&amp;rand=1936654018</IFrameResource>
+
+              <CompanionClickThrough>http://pbint.tidaltv.com/Logger2.0/ILogger.aspx?event=redir&amp;pid=1&amp;fmid=11&amp;mid=53&amp;adId=538ca16b-4744-4fa0-bb21-68eacef2150d&amp;rand=1936654018</CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+      <Extensions>
+
+        <Extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <MyData>
+            <ops tm="0" mn="156064-TST1" />
+            <usr ttid="dbf2cf9f-f951-43f8-904f-d92ea9dff2bf" a2="1012" g2="3" s2="3%3d3%3b4%3d0" />
+          </MyData>
+        </Extension>
+        <Extension type="LR-Pricing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Price model="CPM" currency="USD" source="TidalTV">0</Price>
+
+        </Extension>
+      </Extensions>
+    </InLine>
+  </Ad>
+</VAST>

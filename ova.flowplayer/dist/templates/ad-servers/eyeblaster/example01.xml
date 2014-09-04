@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+ <Ad id = "467201">
+    <InLine>
+        <AdSystem>MediaMind</AdSystem>
+        <AdTitle>vast</AdTitle>
+        <Description>vast</Description>
+        <Survey/>
+
+        <Error/>
+        <Impression id = "Impression"/>
+        <Creatives>
+            <Creative
+                id = "858460"
+                sequence = "1"
+                AdID = "858460">
+                <Linear>
+                    <Duration/>
+                    <VideoClicks>
+                        <ClickTracking><![CDATA[ ]]></ClickTracking>
+                    </VideoClicks>
+
+                    <MediaFiles>
+                        <MediaFile
+                            id = "1322504"
+                            delivery = ""
+                            type = "video/x-mp4"
+                            bitrate = "494"
+                            width = "300"
+                            height = "252"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/baileys_5sec.mp4]]></MediaFile>
+                    </MediaFiles>
+                </Linear>
+            </Creative>
+			<Creative
+                    id = "858460"
+                    sequence = "4"
+                    AdID = "858460">
+				<NonLinearAds>
+                        <NonLinear
+                            id = "1239135"
+                            width = "600"
+                            minSuggestedDuration = "30"
+                            height = "450">
+                            <StaticResource creativeType = "application/x-shockwave-flash"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/Untitled-1.swf]]></StaticResource>
+
+                        </NonLinear>
+				   </NonLinearAds>
+                </Creative>
+
+            <Creative
+                id = "858460"
+                sequence = "3"
+                AdID = "858460">
+                <CompanionAds>
+                    <Companion
+                        id = "1544111"
+                        width = "85"
+                        height = "127">
+                        <CompanionClickThrough><![CDATA[www.yahoo.com]]></CompanionClickThrough>
+                        <StaticResource creativeType = "image/jpg"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/smallWorld.jpg]]></StaticResource>
+                    </Companion>
+                    <Companion
+                        id = "1544108"
+                        width = "128"
+                        height = "95">
+                        <CompanionClickThrough><![CDATA[www.google.com]]></CompanionClickThrough>
+                        <StaticResource creativeType = "image/jpg"><![CDATA[http://ds.serving-sys-dev4.com/instream/assets/house.jpg]]></StaticResource>
+                    </Companion>
+                </CompanionAds>
+            </Creative>
+        </Creatives>
+    </InLine>
+</Ad>
+</VAST>
+

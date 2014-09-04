@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+        Example 14 - Turning off overlay scaling
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "enableOverlayScaling": false,
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10",
+                       "tag": "../../../dist/templates/overlays/scaled-maintain-aspect.xml"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

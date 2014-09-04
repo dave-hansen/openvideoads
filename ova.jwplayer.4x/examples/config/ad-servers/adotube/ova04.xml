@@ -1,0 +1,27 @@
+<config>
+   <ova.title>
+       Example 4 - VAST 2.0 Non-Linear VPAID
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                       "startTime": "00:00:02",
+                       "position": "auto:bottom",
+                       "duration": "recommended:20",
+                       "server": {
+	                       "type": "Adotube",
+                           "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Prod.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=OBpMj3k&platform_version=as3&publisher=www.longtailvideo.com&title=The Black Hole&tags=ova,test&description=ova test stream"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

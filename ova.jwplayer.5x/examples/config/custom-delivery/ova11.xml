@@ -1,0 +1,23 @@
+<config>
+   <ova.title>
+       Example 1 - Repeating Ad Positions
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "acceptedLinearAdMimeTypes": [ "video/x-flv" ],
+              "filterOnLinearAdMimeTypes": true,
+              "schedule": [
+                  {
+                    "position": "pre-roll",
+                    "tag": "http://api.atdmt.com/adserv.api/viewad/sa=115571748;sf=VAST20_PreRoll_XML_alpha;pf=FLV;br=500;strm=0"
+                  }
+              ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="linear-1">
+    <InLine>
+      <AdSystem>OVA Static Template</AdSystem>
+      <AdTitle>VPAID Linear Ad</AdTitle>
+      <Impression><![CDATA[http://localhost/log?impression]]></Impression>
+      <Creatives>
+        <Creative>
+          <Linear>
+              <Duration>00:00:00</Duration>
+		      <TrackingEvents>
+ 		        <Tracking event="creativeView">http://localhost/log?creativeView</Tracking>
+ 		        <Tracking event="start">http://localhost/log?start</Tracking>
+		        <Tracking event="firstQuartile">http://localhost/log?firstQuartile</Tracking>
+		        <Tracking event="midpoint">http://localhost/log?midpoint</Tracking>
+		        <Tracking event="thirdQuartile">http://localhost/log?thirdQuartile</Tracking>
+		        <Tracking event="complete">http://localhost/log?complete</Tracking>
+		        <Tracking event="pause">http://localhost/log?pause</Tracking>
+		        <Tracking event="resume">http://localhost/log?resume</Tracking>
+		        <Tracking event="rewind">http://localhost/log?rewind</Tracking>
+		        <Tracking event="mute">http://localhost/log?mute</Tracking>
+		        <Tracking event="unmute">http://localhost/log?unmute</Tracking>
+		        <Tracking event="fullscreen">http://localhost/log?fullscreen</Tracking>
+		        <Tracking event="expand">http://localhost/log?expand</Tracking>
+		        <Tracking event="collapse">http://localhost/log?collapse</Tracking>
+		        <Tracking event="acceptInvitation">http://localhost/log?acceptInvitation</Tracking>
+		        <Tracking event="close">http://localhost/log?close</Tracking>
+		      </TrackingEvents>
+              <MediaFiles>
+                 <MediaFile height="270" width="370" type="application/x-shockwave-flash" apiFramework="VPAID">
+	                 <![CDATA[http://cdn1.eyewonder.com/200125/instream/documentation_test_tags/vpaid/as3/VPAID_2_0.swf?adLoaderWidth=320&adLoaderHeight=240&cp=http://cdn.eyewonder.com/100125/754851/1262098/&loaderCreative=Linear_Interactive_Holder_as3.swf%3Fcp%3Dhttp://cdn.eyewonder.com/100125/754851/1262098/%26ewbase%3Dhttp://cdn.eyewonder.com/100125/754851/1262098/%26adLoaderWidth%3D300%26adLoaderHeight%3D225%26hAlign%3Dcenter%26vAlign%3Dmiddle%26keywordNames%3Dinstream_VAST_2_0_TEST%26keywordIDs%3D[103]%26ewbust%3D[timestamp]&adInstreamType=fixedroll&adTagAlignHorizontal=center&adTagAlignVertical=middle&adMode=prog&qaReportUUID=common]]>
+                 </MediaFile>
+              </MediaFiles>
+           </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

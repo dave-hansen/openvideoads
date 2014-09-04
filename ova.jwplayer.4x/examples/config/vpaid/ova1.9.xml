@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+      VPAID post-roll
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                "controls": { "hideOnLinearPlayback": false }
+             },
+             "schedule": [
+                {
+                   "position": "post-roll",
+                   "tag": "../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "companions": [
+	                  { "id":"companion-300x250-static-1", "width":"300", "height":"250", "index": 0 },
+	                  { "id":"companion-300x250-static-2", "width":"300", "height":"250", "index": 1 },
+	                  { "id":"companion-300x250-iframe", "width":"300", "height":"250", "resourceType": "iframe" },
+	                  { "id":"companion-300x250-html-1", "width":"300", "height":"250", "index": 4 }
+                ],
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "../../../dist/templates/companions/companions-vast2.xml"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

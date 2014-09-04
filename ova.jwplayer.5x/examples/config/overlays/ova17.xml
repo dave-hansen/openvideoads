@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+        Example 17 - Overlays with "scaling=false" in the VAST response
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "enableOverlayScaling": false,
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10",
+                       "tag": "../../../../dist/templates/overlays/not-scaled.xml"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

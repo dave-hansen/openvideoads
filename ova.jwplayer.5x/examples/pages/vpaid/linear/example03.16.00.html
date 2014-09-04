@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3.16.00 - Stop OVA firing a resize event each time the control bar shows/hides</title>
+<script type="text/javascript" src="../../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 3.16.00 - Stop OVA firing a resize event each time the control bar shows/hides</h2>
+<p class="example">
+</p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_3, 
+       file: "http://static.openvideoads.org/shows/the-black-hole.mp4",
+       image: "http://static.openvideoads.org/shows/the-black-hole-thumbnail.png",
+       skin: "http://static.openvideoads.org/downloads/skins/lulu.zip",
+       duration: 40,
+       'controlbar.position': 'over',
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": {
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              },
+              "player": {
+                  "controls": { "height": 30 }
+              },
+              "ads": {
+                  "vpaid": {
+                      "linearRegion": "reserved-fullscreen-black-no-close-button-non-clickable-with-cb-height",
+                      "callResizeOnControlbarShowHide": false				
+                  },
+                  "schedule": [
+                      {
+                          "position": "pre-roll",
+                          "tag": "http://search.spotxchange.com/vast/2.00/74856?VPAID=1OVA_VPAID_LINEAR_SPOTXCHANGEcontent_page_url=[page_url]&cb=__random-number__"
+                      }
+                  ]
+              }
+           }
+       },
+       height: 300,
+       width: 450
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;jwplayer("container").setup({
+       flashplayer: "<script type='text/javascript'>document.write(OVA_PLAYER_3)</script>", 
+       file: "http://static.openvideoads.org/shows/the-black-hole.mp4",
+       image: "http://static.openvideoads.org/shows/the-black-hole-thumbnail.png",
+       skin: "http://static.openvideoads.org/downloads/skins/lulu.zip",
+       duration: 40,
+       'controlbar.position': 'over',
+       plugins: {
+           "../../../../dist/swf/ova-jw.swf": { 
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              },
+              "player": {
+                  "controls": { "height": 30 }
+              },
+              "ads": {
+                  "vpaid": {
+                      "linearRegion": "reserved-fullscreen-black-no-close-button-non-clickable-with-cb-height",
+                      "callResizeOnControlbarShowHide": false				
+                  },
+                  "schedule": [
+                      {
+                          "position": "pre-roll",
+                          "tag": "http://ad4.liverail.com/..."
+                      }
+                  ]
+              }
+           }
+       },
+       height: 300,
+       width: 450
+});
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

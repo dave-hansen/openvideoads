@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - A bit rate selected VAST 2.0 pre-roll ad only</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_3ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_3global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/doubleclick/ova02.xml';</script>
+<h2>Example 2 - A bit rate selected VAST 2.0 pre-roll ad only</h2>
+<p class="example">
+The following example illustrates the delivery of a "progressive" ad from DART using VAST 2.0.
+The ad server URL is specified using the "tag" configuration property against the ad slot.
+Best sizing and bitrate options are also (optionally) provided to help select the right media file.
+If they are not provided, the first media file option is chosen.
+Two companion slots have also been provided - these will be filled if the companions are available
+in the VAST response.
+</p>
+<div id="container">
+  <div id="player_row" style="height:260px;">
+    <div id="player_left" style="width:427px;height:254px;padding-top:5px;">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 427, 254, "&file=OVA_HTTP_SHOW_STREAM_1&duration=30&provider=video"));</script>
+    </div>
+    <div id="player_right" style="height:100%;">
+	  <div id="companion-300x250">
+	      A COMPANION GOES HERE
+	  </div>
+    </div>
+  </div>
+  <div id="companion-728x90">
+	ANOTHER COMPANION GOES HERE
+  </div>
+</div>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 427, 254, "&file=OVA_HTTP_SHOW_STREAM_1&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 2 - A bit rate selected VAST 2.0 pre-roll ad only
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "deliveryType":"progressive",
+                "bestWidth": 420,
+                "bestHeight": 250,
+                "bestBitrate": 600,
+                "displayCompanions": true,
+                "companions": [
+                    { "id":"companion-728x90", "width":"728", "height":"90" },
+                    { "id":"companion-300x250", "width":"300", "height":"250" }
+                ],
+                "notice": { "show": false },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "DART",
+                          "tag": "http://ad.doubleclick.net/pfadx/N270.126913.6102203221521/
+                                  B3876671.20;dcadv=2215309;sz=0x0;pc=[TPAS_ID];
+                                  ord=__timestamp__;dcmt=text/xml"
+                       }
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

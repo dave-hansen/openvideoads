@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 7 - Specifying a holding clip URL
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "vpaid": {
+                    "holdingClipUrl": "http://static.openvideoads.org/ads/blank/blank-pixel.jpg"
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "http://ad3.liverail.com/?LR_CAMPAIGN_ID=4435__amp__LR_PUBLISHER_ID=3996__amp__LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

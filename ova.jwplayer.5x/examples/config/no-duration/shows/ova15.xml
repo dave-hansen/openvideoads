@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+       2 stream with a post-roll on the each stream
+   </ova.title>
+   <ova.json>
+       {
+           "shows": {
+              "baseURL": "http://streaming.openvideoads.org/shows",
+              "streams": [
+                   { "file":"the-black-hole.mp4" },
+                   { "file":"the-black-hole.mp4" }
+              ]
+           },
+
+           "ads": {
+              "servers": [
+                  {
+                    "type": "OpenX",
+                    "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                    "allowAdRepetition": true
+                  }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "post-roll"
+                  }
+              ]
+           },
+
+           "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+           }
+       }
+   </ova.json>
+</config>

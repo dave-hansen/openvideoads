@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+       Single VAST 2.0 Wrapper
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "streams": [
+                    {
+                        "file": "OVA_HTTP_SHOW_STREAM_1",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+               "servers": [
+                   {
+                      "type": "direct",
+                      "apiAddress": "OVA_DIST_TEMPLATES_2wrapper/vast2-wrapper-to-vast2-ad.xml"
+                   }
+               ],
+               "companions": [
+                  { "id":"companion-300x250", "width":"300", "height":"250" }
+               ],
+               "schedule": [
+                  {
+                    "zone": "46",
+                    "position": "pre-roll"
+                  }
+               ]
+            },
+
+            "debug": {
+                "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

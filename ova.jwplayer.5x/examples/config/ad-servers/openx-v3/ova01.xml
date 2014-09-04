@@ -1,0 +1,27 @@
+<config>
+   <ova.title>
+        VAST 2 Linear Ad with Companion (static ad tag)
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                     	{ "id": "companion-1", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "tag": "http://oxdemo-d.openxenterprise.com/v/1.0/av?pgid=91__amp__test=true"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

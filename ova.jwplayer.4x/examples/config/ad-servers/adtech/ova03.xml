@@ -1,0 +1,53 @@
+<config>
+   <ova.title>
+       Example 3 - Integrating an AdTech Ad Server - Overriding the Request Template
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "restoreCompanions": false,
+              "companions": [
+                   { "id":"companion-160x600", "width":"160", "height":"600" },
+                   { "id":"companion-300x250", "width":"300", "height":"250" }
+              ],
+              "servers": [
+                   {
+                      "type": "AdTech",
+                      "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1",
+                      "requestTemplate": "__api-address__/__zone__/__nondynamic__;alias=__alias____aliaspostfix__;key=__key__;__key-value__;__cookie-name__=__cookie-value__;grp=__group__;misc=__random-number__",
+                      "oneAdPerRequest": true,
+                      "customProperties": {
+                      }
+                   }
+              ],
+              "schedule": [
+                   {
+                      "zone": "2366662/0/1725",
+                      "position": "pre-roll"
+                   },
+                   {
+                     "zone": "2366662/0/1725",
+                     "position": "post-roll",
+                     "server": {
+                         "customProperties": {
+							"nondynamic": "noperf=1;cc=2;header=yes;cookie=yes;adct=204",
+							"alias": "",
+							"aliaspostfix": "",
+							"key": "key1+key2",
+							"key-value": "",
+							"cookie-name": "",
+							"cookie-value": "",
+							"group": "[group]"
+                         }
+                      }
+                   }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

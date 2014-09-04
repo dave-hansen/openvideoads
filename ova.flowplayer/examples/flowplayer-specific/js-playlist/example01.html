@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1- transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - Using loop:false on the Playlist Plugin with Ads</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.1.2/jquery.tools.min.js"></script>
+<!-- <script type="text/javascript" src="http://static.flowplayer.org/js/jquery.mousewheel.js"></script> -->
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/flowplayer.playlist-3.0.7.modified.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+  @import url(../../../dist/css/playlist.css);
+-->
+/* these two settings will remove borders from playlist entries */
+a:active {  outline:none; }
+:focus   { -moz-outline-style:none; }
+
+/* container has a background image */
+a.player {
+  margin-top:40px;
+  display:block;
+  width:425px;
+  height:298px;
+  padding:0px 26px 55px 63px;
+  text-align:center;
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+/* splash image */
+a.player img {
+  margin-top:115px;
+  border:0;
+}
+</style>
+<h2>Example 1 - Using loop:false on the Playlist Plugin with Ads</h2>
+<p class="example">
+This example illustrates how to use the loop:false option with the modified
+Javascript playlist plugin (that excludes ads from the visible playlist). 
+The plugin requires a small modification to exclude items that start with "advertisement" 
+in the title. A modified version of the Flowplayer JS plugin has been provided in this 
+release. If you are using 
+Flowplayer 3.1.5, use "flowplayer.playlist-3.0.7.modified.js" 
+(download <a href="../../../dist/js/flowplayer.playlist-3.0.7.modified.js">here</a>).
+Flowplayer 3.2.x requires "flowplayer.playlist-3.0.8.modified.js"
+(download <a href="../../../dist/js/flowplayer.playlist-3.0.8.modified.js">here</a>).
+</p>
+<p class="example">
+This example uses Flowplayer 3.2.x and the 3.0.8.modified version of the Javascript playlist plugin.
+</p>
+<br/>
+
+<div style="float:left;width:190px">
+	<a class="go up"></a>
+	<div class="playlist">			
+		<div class="clips low">
+			<a href="#">
+				${title}<span>${subTitle}</span>
+				<em>${time}</em>
+			</a>
+		</div>
+	</div>
+	<a class="go down"></a>
+</div>
+<a id="player" class="player" style="float:left;margin-top:25px">
+</a>
+
+<script type="text/javascript">
+$(function() {
+	$f("player", FP_SWF, {
+		// clip properties common to all playlist entries
+		clip: {
+			baseUrl: "http://blip.tv/file/get",
+			subTitle: "from blib.tv video sharing site",
+			time: "5 sec"
+		},
+		
+		// our playlist
+		playlist: [
+			{
+				url: "KimAronson-TwentySeconds59483.flv",
+				title: "Palm trees and the sun",
+				description: "description 1"
+			},	
+			{
+				url: "KimAronson-TwentySeconds58192.flv",
+				title: "Happy feet in a car",
+				description: "description 2"
+			},	
+			{
+				url: "KimAronson-TwentySeconds63617.flv",
+				title: "People jogging",
+				description: "description 3"
+			}
+		],
+	    
+	    plugins: {	    
+	        controls: {
+	            autoHide: "always"
+	        },
+	        
+	        ova: {
+	            "url": OVA_OAS_URL,
+	
+	            "debug": {
+	                "levels": OVA_OAS_DEBUG
+	            },
+	
+	            "ads": {
+	                "pauseOnClickThrough": true,
+	                "servers": [
+	                    {
+	                      "type": "OpenX",
+	                      "apiAddress": OVA_OPENX_API,
+	                      "allowAdRepetition": true                      
+	                    }
+	                ],
+	                "schedule": [
+	                    {
+	                      "zone": "5",
+	                      "position": "pre-roll"
+	                    }
+	                ]
+	            }
+	        }	
+	    }    
+	}).playlist(".clips", {loop: false});
+
+	// setup scrolling for the playlist elements
+	$("div.playlist").scrollable({
+		items:"div.clips",
+		vertical:true,
+		next:"a.down",
+		prev:"a.up"
+	});	
+});
+</script>
+<br clear="all" />
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+$(function() {
+    $f("player", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+        // clip properties common to all playlist entries
+        clip: {
+            baseUrl: "http://blip.tv/file/get",
+            subTitle: "from blib.tv video sharing site",
+            time: "5 sec"
+        },
+	
+        // our playlist
+        playlist: [
+            {
+                url: "KimAronson-TwentySeconds59483.flv",
+                title: "Palm trees and the sun",
+                description: "description 1"
+            },	
+            {
+                url: "KimAronson-TwentySeconds58192.flv",
+                title: "Happy feet in a car",
+                description: "description 2"
+            },	
+            {
+                url: "KimAronson-TwentySeconds63617.flv",
+                title: "People jogging",
+                description: "description 3"
+            }
+        ],
+    
+        plugins: {	    
+            controls: {
+                autoHide: "always"
+            },
+
+            ova: {
+                url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+                "debug": {
+                    "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+                },
+
+                "ads": {
+                    "pauseOnClickThrough": true,
+                    "servers": [
+                        {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                          "allowAdRepetition": true                      
+                        }
+                    ],
+                    "schedule": [
+                        {
+                          "zone": "5",
+                          "position": "pre-roll"
+                        }
+                    ]
+                }
+            }
+        }
+    }).playlist(".clips", {loop: false});
+
+    // setup scrolling for the playlist elements
+    $("div.playlist").scrollable({
+        items:"div.clips",
+        vertical:true,
+        next:"a.down",
+        prev:"a.up"
+    });	
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

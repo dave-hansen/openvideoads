@@ -1,0 +1,51 @@
+<config>
+   <ova.title>
+       Example 2 - Adding Custom Google Analytics URLs
+   </ova.title>
+   <ova.json>
+       {
+            "analytics": {
+                "google": {
+	                "custom": {
+	                    "enable": true,
+	    	        	"accountId": "UA-10158120-1",
+	    	        	"impressions": {
+		        	    	"linear": "/ova/impression-counter/custom-test/linear",
+	    	        		"nonLinear": "/ova/impression-counter/custom-test/nonLinear",
+	        	    		"companion": "/ova/impression-counter/custom-test/companion"
+	    	        	}
+	            	}
+                }
+            },
+
+            "shows": {
+              "streams": [
+                 {
+                    "file":"OVA_PSEUDO_SHOW_STREAM_1",
+                    "duration":"00:00:30"
+                 }
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

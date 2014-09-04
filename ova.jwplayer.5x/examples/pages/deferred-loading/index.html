@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>OVA for JW5x - Deferred and On-Demand Loading</title>
+<link rel="stylesheet" type="text/css" href="../../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for JW5x - Delayed and On-Demand Loading</h2>
+<p class="example">
+<p>
+<ol>
+<li><strong>Linear Ad Calls "Delayed" Until Play Button Pressed (via "delayAdRequestUntilPlay: true")</strong></li>
+<ul>
+<li><strong>Single show stream</strong></li>
+<ul>
+<li><a href="example0.00.00.html">Ad call "delayed" during playback</a> (<a href="example0.00.00-1.html">VPAID</a>)</li>
+</ul>
+<li><strong>Playlist loaded clip-at-a-time</strong></li>
+<ul>
+<li>With "<u>clearPlaylist:true</u>" as default setting</li>
+<ul>
+<li><a href="example0.00.01.html">No splash image</a> (<a href="example0.00.01-1.html">VPAID</a>)</li>
+<li><a href="example0.00.02.html">With splash image (declared as flashvar)</a> (<a href="example0.00.02-1.html">VPAID</a>)</li>
+<li><a href="example0.00.03.html">With splash image (declared in playlist)</a> (<a href="example0.00.03-1.html">VPAID</a>)</li>
+<li><a href="example0.00.04.html">No show stream or splash image</a> (<a href="example0.00.04-1.html">VPAID</a>)</li>
+</ul>
+<li>With "<u>clearPlaylist:false</u>" explicitly set</li>
+<ul>
+<li><a href="example0.01.01.html">No splash image</a> (<a href="example0.01.01-1.html">VPAID</a>)</li>
+<li><a href="example0.01.02.html">With splash image (declared as flashvar)</a> (<a href="example0.01.02-1.html">VPAID</a>)</li>
+<li><a href="example0.01.03.html">With splash image (declared in playlist)</a> (<a href="example0.01.03-1.html">VPAID</a>)</li>
+<li><a href="example0.01.04.html">No show stream or splash image</a> (<a href="example0.01.04-1.html">VPAID</a>)</li>
+</ul>
+<li>With "<u>clearPlaylist:true</u>" explicitly set</li>
+<ul>
+<li><a href="example0.02.01.html">No splash image</a> (<a href="example0.02.01-1.html">VPAID</a>)</li>
+<li><a href="example0.02.02.html">With splash image (declared as flashvar)</a> (<a href="example0.02.02-1.html">VPAID</a>)</li>
+<li><a href="example0.02.03.html">With splash image (declared in playlist)</a> (<a href="example0.02.03-1.html">VPAID</a>)</li>
+<li><a href="example0.02.04.html">No show stream or splash image</a> (<a href="example0.02.04-1.html">VPAID</a>)</li>
+</ul>
+</ul>
+<li><strong>Playlist loaded once via "allowPlaylistControl:true"</strong></li>
+<ul>
+<li>With "<u>clearPlaylist:true</u>" as default setting and "enforceLinearAdsOnPlaylistSelection:true"</li>
+<ul>
+<li><a href="example0.03.01.html">JSON playlist: No splash image</a> (<a href="example0.03.01-1.html">VPAID</a>)</li>
+<li><a href="example0.03.02.html">JSON playlist: With splash image</a> (<a href="example0.03.02-1.html">VPAID</a>)</li>
+<li><a href="example0.03.03.html">MRSS playlist: With splash image</a> (<a href="example0.03.03-1.html">VPAID</a>)</li>
+</ul>
+<li>With "<u>clearPlaylist:false</u>" explicitly set and "enforceLinearAdsOnPlaylistSelection:true"</li>
+<ul>
+<li><a href="example0.04.01.html">JSON playlist: No splash image</a> (<a href="example0.04.01-1.html">VPAID</a>)</li>
+<li><a href="example0.04.02.html">JSON playlist: With splash image</a> (<a href="example0.04.02-1.html">VPAID</a>)</li>
+<li><a href="example0.04.03.html">MRSS playlist: With splash image</a> (<a href="example0.04.03-1.html">VPAID</a>)</li>
+</ul>
+<li>With "<u>clearPlaylist:true</u>" explicitly set and "enforceLinearAdsOnPlaylistSelection:true"</li>
+<ul>
+<li><a href="example0.05.01.html">JSON playlist: No splash image</a> (<a href="example0.05.01-1.html">VPAID</a>)</li>
+<li><a href="example0.05.02.html">JSON playlist: With splash image</a> (<a href="example0.05.02-1.html">VPAID</a>)</li>
+<li><a href="example0.05.03.html">MRSS playlist: With splash image</a> (<a href="example0.05.03-1.html">VPAID</a>)</li>
+</ul>
+</ul>
+<li><strong>Special Cases</strong></li>
+<ul>
+<li><a href="example0.06.01.html">Autostart set to true - cancels out the delay</a> (<a href="example0.06.01-1.html">VPAID</a>)</li>
+<li><a href="example0.06.02.html">Ensuring ads play when new playlist items are selected</a> (<a href="example0.06.02-1.html">VPAID</a>)</li>
+</ul>
+</ul>
+</ul>
+<li><strong>Linear "On Demand" Ad Calls</strong></li>
+<ul>
+<li><strong>No show stream</strong></li>
+<ul>
+<li>Pre-roll ad call made "On Demand" during playback</a> (VPAID</a>) (Refreshed</a>)</li>
+</ul>
+<li><strong>Single show stream</strong></li>
+<ul>
+<li><a href="example1.00.00.html">Pre-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.00-1.html">VPAID</a>) (<a href="example1.00.00-2.html">Refreshed</a>)</li>
+<li><a href="example1.00.10.html">Pre-roll ad calls made "On Demand", no delay with autostart:true</a> (<a href="example1.00.00-1.html">VPAID</a>)</li>
+<li><a href="example1.00.08.html">Mid-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.08-1.html">VPAID</a>) (<a href="example1.00.08-2.html">Refreshed</a>)</li>
+<li><a href="example1.00.09.html">Post-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.09-1.html">VPAID</a>) (<a href="example1.00.09-2.html">Refreshed</a>)</li>
+</ul>
+<li><strong>Playlist loaded a clip-at-a-time</strong></li>
+<ul>
+<li><a href="example1.00.01.html">Pre-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.01-1.html">VPAID</a>)</li>
+<li><a href="example1.00.02.html">Pre-roll with "delayAdRequestUntilPlay:true"</a> (<a href="example1.00.02-1.html">VPAID</a>)</li>
+<li><a href="example1.00.03.html">Pre-roll on demand ad calls refreshed with each playback</a> (<a href="example1.00.03-1.html">VPAID</a>)</li>
+<li><a href="example1.00.06.html">Mid-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.06-1.html">VPAID</a>) (<a href="example1.00.06-2.html">Refreshed</a>)</li>
+<li><a href="example1.00.07.html">Post-roll ad calls made "On Demand" during playback</a> (<a href="example1.00.07-1.html">VPAID</a>) (<a href="example1.00.06-2.html">Refreshed</a>)</li>
+<!--
+<li>On demand ad calls "played once"</a> (VPAID</a>)</li>
+<li><a href="example1.00.04.html">On demand ad calls "played once"</a> (<a href="example1.00.04-1.html">VPAID</a>)</li>
+-->
+<li><a href="example1.00.05.html">On demand ad calls with "autostart:true"</a> (<a href="example1.00.05-1.html">VPAID</a>)</li>
+</ul>
+<li><strong>Playlist loaded once via "allowPlaylistControl:true"</strong></li>
+<ul>
+<li><a href="example2.00.01.html">Pre-roll ad calls made "On Demand" during playback</a> (<a href="example2.00.01-1.html">VPAID</a>) (<a href="example2.00.01-2.html">post-rolls</a>)</li>
+<li><a href="example2.00.02.html">Pre-roll with "delayAdRequestUntilPlay:true"</a> (<a href="example2.00.02-1.html">VPAID</a>) (<a href="example2.00.02-2.html">post-rolls</a>)</li>
+<li><a href="example2.00.08.html">Pre-roll on demand, delayed, "enforceLinearAdsOnPlaylistSelection:true"</a> (<a href="example2.00.08-1.html">VPAID</a>) (<a href="example2.00.08-2.html">post-rolls</a>)</li>
+<li><a href="example2.00.03.html">Pre-roll refreshing "On Demand" ad slots</a> (<a href="example2.00.03-1.html">VPAID</a>) (<a href="example2.00.03-2.html">post-rolls</a>)</li>
+<!--
+<li>JSON: With "playOnce:true"</a> (VPAID</a>) (post-rolls)</li>
+<li><a href="example2.00.04.html">JSON: With "playOnce:true"</a> (<a href="example2.00.04-1.html">VPAID</a>)</li>
+-->
+<li><a href="example2.00.05.html">Pre-roll auto starting playback - pre-rolls</a> (<a href="example2.00.05-1.html">VPAID pre-rolls</a>) (<a href="example2.00.05-2.html">post-rolls</a>)</li>
+<li><a href="example2.00.06.html">Pre-roll with "refreshOnReplay:true" and "enforceLinearAdsOnPlaylistSelection:true"</a> (<a href="example2.00.06-1.html">VPAID</a>)</li>
+<li><a href="example2.00.10.html">Mid-roll Ad calls made "On Demand" during playback</a> (<a href="example2.00.10-1.html">VPAID</a>) (<a href="example2.00.10-2.html">Refreshed</a>)</li>
+</ul>
+<li><strong>Special Test Cases</strong></li>
+<ul>
+<li><a href="example3.00.12.html">No "holdingClipUrl" specified</a> (<a href="example3.00.12-1.html">VPAID</a>)</li>
+<li>Empty pre-roll on-demand, no show (autostart) (delayed)</li>
+<li>Two on-demand pre-rolls, first empty, no show (autostart) (delayed)</li>
+<li><a href="example3.00.08.html">Empty pre-roll (single show)</a> (<a href="example3.00.08-2.html">multiple</a>) (<a href="example3.00.08-1.html">Playlist</a>)</li>
+<li>Two on-demand pre-rolls, first empty (single show)</a> (multiple</a>) (Playlist</a>) (delayed)</li>
+<li>Two on-demand pre-rolls, first empty, with autostart (single show)</a> (multiple</a>) (Playlist</a>) (delayed)</li>
+<li><a href="example3.00.13.html">Empty mid-roll (single show)</a> (<a href="example3.00.13-2.html">multiple</a>) (<a href="example3.00.13-1.html">Playlist</a>)</li>
+<li><a href="example3.00.14.html">Empty post-roll (single show)</a> (<a href="example3.00.14-2.html">multiple</a>) (<a href="example3.00.14-1.html">Playlist</a>)</li>
+<li><a href="example3.00.09.html">Empty pre-roll, delayed (single show)</a> (<a href="example3.00.09-2.html">multiple</a>) (<a href="example3.00.09-1.html">Playlist</a>)</li>
+<li><a href="example3.00.03.html">Empty pre-roll on-demand, delayed (single show)</a> (<a href="example3.00.03-2.html">multiple</a>) (<a href="example3.00.03-1.html">Playlist</a>)</li>
+<li><a href="example3.00.06.html">Empty pre-roll on-demand, not delayed (single show)</a> (<a href="example3.00.06-2.html">multiple</a>) (<a href="example3.00.06-1.html">Playlist</a>)</li>
+<li><a href="example3.00.07.html">Empty pre-roll on-demand, delayed with autostart (single show)</a> (<a href="example3.00.07-2.html">multiple</a>) (<a href="example3.00.07-1.html">Playlist</a>)</li>
+<li><a href="example3.00.04.html">Empty pre-roll on-demand, not delayed with autostart (single show)</a> (<a href="example3.00.04-2.html">multiple</a>) (<a href="example3.00.04-1.html">Playlist</a>)</li>
+<li><a href="example3.00.05.html">Empty pre-roll on-demand, splash image, delayed (single show)</a> (<a href="example3.00.05-2.html">multiple</a>) (<a href="example3.00.05-1.html">Playlist</a>)</li>
+<li><a href="example3.00.10.html">Empty pre-roll on-demand, "enforceLinearAdsOnPlaylistSelection:true", playlist</a></li>
+<li><a href="example3.00.11.html">Empty pre-roll on-demand, delayed, "enforceLinearAdsOnPlaylistSelection:true", playlist</a></li>
+<li><a href="example3.00.15.html">Empty mid-roll on-demand, delayed, "enforceLinearAdsOnPlaylistSelection:true", playlist</a></li>
+<li><a href="example3.00.16.html">Empty post-roll on-demand, delayed, "enforceLinearAdsOnPlaylistSelection:true", playlist</a></li>
+<li>Very slow on-demand ad calls</a></li>
+<li>Timed-out on-demand ad calls</a></li>
+<li>On-demand ad calls that return an error</a></li>
+</ul>
+</ul>
+<li><strong>Non-Linear "On Demand" Ad Calls</strong></li>
+<ul>
+<li><a href="example4.00.00.html">Overlay ad calls made on demand during playback (no companions)</a> (<a href="example4.00.01.html">VPAID overlays)</li>
+<li><a href="example4.01.00.html">On demand overlays with "refreshOnReplay"</a> (<a href="example4.01.01.html">VPAID</a>)</li>
+<li><a href="example4.04.00.html">On demand overlays with companions</a></li>
+<li><a href="example4.02.00.html">Multiple on-demand overlays</a></li>
+<li><a href="example4.03.00.html">Dealing with empty on demand overlay ad calls</a></li>
+</ul>
+</ol>
+<p>
+<a href="../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>

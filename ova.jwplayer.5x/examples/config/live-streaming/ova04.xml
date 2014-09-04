@@ -1,0 +1,44 @@
+<config>
+   <ova.title>
+       Example 4 - Delivering Overlays over a Live Stream
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+               "streamTimer": { "enabled": true, "tickRate": 100 }
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                      "zone": "30",
+                      "position": "center:auto",
+                      "startTime": "00:00:02",
+                      "duration": 10,
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "zone": "41",
+                      "position": "center:auto",
+                      "startTime": "00:00:15",
+                      "duration": 10,
+                      "width": 450,
+                      "height": 50
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="overlay-1">
+    <InLine>
+      <AdSystem>OVA Static Template</AdSystem>
+      <AdTitle>Simple Count Down Example</AdTitle>
+      <Impression>
+        <URL id="test">http://localhost/log?impression</URL>
+      </Impression>
+      <TrackingEvents>
+        <Tracking event="start">
+          <URL id="test">http://localhost/log?start</URL>
+        </Tracking>
+        <Tracking event="firstQuartile">
+          <URL id="test">http://localhost/log?firstQuartile</URL>
+        </Tracking>
+        <Tracking event="midpoint">
+          <URL id="test">http://localhost/log?midpoint</URL>
+        </Tracking>
+        <Tracking event="thirdQuartile">
+          <URL id="test">http://localhost/log?thirdQuartile</URL>
+        </Tracking>
+        <Tracking event="complete">
+          <URL id="test">http://localhost/log?complete</URL>
+        </Tracking>
+        <Tracking event="pause">
+          <URL id="test">http://localhost/log?pause</URL>
+        </Tracking>
+        <Tracking event="resume">
+          <URL id="test">http://localhost/log?resume</URL>
+        </Tracking>
+        <Tracking event="rewind">
+          <URL id="test">http://localhost/log?rewind</URL>
+        </Tracking>
+        <Tracking event="mute">
+          <URL id="test">http://localhost/log?mute</URL>
+        </Tracking>
+        <Tracking event="unmute">
+          <URL id="test">http://localhost/log?unmute</URL>
+        </Tracking>
+        <Tracking event="fullscreen">
+          <URL id="test">http://localhost/log?fullscreen</URL>
+        </Tracking>
+        <Tracking event="expand">
+          <URL id="test">http://localhost/log?expand</URL>
+        </Tracking>
+        <Tracking event="collapse">
+          <URL id="test">http://localhost/log?collapse</URL>
+        </Tracking>
+        <Tracking event="acceptInvitation">
+          <URL id="test">http://localhost/log?acceptInvitation</URL>
+        </Tracking>
+        <Tracking event="close">
+          <URL id="test">http://localhost/log?close</URL>
+        </Tracking>
+      </TrackingEvents>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear apiFramework="VPAID" id="overlay-1">
+                <StaticResource creativeType="application/x-shockwave-flash">
+                   http://localhost/ova/ova.vpaid.ads/dist/vpaid1-countdown-example.swf
+                </StaticResource>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

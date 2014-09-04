@@ -1,0 +1,21 @@
+<VAST version="2.0">
+    <Ad id="iRoll">
+        <InLine>
+            <AdSystem>INNOVID 2.8.3</AdSystem>
+            <AdTitle>Honey Bunches of Oats</AdTitle>
+            <Impression/>
+            <Creatives>
+                <Creative>
+
+                    <Linear>
+                        <Duration>00:00:15</Duration>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" width="16" height="9" type="application/x-shockwave-flash" apiFramework="vpaid"><![CDATA[http://cdn.innovid.com/iroll/package/iab-vpaid/1hk43s.swf]]></MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+
+        </InLine>
+    </Ad>
+</VAST>

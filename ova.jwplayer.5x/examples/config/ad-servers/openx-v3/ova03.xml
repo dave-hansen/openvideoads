@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+        VAST 2 Linear and Non-Linear Ads with Companions (1 ad call using dynamic ad tags)
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OpenX3",
+                      "apiAddress": "http://oxdemo-d.openxenterprise.com/v/1.0/av",
+                      "tagParams": {
+                          "test": "true",
+                          "c.topic": "sports",
+                          "c.gender": "male"
+                      }
+                    }
+                ],
+                "schedule": [
+                    {
+                       "zone": "auid=9",
+                       "position": "pre-roll"
+                    },
+                    {
+                       "zone": "pgid=127",
+                       "position": "auto:bottom",
+                       "startTime": "00:00:02"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

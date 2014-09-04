@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+       Example 7 - Display of companions without a VAST creativeType declared
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+	                  { "id":"companion-300x250-static-1", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "../../../dist/templates/companions/companions-no-creative-type-vast1.xml"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

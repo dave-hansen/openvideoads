@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 1- VAST 2.0 Non-Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+	                     { "id":"companion-300x250", "width":"300", "height":"250" },
+	                     { "id":"companion-728x90", "width":"728", "height":"90" }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "auto",
+                       "duration": "recommended:10",
+                       "startTime": "00:00:03",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://demo.tremormedia.com/proddev/vast/vast_inline_nonlinear.xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

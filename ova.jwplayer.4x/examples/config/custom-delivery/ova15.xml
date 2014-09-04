@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+       Example 15 - Supporting Custom VAST Tags
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "acceptedNonLinearAdMimeTypes": [ "image/gif", "image/jpg", "image/png" ],
+                "filterOnNonLinearAdMimeTypes": true,
+                "schedule": [
+                    {
+                       "position": "auto:bottom",
+                       "startTime": "00:00:03",
+                       "duration": 15,
+                       "tag": "../../../dist/templates/custom-tags/vast-clickthroughs.xml"
+                    }
+                ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

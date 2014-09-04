@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+		1 stream with a post-roll
+   </ova.title>
+   <ova.json>
+       {
+           "shows": {
+              "baseURL": "OVA_HTTP_BASE_URL",
+              "streams": [
+                   { "file":"OVA_HTTP_SHOW_STREAM_FILE" }
+              ]
+           },
+
+           "ads": {
+              "servers": [
+	              {
+	                "type": "OpenX",
+	                "apiAddress": "OVA_OPENX_API",
+	 	            "allowAdRepetition": true
+	              }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "post-roll"
+                  }
+              ]
+           },
+
+           "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+           }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="602833">
+  <Wrapper>
+    <AdSystem>Open Video Ads Templates</AdSystem>
+    <VASTAdTagURI>http://static.openvideoads.org/tests/vast2-wrapper-to-vast2-wrapper-vast2-ad.xml</VASTAdTagURI>
+    <Impression>http://localhost/vast2-wrapper3-impression</Impression>
+	<Creatives>
+		<Creative AdID="602833">
+			<Linear>
+	            <VideoClicks>
+	              <ClickTracking>http://localhost/vast2-wrapper3-click-tracking-1</ClickTracking>
+	              <ClickTracking>http://localhost/vast2-wrapper3-click-tracking-2</ClickTracking>
+	            </VideoClicks>
+				<TrackingEvents>
+					<Tracking event="creativeView">http://localhost/vast2-wrapper3-creativeView</Tracking>
+					<Tracking event="start">http://localhost/vast2-wrapper3-start</Tracking>
+					<Tracking event="midpoint">http://localhost/vast2-wrapper3-midpoint</Tracking>
+					<Tracking event="firstQuartile">http://localhost/vast2-wrapper3-firstQuartile</Tracking>
+					<Tracking event="thirdQuartile">http://localhost/vast2-wrapper3-thirdQuartile</Tracking>
+					<Tracking event="complete">http://localhost/vast2-wrapper3-complete</Tracking>
+				</TrackingEvents>
+			</Linear>
+		</Creative>
+	</Creatives>
+  </Wrapper>
+  </Ad>
+</VAST>

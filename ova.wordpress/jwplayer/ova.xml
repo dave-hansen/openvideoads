@@ -1,0 +1,21 @@
+<plugin>
+        <title>Open Video Ads</title>
+        <filename>ova.swf</filename>
+        <repository>ova-trial</repository>
+        <version>1.0</version>
+        <compatibility>Compatible with both 4.x and 5.x</compatibility>
+        <author>Open Video Ads</author>
+        <description>Description goes in here</description>
+        <href>http://developer.longtailvideo.com/ova</href>
+        <page>http://www.longtailvideo.com/open-video-ads</page>
+        <flashvars>
+                <flashvar type="field">
+                        <name>json</name>
+                        <default></default>
+                        <description>
+                             OVA JSON Configuration as per &lt;a href="http://www.openvideoads.org/community"&gt;The OVA Configuration Guide&lt;/a&gt;
+                             (or try the &lt;a href="http://www.openvideoads.org/wizard"&gt;OVA Wizard&lt;/a&gt;)
+                        </description>
+                </flashvar>
+        </flashvars>
+</plugin>

@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       Example 4 - VAST 2 VPAID Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "vpaid": {
+                    "enableMaxDurationTimeout": true,
+                    "maxDurationTimeout": 30
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "http://ad4.liverail.com/?LR_ORDER_ID=23533996&LR_PUBLISHER_ID=3996&LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

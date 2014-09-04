@@ -1,0 +1,64 @@
+<VAST xsi:noNamespaceSchemaLocation="vast2.xsd" version="2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ad id="BC0">
+    <InLine>
+      <AdSystem>OAS</AdSystem>
+      <AdTitle>Topcon728</AdTitle>
+      <Description>VAST Topcon 728x90</Description>
+      <Impression>http://localhost/impression1</Impression>
+      <Creatives>
+        <Creative>
+            <NonLinearAds>
+                <TrackingEvents>
+                    <Tracking event="creativeView">http://localhost/non-linear/iframe/creativeView</Tracking>
+                    <Tracking event="fullscreen">http://localhost/non-linear/iframe/fullscreen</Tracking>
+                    <Tracking event="acceptInvitation">http://localhost/non-linear/iframe/acceptInvitation</Tracking>
+                    <Tracking event="close">http://localhost/non-linear/iframe/close</Tracking>
+                </TrackingEvents>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/29036_woe_728x90.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/swf-overlay-247oas-728x90.swf
+                 	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/2006462543_217816411_728x90.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/2168_dualsimbanner728x90.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/InfusionCampus_728x90_dn.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/shawntech_728_dn.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+                <NonLinear id="12" width="728" height="90" scalable="true" maintainAspectRatio="true" minSuggestedDuration="00:00:20">
+                    <StaticResource creativeType="application/x-shockwave-flash">
+                        http://static.openvideoads.org/ads/overlays/ysprings_728_dn060208.swf
+                	</StaticResource>
+                	<NonLinearClickThrough>http://www.openvideoads.org</NonLinearClickThrough>
+            	</NonLinear>
+       	  </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

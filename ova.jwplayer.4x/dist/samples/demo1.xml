@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Demo 1 - Linear Pre-Roll with Companion
+   </ova.title>
+   <ova.json>
+       {
+		    "ads": {
+		       "servers": [
+		             {
+		                  "type": "OpenX",
+		                  "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+		             }
+		       ],
+		       "notice": { "textStyle": "smalltext" },
+		       "displayCompanions": true,
+		       "companions": [
+		             {
+		                  "id":"companion",
+		                  "width":"200",
+		                  "height":"240"
+		             }
+		       ],
+		       "schedule": [
+		             {
+		                  "zone": "47",
+		                  "position": "pre-roll"
+		             }
+		        ]
+		    }
+       }
+   </ova.json>
+</config>

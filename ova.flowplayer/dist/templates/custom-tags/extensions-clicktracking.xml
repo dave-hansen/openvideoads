@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+    <Ad id="232316847">
+        <InLine>
+            <AdSystem>dfp</AdSystem>
+            <AdTitle>Overlay Transparent</AdTitle>
+            <Description/>
+            <Error>
+                <URL>
+                    <![CDATA[http://localhost/error]]>
+                </URL>
+            </Error>
+            <Impression>
+                <URL id="sim_vast_i">
+                    <![CDATA[http://localhost/impression]]>
+                </URL>
+            </Impression>
+            <TrackingEvents></TrackingEvents>
+            <Video></Video>
+            <NonLinearAds>
+                <NonLinear id="%eaid" width="900" height="140" resourceType="static" creativeType="image/gif" maintainAspectRatio="true" scalable="true">
+	                <URL>
+	                    <![CDATA[http://static.openvideoads.org/ads/overlays/728x90_wetter.gif]]>
+	                </URL>
+	                <NonLinearClickThrough>
+	                    <URL>
+	                        <![CDATA[http://www.google.de]]>
+	                    </URL>
+	                </NonLinearClickThrough>
+	            </NonLinear>
+                <NonLinear id="232316847" width="900" height="140" resourceType="static" creativeType="SWF" maintainAspectRatio="true" scalable="true">
+                    <URL>
+                        <![CDATA[http://static.openvideoads.org/ads/overlays/864x486_rio-ad.swf]]>
+                    </URL>
+                    <NonLinearClickThrough>
+                        <URL>
+                            <![CDATA[http://www.google.de]]>
+                        </URL>
+                    </NonLinearClickThrough>
+                </NonLinear>
+    	    </NonLinearAds>
+	        <Extensions>
+	            <Extension type="dfp">
+	                <AdServingData>
+	                    <Industry/>
+	                    <LinearSwf>
+	                        <Dimension width="300" height="250"/>
+	                    </LinearSwf>
+	                </AdServingData>
+	            </Extension>
+	            <Extension type="NonLinearClickTracking">
+	                <ClickTracking>
+	                    <URL id="custom_click_1">
+	                        <![CDATA[http://localhost/custom-click-tracking-1]]>
+	                    </URL>
+	                    <URL id="custom_click_2">
+	                        <![CDATA[http://localhost/custom-click-tracking-2]]>
+	                    </URL>
+	                    <URL id="3rdparty">
+	                    </URL>
+	                </ClickTracking>
+	            </Extension>
+	        </Extensions>
+	    </InLine>
+	</Ad>
+</VideoAdServingTemplate>

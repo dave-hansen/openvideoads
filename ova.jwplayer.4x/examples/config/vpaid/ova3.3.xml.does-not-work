@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Manually specifying a height allowance for a control bar
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                "holdingClipUrl": "OVA_BLANK_PIXEL_IMAGE",
+                 "controls": {
+                     "hideOnLinearPlayback": false,
+	                 "barHeight": 30
+                 }
+             },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

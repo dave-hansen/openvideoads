@@ -1,0 +1,47 @@
+<config>
+   <ova.title>
+       Stream Sequencing Test
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+	            "streams": [
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" },
+                    { "file":"the-black-hole.mp4" }
+               ]
+            },
+
+            "ads": {
+              "servers": [{
+                  "type": "OpenX",
+                  "vastURL": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+ 	              "allowAdRepetition": true
+              }],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "mid-roll",
+                    "applyToParts": [2],
+                    "startTime": "00:00:05"
+                  },
+                  {
+                    "zone": "19",
+                    "position": "pre-roll",
+                    "applyToParts": [4]
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

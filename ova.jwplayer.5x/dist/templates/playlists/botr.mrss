@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:jwplayer="http://developer.longtailvideo.com/trac/" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>Big Buck Bunny Trailer</title>
+  <description>Big Buck Bunny is a short animated film by the Blender Institute, part of the Blender Foundation. Like the foundation&#39;s previous film Elephants Dream, the film is made using free and open source software.</description>
+  <link>http://www.bigbuckbunny.org</link>
+
+  <item>
+    <title>Big Buck Bunny Trailer</title>
+
+    <link>http://www.bigbuckbunny.org</link>
+    <pubDate>Mon, 27 Nov 2006 00:00:00 -0000</pubDate>
+    <description>Big Buck Bunny is a short animated film by the Blender Institute, part of the Blender Foundation. Like the foundation&#39;s previous film Elephants Dream, the film is made using free and open source software.</description>
+
+    <jwplayer:author>the Blender Institute</jwplayer:author>
+    <media:group>
+      <media:content bitrate="1840" url="http://bitcast-b.bitgravity.com/botr/ifNSlhVa/videos/nPripu9l-67067.mp4?e=1281907183&amp;h=625fab9b7bb505d11a2868b5d47272a1" width="1080" />
+      <media:content bitrate="1250" url="http://bitcast-b.bitgravity.com/botr/ifNSlhVa/videos/nPripu9l-329.mp4?e=1281907183&amp;h=087f497b9ee2d733c3cb6323c8e49772" width="720" />
+      <media:content bitrate="760" url="http://bitcast-b.bitgravity.com/botr/ifNSlhVa/videos/nPripu9l-60830.mp4?e=1281907183&amp;h=436b1f673d8318d8d67f9b89dc787aa3" width="480" />
+      <media:content bitrate="490" url="http://bitcast-b.bitgravity.com/botr/ifNSlhVa/videos/nPripu9l-327.mp4?e=1281907183&amp;h=f35b64f338cfadc87c5e2253ca971746" width="320" />
+    </media:group>
+    <jwplayer:type>http</jwplayer:type>
+    <jwplayer:http.startparam>starttime</jwplayer:http.startparam>
+    <jwplayer:duration>33.01</jwplayer:duration>
+
+    <jwplayer:image>http://thumbs.bitsontherun.com/nPripu9l.jpg</jwplayer:image>
+    <jwplayer:playlist.image>http://thumbs.bitsontherun.com/nPripu9l-120.jpg</jwplayer:playlist.image>
+    <jwplayer:tags>bigbuckbunny, demo, pixar</jwplayer:tags>
+    <jwplayer:mediaid>nPripu9l</jwplayer:mediaid>
+  </item>
+</channel>
+</rss>

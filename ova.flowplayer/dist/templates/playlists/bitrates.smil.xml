@@ -1,0 +1,12 @@
+<smil>
+  <head>
+    <meta base="rtmp://rtmp01.hddn.com/play" />
+  </head>
+  <body>
+    <switch>
+      <video src="mp4:vod/demo.flowplayervod/bbb-800.mp4" system-bitrate="800" width="480" />
+      <video src="mp4:vod/demo.flowplayervod/bbb-1200.mp4" system-bitrate="1200" width="720" />
+      <video src="mp4:vod/demo.flowplayervod/bbb-1600.mp4" system-bitrate="1600" width="1080" />
+    </switch>
+  </body>
+</smil>

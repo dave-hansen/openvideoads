@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+      VPAID post-roll
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                "controls": { "hideOnLinearPlayback": false }
+             },
+             "schedule": [
+                {
+                   "position": "post-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

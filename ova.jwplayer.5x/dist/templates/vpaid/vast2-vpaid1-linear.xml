@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">    
+	<Ad id="229">
+    	<InLine>
+    		<AdSystem version="3.0">OVA static template</AdSystem>
+    		<AdTitle><![CDATA[linear tracking test]]></AdTitle>
+    		<Description><![CDATA[]]></Description>
+    		<Impression id="LR"><![CDATA[http://localhost/log?impression]]></Impression>
+			<Creatives>
+				<Creative sequence="1" id="331">
+            		<Linear>
+            			<Duration>00:00:11</Duration>
+        	   			<MediaFiles>
+        					<MediaFile delivery="progressive" bitrate="256" width="800" height="528" type="application/x-shockwave-flash" apiFramework="VPAID">
+        						<![CDATA[http://static.openvideoads.org/ads/vpaid/vpaid1-countdown-example.swf]]>
+        					</MediaFile>
+    					</MediaFiles>
+    			    	<TrackingEvents>
+					        <Tracking event="creativeView">http://localhost/log?creativeView</Tracking>
+					        <Tracking event="start">http://localhost/log?start</Tracking>
+					        <Tracking event="firstQuartile">http://localhost/log?firstQuartile</Tracking>
+					        <Tracking event="midpoint">http://localhost/log?midpoint</Tracking>
+					        <Tracking event="thirdQuartile">http://localhost/log?thirdQuartile</Tracking>
+					        <Tracking event="complete">http://localhost/log?complete</Tracking>
+					        <Tracking event="pause">http://localhost/log?pause</Tracking>
+					        <Tracking event="resume">http://localhost/log?resume</Tracking>
+					        <Tracking event="rewind">http://localhost/log?rewind</Tracking>
+					        <Tracking event="mute">http://localhost/log?mute</Tracking>
+					        <Tracking event="unmute">http://localhost/log?unmute</Tracking>
+					        <Tracking event="fullscreen">http://localhost/log?fullscreen</Tracking>
+					        <Tracking event="expand">http://localhost/log?expand</Tracking>
+					        <Tracking event="collapse">http://localhost/log?collapse</Tracking>
+					        <Tracking event="acceptInvitation">http://localhost/log?acceptInvitation</Tracking>
+					        <Tracking event="close">http://localhost/log?close</Tracking>
+    					</TrackingEvents>
+    				</Linear>
+    			</Creative>
+    		</Creatives>
+    	</InLine>
+    </Ad>
+</VAST>

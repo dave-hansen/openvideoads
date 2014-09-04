@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       A targeted ad
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OASIS",
+                      "apiAddress": "http://ahs2.adhostingsolutions.com/oasisi-i.php",
+                      "customProperties": {
+                           "k": "sample"
+                      }
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "1566",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

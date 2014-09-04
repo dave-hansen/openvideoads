@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 7 - Overlay with 'click to website'
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "pauseOnClickThrough": false,
+
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                      "zone": "30",
+                      "startTime": "00:00:01",
+                      "width": 450,
+                      "height": 50
+                    }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

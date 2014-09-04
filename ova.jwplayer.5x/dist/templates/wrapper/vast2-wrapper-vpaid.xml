@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="AdForm">
+    <Wrapper>
+      <AdSystem>AdForm</AdSystem>
+      <VASTAdTagURI><![CDATA[http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]]]></VASTAdTagURI>
+      <Impression>http://localhost/vast2-wrapper-impression</Impression>
+    </Wrapper>
+  </Ad>
+</VAST>

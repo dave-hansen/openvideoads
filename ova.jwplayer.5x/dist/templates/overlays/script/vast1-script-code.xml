@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+    <Ad id="232316847">
+        <InLine>
+            <AdSystem>Custom</AdSystem>
+            <AdTitle>Overlay Transparent</AdTitle>
+            <Description/>
+            <Error>
+                <URL>
+                    <![CDATA[http://localhost/error]]>
+                </URL>
+            </Error>
+            <Impression>
+                <URL id="sim_vast_i">
+                    <![CDATA[http://localhost/impression1]]>
+                </URL>
+                <URL id="sim_vast_e">
+                    <![CDATA[http://localhost/impression2]]>
+                </URL>
+            </Impression>
+            <TrackingEvents>
+            </TrackingEvents>
+            <NonLinearAds>
+                <NonLinear id="232316847" width="450" height="50" resourceType="script" creativeType="text/javascript" maintainAspectRatio="true" scalable="true">
+                    <Code>
+                        <![CDATA[document.write('<a href="http://www.openx.org"><img src="http://openx.openvideoads.org/openx-2.8.2/www/images/8e19787394a3c7870acc4c4c16fe2172.gif"></a>');]]>
+                    </Code>
+                </NonLinear>
+            </NonLinearAds>
+        </InLine>
+    </Ad>
+</VideoAdServingTemplate>

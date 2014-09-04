@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - An overlay ad</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/oasis/ova02.xml';</script>
+<h2>Example 2 - An overlay ad</h2>
+<p class="example">
+5 seconds into the show stream an overlay appears for 15 seconds.
+</p>
+<div class="container" style="width:780px;">
+	<div class="player_row" style="float:left;">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 468, 360, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+	</div>
+	<div class="right-companion" id="right-companion" style="float:left;border:1px solid #999;width:300px;height:250px;text-align:center;">
+	    <br/><br/><br/>COMPANION GOES HERE
+	</div>
+</div>
+<div style="clear:both;"/>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 468, 360, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 2 - An overlay ad
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "overlays": {
+              "regions": [
+                 {
+                    "id": "bottom",
+                    "verticalAlign": "bottom",
+                    "horizontalAlign": "center",
+                    "padding": "-10 -10 -10 -10",
+                    "width": 468,
+                    "height": 60
+                 }
+              ]
+            },
+
+            "ads": {
+              "displayCompanions": true,
+              "restoreCompanions": false,
+              "companions": [
+                   { "id":"right-companion", "width":"300", "height":"250" }
+              ],
+              "servers": [
+                   {
+                      "type": "OASIS",
+                      "apiAddress": "http://ahs2.adhostingsolutions.com/oasisi-i.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "1567",
+                      "position": "bottom",
+                      "width": 468,
+                      "height": 60,
+                      "startTime": "00:00:05",
+                      "duration": "15"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

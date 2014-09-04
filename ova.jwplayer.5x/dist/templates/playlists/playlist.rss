@@ -1,0 +1,47 @@
+<!-- :mode=xml: -->
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+
+	<channel>
+		<title>Example media RSS playlist</title>
+		<link>http://www.flowplayer.org</link>
+
+		<item>
+			<!-- The title goes to the clip as a custom property -->
+			<title>Happy Feet</title>
+
+			<!-- description goes to the clip as a custom property -->
+			<description>The First Stream</description>
+
+			<!-- media:credit goes to the clip as a custom property called 'media:credit' -->
+			<media:credit role="author">Kim Aronson</media:credit>
+
+			<!-- media:content is used as the clip URL -->
+			<media:content url="http://blip.tv/file/get/KimAronson-TwentySeconds58192.flv" duration="5" type="video/x-flv" />
+		</item>
+		<item>
+			<title>Beach and palms</title>
+			<description>The Second Stream</description>
+			<media:credit role="author">Kim Aronson</media:credit>
+			<media:content url="http://blip.tv/file/get/KimAronson-TwentySeconds63617.flv" duration="5" type="video/x-flv" />
+		</item>
+		<item>
+			<title>Brown Carpet</title>
+
+			<!-- the link element is mapped to the clip's linkUrl property -->
+			<link>http://flowplayer.org</link>
+			<description>The Third Stream</description>
+			<media:credit role="author">Kim Aronson</media:credit>
+
+			<!-- custom duration -->
+			<media:content url="http://blip.tv/file/get/KimAronson-TwentySeconds71844.flv" duration="5"  type="video/x-flv" />
+		</item>
+		<item>
+			<title>Stuff on a table</title>
+			<description>The Forth Stream</description>
+			<media:credit role="author">Kim Aronson</media:credit>
+			<media:content url="http://blip.tv/file/get/KimAronson-TwentySeconds73213.flv" duration="5" type="video/x-flv" />
+		</item>
+
+	</channel>
+
+</rss>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VAST version="2.0">
+    <Ad id="238882162">
+        <InLine>
+            <AdSystem>DART</AdSystem>
+            <AdTitle>Advertisement: Center for Laser Spine Surgery</AdTitle>
+            <Impression>
+                <![CDATA[http://ad.doubleclick.net/ad/ibs.hou.interactive/local;kw=impression+238882162;sz=2x2;ord=2620880?]]>
+
+            </Impression>
+            <Creatives>
+                <Creative sequence="1">
+                    <Linear>
+                        <Duration>00:00:14</Duration>
+                        <VideoClicks>
+                            <ClickThrough>
+                                <![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3ae7/3/0/%2a/c%3B238883507%3B0-0%3B0%3B12661250%3B926-2/1%3B40004771/40022558/1%3B%3B%7Eokv%3D%3Bkw%3Dnews+19032176+300k+clienttrack+playerpage+preroll%3Bdcmt%3Dtext/xml%3Bsz%3D2x1%3Bpool%3Dhou%3B%7Eaopt%3D2/0/1175/0%3B%7Esscs%3D%3fhttp://www.goodwillhouston.org/]]>
+                            </ClickThrough>
+                            </VideoClicks>
+                        <MediaFiles>
+                            <MediaFile bitrate="300" delivery="streaming" height="240" type="video/x-flv" width="320">
+                                <![CDATA[rtmp://cp12962.edgefcs.net/ondemand/flv/ads/local/HOU/GWSHIRTINSERTION15_H264.300k.flv]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+
+                <Creative sequence="1">
+					<CompanionAds>
+						<Companion id="leaderboard" width="728" height="90">
+							<IFrameResource>
+								http://ad.doubleclick.net/adi/ibs.hou.interactive/local;kw=companion+238883507;sz=728x90;ord=2689286?
+							</IFrameResource>
+						</Companion>
+						<Companion id="rectangle" width="300" height="250">
+							<IFrameResource>
+								http://ad.doubleclick.net/adi/ibs.hou.interactive/local;kw=companion+238883507;sz=300x250;ord=2689286?
+							</IFrameResource>
+						</Companion>
+					</CompanionAds>
+				</Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>

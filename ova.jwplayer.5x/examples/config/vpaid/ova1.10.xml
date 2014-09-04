@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+      VPAID pre-roll and post-rolls with 2 show streams
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    {
+                        "file": "the-black-hole.mp4",
+                        "duration":"00:00:10"
+                    },
+                    {
+                        "file": "the-black-hole.mp4",
+                        "duration":"00:00:11"
+                    }
+                ]
+            },
+
+            "player": {
+               "controls": {
+                   "vpaid": { "visible": false }
+               }
+            },
+
+            "ads": {
+               "schedule": [
+                  {
+                    "position": "pre-roll",
+                    "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+                  },
+                  {
+                    "position": "post-roll",
+                    "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=UDKjuff&ad_type=pre-rolls&platform_version=vast20as3&vpaid=1&rtb=0&publisher=adotube.com&title=[VIDEO_TITLE]&tags=[VIDEO_TAGS]&description=[VIDEO_DESCRIPTION]&videoURL=[VIDEO_FILE_URL]"
+                  }
+               ]
+            },
+
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          }
+       }
+   </ova.json>
+</config>

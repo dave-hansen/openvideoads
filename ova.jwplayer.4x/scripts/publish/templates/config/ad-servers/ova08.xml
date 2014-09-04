@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+       Timing out then failing over
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "Direct",
+                      "apiAddress": "OVA_DELAYED_RESPONSE_WRAPPED_AD_TAG",
+                      "timeoutInSeconds": 10,
+                      "failoverServers": [
+                           {
+                               "type": "AdTech",
+                               "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           }
+                       ]
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

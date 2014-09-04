@@ -1,0 +1,50 @@
+<config>
+   <ova.title>
+       Example 1 - Modifying the default Google Analytics URLs
+   </ova.title>
+   <ova.json>
+       {
+            "analytics": {
+                "google": {
+	                "ova": {
+	    	        	"accountId": "UA-10158120-1",
+	    	        	"impressions": {
+		        	    	"linear": "/ova/impression-counter/ova-test/linear",
+	    	        		"nonLinear": "/ova/impression-counter/ova-test/nonLinear",
+	        	    		"companion": "/ova/impression-counter/ova-test/companion"
+	    	        	}
+	                }
+                }
+            },
+
+            "shows": {
+              "streams": [
+                 {
+                    "file":"OVA_PSEUDO_SHOW_STREAM_1",
+                    "duration":"00:00:30"
+                 }
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

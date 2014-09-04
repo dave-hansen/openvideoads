@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+		Playlist Control with VPAID Pre-Rolls
+   </ova.title>
+   <ova.json>
+       {
+            "allowPlaylistControl": true,
+
+            "ads": {
+                "notice": { "textStyle": "smalltext" },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "Adotube",
+      	                   "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Preroll.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=2ChPxDe&platform_version=as3&integration=__partner-id__&publisher=__domain__&title=__media-title__&tags=__media-keywords__&description=__media-description__",
+      	                   "customProperties": {
+      	                        "partner-id": "longtail",
+                                "media-title": "ova test",
+                                "media-keywords": "ova",
+                                "media-description": "video description"
+      	                   }
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

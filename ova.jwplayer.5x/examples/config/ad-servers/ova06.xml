@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Specifying a timeout for ad calls
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "Direct",
+                      "apiAddress": "http://static.openvideoads.org/tests/delayed-ad-tag-processor.php",
+                      "timeoutInSeconds": 5
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

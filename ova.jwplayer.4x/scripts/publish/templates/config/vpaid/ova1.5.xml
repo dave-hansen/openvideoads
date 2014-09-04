@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+       VPAID Linear pre-roll with a skinned control bar shown but disabled during ad playback
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                 "holdingClipUrl": "OVA_BLANK_PIXEL_IMAGE",
+                 "controls": { "hideOnLinearPlayback": false }
+             },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

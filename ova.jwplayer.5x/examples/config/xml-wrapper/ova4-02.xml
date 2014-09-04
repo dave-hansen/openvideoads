@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       VAST1 wrapper to a VAST1 wrapper to a VAST2 ad
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+                   {
+                     "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                     "duration":"00:00:10"
+                   }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "direct",
+                          "tag": "../../../dist/templates/wrapper/vast1-wrapper-to-vast1-wrapper-vast2-ad.xml"
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

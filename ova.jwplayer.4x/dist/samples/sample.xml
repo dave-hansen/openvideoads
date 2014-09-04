@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+       Sample Configuration
+   </ova.title>
+   <ova.json>
+       {
+		    "ads": {
+		       "servers": [
+		             {
+		                  "type": "OpenX",
+		                  "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+		             }
+		       ],
+		       "notice": { "textStyle": "smalltext" },
+		       "displayCompanions": true,
+		       "companions": [
+		             {
+		                  "id":"companion",
+		                  "width":"200",
+		                  "height":"240"
+		             }
+		       ],
+		       "schedule": [
+		             {
+		                  "zone": "47",
+		                  "position": "pre-roll"
+		             },
+		             {
+		                  "zone": "48",
+		                  "position": "auto:bottom",
+		                  "width": 320,
+		                  "height": 80,
+		                  "startTime": "00:00:02",
+		                  "duration": "15"
+		             }
+		        ]
+		    }
+       }
+   </ova.json>
+</config>

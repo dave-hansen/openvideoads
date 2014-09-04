@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+       Deferred ad call for a VPAID pre-roll
+   </ova.title>
+   <ova.json>
+       {
+          "delayAdRequestUntilPlay": true,
+
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

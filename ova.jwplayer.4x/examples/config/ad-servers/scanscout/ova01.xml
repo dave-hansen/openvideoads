@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 1 - A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+                	{ "id": "companion-1", "width": 300, "height": 250 }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+  	                   "server": {
+		                  "type": "direct",
+		                  "tag": "../../../../dist/templates/ad-servers/scanscout/example01.xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

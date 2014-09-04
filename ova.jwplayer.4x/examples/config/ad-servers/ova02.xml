@@ -1,0 +1,64 @@
+<config>
+   <ova.title>
+       Example 2 - Ad Server Failover
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "displayCompanions": true,
+                "restoreCompanions": false,
+                "companions": [
+                   { "id":"companion-160x600", "width":"160", "height":"600" },
+                   { "id":"companion-300x250", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                   {
+                       "zone": "56",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food"
+                           },
+                           "failoverServers": [
+                           {
+                               "type": "AdTech",
+                               "tag": "http://xxxadserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           },
+                           {
+                               "type": "AdTech",
+                               "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           }
+                           ]
+                       }
+                   },
+                   {
+                       "zone": "5",
+                       "position": "post-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food"
+                           },
+                           "failoverServers": [
+                           {
+                             "type": "AdTech",
+                             "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           }
+                       ]
+                       }
+                   }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

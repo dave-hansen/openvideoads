@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+        Example - Restricting overlay selection to specific creative types
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "acceptedNonLinearAdMimeTypes": [ "image/gif", "image/jpg", "image/png" ],
+                "filterOnNonLinearAdMimeTypes": true,
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10",
+                       "tag": "http://ad.de.doubleclick.net/pfadx/DE_AS.computerbildde/_default;dcmt=text/xml;sz=30x1;pos=1;vpos=1;u=pos=1,vpos=1,xx=vp,tile=1,NUGGVARS;vi=4;xx=vp;tile=1;ord=__random-number__"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

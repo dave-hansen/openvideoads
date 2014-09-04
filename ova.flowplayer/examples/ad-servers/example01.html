@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - Mixing Ad Servers</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1 - Mixing Ad Servers</h2>
+<p class="example">
+This example illustrates how to mix and match ad servers. The pre-roll is to OpenX, while the 
+post-roll request is to AdTech. The post-roll uses the "default" ad server which also
+happens to be AdTech as per the "servers" config. 
+</p>
+<div id="container">
+  <div id="player_row">
+     <div id="player-left-619">
+      <a class="player614x345"></a>
+      <div id="container-614x280">
+        <div id="companion-300x250">
+           A COMPANION ADVERTISEMENT<br/>(300x250)<br/>WILL APPEAR IN HERE
+          </div>
+          <div id="filler-310x254">
+             FILLER SPACE
+          </div>
+       </div>
+      </div>
+     <div id="player-right-600">
+        <div id="companion-160x600">
+          A COMPANION ADVERTISEMENT<br/>(160x600)<br/> WILL APPEAR IN HERE
+        </div>
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+flowplayer("a.player614x345", FP_SWF_2, {
+    plugins: {
+        rtmp: {
+            url: FP_RTMP_SWF_2
+        },
+        rtmpInstream: {
+            url: FP_RTMP_SWF_2
+        },
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "shows": {
+                "baseURL": OVA_HTTP_BASE_URL,
+                "streams": [
+                    {
+                        "file": OVA_HTTP_SHOW_STREAM_FILE,
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+                "servers": [
+                   {
+                       "id": "AdTech",
+                       "type": "AdTech",
+                       "defaultAdServer": true,
+                       "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1"
+                   }
+                ],
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                       { "id":"companion-160x600", "width":"160", "height":"600" },
+                       { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+                },
+                "schedule": [
+                   {
+                       "zone": "5",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": OVA_OPENX_API,
+                           "customProperties" : {
+  	                          "target": "category=food" 
+                           }
+                       }
+                   },
+                   {
+                       "zone": "2366662/0/1725",
+                       "position": "post-roll"
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p class="example">
+The resulting stream configuration is as follows:
+<ul>
+<li>OpenX served pre-roll</li>
+<li>AdTech served XML wrapper pointing to an OpenX ad request for an overlay</li>
+<li>AdTech served XML wrapper pointing to an OpenX ad request for a post-roll</li>
+</ul>
+</p>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.player614x345", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        rtmpInstream: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "shows": {
+                "baseURL": "<script type="text/javascript">document.write(OVA_HTTP_BASE_URL)</script>",
+                "streams": [
+                    {
+                        "file":"<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_FILE)</script>",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "id": "AdTech",
+                       "type": "AdTech",
+                       "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1"
+                   }
+                ],
+                "companions": {
+                    "restore": false,
+                    "regions": [
+                       { "id":"companion-160x600", "width":"160", "height":"600" },
+                       { "id":"companion-300x250", "width":"300", "height":"250" }
+                    ]
+                },
+                "schedule": [
+                   {
+                       "zone": "5",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                           "customProperties" : {
+                               "target": "category=food" 
+                           }
+                       }
+                   },
+                   {
+                       "zone": "2189418/0/1725",
+                       "position": "post-roll"
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

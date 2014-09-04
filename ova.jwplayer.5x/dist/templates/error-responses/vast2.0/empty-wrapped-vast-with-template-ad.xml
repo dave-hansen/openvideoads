@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+  <Ad id="AdForm">
+    <Wrapper>
+      <AdSystem>AdForm</AdSystem>
+      <VASTAdTagURI><![CDATA[http://static.openvideoads.org/tests/empty-vast-tags.xml]]></VASTAdTagURI>
+      <Impression>http://localhost/vast2-wrapper-impression</Impression>
+      <Error>http://localhost/vast2-wrapper-error-1?error=[ERRORCODE]</Error>
+      <Creatives>
+         <Creative>
+         	 <Linear>
+                    <TrackingEvents>
+                        <Tracking event="acceptInvitation">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_ACCEPTINVITATION;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="close">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_CLOSE;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="collapse">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_COLLAPSE;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="complete">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_END;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="creativeView">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_CREATIVEVIEW;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="expand">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_EXPAND;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="firstQuartile">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_25;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="fullscreen">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_FULLSCREEN;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="midpoint">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_MID;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="mute">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_MUTE;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="pause">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_PAUSE;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="replay">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_REPLAY;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="resume">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_RESUME;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="rewind">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_REWIND;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="stop">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_STOP;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="thirdQuartile">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_75;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                        <Tracking event="unmute">
+                            <![CDATA[http://localhost/rmevent/3/1183/3769457/0/0/AdId=7676742;CreativeId=53920;BnId=1;rmeventtype=VID_UNMUTE;imptype=1;refsequenceid=2691134376;]]>
+                        </Tracking>
+                    </TrackingEvents>
+                    <VideoClicks>
+                        <ClickTracking id="ADTECH">
+                            <![CDATA[http://localhost/adlink/1183/3769457/0/153/AdId=7676742;BnId=1;itime=175574637;key=bomberman%20action;nodecode=yes;link=]]>
+                        </ClickTracking>
+                    </VideoClicks>
+         	 </Linear>
+         </Creative>
+      </Creatives>
+    </Wrapper>
+  </Ad>
+</VAST>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Using "ova.tag" flashvar</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Using "ova.tag" flashvar</h2>
+<p class="example">
+</p>
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0" WIDTH="450" HEIGHT="300" id="player">
+ <PARAM NAME=movie VALUE="../../../dist/swf/5.8.swf">
+ <PARAM NAME=quality VALUE=high>
+ <PARAM NAME=bgcolor VALUE=#000000>
+ <PARAM NAME=allowfullscreen VALUE="true">
+ <PARAM NAME=allowscriptaccess VALUE="always">
+ <PARAM NAME=flashvars VALUE="plugins=../../../dist/swf/ova-jw.swf&config=../../config/ad-formats/ova18.xml">
+<EMBED
+ id="player"
+ data="../../../dist/swf/5.8.swf"
+ src="../../../dist/swf/5.8.swf"
+ width="450"
+ height="300"
+ allowscriptaccess="always"
+ allowfullscreen="true"
+ flashvars="plugins=../../../dist/swf/ova-jw.swf&file=http://streaming.openvideoads.org:81/shows/the-black-hole.mp4&duration=30&provider=lighttpd&ova.tag=http%3A%2F%2Fopenx.openvideoads.org%2Fopenx%2Fwww%2Fdelivery%2Ffc.php%3Fscript%3DbannerTypeHtml%3AvastInlineBannerTypeHtml%3AvastInlineHtml%26zones%3Dpre-roll%3A0.0-0%253D5%26nz%3D1%26source%3D%26r%3DR0.700881268363446%26block%3D1%26format%3Dvast%26charset%3DUTF-8"
+>
+</EMBED>
+</OBJECT>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+ codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0" 
+ WIDTH="450" HEIGHT="300" id="player"&gt;
+ &lt;PARAM NAME=movie VALUE="player.swf"&gt;
+ &lt;PARAM NAME=quality VALUE=high&gt;
+ &lt;PARAM NAME=bgcolor VALUE=#000000&gt;
+ &lt;PARAM NAME=allowfullscreen VALUE="true"&gt;
+ &lt;PARAM NAME=allowscriptaccess VALUE="always"&gt;
+ &lt;PARAM NAME=flashvars VALUE="plugins=ova-jw"&gt;
+&lt;EMBED
+ id="player"
+ data="player.swf"
+ src="player.swf"
+ width="450"
+ height="300"
+ allowscriptaccess="always"
+ allowfullscreen="true"
+ flashvars="plugins=ova-jw&file=the-black-hole.mp4&ova.tag=http://openx.openvideoads.org/..."
+&gt;
+&lt;/EMBED&gt;
+&lt;/OBJECT&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

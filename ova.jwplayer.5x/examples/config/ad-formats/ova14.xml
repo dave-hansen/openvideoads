@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+       Example 14 - A Non-Scaled Pre-Roll Linear Interactive Ad
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "../../../dist/templates/interactive/interactive-preroll2.xml"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

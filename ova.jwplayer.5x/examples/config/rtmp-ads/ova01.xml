@@ -1,0 +1,21 @@
+<config>
+   <ova.title>
+       Example 1 - VAST MP4 RTMP Media Files Containing File Markers
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "../../../dist/templates/rtmp-ads/vast1-mp4-with-markers.xml"
+                  }
+              ]
+          }
+       }
+   </ova.json>
+</config>

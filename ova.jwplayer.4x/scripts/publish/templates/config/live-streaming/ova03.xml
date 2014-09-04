@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+       Example 3 - Two AdTech pre-rolls before a live stream
+   </ova.title>
+   <ova.json>
+       {
+           "blockUntilOriginalPlaylistLoaded": true,
+           "ads": {
+               "servers": [
+                   {
+                      "type": "AdTech",
+                      "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/577.1"
+                   }
+               ],
+               "companions": [
+                   { "id":"companion", "width":"150", "height":"360" }
+               ],
+
+               "schedule": [
+                   {
+                      "zone": "2516467/0/13",
+                      "position": "pre-roll",
+                      "playOnce": true
+                   },
+                   {
+                      "zone": "2564086/0/13",
+                      "position": "pre-roll",
+                      "playOnce": true
+                   }
+               ]
+            },
+
+            "debug": {
+               "debugger": "firebug",
+               "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

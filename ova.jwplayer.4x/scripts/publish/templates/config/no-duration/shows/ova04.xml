@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+		1 stream with an overlay
+   </ova.title>
+   <ova.json>
+       {
+           "shows": {
+              "baseURL": "OVA_HTTP_BASE_URL",
+              "streams": [
+                   { "file":"OVA_HTTP_SHOW_STREAM_FILE" }
+              ]
+           },
+
+           "ads": {
+              "servers": [
+	              {
+	                "type": "OpenX",
+	                "apiAddress": "OVA_OPENX_API",
+	 	            "allowAdRepetition": true
+	              }
+              ],
+              "schedule": [
+                  {
+                      "zone": "30",
+                      "startTime": "00:00:05",
+                      "duration": 5,
+                      "width": 450,
+                      "height": 50
+                  }
+              ]
+           },
+
+           "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+           }
+      }
+   </ova.json>
+</config>

@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       Example 1 - VPAID VAST 2 Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                	   { "id": "companion-1", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+  	                   "server": {
+		                  "type": "direct",
+		                  "tag": "http://pbint.tidaltv.com/adserver2.0/tpas1.aspx?mt=1&pid=1&pd1=broadscaler&fmid=11&xf=12&rand=__random-number__"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

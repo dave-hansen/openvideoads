@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+        Example 17 - Overlays with "scaling=false" in the VAST response
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "enableOverlayScaling": false,
+                "schedule": [
+                    {
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10",
+                       "tag": "OVA_VAST_NOT_SCALED_TAG"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

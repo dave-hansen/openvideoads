@@ -1,0 +1,29 @@
+<config>
+  <ova.title>
+     VAST 2 VPAID Linear VPAID with Companion
+  </ova.title>
+  <ova.json>
+  {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+         "ads": {
+             "companions": [
+	             {
+	                "id":"companion-300x250",
+	                "width":"300",
+	                "height":"250"
+	             }
+	         ],
+             "pauseOnClickThrough": true,
+             "schedule": [
+                 {
+                    "position": "pre-roll",
+                    "tag": "http://search.spotxchange.com/vast/2.00/74856?VPAID=1OVA_VPAID_LINEAR_SPOTXCHANGEcontent_page_url=[page_url]&cb=__random-number__"
+                 }
+             ]
+        }
+  }
+</ova.json>
+</config>

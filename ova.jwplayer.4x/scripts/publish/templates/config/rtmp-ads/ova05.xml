@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Example 5 - VAST FLV RTMP Media Files Without File Markers - Streamers Specified
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "ads": {
+                "streamers": [
+                    {
+                       "netConnectionAddress": "rtmp://ne7c0nwbit.rtmphost.com/videoplayer",
+                       "removeFilenameExtensions": [ "flv" ],
+                       "addFilenamePrefixes": [ "mp4" ]
+                    },
+                    {
+                       "netConnectionURL": "rtmp://another-ad-streamer.com/ads"
+                    }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "tag": "OVA_VAST_FLV_RTMP_AD_NO_MARKERS"
+                    }
+                ]
+          }
+       }
+   </ova.json>
+</config>

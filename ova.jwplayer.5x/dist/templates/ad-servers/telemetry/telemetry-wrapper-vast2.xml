@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+	<Ad id="602833">
+		<Wrapper>
+			<AdSystem>Telemetry</AdSystem>
+			<VASTAdTagURI><![CDATA[http://spc.cepghffemeifkhheeeffbhed.vast2as3.telemetryverification.net/?]]></VASTAdTagURI>
+			<Impression><![CDATA[http://myTrackingURL/wrapper/impression]]></Impression>
+			<Creatives></Creatives>
+		</Wrapper>
+	</Ad>
+</VAST>

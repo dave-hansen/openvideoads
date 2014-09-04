@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - VAST 2 VPAID Linear</title>
+</head>
+<body>
+<h2>Example 2 - VAST 2 VPAID Linear</h2>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/scanscout/ova02.xml';</script>
+<div style="width:754px;height:255px;">
+	<div class="example" style="width:444px;height:252px;float:left">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 444, 252, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+	</div>
+	<div id="companion-1" style="width:300px;height:250px;border:1px solid #000;float:right;"></div>
+</div>
+<div class="codebox" style="clear:both; margin-top:10px;">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 444, 252, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p style="clear:both;">
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 2 - VAST 2 VPAID Linear
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                      	{ "id": "companion-1", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "scanscout",
+                           "maxDuration": 60,
+                           "mediaUrl": "__stream-url__",
+                           "pageStreamUrl": "__page-url__",
+                           "pageUrl": "__page-url__",
+                           "playerWidth": 400,
+                           "playerHeight": 300,
+                           "partnerId": "17001",
+                           "mediaId": "id-not-declared",
+                           "mediaTitle": "title-not-declared",
+                           "mediaDescription": "description-not-declared",
+                           "mediaCategories": "categories-not-declared",
+                           "mediaKeywords": "keywords-not-declared",
+                           "customProperties": {
+                              "jsa": "Y",
+                              "no-log": "1"
+                           }
+                       }
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

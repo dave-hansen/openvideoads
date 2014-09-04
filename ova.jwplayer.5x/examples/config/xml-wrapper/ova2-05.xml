@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+       Multiple wrappers, some empty
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+                   {
+                     "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                     "duration":"00:00:10"
+                   }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                	   { "id": "companion-300x250", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "direct",
+//                          "tag": "http://ad.auditude.com/adserver?u=b6988767c97155f8611ef6d61f70547f&z=112235&l=4546456465454&tl=c:l,d:30,l:1,p:p&of=vast2&tm=63"
+                          "tag": "../../../dist/templates/wrapper/vast2-multi-wrapper-some-empty-ad-tag.xml"
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

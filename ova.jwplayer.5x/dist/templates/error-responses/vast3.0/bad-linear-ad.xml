@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="3.0">    
+	<Ad id="ova-linear-1">
+    	<InLine>
+    		<AdSystem version="3.0">OVA static template</AdSystem>
+    		<AdTitle><![CDATA[linear tracking test]]></AdTitle>
+    		<Description><![CDATA[Linear ad event tracking test]]></Description>
+    		<Impression id="LR"><![CDATA[http://localhost/log?impression]]></Impression>
+    		<Error>http://localhost/log?error?code=[ERRORCODE]</Error>
+			<Creatives>
+				<Creative sequence="1" id="331">
+            		<Linear>
+            			<Duration>00:00:15:00</Duration>
+        	   			<MediaFiles>
+        					<MediaFile delivery="progressive" bitrate="256" width="360" height="240" type="video/x-mp4" skipoffset="00:00:05">
+        						<![CDATA[http://streaming.openvideoads.org/ads/15secs/gourmetads-widescreen-bad.mp4]]>
+        					</MediaFile>
+    					</MediaFiles>
+    			    	<TrackingEvents>
+					        <Tracking event="creativeView">http://localhost/log?creativeView</Tracking>
+					        <Tracking event="start">http://localhost/log?start</Tracking>
+					        <Tracking event="firstQuartile">http://localhost/log?firstQuartile</Tracking>
+					        <Tracking event="midpoint">http://localhost/log?midpoint</Tracking>
+					        <Tracking event="thirdQuartile">http://localhost/log?thirdQuartile</Tracking>
+					        <Tracking event="complete">http://localhost/log?complete</Tracking>
+					        <Tracking event="pause">http://localhost/log?pause</Tracking>
+					        <Tracking event="resume">http://localhost/log?resume</Tracking>
+					        <Tracking event="rewind">http://localhost/log?rewind</Tracking>
+					        <Tracking event="mute">http://localhost/log?mute</Tracking>
+					        <Tracking event="unmute">http://localhost/log?unmute</Tracking>
+					        <Tracking event="fullscreen">http://localhost/log?fullscreen</Tracking>
+					        <Tracking event="exitFullscreen">http://localhost/log?fullscreen</Tracking>
+					        <Tracking event="expand">http://localhost/log?expand</Tracking>
+					        <Tracking event="collapse">http://localhost/log?collapse</Tracking>
+					        <Tracking event="acceptInvitationLinear">http://localhost/log?acceptInvitationLinear</Tracking>
+					        <Tracking event="closeLinear">http://localhost/log?closeLinear</Tracking>
+					        <Tracking event="skip">http://localhost/log?skip</Tracking>
+					        <Tracking event="progress" offset="00:00:03">http://localhost/log?progress=[OFFSET]</Tracking>
+					        <Tracking event="progress" offset="00:00:06.123">http://localhost/log?progress=[OFFSET]</Tracking>
+					        <Tracking event="progress" offset="30%">http://localhost/log?progress=[OFFSET]</Tracking>
+    					</TrackingEvents>
+    				</Linear>
+    			</Creative>
+    		</Creatives>
+    	</InLine>
+    </Ad>
+</VAST>

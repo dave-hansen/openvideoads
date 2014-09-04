@@ -1,0 +1,159 @@
+
+
+/*{{{ general playlist settings, light gray */
+div.playlist {
+
+	position:relative;
+	overflow:hidden;
+	height:285px !important;
+}
+
+div.playlist div.clips {
+	position:absolute;
+	height:20000em;
+}
+
+div.playlist, div.clips {
+	width:260px;
+}
+
+div.clips a {
+	background:url(../images/h80.png);
+	display:block;
+	background-color:#fefeff;
+	padding:12px 15px;
+	height:46px;
+	width:195px;
+	font-size:12px;
+	border:1px outset #ccc;
+	text-decoration:none;
+	letter-spacing:-1px;
+	color:#000;
+}
+
+div.clips a.first {
+	border-top-width:1px;
+}
+
+div.clips a.playing, div.clips a.paused, div.clips a.progress {
+	background:url(../images/light.png) no-repeat 0px -69px;
+	width:225px;
+	border:0;
+}
+
+div.clips a.progress {
+	opacity:0.6;
+}
+
+div.clips a.paused {
+	background-position:0 0;
+}
+
+div.clips a span {
+	display:block;
+	font-size:11px;
+	color:#666;
+}
+
+div.clips a em {
+	font-style:normal;
+	color:#f00;
+}
+
+div.clips a:hover {
+	background-color:#f9f9fa;
+}
+
+div.clips a.playing:hover, div.clips a.paused:hover, div.clips a.progress:hover {
+	background-color:transparent !important;
+}
+/*}}}*/
+
+
+/*{{{ petrol colored */
+
+div.clips.petrol a {
+	background-color:#193947;
+	color:#fff;
+	border:1px outset #193947;
+}
+
+div.clips.petrol a.playing, div.clips.petrol a.paused, div.clips.petrol a.progress {
+	background:url(../images/dark.png) no-repeat 0px -69px;
+	border:0;
+}
+
+div.clips.petrol a.paused {
+	background-position:0 0;
+}
+
+div.clips.petrol a span {
+	color:#aaa;
+}
+
+div.clips.petrol a em {
+	color:#FCA29A;
+	font-weight:bold;
+}
+
+div.clips.petrol a:hover {
+	background-color:#274D58;
+}
+
+div.clips.petrol a.playing:hover, div.clips.petrol a.paused:hover, div.clips.petrol a.progress:hover {
+	background-color:transparent !important;
+}
+/*}}}*/
+
+
+/*{{{ low version */
+
+div.clips.low a {
+	height:31px;
+}
+
+div.clips.low a.playing, div.clips.low a.paused, div.clips.low a.progress {
+	background-image:url(../images/light_small.png);
+	background-position:0 -55px;
+}
+
+div.clips.low a.paused {
+	background-position:0 0;
+}
+
+
+/*}}}*/
+
+
+/*{{{ go buttons */
+
+a.go {
+	display:block;
+	width:18px;
+	height:18px;
+	background:url(../images/up.png) no-repeat;
+	margin:5px 0 5px 105px;
+	cursor:pointer;
+}
+
+a.go:hover, a.go.down:hover {
+	background-position:0px -18px;
+}
+
+a.go.down {
+	background-image:url(../images/down.png);
+}
+
+div.petrol a.go {
+	background-image:url(../images/up_dark.png);
+}
+
+div.petrol a.go.down {
+	background-image:url(../images/down_dark.png);
+}
+
+a.go.disabled {
+	visibility:hidden;
+}
+
+/*}}}*/

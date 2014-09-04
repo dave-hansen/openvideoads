@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       Example 2 - Deferred Ad loading with splash image
+   </ova.title>
+   <ova.json>
+       {
+            "delayAdRequestUntilPlay": true,
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+            "companions": [
+                { "id":"companion", "width":"150", "height":"360" }
+            ],
+
+              "schedule": [
+               {
+                  "zone": "6",
+                  "position": "pre-roll"
+               }
+              ]
+            },
+
+            "debug": {
+              "levels": "OVA_DEBUG",
+              "debugger": "firebug"
+            }
+       }
+   </ova.json>
+</config>

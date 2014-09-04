@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - A VAST 1.0 pre-roll ad only</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/microsoft/ova01.xml';</script>
+<h2>Example 1 - A VAST 1.0 pre-roll ad only</h2>
+<p class="example">
+Linear pre-roll, selected as highest quality, limited to FLV format. The companions are selected based on their type as multiple types/size are returned in the VAST response.
+<p>
+<div>
+<div style="width:750px;height:255px;">
+	<div class="example" style="width:444px;height:252px;float:left">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 444, 252, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+	</div>
+	<div id="companion-300x250" style="width:300px;height:250px;border:1px solid #000;float:right;margin-top:0px;">300x250 Companion</div>
+</div>
+<div id="companion-300x60-1" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;float:left;margin-left:60px;">300x60 Companion</div>
+<div id="companion-300x60-2" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;float:left;margin-left:10px;">300x60 Companion</div>
+
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 444, 252, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 1 - A VAST 2.0 pre-roll ad only
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "deliveryType": "flv",
+                "companions": {
+                   "regions": [
+	                  { 
+	                     "id":"companion-300x250", 
+	                     "width":"300", 
+	                     "height":"250" 
+	                  },
+	                  { 
+	                     "id":"companion-300x60-1", 
+	                     "width":"300", 
+	                     "height":"60", 
+	                     "resourceType": "static" 
+	                  },
+	                  { 
+	                     "id":"companion-300x60-2", 
+	                     "width":"300", 
+	                     "height":"60", 
+	                     "resourceType": "iframe" 
+	                  }
+                   ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "direct",
+      	                   "tag": "http://api.atdmt.com/adserv.api/viewad/sa=115571748;
+      	                           sf=VAST20_PreRoll_XML_alpha;pf=FLV;br=500;strm=0"
+                       }
+                    }
+                ]
+            }       
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

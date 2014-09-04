@@ -1,0 +1,53 @@
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+      <Ad id="preroll">
+		<Wrapper xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<AdSystem>DART</AdSystem>
+			<VASTAdTagURL>
+				<URL><![CDATA[http://static.openvideoads.org/tests/dart.xml]]></URL>
+			</VASTAdTagURL>
+			<Impression>
+				<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/imp;v7;x;211401523;0-0;1;13452535;468/60;30037037/30054914/1;;~aopt=2/1/ff/1;~okv=;kw=angelaredirect;sz=468x60;dcmt=text/html;~cs=w%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+			</Impression>
+			<TrackingEvents>
+				<Tracking event="start">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=11;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="stop">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=20;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="midpoint">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=18;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="complete">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=13;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="mute">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=16;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="pause">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=15;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="replay">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=17;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+				<Tracking event="fullscreen">
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/activity;src=1248596;met=1;v=1;pid=13452535;aid=211401523;ko=1;cid=30037037;rid=30054914;rv=1;timestamp=3834132;eid1=19;ecn1=1;etm1=0;]]></URL>
+				</Tracking>
+			</TrackingEvents>
+			<VideoClicks>
+				<ClickTracking>
+					<URL id="DART_DFP"><![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3947/3/0/%2a/v%3B211401523%3B0-0%3B1%3B13452535%3B1-468/60%3B30037037/30054914/1%3B%3B%7Eaopt%3D2/1/ff/1%3B%7Esscs%3D%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+				</ClickTracking>
+			</VideoClicks>
+			<Extensions>
+				<Extension type="dart">
+					<AdServingData>
+						<DeliveryData>
+							<GeoData><![CDATA[ct=UK&st=&ac=20&zp=&bw=2&dma=0&city=3711]]></GeoData>
+						</DeliveryData>
+					</AdServingData>
+				</Extension>
+			</Extensions>
+		</Wrapper>
+      </Ad>
+</VideoAdServingTemplate>

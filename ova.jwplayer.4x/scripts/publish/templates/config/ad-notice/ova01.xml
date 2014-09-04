@@ -1,0 +1,66 @@
+<config>
+   <ova.title>
+       Example 1 - Changing the "This is an advert" message
+   </ova.title>
+   <ova.json>
+       {
+            "overlays": {
+               "regions": [
+                  {
+                      "id": "my-ad-notice",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "right",
+                      "backgroundColor": "transparent",
+                      "width": "100pct",
+                      "height": 40,
+                      "style": ".smalltext { font-style: italic; font-size:10; }"
+                  }
+               ]
+            },
+
+            "ads": {
+               "controls": {
+                  "skipAd": {
+                      "enabled": true,
+                      "html": "&lt;p&gt;SKIP!&lt;/p&gt;",
+                      "region": {
+                         "id": "my-new-skip-ad-button",
+                         "verticalAlign": 3,
+                         "horizontalAlign": 3,
+                         "backgroundColor": "#FF3300",
+                         "opacity": 0.8,
+                         "borderRadius": 15,
+                         "padding": "0 1 1 13",
+                         "width": 60,
+                         "height": 20
+            	      }
+                  }
+              },
+
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "notice": {
+                          "show": true,
+                          "region": "my-ad-notice",
+                          "message": "&lt;p class=\"smalltext\" align=\"right\"&gt;Publicité - Votre vidéo dans _countdown_ seconde(s)&lt;/p&gt;"
+                      }
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

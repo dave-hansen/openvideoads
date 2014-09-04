@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+        Example
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+			"regions": {
+				"closeButton": {
+				    "type": "custom",
+				    "image": "../../../../dist/images/button-custom-sepia.png",
+				    "width": 15,
+				    "height": 15
+				}
+			},
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "zone": "28",
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

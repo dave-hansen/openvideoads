@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+        Example 6 - Modifying Stage Dimensions
+   </ova.title>
+   <ova.json>
+        {
+            "overlays": {
+                "stagePaddingBottomWithControls": 50,
+                "stagePaddingBottomNoControls": 15
+            },
+
+            "ads": {
+               "keepOverlayVisibleAfterClick": true,
+               "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+               ],
+               "schedule": [
+                  {
+                      "zone": "30",
+                      "startTime": "00:00:01",
+                      "duration": 15,
+                      "width": 450,
+                      "height": 50
+                  }
+               ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

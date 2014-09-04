@@ -1,0 +1,42 @@
+<config>
+   <ova.title>
+       Example 5 - Test reposition of ad notice on hide of controls
+   </ova.title>
+   <ova.json>
+       {
+            "assessControlBarState": true,
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "overlays": {
+                 "stagePaddingBottomWithControls": 35,
+                 "stagePaddingBottomNoControls": 2
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    },
+                    {
+                       "zone": "28",
+                       "startTime": "00:00:03",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

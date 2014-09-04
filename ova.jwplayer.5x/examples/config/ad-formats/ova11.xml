@@ -1,0 +1,48 @@
+<config>
+   <ova.title>
+       Example 11 - Delivering Flash Overlay Ads
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+                ],
+	            "companions": {
+	               "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                    {
+                        "zone": "30",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:05",
+                        "duration": "10",
+                        "regions": {
+                          "swf": "reserved-bottom-center-w450px-h50px-transparent"
+                        }
+                    },
+                    {
+                        "zone": "42",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:20",
+                        "duration": "10",
+                        "regions": {
+                          "swf": "reserved-bottom-center-w450px-h50px-transparent"
+                        }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

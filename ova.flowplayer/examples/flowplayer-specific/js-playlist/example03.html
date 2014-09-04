@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - Serving overlays on separate playlist streams using the modified JS Playlist Plugin</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/flowplayer.playlist-3.0.7.modified.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 3 - Serving overlays on separate playlist streams using the modified JS Playlist Plugin</h2>
+<p class="example">
+This example illustrates how to configure OVA to serve an overlay in each stream listed
+in the dynamic playlist plugin. The playlist plugin requires a small modification to exclude
+items that start with "advertisement" in the title from the dispaly. A modified version of
+the Flowplayer JS plugin has been provided in this release. It is called
+"flowplayer.playlist-3.0.7.modified.js" (download <a href="../../../dist/js/flowplayer.playlist-3.0.7.modified.js">here</a>)
+</p>
+<br/>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF, {
+    playlist: [
+       {
+           url: OVA_RTMP_SHOW_STREAM_FILE,
+           provider: "rtmp",
+           duration: 15,
+           customProperties: {
+               title: "Movie Title 1",
+               description: "A Short Movie"
+           }
+       },
+       {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           duration: 20,
+           customProperties: {
+               title: "Movie Title 2",
+               description: "A Longer Movie"
+           } 
+       },
+    ],  
+    
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        rtmp: {
+            url: FP_RTMP_SWF,
+            netConnectionUrl: OVA_RTMP_BASE_URL
+        },
+
+        ova: {
+            "url": OVA_OAS_URL,
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "44",
+                        "startTime": "00:00:05",
+                        "duration": "5"
+                    },
+                ]
+            }
+        }
+    }
+});
+</script>
+<div id="pl">
+	<div class="entries">			
+		<a href="#">
+			<strong>${title}</strong><br/>
+			<samp>${description}</samp><br/>
+		</a>
+	</div>			
+</div>
+
+<!-- initialize playlist -->
+<script>
+$(function() {
+   $f().playlist(".entries", {loop: true});
+});
+</script>
+
+<br clear="all" />
+
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+    playlist: [
+       {
+           url: "<script type="text/javascript">document.write(OVA_RTMP_SHOW_STREAM_FILE)</script>",
+           provider: "rtmp",
+           duration: 15,
+           customProperties: {
+               title: "Movie Title 1",
+               description: "A Short Movie"
+           } 
+       },
+       {
+           url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+           duration: 20,
+           customProperties: {
+               title: "Movie Title 2",
+               description: "A Longer Movie"
+           } 
+       },
+    ],  
+
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>"
+                   }
+                ],
+                "schedule": [
+                   {
+                       "zone": "44",
+                       "startTime": "00:00:05",
+                       "duration": "5"
+                   }
+                 ]
+             }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

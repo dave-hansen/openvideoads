@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 15 - A Scaled Pre-Roll Linear Interactive Ad not maintaining the Aspect Ratio
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "../../../dist/templates/interactive/interactive-preroll3.xml"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

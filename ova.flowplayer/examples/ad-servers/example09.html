@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 9 - Failing over on empty VAST responses</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 9 - Failing over on empty VAST responses</h2>
+<p class="example">
+This example illustrates how to failover from one ad server to another if the previous ad server does not return a result.
+</p>
+<div id="container">
+  <div id="player_row">
+     <div id="player-left-619">
+      <a class="player614x345"></a>
+      <div id="container-614x280">
+        <div id="companion-300x250">
+           A COMPANION ADVERTISEMENT<br/>(300x250)<br/>WILL APPEAR IN HERE
+          </div>
+          <div id="filler-310x254">
+             FILLER SPACE
+          </div>
+       </div>
+      </div>
+     <div id="player-right-600">
+        <div id="companion-160x600">
+          A COMPANION ADVERTISEMENT<br/>(160x600)<br/> WILL APPEAR IN HERE
+        </div>
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+flowplayer("a.player614x345", FP_SWF_2, {
+    plugins: {
+        rtmp: {
+            url: FP_RTMP_SWF_2
+        },
+        rtmpInstream: {
+            url: FP_RTMP_SWF_2
+        },
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "shows": {
+                "baseURL": OVA_HTTP_BASE_URL,
+                "streams": [
+                    {
+                        "file": OVA_HTTP_SHOW_STREAM_FILE,
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                      { "id":"companion-160x600", "width":"160", "height":"600" },
+                      { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+                },
+                "schedule": [
+                   {
+                       "zone": "56",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": OVA_OPENX_API,
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food" 
+                           },
+	                       "failoverServers": [
+			                   {
+			                       "type": "direct",
+			                       "tag": "../../dist/templates/error-responses/vast1.0/empty-ad-vast-response.xml"
+			                   },
+			                   {
+			                       "type": "AdTech",
+			                       "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+			                   }			                   
+	                       ]
+                       }
+                   },
+                   {
+                       "zone": "5",
+                       "position": "post-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": OVA_OPENX_API,
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food" 
+                           },
+	                       "failoverServers": [
+			                   {
+			                       "type": "AdTech",
+			                       "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+			                   }
+	                       ]
+                       }
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.player614x345", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        rtmpInstream: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "shows": {
+                "baseURL": "<script type="text/javascript">document.write(OVA_HTTP_BASE_URL)</script>",
+                "streams": [
+                    {
+                        "file":"<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_FILE)</script>",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                       { "id":"companion-160x600", "width":"160", "height":"600" },
+                       { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+                },
+                "schedule": [
+                   {
+                       "zone": "56",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food" 
+                           },
+                           "failoverServers": [
+                               {
+                                   "type": "direct",
+                                   "tag": "../../dist/templates/error-responses/vast1.0/empty-ad-vast-response.xml"
+                               },
+                               {
+                                   "type": "AdTech",
+                                   "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/
+                                           1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;
+                                           key=key1+key2;;=;grp=[group];misc=__random-number__"
+                              }			                   
+                           ]
+                       }
+                   },
+                   {
+                       "zone": "5",
+                       "position": "post-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food" 
+                           },
+                           "failoverServers": [
+                               {
+                                  "type": "AdTech",
+                                  "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/
+                                          0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;
+                                          alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                               }
+                           ]
+                       }
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

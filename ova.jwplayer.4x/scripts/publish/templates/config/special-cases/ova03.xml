@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 3 - Invalid VAST XML with Autostart
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            },
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "OVA_BAD_VAST_XML"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "applyToParts": [ 0 ]
+                    },
+                    {
+                      "zone": "5",
+                      "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

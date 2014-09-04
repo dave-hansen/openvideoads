@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 11 - Full Configuration Test</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 11 - Full Configuration Test</h2>
+<p class="example">
+Tests the startup with a full configuration
+</p>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        { 
+            url: OVA_HTTP_SHOW_STREAM_1, 
+            duration: 60 
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+               "schedule": [
+                   {
+                      "position": "post-roll",
+                      "tag": "http://u-ads.adap.tv/a/h/fy8HuCqcy0y5CmMetFZUPVRg8BYfUdag9T3gJOflx7IRS2LqU9Qh0Q==?cb=15783059__amp__spot=preroll__amp__eov=eov__amp__artEid=vast_2_0__amp__ocb=9035__amp__rid=test__amp__pageUrl=http%3A%2F%2Fwww.adap.tv__amp__gubed"
+                   },
+                   {
+                      "zone": "30",
+                      "position": "auto:bottom",
+                      "startTime": "00:00:05",
+                      "duration": 5,
+                      "repeat": 3,
+                      "interval": 10,
+                      "server": {
+                          "type": "OpenX",
+                          "apiAddress": OVA_OPENX_API,
+                          "allowAdRepetition": true
+                      }
+                   },
+                   {
+                      "position": "pre-roll",
+                      "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.8062691302038729__amp__block=1__amp__format=vast__amp__charset=UTF-8"
+                   },
+                   {
+                      "position": "mid-roll",
+                      "startTime": "00:00:12",
+                      "tag": "http://ad.de.doubleclick.net/ad/testadvertiser.smartclip/vast1;sz=400x320;dcmt=text/xml;ord=__random-number__?"
+                   }
+                ]
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        { 
+            url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>", 
+            duration: 60 
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+               "schedule": [
+                   {
+                      "position": "post-roll",
+                      "tag": "http://u-ads.adap.tv/a/h/fy8HuCqcy0y5CmMetFZUPVRg8BYfUdag9T3gJOflx7IRS2LqU9Qh0Q==
+                              ?cb=15783059__amp__spot=preroll__amp__eov=eov__amp__artEid=vast_2_0__amp__ocb=9035
+                              __amp__rid=test__amp__pageUrl=http%3A%2F%2Fwww.adap.tv__amp__gubed"
+                   },
+                   {
+                      "zone": "30",
+                      "position": "auto:bottom",
+                      "startTime": "00:00:05",
+                      "duration": 5,
+                      "repeat": 3,
+                      "interval": 10,
+                      "server": {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                          "allowAdRepetition": true
+                      }
+                   },
+                   {
+                      "position": "pre-roll",
+                      "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?
+                              script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__
+                              zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.8062691302038729__amp__
+                              block=1__amp__format=vast__amp__charset=UTF-8"
+                   },
+                   {
+                      "position": "mid-roll",
+                      "startTime": "00:00:12",
+                      "tag": "http://ad.de.doubleclick.net/ad/testadvertiser.smartclip/vast1;sz=400x320;dcmt=text/xml;ord=__random-number__?"
+                   }
+               ]
+            }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+       Example 2 - A pre-roll on a show stream with a start time and duration
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+              		{
+              			"file":"http://streaming.openvideoads.org:81/shows/the-black-hole.mp4",
+              			"startTime": "00:00:15",
+              			"duration":"00:00:30"
+              		}
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

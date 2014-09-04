@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+       VPAID Javascript Callback API
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                },
+                {
+                   "position": "post-roll",
+                   "tag": "OVA_VPAID_LINEAR_4_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

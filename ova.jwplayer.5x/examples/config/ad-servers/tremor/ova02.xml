@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+       Example 2 - VAST 2.0 Linear with Companions
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+	                     {
+	                        "id":"companion-300x250",
+	                        "width":"300",
+	                        "height":"250"
+	                     },
+	                     {  "id":"companion-728x90",
+	                        "width":"728",
+	                        "height":"90"
+	                     }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://demo.tremormedia.com/proddev/vast/vast_inline_linear.xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

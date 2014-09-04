@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 4 - Using the 'out of the box' configuration options
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+	            "companions": [
+                    { "id":"companion", "width":"300", "height":"250" }
+                ],
+                "servers": [
+                    {
+                      "type": "Adify",
+                      "apiAddress": "http://ad.afy11.net"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "1000004375407",
+                        "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

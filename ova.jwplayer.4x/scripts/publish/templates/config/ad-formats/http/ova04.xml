@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+       A pre-roll, 2 show streams with post-roll ads after each
+   </ova.title>
+   <ova.json>
+       {
+            "playOnce": true,
+            "autoPlay": true,
+
+            "shows": {
+               "baseURL": "OVA_HTTP_BASE_URL",
+               "streams": [
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE", "duration":"00:00:15" },
+                    { "file":"OVA_HTTP_SHOW_STREAM_FILE", "duration":"00:00:15" }
+               ]
+            },
+
+            "ads": {
+               "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+               ],
+
+               "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "applyToParts": [ 0 ]
+                  },
+                  {
+                    "zone": "5",
+                      "position": "post-roll"
+                  }
+               ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

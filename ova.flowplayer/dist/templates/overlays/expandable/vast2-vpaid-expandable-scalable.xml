@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+    <Ad id="test-ad">
+        <InLine>
+            <AdSystem>Test</AdSystem>
+            <AdTitle>Test expandable VPAID ad</AdTitle>
+            <Description/>
+            <Impression/>
+            <Creatives>
+                <Creative id="pctozxH">
+                    <NonLinearAds>
+                        <NonLinear width="300" height="50" expandedWidth="300" expandedHeight="250" scalable="true" apiFramework="VPAID">
+                            <StaticResource creativeType="application/x-shockwave-flash">
+                            <![CDATA[http://localhost/ova/ova.vpaid.ads/dist/vpaid-expandable-example.swf?scalable=true]]>
+                        </StaticResource>
+                    </NonLinear>
+                </NonLinearAds>
+            </Creative>
+        </Creatives>
+    </InLine>
+</Ad>
+</VAST>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><VAST version="2.0">
+  <Ad id="Adify">
+    <InLine>
+      <AdSystem>Adify</AdSystem>
+      <AdTitle>Open Video Ads VAST 2.0 Demo</AdTitle>
+      <Description>Open Video Ads VAST 2.0 Demo</Description>
+      <Impression>http://ad.afy11.net/ad?ipc=47tILD5cQUGXW9YaA+wWFBplkY2SRqNgE+CuN4HiuuF+95JwGgw6ai0fBx3pdNhMNtkjwzSM+x5QxOUUPI2GOJxOeETc5r3JPTdo8DvdUd4=</Impression>
+
+      <Creatives>
+        <Creative sequence="1" id="1000005830818">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <TrackingEvents>
+              <Tracking event="close"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042205&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="acceptInvitation"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042305&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="collapse"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042405&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+
+              <Tracking event="expand"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042505&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="fullscreen"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042605&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="resume"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042705&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="rewind"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042805&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="pause"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042905&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="unmute"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043005&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="mute"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043105&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="complete"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043205&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043305&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+
+              <Tracking event="firstQuartile"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043405&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043505&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="start"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043605&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="creativeView"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043705&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickTracking><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000042105&ad1=1000005830818&ad2=1000003635909&ad3=1000002629107]]></ClickTracking>
+              <ClickTracking><![CDATA[http://ad.afy11.net/ad?c=47tILD5cQUGXW9YaA+wWFO5TOObqquOwkcl-07NI5Uqdx+GG7JmUeNk-U2sKrxkW6SUgYhyHyDjFxOpnf1Pnx7m-rXM9jtXJmZn-0-dGGUM=]]></ClickTracking>
+              <ClickThrough><![CDATA[http://adify.com]]></ClickThrough>
+
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile delivery="progressive" width="640" height="480" type="video/x-flv" bitrate="700"><![CDATA[http://im.afy11.net/images/asset/05/73/1000005733318.flv?e=1281689977&h=3dcfb2d63825df8e56b2f0d24fb56317]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+        <Creative sequence="1" id="1000005830918">
+          <CompanionAds>
+            <Companion width="300" height="250">
+
+              <StaticResource creativeType="image/gif"><![CDATA[http://im.afy11.net/images/asset/05/71/1000005719018.gif?e=1281689977&h=a7a1072b0f61fd40f23b435deb5496a7]]></StaticResource>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043805&ad1=1000005830918&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              </TrackingEvents>
+              <CompanionClickThrough><![CDATA[http://adify.com]]></CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+        <Creative sequence="1" id="1000005831018">
+
+          <NonLinearAds>
+            <TrackingEvents>
+              <Tracking event="close"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000043905&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="acceptInvitation"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044005&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="collapse"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044105&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="expand"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044205&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="fullscreen"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044305&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="resume"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044405&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="rewind"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044505&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+
+              <Tracking event="pause"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044605&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="unmute"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044705&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="mute"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044805&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="complete"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000044905&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000045005&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000045105&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000045205&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="start"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000045305&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+              <Tracking event="creativeView"><![CDATA[http://ad.afy11.net/ad?mode=6&ac=1&av=1000000045405&ad1=1000005831018&ad2=1000003635909&ad3=1000002629107]]></Tracking>
+
+            </TrackingEvents>
+            <NonLinear width="300" height="50">
+              <StaticResource creativeType="image/gif"><![CDATA[http://im.afy11.net/images/asset/05/71/1000005718918.gif?e=1281689977&h=d95b85c7b89ea68c9509edd842813d70]]></StaticResource>
+              <NonLinearClickThrough><![CDATA[http://adify.com]]></NonLinearClickThrough>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
+

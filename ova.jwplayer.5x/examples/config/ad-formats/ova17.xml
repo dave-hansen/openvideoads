@@ -1,0 +1,47 @@
+<config>
+   <ova.title>
+       Example 17 - Multiple pre-rolls followed by muliple overlays during the show stream
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+				"notice": { "show": false },
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                       "allowAdRepetition": true
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    },
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    },
+                    {
+                      "zone": "30",
+                      "startTime": "00:00:01",
+                      "duration": 15,
+                      "width": 450,
+                      "height": 50
+                    },
+                    {
+                      "zone": "30",
+                      "startTime": "00:00:20",
+                      "duration": 10,
+                      "width": 450,
+                      "height": 50
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

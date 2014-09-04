@@ -1,0 +1,60 @@
+<config>
+   <ova.title>
+       Example 2 - An overlay ad
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+                 {
+                    "file":"http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                    "duration":"00:00:30"
+                 }
+              ]
+            },
+
+            "regions": {
+              "declarations": [
+                 {
+                    "id": "bottom",
+                    "verticalAlign": "bottom",
+                    "horizontalAlign": "center",
+                    "padding": "-10 -10 -10 -10",
+                    "width": 468,
+                    "height": 60
+                 }
+              ]
+            },
+
+            "ads": {
+              "companions": {
+                   "restore": false,
+                   "regions": [
+                       { "id":"right-companion", "width":"300", "height":"250" }
+                   ]
+              },
+              "servers": [
+                   {
+                      "type": "OASIS",
+                      "apiAddress": "http://ahs2.adhostingsolutions.com/oasisi-i.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "1567",
+                      "position": "bottom",
+                      "width": 468,
+                      "height": 60,
+                      "startTime": "00:00:05",
+                      "duration": "15"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

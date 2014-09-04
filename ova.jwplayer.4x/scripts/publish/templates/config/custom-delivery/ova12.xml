@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 12 - Selection based on delivery type
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "deliveryType": "progressive",
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "16",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

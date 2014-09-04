@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+       Example 1 - A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://v.movad.de/stream.ad?cid=101226"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

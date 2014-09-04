@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 10 - Delivering Image Overlay Ads</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 10 - Delivering Image Overlay Ads</h2>
+<p class="example">
+This example delivers an image overlay at the bottom of the player screen 5 seconds into the 
+stream for a duration of 10 seconds. A second 'click to play' video overlay follows 5 seconds later.
+This example uses the  reserved region "reserved-bottom-w450px-h50px-transparent". 
+</p>
+<div id="container">
+  <div id="player_row">
+     <div id="player_left">
+    <a class="example"></a>
+   </div>
+   <div id="player_right">
+    <div id="companion">
+      A COMPANION ADVERTISEMENT WILL APPEAR IN HERE
+    </div>
+   </div>
+  </div>
+</div>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    plugins: {
+        rtmp: {
+            url: FP_RTMP_SWF_2
+        },
+        rtmpInstream: {
+            url: FP_RTMP_SWF_2
+        },
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "shows": {
+                "streams": [ { "file":OVA_PSEUDO_SHOW_STREAM_1, "duration":"00:00:35" } ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": false,
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API
+                   }
+              ],
+                "companions": {
+                   "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                    {
+                        "zone": "28",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:05",
+                        "duration": "10"
+                    },
+                    {
+                        "zone": "41",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:20",
+                        "duration": "10"
+                    }
+                ],
+            },
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    plugins: {
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        rtmpInstream: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF_2)</script>"
+        },
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            "url": "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "shows": {
+                "streams": [ 
+                    { 
+                       "file": "<script type="text/javascript">document.write(OVA_PSEUDO_SHOW_STREAM_1)</script>",
+                       "duration":"00:00:35" 
+                    } 
+                ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": false,
+                "servers": [
+                     {
+                        "type": "OpenX",
+                        "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>"
+                    }
+                ],
+                "companions": {
+                   "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                    {
+                        "zone": "28",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:05",
+                        "duration": "10"
+                    },
+                    {
+                        "zone": "41",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:20",
+                        "duration": "10"
+                    }
+                ],
+            },
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

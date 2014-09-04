@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 6 - Mid-roll Ad calls made "On Demand" during playback</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 6 - Mid-roll Ad calls made "On Demand" during playback</h2>
+<p class="example">
+</p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_2, 
+       playlist: [
+           { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 30 },
+           { file: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4", duration: 31 },
+           { file: "mp4:the-black-hole.mp4", streamer: "rtmp://ne7c0nwbit.rtmphost.com/videoplayer", duration: 32 }
+       ],
+       'controlbar.position':'bottom',
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+               "delayAdRequestUntilPlay": true,
+
+               "debug": { 
+                   "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api" 
+               },
+               
+               "ads": {
+                   "schedule": [
+                       {
+                          "position": "mid-roll",
+                          "startTime": "00:00:10",
+                          "loadOnDemand": true,
+                          "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll0-0%3D5&nz=1&source=&r=R0.8062691302038729&block=1&format=vast&charset=UTF-8"
+                       }
+                   ]
+               }
+           } 
+       },
+       height: 300,
+       width: 450
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;jwplayer("container").setup({
+       flashplayer: "<script type="text/javascript">document.write(OVA_PLAYER_2)</script>", 
+       playlist: [
+           { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 30 },
+           { file: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4", duration: 31 },
+           { file: "mp4:the-black-hole.mp4", streamer: "rtmp://ne7c0nwbit.rtmphost.com/videoplayer", duration: 32 }
+       ],
+       'controlbar.position':'bottom',
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+               "delayAdRequestUntilPlay": true,
+
+               "debug": { 
+                   "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api" 
+               },
+               
+               "ads": {
+                   "schedule": [
+                       {
+                          "position": "mid-roll",
+                          "startTime": "00:00:10",
+                          "loadOnDemand": true,
+                          "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?
+                                  script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&
+                                  zones=pre-roll0-0%3D5&nz=1&source=&r=R0.8062691302038729&
+                                  block=1&format=vast&charset=UTF-8"
+                       }
+                   ]
+               }
+           }
+       },
+       height: 300,
+       width: 450
+});
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+		Hard Coding the Player Width and Height
+   </ova.title>
+   <ova.json>
+       {
+            "player": {
+                "width": 450,
+                "height": 250
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "18",
+                        "position": "pre-roll"
+                    }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

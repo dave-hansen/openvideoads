@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 20 - Supporting Audio Ads</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 20 - Supporting Audio Ads</h2>
+<p class="example"></p>
+<div id="audio" style="display:block;width:750px;height:30px;"></div>
+<script type="text/javascript">
+flowplayer("audio", FP_SWF_2, {
+    playlist: [
+        { 
+            url: OVA_HTTP_AUDIO_STREAM_1, 
+            duration: 30,
+            provider: "audio"
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            fullscreen: false,
+            autoHide: false,
+            height: 30
+        },
+ 
+        audio: {
+            url: FP_AUDIO_SWF_2
+        },
+        
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "providers": {
+       	       "http": "audio"
+            },
+
+            "ads": {
+                "acceptedLinearAdMimeTypes": [ "audio/x-mpeg-3" ],
+                "filterOnLinearAdMimeTypes": true,
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "tag": OVA_AUDIO_LINEAR_VAST
+                    }
+                ]
+            },
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        { 
+            url: "<script type="text/javascript">document.write(OVA_HTTP_AUDIO_STREAM_1)</script>", 
+            duration: 30,
+            provider: "audio" 
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            fullscreen: false,
+            autoHide: false,
+            height: 30
+        },
+
+        audio: {
+            url: "<script type="text/javascript">document.write(FP_AUDIO_SWF_2)</script>"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "providers": {
+       	       "http": "audio"
+            },
+
+            "ads": {
+                "acceptedLinearAdMimeTypes": [ "audio/x-mpeg-3" ],
+                "filterOnLinearAdMimeTypes": true,
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "tag": "<script type="text/javascript">document.write(OVA_AUDIO_LINEAR_VAST)</script>"
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

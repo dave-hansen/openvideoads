@@ -1,0 +1,27 @@
+<config>
+   <ova.title>
+       Hiding a configured player logo during linear ad playback
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                    {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "18",
+                        "position": "pre-roll"
+                    }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

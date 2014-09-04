@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Example 5 - Impression serving on an empty VAST2 wrapped response with template ad
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    { "file":"the-black-hole.mp4", "duration":"00:00:10" }
+                ]
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "apiAddress": "../../../dist/templates/error-responses/vast2.0/empty-wrapped-vast-with-template-ad.xml"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

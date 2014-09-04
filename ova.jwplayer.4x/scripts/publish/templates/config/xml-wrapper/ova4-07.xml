@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       VAST2 wrapper to a VAST1 wrapper to a VAST2 ad
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+                   {
+                     "file": "OVA_HTTP_SHOW_STREAM_1",
+                     "duration":"00:00:10"
+                   }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "direct",
+                          "tag": "OVA_DIST_TEMPLATES_2wrapper/vast2-wrapper-to-vast1-wrapper-vast2-ad.xml"
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

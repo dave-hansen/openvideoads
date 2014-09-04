@@ -1,0 +1,52 @@
+<config>
+   <ova.title>
+		1 stream with pre, mid and post rolls plus an overlay
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "baseURL": "http://streaming.openvideoads.org/shows",
+              "streams": [
+                   { "file":"the-black-hole.mp4" }
+              ]
+            },
+
+            "ads": {
+              "servers": [
+	              {
+	                "type": "OpenX",
+	                "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+	 	            "allowAdRepetition": true
+	              }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "pre-roll"
+                  },
+                  {
+                    "zone": "19",
+                    "position": "mid-roll",
+                    "startTime": "00:00:10"
+                  },
+                  {
+                    "zone": "19",
+                    "position": "post-roll"
+                  },
+                  {
+                    "zone": "30",
+                    "startTime": "00:00:05",
+                    "duration": 5,
+                    "width": 450,
+                    "height": 50
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

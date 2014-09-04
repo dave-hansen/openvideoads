@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+       Multiple wrappers, some empty ('forceImpressionServing')
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+                   {
+                     "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                     "duration":"00:00:10"
+                   }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+                	   { "id": "companion-300x250", "width": 300, "height": 250 }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "tag": "../../../dist/templates/wrapper/vast2-multi-wrapper-some-empty-ad-tag.xml"
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

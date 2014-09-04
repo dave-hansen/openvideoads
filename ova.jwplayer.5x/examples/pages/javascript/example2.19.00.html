@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2.19.00 - Get active ad descriptor object</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 2.19.00 - Get active ad descriptor object</h2>
+<p class="example"></p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+function dumpAdDescriptor() {
+	var activeAdDescriptor = jwplayer('container').getPlugin('ova').getActiveAdDescriptor();
+	if(activeAdDescriptor != null) {
+		console.log(">>> ACTIVE AD DESCRIPTOR DUMP:");
+		console.log(activeAdDescriptor);
+	}
+	else console.log(">>> NO DESCRIPTOR AVAILABLE");
+}
+
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_2,        
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 10
+          },
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 11
+          }
+       ],
+
+       width: 450,
+       height: 300,
+       
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.js": {
+               "ads": {
+                   "servers": [
+                       {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                       }
+                   ],
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "zone": "18",
+                           "position": "pre-roll"
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           } 
+       }
+});
+</script>
+<ul>
+  <li><a href="#" onclick="dumpAdDescriptor();">
+    Fetch Ad Descriptor and Dump to Console
+  </a></li>
+</ul>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;
+function dumpAdDescriptor() {
+	var activeAdDescriptor = jwplayer('container').getPlugin('ova').getActiveAdDescriptor();
+	if(activeAdDescriptor != null) {
+		console.log(">>> ACTIVE AD DESCRIPTOR DUMP:");
+		console.log(activeAdDescriptor);
+	}
+	else console.log(">>> NO DESCRIPTOR AVAILABLE");
+}
+
+jwplayer("container").setup({
+       flashplayer: "<script>document.write(OVA_PLAYER_2)</script>", 
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 10
+          },
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 11
+          }
+       ],
+
+       width: 650,
+       height: 240,
+
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.js": {
+               "ads": {
+                   "servers": [
+                       {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                       }
+                   ],
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "zone": "18",
+                           "position": "pre-roll"
+                       }
+                   ]
+               },
+
+               "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+               }
+           }
+       }
+});
+&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#" onclick="dumpAdDescriptor();"&gt;
+    Fetch Ad Descriptor and Dump to Console
+  &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

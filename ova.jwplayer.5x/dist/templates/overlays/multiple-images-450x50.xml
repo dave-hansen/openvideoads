@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+<Ad id="overlay:0.0-0">
+    <InLine>
+        <AdSystem>OpenX</AdSystem>
+        <AdTitle>
+            <![CDATA[450x50 - Image Overlay]]>
+        </AdTitle>
+        <Description>
+            <![CDATA[Overlay Video Ad]]>
+        </Description>
+        <Impression>
+            <URL id="primaryAdServer">
+                <![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/lg.php?bannerid=51&campaignid=10&zoneid=28&loc=1&cb=9ca8f79286]]>
+            </URL>
+        </Impression>
+        <CompanionAds>
+            <Companion id="companion" width="150" height="360" resourceType="HTML">
+                <Code>
+                    <![CDATA[<a href="http://openx.openvideoads.org/openx-2.8.2/www/delivery/ck.php?oaparams=2__bannerid=7__zoneid=0__cb=67865f6951__oadest=http%3A%2F%2Fwww.yahoo.com" target="_blank">
+                    <img src="http://static.bouncingminds.com/ads/companions/companion_150_360.png" border="0"/>
+                </a>
+                <div id='beacon_67865f6951' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'>
+                    <img src='http://openx.openvideoads.org/openx-2.8.2/www/delivery/lg.php?bannerid=7&amp;campaignid=1&amp;zoneid=0&amp;loc=1&amp;referer=1&amp;cb=67865f6951' width='0' height='0' alt='' style='width: 0px; height: 0px;' />
+                </div>]]>
+            </Code>
+            <CompanionClickThrough>
+                <URL>
+                    <![CDATA[http://www.yahoo.com]]>
+                </URL>
+            </CompanionClickThrough>
+        </Companion>
+    </CompanionAds>
+    <NonLinearAds>
+        <NonLinear id="overlay" width="450" height="50" resourceType="static" creativeType="image/gif">
+            <URL> http://openx.openvideoads.org/openx-2.8.2/www/images/8e19787394a3c7870acc4c4c16fe2172.gif </URL>
+            <NonLinearClickThrough>
+                <URL>
+                    <![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/ck.php?oaparams=2__bannerid=51__zoneid=28__cb=9ca8f79286__oadest=http%3A%2F%2Fwww.openx.org]]>
+                </URL>
+            </NonLinearClickThrough>
+        </NonLinear>
+        <NonLinear id="overlay" width="450" height="50" resourceType="static" creativeType="image/gif">
+            <URL> http://openx.openvideoads.org/openx-2.8.2/www/images/fa5b35e2e16d4b2a922e4169c9fcea97.gif  </URL>
+            <NonLinearClickThrough>
+                <URL>
+                    <![CDATA[http://openx.openvideoads.org/openx-2.8.2/www/delivery/ck.php?oaparams=2__bannerid=51__zoneid=28__cb=9ca8f79286__oadest=http%3A%2F%2Fwww.openx.org]]>
+                </URL>
+            </NonLinearClickThrough>
+        </NonLinear>
+    </NonLinearAds>
+</InLine>
+</Ad>
+</VideoAdServingTemplate>

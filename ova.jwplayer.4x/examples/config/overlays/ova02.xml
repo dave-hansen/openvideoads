@@ -1,0 +1,42 @@
+<config>
+   <ova.title>
+        Example 2 - Mixed Overlay Delivery
+   </ova.title>
+   <ova.json>
+        {
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+	            "companions": [
+	                { "id":"companion", "width":"150", "height":"360" }
+	            ],
+                "schedule": [
+                    {
+                        "zone": "44",
+                        "startTime": "00:00:05",
+                        "duration": "5"
+                    },
+                    {
+                        "zone": "44",
+                        "startTime": "00:00:12",
+                        "duration": "5",
+                    },
+                    {
+                        "zone": "44",
+                        "startTime": "00:00:19",
+                        "duration": "5"
+                    }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+        }
+   </ova.json>
+</config>

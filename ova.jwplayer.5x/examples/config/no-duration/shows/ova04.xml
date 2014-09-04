@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+		1 stream with an overlay
+   </ova.title>
+   <ova.json>
+       {
+           "shows": {
+              "baseURL": "http://streaming.openvideoads.org/shows",
+              "streams": [
+                   { "file":"the-black-hole.mp4" }
+              ]
+           },
+
+           "ads": {
+              "servers": [
+	              {
+	                "type": "OpenX",
+	                "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+	 	            "allowAdRepetition": true
+	              }
+              ],
+              "schedule": [
+                  {
+                      "zone": "30",
+                      "startTime": "00:00:05",
+                      "duration": 5,
+                      "width": 450,
+                      "height": 50
+                  }
+              ]
+           },
+
+           "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+           }
+      }
+   </ova.json>
+</config>

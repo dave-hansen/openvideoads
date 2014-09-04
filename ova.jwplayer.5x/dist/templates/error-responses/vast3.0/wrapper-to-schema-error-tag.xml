@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="3.0">
+  <Ad id="OVA Wrapper">
+    <Wrapper>
+       <AdSystem>OVA Static Test</AdSystem>
+       <VASTAdTagURI>http://static.openvideoads.org/tests/error-responses/vast3.0/schema-error-tag.xml</VASTAdTagURI>
+       <Impression>http://localhost/vast2-wrapper-impression</Impression>
+       <Error>http://localhost/vast2-wrapper-error-2?error=[ERRORCODE]</Error>
+    </Wrapper>
+  </Ad>
+</VAST>

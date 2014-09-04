@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+       An RTMP pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "autoPlay": true,
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "1",
+                        "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

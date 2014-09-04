@@ -1,0 +1,52 @@
+<config>
+   <ova.title>
+      VPAID pre-roll and post-rolls with 2 show streams
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    {
+                        "file": "the-black-hole.mp4",
+                        "duration":"00:00:10"
+                    },
+                    {
+                        "file": "the-black-hole.mp4",
+                        "duration":"00:00:11"
+                    }
+                ]
+            },
+
+            "ads": {
+               "vpaid": {
+                  "controls": { "hideOnLinearPlayback": false }
+               },
+               "schedule": [
+                  {
+                    "position": "pre-roll",
+                    "server": {
+                        "type": "Adotube",
+      	                "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Preroll.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=2ChPxDe__amp__platform_version=as3__amp__integration=__partner-id____amp__publisher=__domain____amp__title=__media-title____amp__tags=__media-keywords____amp__description=__media-description__",
+                        "customProperties": {
+      	                     "partner-id": "longtail",
+                             "media-title": "ova test",
+                             "media-keywords": "ova",
+                             "media-description": "video description"
+                       }
+                    }
+                  },
+                  {
+                    "position": "post-roll",
+                    "tag": "../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                  }
+               ]
+            },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          }
+       }
+   </ova.json>
+</config>

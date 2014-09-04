@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1.04.01 - VAST 2 Impression, Click and Events</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1.04.01 - VAST 2 Impression, Click and Events</h2>
+<p class="example">
+</p>
+<br/>
+<a class="example"></a>
+
+<script type="text/javascript">
+
+function onImpressionEvent(event, forced) {
+    if(forced) {
+       debug("OVA CALLBACK: Forced impression fired");
+    }
+    else debug("OVA CALLBACK: Impression fired");
+	debug(event);
+}
+
+function onTrackingEvent(event) {
+	debug("OVA CALLBACK: Tracking event fired");
+	debug(event);
+}
+
+function onClickTrackingEvent(event) {
+	debug("OVA CALLBACK: Click tracking event fired");
+	debug(event);
+}
+
+function onCustomClickTrackingEvent(event) {
+	debug("OVA CALLBACK: Custom click tracking event fired");
+	debug(event);
+}
+
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        {
+            url: OVA_HTTP_SHOW_STREAM_1,
+            duration: 30
+        }
+    ],
+    
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "canFireEventAPICalls": true,
+            "ads": {
+                "companions": {
+                    "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },
+                "notice": { "textStyle": "smalltext" },
+                "servers": [
+                    {
+                       "type": "Adform",
+                       "apiAddress": "http://track.adform.net/serving/videoad"
+                    }
+                ],
+                "schedule": [
+                    {
+                       "zone": "453599",
+                       "position": "pre-roll",
+                    }
+                ]
+            },
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+function onImpressionEvent(event, forced) {
+    if(forced) {
+       debug("OVA CALLBACK: Forced impression fired");
+    }
+    else debug("OVA CALLBACK: Impression fired");
+	debug(event);
+}
+
+function onTrackingEvent(event) {
+	debug("OVA CALLBACK: Tracking event fired");
+	debug(event);
+}
+
+function onClickTrackingEvent(event) {
+	debug("OVA CALLBACK: Click tracking event fired");
+	debug(event);
+}
+
+function onCustomClickTrackingEvent(event) {
+	debug("OVA CALLBACK: Custom click tracking event fired");
+	debug(event);
+}
+
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        {
+            url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+            duration: 30
+        }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "canFireEventAPICalls": true,
+            "ads": {
+                "companions": {
+                    "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },
+                "notice": { "textStyle": "smalltext" },
+                "servers": [
+                    {
+                       "type": "Adform",
+                       "apiAddress": "http://track.adform.net/serving/videoad"
+                    }
+                ],
+                "schedule": [
+                    {
+                       "zone": "453599",
+                       "position": "pre-roll",
+                    }
+                ]
+            },
+            "debug": {
+                 "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

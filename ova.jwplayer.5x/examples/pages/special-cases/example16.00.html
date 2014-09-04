@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 16 - Ad runtime ad tag failover (on VPAID error)</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 16 - Ad runtime ad tag failover (on VPAID error)</h2>
+<p class="example"></p>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_2,        
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 15 
+          }
+       ],
+
+       width: 450,
+       height: 300,
+       
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+                "debug": { "levels": "fatal, config, vast_template, playlist" },
+                "ads": {
+                    "schedule": [
+                        {
+                            "position": "pre-roll",
+                            "loadOnDemand": true,
+                            "server": {
+                                "tag": "http://www.adshost2.com/vast.xml?key=91b9f11ea723f0c6a44b64b731118c66&zone=PRE_ROLL&test=1",
+	                            "failoverConditions": {
+                                    "onVPAIDError": {
+                   		               "always": true
+                                    },
+                                    "onStreamError": {
+                                       "always": true
+                                    }
+                                },
+                                "failoverServers": [
+                                    {
+                                       "tag": "http://search.spotxchange.com/vast/2.00/74856?VPAID=1OVA_VPAID_LINEAR_SPOTXCHANGEcontent_page_url=[page_url]&cb=__random-number__"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+           }
+       }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;
+jwplayer("container").setup({
+       flashplayer: "<script>document.write(OVA_PLAYER_2)</script>", 
+
+       playlist: [
+          { 
+              file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+              duration: 15 
+          }
+       ],
+
+       width: 650,
+       height: 240,
+
+       controlbar: "bottom",
+
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": { 
+                "debug": { "levels": "fatal, config, vast_template, playlist" },
+                "ads": {
+                    "schedule": [
+                        {
+                            "position": "pre-roll",
+                            "loadOnDemand": true,
+                            "server": {
+                               "tag": "../../../dist/templates/error-responses/vast1.0/bad-stream-url.xml",
+                               "failoverConditions": {
+                                   "onVPAIDError": {
+                                      "always": true
+                                   },
+                                   "onStreamError": {
+                                      "always": true
+                                   }
+                               },
+                               "failoverServers": [
+                                   {
+                                      "tag": "http://openx.openvideoads.org/..."
+                                   }
+                               ]
+                            }
+                        }
+                    ]
+                }
+           }
+       }
+});
+}
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

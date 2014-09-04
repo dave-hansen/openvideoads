@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+       Preventing OVA from Scaling Linear VPAID Ads
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                 "enableNonLinearScaling": false
+             },
+             "schedule": [
+                  {
+                       "startTime": "00:00:02",
+                       "position": "auto:bottom",
+                       "duration": "recommended:20",
+                       "tag": "http://www.adotube.com/kernel/vast/vast.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=pctozxH__amp__ad_type=overlays__amp__platform_version=vast20as3__amp__vpaid=1__amp__rtb=0__amp__publisher=adotube.com__amp__title=[VIDEO_TITLE]__amp__tags=[VIDEO_TAGS]__amp__description=[VIDEO_DESCRIPTION]__amp__videoURL=[VIDEO_FILE_URL]"
+                  }
+             ]
+          },
+
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          }
+       }
+   </ova.json>
+</config>

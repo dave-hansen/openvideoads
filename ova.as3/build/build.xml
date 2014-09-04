@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<project default="help">
+    <taskdef resource="net/sf/antcontrib/antlib.xml" >
+       <classpath>
+          <pathelement location="./ant/ant-contrib-1.0b3.jar"/>
+       </classpath>
+    </taskdef>
+
+ 	<property file="build.properties" />
+
+    <target name="help">
+        <echo message="targets" />
+        <echo message="clean, build, build-debug, build-release, build-minimal, build-all, deploy, deploy-debug, deploy-release, deploy-minimal, package-release-candidate, package-release, asdoc" />
+    </target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${DIST_DIR}" />
+	</target>
+
+	<target name="init" depends="clean" description="setup build">
+		<tstamp />
+		<mkdir dir="${DIST_DIR}" />
+		<mkdir dir="${DIST_DIR}/debug" />
+		<mkdir dir="${DIST_DIR}/release" />
+		<mkdir dir="${DIST_DIR}/minimal" />
+	</target>
+
+	<target name="build" depends="build-debug" description="default build">
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-all" depends="build-debug, build-release, build-minimal" description="build all versions">
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-debug" description="build debuggable swc">
+        <echo message="Building the 'debug' version of the OVA for AS3 SWC..." />
+		<exec executable="${COMPC}" failonerror="false" >
+			<arg value="-include-sources=${SRC_DIR}" />
+			<arg value="-compiler.library-path=${LINKED_LIB_DIR},${FLEX_LIBS_DIR}" />
+			<arg value="-compiler.source-path=${SRC_DIR}" />
+			<arg value="-static-link-runtime-shared-libraries=true" />
+			<arg value="-debug=false" />
+			<arg value="-warnings=true" />
+			<arg value="-strict=true" />
+			<arg value="-optimize=true" />
+            <arg value="-define=CONFIG::debugging,true" />
+            <arg value="-define=CONFIG::ga,true" />
+            <arg value="-define=CONFIG::connectors,true" />
+            <arg value="-define=CONFIG::callbacks,true" />
+            <arg value="-define=CONFIG::buttons,true" />
+            <arg value="-define=CONFIG::javascript,true" />
+			<arg value="-output=${DIST_DIR}/debug/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-release" description="build release swc (no debug)">
+        <echo message="Building the 'release' version of the OVA for AS3 SWC..." />
+		<exec executable="${COMPC}" failonerror="false" >
+			<arg value="-include-sources=${SRC_DIR}" />
+			<arg value="-compiler.library-path=${LINKED_LIB_DIR},${FLEX_LIBS_DIR}" />
+			<arg value="-compiler.source-path=${SRC_DIR}" />
+			<arg value="-static-link-runtime-shared-libraries=true" />
+			<arg value="-debug=false" />
+			<arg value="-warnings=true" />
+			<arg value="-strict=true" />
+			<arg value="-optimize=true" />
+            <arg value="-define=CONFIG::debugging,false" />
+            <arg value="-define=CONFIG::ga,true" />
+            <arg value="-define=CONFIG::connectors,true" />
+            <arg value="-define=CONFIG::callbacks,true" />
+            <arg value="-define=CONFIG::buttons,true" />
+            <arg value="-define=CONFIG::javascript,true" />
+			<arg value="-output=${DIST_DIR}/release/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-minimal" description="build minimal swc (no debug, google analytics, javascript callbacks or ad server connectors)">
+        <echo message="Building the 'minimal' version of the OVA for AS3 SWC..." />
+		<exec executable="${COMPC}" failonerror="false" >
+			<arg value="-include-sources=${SRC_DIR}" />
+			<arg value="-compiler.library-path=${LINKED_LIB_DIR},${FLEX_LIBS_DIR}" />
+			<arg value="-compiler.source-path=${SRC_DIR}" />
+			<arg value="-static-link-runtime-shared-libraries=true" />
+			<arg value="-debug=false" />
+			<arg value="-warnings=true" />
+			<arg value="-strict=true" />
+			<arg value="-optimize=true" />
+            <arg value="-define=CONFIG::debugging,false" />
+            <arg value="-define=CONFIG::ga,${INCLUDE_GA}" />
+            <arg value="-define=CONFIG::connectors,${INCLUDE_CONNECTORS}" />
+            <arg value="-define=CONFIG::callbacks,${INCLUDE_CALLBACKS}" />
+            <arg value="-define=CONFIG::buttons,${INCLUDE_BUTTONS}" />
+            <arg value="-define=CONFIG::javascript,${INCLUDE_JAVASCRIPT}" />
+			<arg value="-output=${DIST_DIR}/minimal/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+    <target name="deploy" depends="deploy-debug" description="default deploy">
+        <echo message="Deployment complete." />
+    </target>
+
+    <target name="deploy-debug" depends="build-debug" description="build and deploy the 'debug' version">
+        <echo message="Deploying the 'debug' SWC '${APP_FILE_NAME}' to the specified OVA product directories..." />
+    	<if>
+		  	<available file="${OVA_JW5_BUILD_DIR}/lib" type="dir" />
+  			<then>
+        		<copy file="${DIST_DIR}/debug/${APP_FILE_NAME}" todir="${OVA_JW5_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_FLOWPLAYER_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/debug/${APP_FILE_NAME}" todir="${OVA_FLOWPLAYER_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_VPAID_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/debug/${APP_FILE_NAME}" todir="${OVA_VPAID_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+        <echo message="Deployment complete." />
+    </target>
+
+    <target name="deploy-release" depends="build-release" description="build and deploy the 'release' version">
+        <echo message="Deploying the 'release' SWC '${APP_FILE_NAME}' to the specified OVA product directories..." />
+    	<if>
+		  	<available file="${OVA_JW5_BUILD_DIR}/lib" type="dir" />
+  			<then>
+        		<copy file="${DIST_DIR}/release/${APP_FILE_NAME}" todir="${OVA_JW5_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_FLOWPLAYER_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/release/${APP_FILE_NAME}" todir="${OVA_FLOWPLAYER_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_VPAID_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/release/${APP_FILE_NAME}" todir="${OVA_VPAID_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+        <echo message="Deployment complete." />
+    </target>
+
+    <target name="deploy-minimal" depends="build-minimal" description="build and deploy the 'minimal' version">
+        <echo message="Deploying the 'minimal' SWC '${APP_FILE_NAME}' to the specified OVA product directories..." />
+    	<if>
+		  	<available file="${OVA_JW5_BUILD_DIR}/lib" type="dir" />
+  			<then>
+        		<copy file="${DIST_DIR}/minimal/${APP_FILE_NAME}" todir="${OVA_JW5_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_FLOWPLAYER_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/minimal/${APP_FILE_NAME}" todir="${OVA_FLOWPLAYER_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+    	<if>
+		  	<available file="${OVA_VPAID_BUILD_DIR}/lib" type="dir" />
+  			<then>
+		        <copy file="${DIST_DIR}/minimal/${APP_FILE_NAME}" todir="${OVA_VPAID_BUILD_DIR}/lib" overwrite="true" />
+        	</then>
+        </if>
+        <echo message="Deployment complete." />
+    </target>
+
+	<target name="package-release-candidate" depends="build" description="create a release candidate package">
+        <echo message="Building the OVA for AS3 release candidate packages..." />
+		<tar destfile="${OVA_AS3_PACKAGE_DIR}/ova.as3-rc.tar.gz"
+		     basedir="${OVA_AS3_PARENT_DIR}"
+		     includes="ova.as3/**"
+		     compression="gzip"
+		/>
+		<zip destfile="${OVA_AS3_PACKAGE_DIR}/ova.as3-rc.zip"
+		     basedir="${OVA_AS3_PARENT_DIR}"
+		     includes ="ova.as3/**"
+		/>
+        <echo message="Packaging complete." />
+	</target>
+
+	<target name="package-release" depends="build" description="create a release package">
+        <echo message="Building the OVA for AS3 release packages..." />
+		<tar destfile="${OVA_AS3_PACKAGE_DIR}/ova.as3.tar.gz"
+     		 basedir="${OVA_AS3_PARENT_DIR}"
+		     includes="ova.as3/**"
+     	     compression="gzip"
+		/>
+		<zip destfile="${OVA_AS3_PACKAGE_DIR}/ova.as3.zip"
+		     includes="ova.as3/**"
+     		 basedir="${OVA_AS3_PARENT_DIR}"
+		/>
+        <echo message="Packaging complete." />
+    </target>
+
+	<target name="asdoc" description="generate AS3 doc">
+        <echo message="Generating the OVA for AS3 doc..." />
+        <exec executable="${ASDOC}" failonerror="true">
+            <arg line="-source-path ${SRC_DIR}"/>
+            <arg line="-library-path ${LINKED_LIB_DIR}"/>
+            <arg line="-doc-sources ${SRC_DIR}"/>
+            <arg line="-output ${ASDOC_DIR}"/>
+            <arg line="-main-title 'OVA for AS3 ${VERSION} API documentation'"/>
+            <arg line="-window-title 'OVA for AS3 ${VERSION} API documentation'"/>
+<!--            <arg line="-doc-classes ${doc-classes}"/> -->
+<!--            <arg line="-exclude-dependencies"/> -->
+<!--            <arg line="-define+=CONFIG::debug,'false'"/> -->
+        </exec>
+    </target>
+</project>

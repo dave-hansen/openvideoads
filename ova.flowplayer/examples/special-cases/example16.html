@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 16 - Ad runtime ad tag failover (on VPAID error)</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 16 - Ad runtime ad tag failover (on VPAID error)</h2>
+<p class="example">
+</p>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        { 
+            url: OVA_HTTP_SHOW_STREAM_1, 
+            duration: 60 
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+               "schedule": [
+                    {
+                        "position": "pre-roll",
+                        "loadOnDemand": true,
+                        "server": {
+                            "tag": "http://www.adshost2.com/vast.xml?key=91b9f11ea723f0c6a44b64b731118c66__amp__zone=PRE_ROLL__amp__test=1",
+                            "failoverConditions": {
+                                "onVPAIDError": {
+               		               "always": true
+                                },
+                                "onStreamError": {
+                                   "always": true
+                                }
+                            },
+                            "failoverServers": [
+                                {
+                                   "tag": "http://search.spotxchange.com/vast/2.00/74856?VPAID=1OVA_VPAID_LINEAR_SPOTXCHANGEcontent_page_url=[page_url]__amp__cb=__random-number__"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        { 
+            url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>", 
+            duration: 60 
+        }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                        "position": "pre-roll",
+                        "loadOnDemand": true,
+                        "server": {
+                           "tag": "../../../dist/templates/error-responses/vast1.0/bad-stream-url.xml",
+                           "failoverConditions": {
+                               "onVPAIDError": {
+                                  "always": true
+                               },
+                               "onStreamError": {
+                                  "always": true
+                               }
+                           },
+                           "failoverServers": [
+                               {
+                                  "tag": "http://openx.openvideoads.org/..."
+                               }
+                           ]
+                        }
+                    }
+                ]
+            }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

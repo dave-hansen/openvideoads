@@ -1,0 +1,18 @@
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+      <Ad id="preroll">
+          <Wrapper>
+             <AdSystem>MyAdSystem</AdSystem>
+                <VASTAdTagURL>
+                    <URL><![CDATA[http://localhost/bad-ad-call.xml]]></URL>
+                </VASTAdTagURL>
+      			<Error><URL><![CDATA[http://localhost/vast1-wrapper-error-1?error=[ERRORCODE]]]></URL></Error>
+		        <Impression>
+		           <URL id="myadsever">
+		              <![CDATA[http://localhost/empty-impression]]>
+		           </URL>
+		        </Impression>
+                <TrackingEvents>
+                </TrackingEvents>
+          </Wrapper>
+      </Ad>
+</VideoAdServingTemplate>

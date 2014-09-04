@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+       Controlbar = "none" during ad and show playback
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                 "holdingClipUrl": "http://static.openvideoads.org/ads/blank/blank-pixel.jpg"
+             },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          }
+       }
+   </ova.json>
+</config>

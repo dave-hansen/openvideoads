@@ -1,0 +1,26 @@
+<config>
+   <ova.title>
+       Example 2 - Direct URL based Ad Server Request
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                        "position": "pre-roll",
+                        "server": {
+                            "type": "direct",
+	                        "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;alias=myalias;cookie=yes;adct=204;key=key1+key2;grp=[group];misc=__random-number__"
+                        }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

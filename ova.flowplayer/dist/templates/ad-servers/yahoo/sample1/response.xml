@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adResults>
+<position pos="VID">
+<addata csc="http://row.bc.yahoo.com/b?P=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H&amp;T=1a6umfff4%2fX%3d1303806398%2fE%3d2143883265%2fR%3dinsports%2fK%3d5%2fV%3d10.1%2fW%3dCR%2fY%3dIN%2fF%3d2060279755%2fH%3dY29udGVudD0idjE7Zmx2X2FzMjtmbHZfYXMzO3htbF92ZXJfMS4wO3htbF92ZXJfMi4wIiBwbj0ieWF1dG8iIHNlcnZlSWQ9IkhsOFROTXBXQm5WVWl4YldUYloxWGhZSVdOTWZJazIyZ2I0QURRM0giIHRTdG1wPSIxMzAzODA2Mzk4ODU2MjA4IiA-%2fQ%3d-1%2fI%3d1%2fS%3d1%2fJ%3dF19E6579&amp;U=13f35lt3h%2fN%3dhlznoXllnsM-%2fC%3d231586.14408606.14454468.13832144%2fD%3dVID%2fB%3d6304838%2fV%3d1" type="text/xml">
+<ads format="v2" xml_ver="2.0" xmlns="http://ads.yahoo.com/composite_ad/1.0/">
+        <ad subpos="VID" behavior="vclk">
+          <video-ad:creatives xmlns:video-ad="http://ads.yahoo.com/video_ad/v3/1.0/">
+            <video-ad:creative format="as3" url="http://ads.zenfs.com/apex/mediastore/302-ccv.swf"/>
+          </video-ad:creatives>
+          <video-ad:creativeData xmlns:video-ad="http://ads.yahoo.com/video_ad/v3/1.0/">
+            <video-ad:item name="yct_click_url"><![CDATA[http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/R=0/id=redirect/*http://in.messenger.yahoo.com/beta/win/?mdevt=in-0012]]></video-ad:item>
+            <video-ad:item name="yct_invitation_message"><![CDATA[Mouse Here]]></video-ad:item>
+            <video-ad:item name="yct_product_message_type"><![CDATA[TEXT]]></video-ad:item>
+            <video-ad:item name="yct_product_message"><![CDATA[Click Here for more info]]></video-ad:item>
+            <video-ad:item name="yct_video">
+				<![CDATA[<rss version="2.0" xmlns="http://backend.userland.com/rss2/">
+				  <channel>
+				    <item>
+				      <media:group xmlns:media="http://search.yahoo.com/mrss/">
+				        <media:content bitrate="1000" duration="15" expression="full" fileSize="0" type="video/flv" url="http://c-4ecdedd79e.http.atlas.cdn.yimg.com/asiaads/yahootvc15.flv?a=asiaads&b=20000&s=e82f64ec5cb1edc208c946b01cc1c4c9"/>
+				      </media:group>
+				    </item>
+				  </channel>
+				</rss>]]>
+			</video-ad:item>
+          </video-ad:creativeData>
+          <video-ad:beacons xmlns:video-ad="http://ads.yahoo.com/video_ad/v3/1.0/">
+            <video-ad:beacon bid="impression" tokenized="true" type="IMPRESSION"  url="http://ts.richmedia.yahoo.com/re/A=224,AN=Video,AC=,AV=,PB=2/SIG=15bi76bli,X=1303806398,B=6304838,C=231586.14408606.14454468.13832144,D=VID,Z=,R=insports,P=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H,E=2143883265,Y=IN,K=auxG12Zjh5E0GeAJd9uspA,V=1.0/0.36625847627500374/0/ti/ti.gif"/>
+            <video-ad:beacon bid="playback0" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=0/id=playback0/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="playback25" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=1/id=playback25/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="playback50" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=2/id=playback50/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="playback75" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=3/id=playback75/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="playback100" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=4/id=playback100/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="clickthrough" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=5/id=clickthrough/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+            <video-ad:beacon bid="interaction" url="http://global.ard.yahoo.com/SIG=163dqf8ef/M=231586.14408606.14454468.13832144/D=insports/S=2143883265:VID/Y=IN/E=yauto:/EXP=1303813598/L=Hl8TNMpWBnVUixbWTbZ1XhYIWNMfIk22gb4ADQ3H/B=hlznoXllnsM-/J=1303806398865265/K=auxG12Zjh5E0GeAJd9uspA/A=6304838/N=6/id=interaction/*http://l.yimg.com/mq/a/hk/Inhouse/1x1.gif"/>
+          </video-ad:beacons>
+        </ad>
+      </ads>
+</addata>
+</position>
+</adResults>

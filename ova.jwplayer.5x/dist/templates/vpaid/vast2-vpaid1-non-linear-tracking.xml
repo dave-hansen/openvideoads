@@ -1,0 +1,38 @@
+<VAST version="2.0">
+  <Ad id="overlay-1">
+    <InLine>
+      <AdSystem>2.0</AdSystem>
+      <AdTitle>VPAID Example</AdTitle>
+      <Impression><![CDATA[http://localhost/impression]]></Impression>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear apiFramework="VPAID" id="overlay-1"  width="300" height="50" expandedWidth="300" expandedHeight="250" scalable="false" >
+              <StaticResource creativeType="application/x-shockwave-flash">
+              	<![CDATA[http://static.openvideoads.org/ads/vpaid/vpaid1-non-linear-tracking-events-test.swf]]>
+              </StaticResource>
+            </NonLinear>
+			<TrackingEvents>
+		        <Tracking event="creativeView">http://localhost/log?creativeView</Tracking>
+		        <Tracking event="start">http://localhost/log?start</Tracking>
+		        <Tracking event="firstQuartile">http://localhost/log?firstQuartile</Tracking>
+		        <Tracking event="midpoint">http://localhost/log?midpoint</Tracking>
+		        <Tracking event="thirdQuartile">http://localhost/log?thirdQuartile</Tracking>
+		        <Tracking event="complete">http://localhost/log?complete</Tracking>
+		        <Tracking event="pause">http://localhost/log?pause</Tracking>
+		        <Tracking event="resume">http://localhost/log?resume</Tracking>
+		        <Tracking event="rewind">http://localhost/log?rewind</Tracking>
+		        <Tracking event="mute">http://localhost/log?mute</Tracking>
+		        <Tracking event="unmute">http://localhost/log?unmute</Tracking>
+		        <Tracking event="fullscreen">http://localhost/log?fullscreen</Tracking>
+		        <Tracking event="expand">http://localhost/log?expand</Tracking>
+		        <Tracking event="collapse">http://localhost/log?collapse</Tracking>
+		        <Tracking event="acceptInvitation">http://localhost/log?acceptInvitation</Tracking>
+		        <Tracking event="close">http://localhost/log?close</Tracking>
+			</TrackingEvents>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

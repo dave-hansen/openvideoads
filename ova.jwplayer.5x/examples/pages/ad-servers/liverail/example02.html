@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - VAST 2.0 Non-Linear with Linear Takeover</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/liverail/ova02.xml';</script>
+<h2>Example 2 - VAST 2.0 Non-Linear with Linear Takeover</h2>
+<p class="example">
+<p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+<div id="companion-300x60-static" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;">300x60 static</div>
+<div id="companion-300x60-iframe" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;">300x60 iframe</div>
+<div id="companion-728x90-static" style="width:728px;height:90px;border:1px solid #000;margin-bottom:3px;">728x90 static</div>
+<div id="companion-728x90-iframe" style="width:728px;height:90px;border:1px solid #000;margin-bottom:3px;">728x90 iframe</div>
+<div id="companion-300x250-static" style="width:300px;height:250px;border:1px solid #000;margin-bottom:3px;">300x250 static</div>
+<div id="companion-300x250-iframe" style="width:300px;height:250px;border:1px solid #000;margin-bottom:3px;">300x250 iframe</div>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 2 - VAST 2.0 Non-Linear with Linear Takeover
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+            
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "companions": {
+                   "regions": [
+	                  { 
+	                     "id":"companion-300x60-static", 
+	                     "width":"300", 
+	                     "height":"60", 
+	                     "resourceType": "static" 
+	                  },
+	                  {  
+	                     "id":"companion-300x60-iframe", 
+	                     "width":"300", 
+	                     "height":"60", 
+	                     "resourceType": "iframe" 
+	                  },
+	                  { 
+	                     "id":"companion-728x90-static", 
+	                     "width":"728", 
+	                     "height":"90", 
+	                     "index": 0 
+	                  },
+	                  { 
+	                     "id":"companion-728x90-iframe", 
+	                     "width":"728", 
+	                     "height":"90", 
+	                     "index": 1 
+	                  },
+	                  { 
+	                     "id":"companion-300x250-static", 
+	                     "width":"300", 
+	                     "height":"250", 
+	                     "resourceType": "static" 
+	                  },
+	                  { 
+	                     "id":"companion-300x250-iframe", 
+	                     "width":"300", 
+	                     "height":"250", 
+	                     "index": 1 
+	                  }
+                   ]
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+                          "type": "direct",
+                          "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=1331 
+    	                          __amp__LR_CAMPAIGN_ID=229__amp__LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

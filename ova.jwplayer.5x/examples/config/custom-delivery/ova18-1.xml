@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Example 18 - Turning off VAST tracking on ad replays
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "resetTrackingOnReplay": false,
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+	            "companions": {
+	                "regions": [
+                        { "id":"companion", "width":"300", "height":"250" }
+                    ]
+                },
+                "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+                ],
+                "schedule": [
+                    {
+                        "zone": "41",
+                        "position": "auto:bottom",
+                        "startTime": "00:00:05",
+                        "duration": "15"
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

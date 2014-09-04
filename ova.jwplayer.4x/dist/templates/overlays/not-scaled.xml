@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate >
+	<Ad id="232316847">
+		<InLine>
+			<AdSystem>dfp</AdSystem>
+			<AdTitle>Overlay Transparent</AdTitle>
+			<Description></Description>
+			<Error>
+
+				<URL><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=66&us=sim&t=213779]]></URL>
+			</Error>
+			<Impression>
+			  <URL id="sim_vast_i"><![CDATA[http://ad.doubleclick.net/imp;v7;x;232316847;0-0;0;56909605;30/1;42055204/42072991/1;;~aopt=2/1/ff/2;~okv=;dcmt=text/xml;sz=30x1;pos=1;vpos=1;u=pos=1,vpos=1,xx=vp,tile=1,NUGGVARS;vi=4;xx=vp;tile=1;~cs=p%3f]]></URL>
+				<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=1&us=sim&t=213779]]></URL>
+				<URL id="3rdparty"><![CDATA[]]></URL>
+<URL id="mafo"><![CDATA[]]></URL>
+			</Impression>
+    	<TrackingEvents>
+
+    		<Tracking event="start">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=10&us=sim&t=213779]]></URL>
+<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="midpoint">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=35&us=sim&t=213779]]></URL>
+					<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="firstQuartile">
+
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=32&us=sim&t=213779]]></URL>
+					<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="thirdQuartile">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=37&us=sim&t=213779]]></URL>
+					<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="complete">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=40&us=sim&t=213779]]></URL>
+
+					<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="mute">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=14&us=sim&t=213779]]></URL>
+					<URL id="3rdparty"><![CDATA[]]></URL>
+				</Tracking>
+				<Tracking event="fullscreen">
+					<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount?po=7&ci=232316847&ad=4&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=16&us=sim&t=213779]]></URL>
+					<URL id="3rdparty"><![CDATA[]]></URL>
+
+				</Tracking>
+			</TrackingEvents>
+			<Video>
+				<Duration>20</Duration>
+				<AdID>232316847-213779</AdID>
+				<VideoClicks>
+					<ClickThrough>
+						<URL id="dfp"><![CDATA[http://www.google.de]]></URL>
+
+					</ClickThrough>
+					<ClickTracking>
+					  <URL id="sim_vast_i"><![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3b11/3/0/%2a/t%3B232316847%3B0-0%3B0%3B56909605%3B12079-30/1%3B42055204/42072991/1%3Bu%3Dpos%3D1%2Cvpos%3D1%2Cxx%3Dvp%2Ctile%3D1%2CNUGGVARS%3B%7Eaopt%3D2/1/ff/2%3B%7Esscs%3D%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+						<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount&po=7&ci=232316847&ad=1&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=2&us=sim&t=213779]]></URL>
+						<URL id="3rdparty"><![CDATA[]]></URL>
+					</ClickTracking>
+				</VideoClicks>
+				<MediaFiles>
+					<MediaFile delivery="progressive" bitrate="400" width="" height="" type="swf">
+
+						<URL><![CDATA[]]></URL>
+					</MediaFile>
+				</MediaFiles>
+			</Video>
+			<NonLinearAds>
+				<NonLinear id="232316847" width="900" height="140" resourceType="static" creativeType="SWF" maintainAspectRatio="true" scalable="false">
+					<URL><![CDATA[http://ad.71i.de/images/loan_test/VideoAds/rio_new_overlay.swf]]></URL>
+					<NonLinearClickThrough>
+						<URL><![CDATA[http://www.google.de]]></URL>
+
+					</NonLinearClickThrough>
+          <ClickTracking>
+					  <URL id="sim_vast_i"><![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3b11/3/0/%2a/t%3B232316847%3B0-0%3B0%3B56909605%3B12079-30/1%3B42055204/42072991/1%3Bu%3Dpos%3D1%2Cvpos%3D1%2Cxx%3Dvp%2Ctile%3D1%2CNUGGVARS%3B%7Eaopt%3D2/1/ff/2%3B%7Esscs%3D%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+						<URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount&po=7&ci=232316847&ad=1&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=2&us=sim&t=213779]]></URL>
+						<URL id="3rdparty"><![CDATA[]]></URL>
+					</ClickTracking>
+				</NonLinear>
+				<NonLinear id="%eaid" width="900" height="140" resourceType="static" creativeType="image/gif" maintainAspectRatio="true" scalable="true">
+				      <URL><![CDATA[http://creative.doubleclick.net/2258463/728x90_wetter.gif]]></URL>
+					  <NonLinearClickThrough>
+
+						<URL><![CDATA[http://www.google.de]]></URL>
+					</NonLinearClickThrough>
+				</NonLinear>
+			</NonLinearAds>
+      <Extensions>
+      	<Extension type="dfp">
+      		<AdServingData>
+      			<Industry></Industry>
+      			<LinearSwf>
+
+              <Dimension width="300" height="250"/>
+            </LinearSwf>
+      		</AdServingData>
+      	</Extension>
+         <Extension type="NonLinearClickTracking">
+      	   <ClickTracking>
+                  <URL id="sim_vast_i"><![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3b11/3/0/%2a/t%3B232316847%3B0-0%3B0%3B56909605%3B12079-30/1%3B42055204/42072991/1%3Bu%3Dpos%3D1%2Cvpos%3D1%2Cxx%3Dvp%2Ctile%3D1%2CNUGGVARS%3B%7Eaopt%3D2/1/ff/2%3B%7Esscs%3D%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+                  <URL id="sim_vast_e"><![CDATA[http://event.movad.de/c.ount&po=7&ci=232316847&ad=1&ho=DE_AS.computerbildde&c7=2565265&c8=11111&c9=4530588&c10=42055204&c11=in&et=2&us=sim&t=213779]]></URL>
+		<URL id="3rdparty"><![CDATA[]]></URL>
+
+            </ClickTracking>
+   	</Extension>
+      </Extensions>
+		</InLine>
+	</Ad>
+</VideoAdServingTemplate>

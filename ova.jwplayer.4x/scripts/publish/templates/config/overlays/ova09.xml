@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+        Example 9 - Enabling the standard cross-hair close button
+   </ova.title>
+   <ova.json>
+        {
+		    "debug": {
+		        "debugger": "firebug",
+		        "levels": "OVA_DEBUG"
+		    },
+
+			"overlays": {
+				"closeButton": { "type": "crosshair", "color": "#FFFFFF" }
+			},
+
+		    "ads": {
+		        "servers": [
+		            {
+		               "type": "OpenX",
+		               "apiAddress": "OVA_OPENX_API"
+		            }
+		        ],
+		        "pauseOnClickThrough": true,
+		        "schedule": [
+		            {
+		               "zone": "28",
+		               "startTime": "00:00:05",
+		               "position": "auto:bottom",
+		               "duration": "recommended:10"
+		            }
+		        ]
+		    }
+        }
+   </ova.json>
+</config>

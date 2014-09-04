@@ -1,0 +1,39 @@
+<config>
+   <ova.title>
+       Example 2 - Bad VAST Response
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" },
+                    { "file":"the-black-hole.mp4", "duration":"00:01:00" }
+                ]
+            },
+            "ads": {
+                "servers": [
+                    {
+                       "type": "direct",
+                       "apiAddress": "http://ads.example.com/this-will-fail.html"
+                    }
+                ],
+
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll",
+                      "applyToParts": [ 0 ]
+                    },
+                    {
+                      "zone": "5",
+                      "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

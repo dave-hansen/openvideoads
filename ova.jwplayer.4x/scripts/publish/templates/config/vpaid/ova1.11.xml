@@ -1,0 +1,27 @@
+<config>
+   <ova.title>
+       VPAID pre-roll - live stream
+   </ova.title>
+   <ova.json>
+       {
+           "blockUntilOriginalPlaylistLoaded": true,
+
+           "ads": {
+               "vpaid": {
+                 "holdingClipUrl": "OVA_BLANK_PIXEL_IMAGE"
+               },
+               "schedule": [
+                   {
+                      "position": "pre-roll",
+                      "tag": "OVA_VPAID_LINEAR_2_VAST"
+                   }
+               ]
+            },
+
+            "debug": {
+               "debugger": "firebug",
+               "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+    <Ad id="229">
+    	<InLine>
+    		<AdSystem version="3.0">LiveRail</AdSystem>
+    		<AdTitle><![CDATA[iPhone]]></AdTitle>
+    		<Description><![CDATA[]]></Description>
+    		<Impression id="LR"><![CDATA[http://static.openvideoads.org/tracking.php?impression1]]></Impression>
+            <Impression id="QC"><![CDATA[http://static.openvideoads.org/tracking.php?impression2]]></Impression>
+			<Creatives>
+				<Creative sequence="1" id="331">
+            		<Linear>
+            			<Duration>00:00:11</Duration>
+            			<VideoClicks>
+            				<ClickThrough><![CDATA[http://t3.liverail.com/?metric=clickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></ClickThrough>
+            			</VideoClicks>
+        	   			<MediaFiles>
+        					<MediaFile delivery="progressive" bitrate="256" width="800" height="528" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/229/331/lo.flv]]></MediaFile>
+        					<MediaFile delivery="progressive" bitrate="512" width="800" height="528" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/229/331/me.flv]]></MediaFile>
+        					<MediaFile delivery="progressive" bitrate="768" width="800" height="528" type="video/x-flv"><![CDATA[http://cdn.liverail.com/adasset/229/331/hi.flv]]></MediaFile>
+    					</MediaFiles>
+    			    	<TrackingEvents>
+							<Tracking event="firstQuartile"><![CDATA[http://static.openvideoads.org/tracking.php?firstQuartile]]></Tracking>
+							<Tracking event="midpoint"><![CDATA[http://static.openvideoads.org/tracking.php?midpoint]]></Tracking>
+							<Tracking event="thirdQuartile"><![CDATA[http://static.openvideoads.org/tracking.php?thirdQuartile]]></Tracking>
+							<Tracking event="complete"><![CDATA[http://static.openvideoads.org/tracking.php?complete]]></Tracking>
+							<Tracking event="mute"><![CDATA[http://static.openvideoads.org/tracking.php?mute]]></Tracking>
+							<Tracking event="pause"><![CDATA[http://static.openvideoads.org/tracking.php?pause]]></Tracking>
+							<Tracking event="close"><![CDATA[http://static.openvideoads.org/tracking.php?close]]></Tracking>
+							<Tracking event="acceptInvitation"><![CDATA[http://static.openvideoads.org/tracking.php?acceptInvitation]]></Tracking>
+    					</TrackingEvents>
+    				</Linear>
+    			</Creative>
+    			<Creative sequence="1" id="331">
+    				<CompanionAds>
+        				<Companion width="300" height="250">
+                            <StaticResource creativeType="image/jpeg"><![CDATA[http://cdn.liverail.com/adasset/229/331/300x250.jpg]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-static-image]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+        				<Companion width="300" height="250">
+                            <StaticResource creativeType="application/x-shockwave-flash"><![CDATA[http://static.openvideoads.org/ads/companions/Schwab_300x250.swf]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-static-swf]]></Tracking>
+                            </TrackingEvents>
+ 	                        <AdParameters>clickTag=http://localhost/companion-click-through-url</AdParameters>
+                        </Companion>
+        				<Companion width="300" height="250">
+                            <StaticResource creativeType="text/javascript"><![CDATA[http://static.openvideoads.org/ads/companions/300x250-script.js]]></StaticResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-static-script]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="300" height="250">
+                            <IFrameResource creativeType="text/html"><![CDATA[http://ad3.liverail.com/util/companions.php?type=image&content=http%3A%2F%2Fcdn.liverail.com%2Fadasset%2F229%2F331%2F300x250.jpg&clickthru=http%3A%2F%2Ft3.liverail.com%2F%3Fmetric%3Dcclickthru%26pos%3D50%26pid%3D1331%26coid%3D135%26nid%3D0%26cid%3D331%26kid%3D229%26vid%3D%26amid%3D%26cc%3Ddefault%26pp%3D%26url%3D%26cb%3D7114%26x%3D%26y%3D%26xy%3D%26redirect%3Dhttp%253A%252F%252Fliverail.com%252F]]></IFrameResource>
+                            <CompanionClickThrough><![CDATA[http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=7114&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F]]></CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-iframe]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="300" height="250">
+                            <HTMLResource>
+                                <![CDATA[<a href="http://t3.liverail.com/?metric=cclickthru&pos=50&pid=1331&coid=135&nid=0&cid=331&kid=229&vid=&amid=&cc=default&pp=&url=&cb=1389&x=&y=&xy=&redirect=http%3A%2F%2Fliverail.com%2F" target="_blank"><img src="http://cdn.liverail.com/adasset/229/331/300x250.jpg" border="0" style="border: 0px; margin: 0px;" /></a>]]>
+                            </HTMLResource>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-html]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+                        <Companion width="300" height="250">
+                            <HTMLResource>
+                                <![CDATA[document.write('<a href="http://www.apple.com"><img src="http://cdn.liverail.com/adasset/229/331/300x250.jpg"></a>');]]>
+                            </HTMLResource>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[http://static.openvideoads.org/tracking.php?creativeView-html-script]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+    				</CompanionAds>
+    			</Creative>
+    		</Creatives>
+    	</InLine>
+    </Ad>
+</VAST>

@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>OVA for Flowplayer - Delayed and On-Demand Ad Loading</title>
+<link rel="stylesheet" type="text/css" href="../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for Flowplayer - Delayed and On-Demand Ad Loading</h2>
+<p class="example">
+<p>
+<ol>
+<li><strong>Linear Ad Calls "Delayed" Until Play Button Pressed (via "delayAdRequestUntilPlay: true")</strong></li>
+<ul>
+<li><strong>Single Show Playlist</strong></li>
+<ul>
+<li><a href="example0.00.00.html">Ad call "delayed" during playback</a> (<a href="example0.00.00-1.html">VPAID</a>)</li>
+</ul>
+<li><strong>Multiple Show Playlist</strong></li>
+<ul>
+<li><a href="example0.00.01.html">No splash image</a> (<a href="example0.00.01-1.html">VPAID</a>)</li>
+<li><a href="example0.00.02.html">With splash image</a> (<a href="example0.00.02-1.html">VPAID</a>)</li>
+</ul>
+<li><strong>Special Cases</strong></li>
+<ul>
+<li><a href="example0.06.01.html">Autostart set to true - cancels out the delay</a> (<a href="example0.06.01-1.html">VPAID</a>)</li>
+<li><a href="example0.06.03.html">No show stream or splash image</a> (<a href="example0.06.03-1.html">VPAID</a>)</li>
+</ul>
+</ul>
+</ul>
+<li><strong>Linear "On Demand" Ad Calls</strong></li>
+<ul>
+<li><strong>No Show</strong></li>
+<ul></ul>
+<li><strong>Single Show Playlist</strong></li>
+<ul>
+<li><a href="example2.00.00.html">Pre-roll ad calls made "On Demand" no splash image, no delay</a> (<a href="example2.00.01.html">VPAID</a>) (<a href="example2.00.02.html">with delay</a>)</li>
+<li><a href="example2.01.00.html">Pre-roll ad calls made "On Demand" with splash image, no delay</a> (<a href="example2.01.01.html">VPAID</a>) (<a href="example2.01.02.html">with delay</a>)</li>
+</ul>
+<li><strong>Multiple Show Playlist</strong></li>
+<ul>
+<li><a href="example1.01.00.html">Pre-roll ad calls made "On Demand" no splash image, no delay</a> (<a href="example1.01.01.html">VPAID</a>) (<a href="example1.01.02.html">Mixed</a>) (<a href="example1.01.04.html">with delay</a>) (<a href="example1.01.05.html">refreshed</a>)</li>
+<li><a href="example1.02.00.html">Pre-roll ad calls made "On Demand" with splash, no delay</a> (<a href="example1.02.01.html">VPAID</a>) (<a href="example1.02.02.html">Mixed</a>) (<a href="example1.02.04.html">with delay</a>) (<a href="example1.02.05.html">refreshed</a>)</li>
+<li><a href="example1.03.00.html">Post-roll ad calls made "On Demand" no splash image, no delay</a> (<a href="example1.03.01.html">VPAID</a>) (<a href="example1.03.02.html">Mixed</a>) (<a href="example1.03.04.html">with delay</a>) (<a href="example1.03.05.html">refreshed</a>)</li>
+<li><a href="example1.04.00.html">Mid-roll ad calls made "On Demand" no splash image, no delay</a> (<a href="example1.04.01.html">VPAID</a>) (<a href="example1.04.02.html">Mixed</a>) (<a href="example1.04.04.html">with delay</a>) (<a href="example1.04.05.html">refreshed</a>)</li>
+<li><a href="example1.05.00.html">Pre, Mid and Post-roll calls made "On Demand", no splash image, no delay</a> (<a href="example1.05.01.html">VPAID</a>) (<a href="example1.05.04.html">with delay</a>)</li>
+<li><a href="example1.06.00.html">Pre-roll on demand ad calls with "autoPlay:true", no delay</a> (<a href="example1.06.01.html">VPAID</a>) (<a href="example1.06.04.html">with delay</a>)</li>
+<li><a href="example1.07.00.html">Pre-roll on demand ad calls, delayed and refreshed</a></li>
+<!-- <li>Pre-roll on demand ad calls "played once"</a> (VPAID</a>) (Mixed)</li> -->
+</ul>
+<li><strong>Using Playlist Controllers</strong></li>
+<ul>
+<li>Controlbar enabled for ads allowing next/previous on ads in the playlist</a></li>
+<li>Ensuring ads play when new playlist items are selected</a> (VPAID</a>) (Mixed) (with Splash)</li>
+</ul>
+<li><strong>Special Cases</strong></li>
+<ul>
+<li><a href="example3.08.00.html">Empty response on-demand pre-roll, no show</a> (<a href="example3.08.01.html">autoPlay:true</a>) (<a href="example3.08.02.html">delayed</a>)</li>
+<li><a href="example3.09.00.html">2 on-demand pre-rolls, first empty, second not, no show</a> (<a href="example3.09.01.html">autoPlay:true</a>) (<a href="example3.09.02.html">delayed</a>)</li>
+<li><a href="example3.00.00.html">Empty response on-demand pre-roll ad call, delayed (single show)</a> (<a href="example3.00.01.html">Playlist</a>)</li>
+<li><a href="example3.01.00.html">Empty response on-demand pre-roll ad call, not delayed (single show)</a> (<a href="example3.01.01.html">Playlist</a>)</li>
+<li><a href="example3.02.00.html">Empty response on-demand pre-roll ad call, not delayed with autoPlay:true (single show)</a> (<a href="example3.02.01.html">Playlist</a>)</li>
+<li><a href="example3.10.00.html">Empty response 2 times on-demand pre-roll ad call, not delayed with autoPlay:true (single show)</a> (<a href="example3.10.01.html">Playlist</a>) (<a href="example3.10.02.html">delayed</a>)</li>
+<li><a href="example3.11.00.html">2 on-demand pre-rolls - first empty, second not, not delayed with autoPlay:true (single show)</a> (<a href="example3.11.01.html">Playlist</a>) (<a href="example3.11.02.html">delayed</a>)</li>
+<li><a href="example3.03.00.html">Empty response on-demand pre-roll ad call, splash image, delayed (single show)</a> (<a href="example3.03.01.html">Playlist</a>)</li>
+<li><a href="example3.04.00.html">Empty response on-demand pre-roll ad call, splash image, autoPlay:true (single show)</a> (<a href="example3.04.01.html">Playlist</a>)</li>
+<li><a href="example3.05.00.html">Empty response on-demand mid-roll ad call, splash image, not delayed (single show)</a> (<a href="example3.05.01.html">Playlist</a>)</li>
+<li><a href="example3.07.00.html">Empty response on-demand post-roll ad call, splash image, not delayed (single show)</a> (<a href="example3.07.01.html">Playlist</a>)</li>
+<li><a href="example3.06.00.html">Empty response on-demand pre+mid+post-roll ad call, splash image, delayed (single show)</a> (<a href="example3.06.01.html">Playlist</a>)</li>
+<li>Very slow on-demand ad calls</a></li>
+<li>Timed-out on-demand ad calls</a></li>
+<li>On-demand ad calls that return an error</a></li>
+</ul>
+</ul>
+<li><strong>Non-Linear "On Demand" Ad Calls</strong></li>
+<ul>
+<li><a href="example4.00.00.html">Overlay ad calls made on demand during playback (no companions)</a> (<a href="example4.00.01.html">VPAID overlays)</li>
+<li><a href="example4.01.00.html">On demand overlays with "refreshOnReplay"</a> (<a href="example4.01.01.html">VPAID</a>)</li>
+<li><a href="example4.04.00.html">On demand overlays with companions</a></li>
+<li><a href="example4.02.00.html">Multiple on-demand overlays</a></li>
+<li><a href="example4.03.00.html">Dealing with empty on demand overlay ad calls</a></li>
+</ul>
+</ol>
+<p>
+<a href="../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>
+
+

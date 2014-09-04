@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       Example 3 - A VAST 2.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "deliveryType": "progressive",
+                "servers": [
+                    {
+                      "type": "DART",
+                      "apiAddress": "http://ad.doubleclick.net/pfadx/N270.126913.6102203221521/B3876671.21;dcadv=2215309;sz=0x0;ord=%5btimestamp%5d;dcmt=text/xml"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "3402677",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

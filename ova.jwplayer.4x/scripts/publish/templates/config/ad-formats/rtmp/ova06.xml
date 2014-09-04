@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 6 (RTMP) - A pre-roll with companion and a show stream
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API"
+                    }
+                ],
+               "companions": [
+                    { "id":"companion", "width":"150", "height":"360" }
+               ],
+
+               "schedule": [
+                    {
+                       "zone": "4",
+                       "position": "pre-roll",
+                       "playOnce": true
+                    }
+               ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

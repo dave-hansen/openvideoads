@@ -1,0 +1,42 @@
+<config>
+   <ova.title>
+       Example 4 - Selective application of ad slots
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "baseURL": "http://streaming.openvideoads.org/shows",
+                "streams": [
+                    { "file":"the-black-hole.mp4", "duration":"00:00:10" },
+                    { "file":"the-black-hole.mp4", "duration":"00:00:11" },
+                    { "file":"the-black-hole.mp4", "duration":"00:00:12" },
+                    { "file":"the-black-hole.mp4", "duration":"00:00:13" },
+                    { "file":"the-black-hole.mp4", "duration":"00:00:14" },
+                    { "file":"the-black-hole.mp4", "duration":"00:00:15" }
+               ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                      "allowAdRepetition": true
+                   }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "pre-roll",
+                    "applyToParts": [0, 2, 5]
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       Example 9 - Configuring the click-through target window
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "clickSign": {
+                   "target": "_self"
+                },
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API",
+                       "customProperties": {
+                           "target": "category=food"
+                       }
+                   }
+                ],
+                "schedule": [
+                   {
+                      "zone": "1",
+                      "position": "pre-roll"
+                   }
+                ]
+            }
+       }
+   </ova.json>
+</config>

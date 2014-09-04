@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+  <Ad id="">
+	<InLine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<AdSystem>DART</AdSystem>
+		<AdTitle>In-Stream Video</AdTitle>
+		<Description/>
+		<Survey>
+			<URL><![CDATA[]]></URL>
+		</Survey>
+		<Impression>
+			<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/imp;v7;x;213149314;0-0;0;33418618;0/0;30756858/30774734/1;;~aopt=0/0/ff/0;~cs=b%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+			<URL id="anotheradsever"><![CDATA[]]></URL>
+		</Impression>
+		<TrackingEvents>
+			<Tracking event="start">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=11;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL> </Tracking> <Tracking event="midpoint"> <URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=18;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="firstQuartile">
+				<URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking> <Tracking event="thirdQuartile">
+				<URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="complete">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=13;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="mute">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=16;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="pause">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=15;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking> <Tracking event="replay">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=17;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="fullscreen">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=19;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+			<Tracking event="stop">
+				<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/activity;src=1379578;met=1;v=1;pid=33418618;aid=213149314;ko=0;cid=30756858;rid=30774734;rv=1;timestamp=5695755;eid1=20;ecn1=1;etm1=0;]]></URL> <URL id="anotheradsever"><![CDATA[]]></URL>
+			</Tracking>
+		</TrackingEvents>
+		<Video>
+			<Duration>00:00:12</Duration>
+			<AdID/>
+			<AdParameters apiFramework="FlashVars"/>
+			<VideoClicks>
+				<ClickThrough>
+					<URL id="DART_DFA"><![CDATA[http://google.com]]></URL>
+				</ClickThrough>
+				<ClickTracking>
+					<URL id="DART_DFA"><![CDATA[http://ad.doubleclick.net/click%3Bh%3Dv8/3947/3/0/%2a/r%3B213149314%3B0-0%3B0%3B33418618%3B255-0/0%3B30756858/30774734/1%3B%3B%7Eaopt%3D0/0/ff/0%3B%7Esscs%3D%3fhttp://s0.2mdn.net/dot.gif]]></URL>
+					<URL id="anotheradsever"><![CDATA[]]></URL>
+				</ClickTracking>
+				<CustomClick>
+					<URL id="anotheradsever"><![CDATA[]]></URL>
+				</CustomClick>
+			</VideoClicks>
+			<MediaFiles>
+				<MediaFile id="1" delivery="progressive" bitrate="475" width="480" height="272" type="video/x-flv">
+					<URL><![CDATA[http://gcdn.2mdn.net/MotifFiles/html/1379578/PID_938961_1237818260000_women.flv]]></URL>
+				</MediaFile>
+			</MediaFiles>
+		</Video>
+		<CompanionAds/>
+		<NonLinearAds/>
+		<Extensions>
+			<Extension type="dart">
+				<AdServingData>
+					<DeliveryData>
+						<GeoData><![CDATA[ct=UK&st=&ac=20&zp=&bw=2&dma=0&city=3711]]></GeoData>
+					</DeliveryData>
+				</AdServingData>
+			</Extension>
+		</Extensions>
+	</InLine>
+  </Ad>
+</VideoAdServingTemplate>

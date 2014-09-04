@@ -1,0 +1,22 @@
+<config>
+   <ova.title>
+       Example 6 - VAST FLV RTMP Media Files Without File Markers - No Streamers Specified
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          },
+
+          "ads": {
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "../../../dist/templates/rtmp-ads/vast1-flv-no-markers.xml"
+                  }
+              ]
+          }
+       }
+   </ova.json>
+</config>

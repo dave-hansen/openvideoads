@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Example 13 - Modify Pause On Click Through
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "pauseOnClickThrough": true,
+
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API",
+                      "allowAdRepetition": true
+                    }
+              ],
+
+              "schedule": [
+                   {
+                      "zone": "5",
+                      "position": "pre-roll"
+                   }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

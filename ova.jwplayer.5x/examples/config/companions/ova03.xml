@@ -1,0 +1,44 @@
+<config>
+   <ova.title>
+       Example 3 - Advanced VAST 1 Companion Types
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "shows": {
+              "streams": [
+                   { "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4", "duration":"00:00:10" }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "companions": {
+                   "nativeDisplay": false,
+                   "millisecondDelayOnInjection": 200,
+                   "regions": [
+	                  { "id":"companion-300x250-static-1", "width": 300, "height": 250, "index": 0 },
+	                  { "id":"companion-300x250-static-2", "width": 300, "height": 250, "index": 1 },
+	                  { "id":"companion-300x250-static-3", "width": 300, "height": 250, "index": 2 },
+	                  { "id":"companion-300x250-iframe", "width": 300, "height": 250, "resourceType": "iframe" },
+	                  { "id":"companion-300x250-html-1", "width": 300, "height": 250, "index": 4 },
+	                  { "id":"companion-300x250-html-2", "width": 300, "height": 250, "index": 5 }
+                   ]
+                },
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "../../../dist/templates/companions/companions-vast1.xml"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

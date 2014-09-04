@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+    <Ad id="232316847">
+        <InLine>
+            <AdSystem>Custom</AdSystem>
+            <AdTitle>Overlay Transparent</AdTitle>
+            <Description/>
+            <Error>
+                <URL>
+                    <![CDATA[http://localhost/error]]>
+                </URL>
+            </Error>
+            <Impression>
+                <URL id="sim_vast_i">
+                    <![CDATA[http://localhost/impression1]]>
+                </URL>
+                <URL id="sim_vast_e">
+                    <![CDATA[http://localhost/impression2]]>
+                </URL>
+            </Impression>
+            <TrackingEvents>
+            </TrackingEvents>
+            <NonLinearAds>
+                <NonLinear id="232316847" width="900" height="140" resourceType="script" creativeType="text/javascript" maintainAspectRatio="true" scalable="true">
+                    <Code>
+                        <![CDATA[http://ad.71i.de/images/loan_test/VideoAds/rio_new_overlay.swf]]>
+                    </Code>
+                </NonLinear>
+            </NonLinearAds>
+        </InLine>
+    </Ad>
+</VideoAdServingTemplate>

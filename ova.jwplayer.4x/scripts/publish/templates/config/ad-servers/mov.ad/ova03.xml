@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 2 - VAST 2.0 Linear (Pre-Roll)
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+	                  { "id":"companion-300x250", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "OVA_DIST_TEMPLATES_3ad-servers/mov.ad/vpaid-linear-vast2.xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

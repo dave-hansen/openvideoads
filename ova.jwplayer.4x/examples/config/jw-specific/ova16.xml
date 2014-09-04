@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+		Loading Shows and Ads "On Demand" via player.sendEvent(LOAD...)
+   </ova.title>
+   <ova.json>
+       {
+            "autoPlay": false,
+
+            "ads": {
+                "servers": [
+                    {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "notice": { "textStyle": "smalltext" },
+                "schedule": [
+                    {
+                        "zone": "18",
+                        "position": "pre-roll"
+                    }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls",
+               "debugger": "firebug"
+            }
+        }
+   </ova.json>
+</config>

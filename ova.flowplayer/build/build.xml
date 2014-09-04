@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<project default="help">
+
+ 	<property file="build.properties" />
+
+    <target name="help">
+        <echo message="targets" />
+        <echo message="build, build-local, build-debug, build-release, build-local-debug, build-local-release, build-release-candidate, build-release-package" />
+    </target>
+
+	<target name="build" depends="build-debug" description="Default build">
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-local" depends="build-local-debug" description="Default local build">
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-debug" description="build debuggable swf using the pre-built OVA for AS3 SWC">
+        <echo message="Building the 'debug' plugin..." />
+		<exec executable="${MXMLC}" failonerror="false" >
+            <arg line="${SRC_DIR}/ova.as" />
+            <arg line="-source-path ${SRC_DIR}" />
+            <arg line="-library-path+=${LIB_DIR}/ova-as3-${VERSION}.swc" />
+ 			<arg line="-runtime-shared-library-path=${FLOWPLAYER_SWC},library.swf" />
+			<arg line="-keep-as3-metadata=Value,External" />
+			<arg line="-debug=false" />
+			<arg line="-warnings=true" />
+			<arg line="-strict=true" />
+			<arg line="-optimize=true" />
+            <arg line="-incremental=false" />
+            <arg line="-define=CONFIG::debugging,true" />
+            <arg line="-define=CONFIG::release,false" />
+            <arg line="-output ${DIST_SWF_DIR}/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-release" description="build release SWF (no debug)">
+        <echo message="Building the 'release' plugin..." />
+		<exec executable="${MXMLC}" failonerror="false" >
+            <arg line="${SRC_DIR}/ova.as" />
+            <arg line="-source-path ${SRC_DIR}" />
+            <arg line="-library-path+=${LIB_DIR}/ova-as3-${VERSION}.swc" />
+ 			<arg line="-runtime-shared-library-path=${FLOWPLAYER_SWC},library.swf" />
+			<arg line="-keep-as3-metadata=Value,External" />
+			<arg line="-debug=false" />
+			<arg line="-warnings=true" />
+			<arg line="-strict=true" />
+			<arg line="-optimize=true" />
+            <arg line="-incremental=false" />
+            <arg line="-define=CONFIG::debugging,false" />
+            <arg line="-define=CONFIG::release,true" />
+            <arg line="-output ${DIST_SWF_DIR}/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-local-debug" description="build debuggable swf using the local source tree for OVA for AS3">
+        <echo message="Building the 'debug' plugin using the using the local source tree for OVA for AS3..." />
+		<exec executable="${MXMLC}" failonerror="false" >
+            <arg line="${SRC_DIR}/ova.as" />
+            <arg line="-source-path ${SRC_DIR} ${OVA_AS3_SRC_DIR}" />
+            <arg line="-library-path+=${LIB_DIR}/ova-as3-${VERSION}.swc" />
+ 			<arg line="-runtime-shared-library-path=${FLOWPLAYER_SWC},library.swf" />
+			<arg line="-keep-as3-metadata=Value,External" />
+			<arg line="-debug=false" />
+			<arg line="-warnings=true" />
+			<arg line="-strict=true" />
+			<arg line="-optimize=true" />
+            <arg line="-incremental=false" />
+            <arg line="-define=CONFIG::debugging,true" />
+            <arg line="-define=CONFIG::ga,true" />
+            <arg line="-define=CONFIG::connectors,true" />
+            <arg line="-define=CONFIG::callbacks,true" />
+            <arg line="-define=CONFIG::buttons,true" />
+            <arg line="-define=CONFIG::javascript,true" />
+            <arg line="-define=CONFIG::release,false" />
+            <arg line="-output ${DIST_SWF_DIR}/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="build-local-release" description="build debuggable swc from local source tree">
+        <echo message="Building the 'release' plugin using the using the local source tree for OVA for AS3..." />
+		<exec executable="${MXMLC}" failonerror="false" >
+            <arg line="${SRC_DIR}/ova.as" />
+            <arg line="-source-path ${SRC_DIR} ${OVA_AS3_SRC_DIR}" />
+            <arg line="-library-path+=${LIB_DIR}/ova-as3-${VERSION}.swc" />
+ 			<arg line="-runtime-shared-library-path=${FLOWPLAYER_SWC},library.swf" />
+			<arg line="-keep-as3-metadata=Value,External" />
+			<arg line="-debug=false" />
+			<arg line="-warnings=true" />
+			<arg line="-strict=true" />
+			<arg line="-optimize=true" />
+            <arg line="-incremental=false" />
+            <arg line="-define=CONFIG::debugging,false" />
+            <arg line="-define=CONFIG::ga,${INCLUDE_GA}" />
+            <arg line="-define=CONFIG::connectors,${INCLUDE_CONNECTORS}" />
+            <arg line="-define=CONFIG::callbacks,${INCLUDE_CALLBACKS}" />
+            <arg line="-define=CONFIG::buttons,${INCLUDE_BUTTONS}" />
+            <arg line="-define=CONFIG::javascript,${INCLUDE_JAVASCRIPT}" />
+            <arg line="-define=CONFIG::release,true" />
+            <arg line="-output ${DIST_SWF_DIR}/${APP_FILE_NAME}" />
+		</exec>
+        <echo message="Build complete." />
+	</target>
+
+	<target name="package-release-candidate" depends="build" description="create a release candidate package">
+        <echo message="Building the OVA for Flowplayer release candidate packages..." />
+		<tar destfile="${OVA_FLOWPLAYER_PACKAGE_DIR}/ova.flowplayer-rc.tar.gz"
+     		 basedir="${OVA_FLOWPLAYER_PARENT_DIR}"
+		     includes="ova.flowplayer/**"
+     	     compression="gzip"
+		/>
+		<zip destfile="${OVA_FLOWPLAYER_PACKAGE_DIR}/ova.flowplayer-rc.zip"
+     		 basedir="${OVA_FLOWPLAYER_PARENT_DIR}"
+		     includes="ova.flowplayer/**"
+		/>
+        <echo message="Packaging complete." />
+	</target>
+
+	<target name="package-release" depends="build" description="create a release package">
+        <echo message="Building the OVA for Flowplayer release packages..." />
+		<tar destfile="${OVA_FLOWPLAYER_PACKAGE_DIR}/ova.flowplayer.tar.gz"
+     		 basedir="${OVA_FLOWPLAYER_PARENT_DIR}"
+		     includes="ova.flowplayer/**"
+     	     compression="gzip"
+		/>
+		<zip destfile="${OVA_FLOWPLAYER_PACKAGE_DIR}/ova.flowplayer.zip"
+     		 basedir="${OVA_FLOWPLAYER_PARENT_DIR}"
+		     includes="ova.flowplayer/**"
+		/>
+        <echo message="Packaging complete." />
+    </target>
+</project>
+

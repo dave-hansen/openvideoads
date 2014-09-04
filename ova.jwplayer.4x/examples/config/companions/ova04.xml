@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Example 4 - Advanced VAST 2 Companion Types
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "medium",
+                "processCompanionsExternally": true,
+                "millisecondDelayOnCompanionInjection": 200,
+                "companions": [
+	                  { "id":"companion-300x250-static-1", "width":"300", "height":"250", "index": 0 },
+	                  { "id":"companion-300x250-static-2", "width":"300", "height":"250", "index": 1 },
+	                  { "id":"companion-300x250-static-3", "width":"300", "height":"250", "index": 2 },
+	                  { "id":"companion-300x250-iframe", "width":"300", "height":"250", "resourceType": "iframe" },
+	                  { "id":"companion-300x250-html-1", "width":"300", "height":"250", "index": 4 },
+	                  { "id":"companion-300x250-html-2", "width":"300", "height":"250", "index": 5 }
+                ],
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "../../../dist/templates/companions/companions-vast2.xml"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

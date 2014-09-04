@@ -1,0 +1,64 @@
+<config>
+   <ova.title>
+       Example 9 - Failing over on an empty VAST response
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                      { "id":"companion-160x600", "width":"160", "height":"600" },
+                      { "id":"companion-300x250", "width":"300", "height":"250" }
+                   ]
+                },
+                "schedule": [
+                   {
+                       "zone": "56",
+                       "position": "pre-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food"
+                           },
+                           "failoverServers": [
+                               {
+                                   "type": "direct",
+                                   "tag": "../../../dist/templates/error-responses/vast1.0/empty-ad-vast-response.xml"
+                               },
+                           {
+                               "type": "AdTech",
+                               "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           }
+                           ]
+                       }
+                   },
+                   {
+                       "zone": "5",
+                       "position": "post-roll",
+                       "server": {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                           "oneAdPerRequest": true,
+                           "customProperties" : {
+                               "target": "category=food"
+                           },
+                           "failoverServers": [
+                           {
+                             "type": "AdTech",
+                             "tag": "http://adserver.adtech.de/?adrawdata/3.0/990.1/2366662/0/1725/noperf=1;cc=2;header=yes;cookie=yes;adct=204;alias=;key=key1+key2;;=;grp=[group];misc=__random-number__"
+                           }
+                       ]
+                       }
+                   }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

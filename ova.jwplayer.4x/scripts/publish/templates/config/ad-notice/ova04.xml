@@ -1,0 +1,46 @@
+<config>
+   <ova.title>
+       Example 4 - Modifying the Linear Ad Clickthrough Message
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "clickSign": {
+                   "enabled": true,
+                   "verticalAlign": "center",
+                   "horizontalAlign": "center",
+                   "width": 150,
+                   "height": 32,
+                   "opacity": 0.5,
+                   "borderRadius": 20,
+                   "backgroundColor": "#000000",
+                   "style": ".smalltext { font-size:12; }",
+                   "html": "&lt;p class=\"smalltext\" align=\"center\"&gt;CLICK ME!&lt;/p&gt;",
+                   "scaleRate": 0.75
+                },
+                "notice": { "show": true },
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API",
+                       "customProperties": {
+                           "target": "category=food"
+                       }
+                   }
+                ],
+                "schedule": [
+                   {
+                      "zone": "1",
+                      "position": "pre-roll"
+                   }
+                ]
+            }
+       }
+   </ova.json>
+</config>

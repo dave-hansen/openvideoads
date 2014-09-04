@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2.13.00 - Rescheduling with the original playlist</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 2.13.00 - Rescheduling with the original playlist</h2>
+<p class="example">
+</p>
+<br/>
+
+<a class="example"></a>
+
+<script type="text/javascript">
+function createOVAConfig(adPosition) {
+    var config = {
+       debug: { levels: "fatal, config, vast_template, playlist, http_calls, tracking_events" },
+       ads: {
+          servers: [
+             {
+                type: "OpenX",
+                apiAddress: OVA_OPENX_API
+             }
+          ],
+          notice: { textStyle: "smalltext" },
+          schedule: [
+             {
+                zone: "18",
+                position: adPosition
+             }
+          ]
+       }
+    };
+    return config;
+}
+
+function rescheduleWithAdPosition(position) {
+	if($f().getPlugin('ova').scheduleAds(null, createOVAConfig(position))) {
+		debug("OVA successfully rescheduled with " + position + " ad positions using the original playlist");
+	}
+	else {
+		debug("OVA failed to reschedule with " + position +  " ad positions using the original playlist");
+	}
+}
+
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        { 
+            url: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4",
+            duration: 10
+        },
+        { 
+            url: "http://streaming.openvideoads.org/shows/sintel-1024-stereo.mp4",
+            duration: 11 
+        }
+    ],
+    
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "ads": {
+                 "servers": [
+                      {
+                          "type": "OpenX",
+                          "apiAddress": OVA_OPENX_API
+                      }
+                 ],
+                 "notice": { "textStyle": "smalltext" },
+                 "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                 ]
+            },
+
+            "debug": {
+                 "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<ul>
+  <li><a href="#" onclick="rescheduleWithAdPosition('pre-roll');">
+    Reschedule with pre-rolls
+  </a></li>
+  <li><a href="#" onclick="rescheduleWithAdPosition('post-roll');">
+    Reschedule with post-rolls
+  </a></li>
+</ul>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+&lt;script&gt;
+function createOVAConfig(adPosition) {
+    var config = {
+       debug: { levels: "fatal, config, vast_template, playlist, http_calls, tracking_events" },
+       ads: {
+          servers: [
+             {
+                type: "OpenX",
+                apiAddress: "OVA_OPENX_API"
+             }
+          ],
+          notice: { textStyle: "smalltext" },
+          schedule: [
+             {
+                zone: "18",
+                position: adPosition
+             }
+          ]
+       }
+    };
+    return config;
+}
+
+function rescheduleWithAdPosition(position) {
+	if($f().getPlugin('ova').scheduleAds(null, createOVAConfig(position))) {
+		debug("OVA successfully rescheduled with " + position + " ad positions using the original playlist");
+	}
+	else {
+		debug("OVA failed to reschedule with " + position +  " ad positions using the original playlist");
+	}
+}
+
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        { 
+            url: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4",
+            duration: 10,
+            autoplay: false 
+        },
+        { 
+            url: "http://streaming.openvideoads.org/shows/sintel-1024-stereo.mp4",
+            duration: 11 
+        }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                     }
+                 ],
+                 "notice": { "textStyle": "smalltext" },
+                 "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                 ]
+            },
+
+            "debug": {
+                 "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#" onclick="$f().getPlugin("ova").setActiveLinearAdVolume(0);"&gt;
+    Mute ad
+  &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#" onclick="$f().getPlugin("ova").setActiveLinearAdVolume(50);"&gt;
+     Middle volume
+  &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#" onclick="$f().getPlugin("ova").setActiveLinearAdVolume(100);"&gt;
+    Maximum volume
+  &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

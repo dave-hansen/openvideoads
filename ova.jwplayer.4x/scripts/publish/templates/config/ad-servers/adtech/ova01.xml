@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Example 1 - Integrating an AdTech Ad Server - Minimal Configuration
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "restoreCompanions": false,
+              "companions": [
+                   { "id":"companion-160x600", "width":"160", "height":"600", "resourceType": "html" },
+                   { "id":"companion-300x250", "width":"300", "height":"250", "resourceType": "html" }
+              ],
+              "servers": [
+                   {
+                      "type": "AdTech",
+                      "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1"
+                   }
+              ],
+              "schedule": [
+                   {
+                      "zone": "2366662/0/1725",
+                      "position": "pre-roll"
+                   },
+                   {
+                     "zone": "2366662/0/1725",
+                     "position": "post-roll"
+                   }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

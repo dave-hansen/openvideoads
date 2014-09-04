@@ -1,0 +1,45 @@
+<config>
+   <ova.title>
+       Example 5 - Disabling Impression Tracking Specifically
+   </ova.title>
+   <ova.json>
+       {
+            "analytics": {
+                "google": {
+	                "ova": {
+	                    "enable": false
+	                }
+                }
+            },
+
+            "shows": {
+              "streams": [
+                 {
+                    "file":"http://streaming.openvideoads.org:81/shows/the-black-hole.mp4",
+                    "duration":"00:00:30"
+                 }
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

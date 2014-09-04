@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Single VAST 1 Wrapper to VAST 2 Non-Linear Ad
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "streams": [
+                    {
+                        "file": "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+               "companions": {
+                  "regions": [
+                      { "id":"companion-300x250", "width":"300", "height":"250" }
+                  ]
+               },
+               "schedule": [
+                  {
+                      "position": "auto:bottom",
+                      "startTime": "00:00:05",
+                      "duration": "10",
+                      "tag": "../../../dist/templates/wrapper/vast1-wrapper-to-vast2-nl-ad.xml"
+                  }
+               ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

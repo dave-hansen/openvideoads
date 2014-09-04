@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - Integrating an AdTech Ad Server - Minimal Configuration</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1 - Integrating an AdTech Ad Server - Minimal Configuration</h2>
+<p class="example">
+This example illustrates pre and post roll ads delivered from an AdTech Ad Server along
+with an overlay ad and companions for both ad types. The configuration demonstrates how to
+define the AdTech Ad Server VAST request using custom properties and how those properties
+may be declared at the "general" or "ad slot" specific levels.
+</p>
+<div id="container">
+  <div id="player_row">
+     <div id="player-left-619">
+      <a class="player614x345"></a>
+      <div id="container-614x280">
+        <div id="companion-300x250">
+           A COMPANION ADVERTISEMENT<br/>(300x250)<br/>WILL APPEAR IN HERE
+          </div>
+          <div id="filler-310x254">
+             FILLER SPACE
+          </div>
+       </div>
+      </div>
+     <div id="player-right-600">
+        <div id="companion-160x600">
+          A COMPANION ADVERTISEMENT<br/>(160x600)<br/> WILL APPEAR IN HERE
+        </div>
+     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+flowplayer("a.player614x345", FP_SWF, {
+    plugins: {
+        rtmp: {
+            url: FP_RTMP_SWF
+        },
+        rtmpInstream: {
+            url: FP_RTMP_SWF
+        },
+        ova: {
+            "url": OVA_OAS_URL,
+
+            "shows": {
+                "baseURL": OVA_HTTP_BASE_URL,
+                "streams": [
+                    {
+                        "file": OVA_HTTP_SHOW_STREAM_FILE,
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+              "companions": {
+                  "restore": false,
+                  "regions": [
+                      { "id":"companion-160x600", "width":"160", "height":"600", "resourceType": "html" },
+                      { "id":"companion-300x250", "width":"300", "height":"250", "resourceType": "html" }
+                  ]
+              },
+              "servers": [
+                   {
+                      "type": "AdTech",
+                      "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1",
+                   }
+              ],
+              "schedule": [
+                   {
+                      "zone": "2366662/0/1725",
+                      "position": "pre-roll"
+                   },
+                   {
+                     "zone": "2366662/0/1725",
+                     "position": "post-roll"
+                   }
+              ]
+            },
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<br/>
+<p class="example">
+The resulting stream configuration is as follows:
+<ul>
+<li>AdTech served pre-roll + companions</li>
+<li>AdTech served post-roll + companions</li>
+</ul>
+</p>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.player614x345", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+    plugins: {
+        rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF)</script>"
+        },
+        rtmpInstream: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF)</script>"
+        },
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+            "shows": {
+                "baseURL": "<script type="text/javascript">document.write(OVA_HTTP_BASE_URL)</script>",
+                "streams": [
+                    {
+                        "file":"<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_FILE)</script>",
+                        "duration":"00:00:20"
+                    }
+                ]
+            },
+
+            "ads": {
+              "companions": {
+                  "restore": false,
+                  "regions": [
+                      { "id":"companion-160x600", "width":"160", "height":"600", "resourceType": "html" },
+                      { "id":"companion-300x250", "width":"300", "height":"250", "resourceType": "html" }
+                  ]
+              },
+              "servers": [
+                   {
+                      "type": "AdTech",
+                      "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1",
+                   }
+              ],
+              "schedule": [
+                   {
+                      "zone": "2366662/0/1725", // composed of placement/page-id/size-id
+                      "position": "pre-roll"
+                   },
+                   {
+                      "zone": "2366662/0/1725",
+                      "position": "post-roll"
+                   }
+              ]
+            },
+
+            "debug": {
+              "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

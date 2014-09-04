@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       A Bit Rate Selected VAST 2.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "deliveryType":"progressive",
+                "bitrate": "600",
+                "companions": {
+                    "regions": [
+                       { "id":"companion-728x90", "width":"728", "height":"90" },
+                       { "id":"companion-300x250", "width":"300", "height":"250" }
+                    ]
+                },
+                "notice": { "show": false },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "DART",
+                          "tag": "http://ad.doubleclick.net/pfadx/N270.126913.6102203221521/B3876671.20;dcadv=2215309;sz=0x0;pc=[TPAS_ID];ord=__timestamp__;dcmt=text/xml"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

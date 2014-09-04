@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       Example 1 - A VAST 2.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "notice": { "textStyle": "smalltext" },
+	            "companions": [
+                    { "id":"companion", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "Adify",
+                          "tag": "http://ad.afy11.net/ad?enc=4__amp__asId=1000004375407__amp__sf=0__amp__ct=256"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

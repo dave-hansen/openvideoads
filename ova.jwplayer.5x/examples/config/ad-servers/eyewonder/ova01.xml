@@ -1,0 +1,21 @@
+<config>
+   <ova.title>
+       VAST 2 Linear VPAID (Pre-roll)
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "../../../../dist/templates/ad-servers/eyewonder/vpaid-linear-01.xml"
+                }
+             ]
+          },
+
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          }
+       }
+   </ova.json>
+</config>

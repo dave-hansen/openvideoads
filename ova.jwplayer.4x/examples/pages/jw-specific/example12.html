@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 12 - Inline OVA Configuration</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/swfobject.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='jw-specific/ova12.xml';</script>
+<h2>Example 12 - Inline OVA Configuration</h2>
+<p class="example">
+This example illustrates how to directly feed the OVA configuration into the ad streamer via the 
+"openvideoads.json" flashvar rather than the use of external configuration files. Note that you
+need to URL encode the json string contents.
+</p>
+<div id="player">This will be replaced by the SWF.</div>
+<script type="text/javascript">
+   var flashvars = {
+      'plugins':    	OVA_PLUGIN_2,
+      'playlist':   	'none',
+      'repeat': 		'list',
+      'autostart':		'false',
+      'dock':			'true',
+      'frontcolor':		'ffffff',
+      'title':			'Big%20Buck%20Bunny%20Trailer',
+      'image':			'http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg',
+      'stretching':		'uniform',
+      'ping.script':	'http://content.bitsontherun.com/pings/',
+      'lightcolor':		'009999',
+      'controlbar':		'over',
+      'displayclick':	'play',
+      'backcolor':		'000000',
+      'playlistsize':	'200',
+      'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',  
+      'file':			'http://content.bitsontherun.com/jwp/nPripu9l.xml',
+      'ova.json':       '%7B%22blockUntilOriginalPlaylistLoaded%22%3Atrue%2C%22autoPlay%22%3Afalse%2C%22overlays%22%3A%7B%22stagePaddingBottomWithControls%22%3A5%2C%22regions%22%3A%5B%7B%22id%22%3A%22bottom%22%2C%22verticalAlign%22%3A%22bottom%22%2C%22horizontalAlign%22%3A%22center%22%2C%22backgroundColor%22%3A%22%23000000%22%2C%22padding%22%3A%22-10-10-10-10%22%2C%22width%22%3A450%2C%22height%22%3A50%7D%5D%7D%2C%22ads%22%3A%7B%22servers%22%3A%5B%7B%22type%22%3A%22OpenX%22%2C%22apiAddress%22%3A%22http%3A%2F%2Fopenx.openvideoads.org%2Fopenx%2Fwww%2Fdelivery%2Ffc.php%22%7D%5D%2C%22notice%22%3A%7B%09%22textStyle%22%3A%22smalltext%22%2C%09%22type%22%3A%22countdown%22%7D%2C%22schedule%22%3A%5B%7B%22zone%22%3A%2218%22%2C%22position%22%3A%22pre-roll%22%7D%2C%7B%22zone%22%3A%2230%22%2C%22position%22%3A%22bottom%22%2C%22width%22%3A450%2C%22height%22%3A50%2C%22startTime%22%3A%2200%3A00%3A05%22%2C%22duration%22%3A%2215%22%7D%5D%7D%2C%22debug%22%3A%7B%22debugger%22%3A%22firebug%22%2C%22levels%22%3A%22fatal%22%7D%7D'
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#ffffff'
+   };
+
+   var attributes = {
+      'id':                 'player1',
+      'name':               'player1'
+   };
+
+   swfobject.embedSWF(OVA_PLAYER_2, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;embed 
+  id="ply"
+  src="<script type="text/javascript">document.write(OVA_PLAYER_2)</script>"
+  width="450"
+  height="300"
+  allowscriptaccess="always"
+  allowfullscreen="true"
+  flashvars="plugins=<script type="text/javascript">document.write(OVA_PLUGIN_2)</script>&
+             playlist=none&
+             repeat=list&
+             autostart=false&
+             dock=true&
+             frontcolor=000000&
+             title=Big%20Buck%20Bunny%20Trailer&
+             image=http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg&
+             stretching=uniform&
+             ping.script=http://content.bitsontherun.com/pings/&
+             lightcolor=000000&
+             controlbar=over&
+             displayclick=play&
+             backcolor=ffffff&
+             file=http://content.bitsontherun.com/jwp/nPripu9l.xml&
+             playlistsize=200&
+             skin=http://content.bitsontherun.com/skins/VFgGj89b.swf&  
+             file=http://content.bitsontherun.com/jwp/nPripu9l.xml&
+             ova.json={"blockUntilOriginalPlaylistLoaded":true,
+                                 autoPlay":false,"overlays":{"
+                                 stagePaddingBottomWithControls":5,"
+                                 regions":[{"id":"bottom","
+                                 verticalAlign":"bottom","
+                                 horizontalAlign":"center","
+                                 backgroundColor":"#000000","
+                                 padding":"-10-10-10-10","
+                                 width":450,"height":50}]},"
+                                 ads":{"servers":[{"type":"
+                                 OpenX","apiAddress":"http://
+                                 openx.openvideoads.org/openx/www/delivery/
+                                 fc.php"}],"notice":{"
+                                 "textStyle":"smalltext","type":
+                                 "countdown"},"schedule":[{
+                                 "zone":"18","position":
+                                 "pre-roll"},{"zone":"30",
+                                 "position":"bottom","width":450,
+                                 "height":50,"startTime":"00:00:05",
+                                 "duration":"15"}]},
+                                 "debug":{"debugger":
+                                 "firebug","levels":"fatal"}}" 
+/&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

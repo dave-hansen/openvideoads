@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate>
+	<Ad id="602833">
+		<Wrapper>
+			<AdSystem>Telemetry</AdSystem>
+			<VASTAdTagURL>
+				<URL><![CDATA[http://spc.cepghffemeifkhheeeffbhed.vast1as3.telemetryverification.net/?]]></URL>
+			</VASTAdTagURL>
+			<Impression><URL><![CDATA[http://myTrackingURL/wrapper/impression]]></URL></Impression>
+		</Wrapper>
+	</Ad>
+</VideoAdServingTemplate>

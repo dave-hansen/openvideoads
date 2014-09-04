@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 6 - Using OVA with the SMIL plugin</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 6 - Using OVA with the SMIL plugin</h2>
+<p class="example">
+</p>
+<a class="example"></a>
+
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF, {
+	log: { level: 'debug', filter: 'org.flowplayer.smil.*' },	
+	playlist: [
+       {
+           url: OVA_SMIL_FILE, 
+           provider: 'rtmp',
+           urlResolvers: [ 'smil', 'bwcheck' ]
+       }
+	],
+    plugins: {
+       smil: {
+       	   url: FP_SMIL_SWF
+       },	
+       bwcheck: {
+          url: FP_BWCHECK_SWF,
+
+          // HDDN uses Wowza servers
+          serverType: 'wowza',
+
+          // we use dynamic switching, the appropriate bitrate is switched on the fly
+          dynamic: true,
+
+          netConnectionUrl: 'rtmp://rtmp01.hddn.com/play',
+       },
+       // RTMP streaming plugin
+       rtmp: {
+            url: FP_RTMP_SWF,
+            netConnectionUrl: 'rtmp://rtmp01.hddn.com/play'
+       },       	
+       ova: {
+            url: OVA_OAS_URL,
+
+            "player": {
+            	"setUrlResolversOnAdClips": false
+            },
+
+            "autoPlay": true, 
+            
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API
+                   }
+              ],
+              "schedule": [
+                  {
+                    "zone": "5",
+                    "position": "pre-roll"
+                  },
+                  {
+                    "zone": "5",
+                    "position": "mid-roll",
+                    "startTime": "00:00:20"
+                  },
+                  {
+                    "zone": "5",
+                    "position": "post-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            }
+        }
+     }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+    clip: {
+        url: "<script type="text/javascript">document.write(OVA_SMIL_FILE)</script>", 
+        provider: 'rtmp',
+
+        // use smil and bwcheck when resolving the clip URL
+        urlResolvers: [ 'smil', 'bwcheck' ]
+    },	
+    plugins: {
+       smil: {
+       	   url: "<script type="text/javascript">document.write(FP_SMIL_SWF)</script>"
+       },	
+       bwcheck: {
+          url: "<script type="text/javascript">document.write(FP_BWCHECK_SWF)</script>",
+
+          // HDDN uses Wowza servers
+          serverType: 'wowza',
+
+          // we use dynamic switching, the appropriate bitrate is switched on the fly
+          dynamic: true,
+
+          netConnectionUrl: 'rtmp://rtmp01.hddn.com/play',
+       },
+       // RTMP streaming plugin
+       rtmp: {
+            url: "<script type="text/javascript">document.write(FP_RTMP_SWF)</script>",
+            netConnectionUrl: 'rtmp://rtmp01.hddn.com/play'
+       },       	
+       ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+            "autoPlay": true, 
+            
+            "player": {
+            	"setUrlResolversOnAdClips": false
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>"
+                   }
+              ],
+              "schedule": [
+                  {
+                    "zone": "5",
+                    "position": "pre-roll"
+                  },
+                  {
+                    "zone": "5",
+                    "position": "mid-roll",
+                    "startTime": "00:00:20"
+                  },
+                  {
+                    "zone": "5",
+                    "position": "post-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<plugin>
+	<title>Open Video Ads</title>
+	<filename>ova-jw.swf</filename>
+	<version>1.0.1</version>
+	<compatibility>Compatible with 5.6 or higher</compatibility>
+	<author>Paul Schulz</author>
+	<description>
+		The Open Video Ads (OVA) ad streamer for Longtail Video's JW 5 Player
+	</description>
+	<href>http://www.openvideoads.org</href>
+</plugin>

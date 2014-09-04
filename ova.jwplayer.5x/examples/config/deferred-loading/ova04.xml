@@ -1,0 +1,36 @@
+<config>
+   <ova.title>
+       Example 4 - Deferred Ad loading refreshed on replay
+   </ova.title>
+   <ova.json>
+       {
+            "delayAdRequestUntilPlay": true,
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+            "companions": {
+                "regions": [
+                    { "id":"companion", "width":"150", "height":"360" }
+                ]
+            },
+
+              "schedule": [
+               {
+                  "zone": "6",
+                  "position": "pre-roll",
+                  "refreshOnReplay": true
+               }
+              ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

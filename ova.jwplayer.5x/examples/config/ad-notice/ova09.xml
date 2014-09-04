@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 9 - Configuring the click-through target window
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "clickSign": {
+                   "target": "_self"
+                },
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                       "customProperties": {
+                           "target": "category=food"
+                       }
+                   }
+                ],
+                "schedule": [
+                   {
+                      "zone": "1",
+                      "position": "pre-roll"
+                   }
+                ]
+            }
+       }
+   </ova.json>
+</config>

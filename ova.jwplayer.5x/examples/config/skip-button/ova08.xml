@@ -1,0 +1,37 @@
+<config>
+   <ova.title>
+       Start at X and show for Y seconds if ad has minimum duration
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+              "skipAd": {
+                  "enabled": true,
+                  "showAfterSeconds": 3,
+                  "showForSeconds": 10,
+                  "minimumAdDuration": 20
+              },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                },
+                {
+                   "position": "pre-roll",
+                   "tag": "http://adserver.adtech.de/?advideo/3.0/25.15/3769927/0//cc=2;vidAS=pre_roll;vidRT=VAST;vidRTV=2.0.1;vidbreaknum=3;vidbreaklen=60;misc=__random-number__"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,33 @@
+<config>
+   <ova.title>
+       Example 3 - VAST 2.0 Non-Linear
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": {
+                    "regions": [
+ 	                     { "id":"companion-300x60-static", "width":"300", "height":"60", "resourceType": "static" },
+	                     { "id":"companion-300x60-iframe", "width":"300", "height":"60", "resourceType": "iframe" }
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "auto",
+                       "duration": "recommended:10",
+                       "startTime": "00:00:03",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=1331__amp__LR_CAMPAIGN_ID=228__amp__LR_SCHEMA=vast2"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

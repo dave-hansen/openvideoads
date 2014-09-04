@@ -1,0 +1,47 @@
+<config>
+   <ova.title>
+       Example 09 - Turning off non-linear ad replay
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+                "streams": [ { "file":"http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", "duration":"00:00:35" } ]
+            },
+
+            "ads": {
+                "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+                ],
+                "replayNonLinearAds": false,
+	            "displayCompanions": true,
+	            "companions": [
+	                { "id":"companion", "width":"150", "height":"360" }
+	            ],
+                "schedule": [
+                    {
+                        "zone": "28",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:05",
+                        "duration": "10"
+                    },
+                    {
+                        "zone": "41",
+                        "width": 450,
+                        "height": 50,
+                        "startTime": "00:00:20",
+                        "duration": "10"
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls",
+                "debugger": "firebug"
+            }
+       }
+   </ova.json>
+</config>

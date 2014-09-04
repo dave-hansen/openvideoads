@@ -1,0 +1,32 @@
+<config>
+   <ova.title>
+       Start at X and show for Y seconds
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+              "skipAd": {
+                  "enabled": true,
+                  "showAfterSeconds": 10,
+                  "showForSeconds": 5
+              },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

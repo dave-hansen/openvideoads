@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       A VAST 1.0 pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "direct",
+                      "apiAddress": "OVA_OPENX_API?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.22563580377027392__amp__block=1__amp__format=vast__amp__charset=UTF-8"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

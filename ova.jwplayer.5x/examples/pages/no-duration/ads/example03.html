@@ -1,0 +1,67 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - Duration-less stream with a pre-roll duration set in VAST</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='no-duration/ads/ova03.xml';</script>
+<h2>Example 3 - Duration-less stream with a pre-roll duration set in VAST</h2>
+<p class="example">
+This example illustrates how to instruct OVA to ignore the stream duration metadata and
+always use the value from the VAST response.
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=http://streaming.openvideoads.org:81/shows/the-black-hole.mp4&provider=lighttpd"));</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300, "&file=http://streaming.openvideoads.org:81/shows/the-black-hole.mp4&provider=lighttpd")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Duration-less stream with a pre-roll duration set in VAST
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            },
+
+            "ads": {
+                "setDurationFromMetaData": false,
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

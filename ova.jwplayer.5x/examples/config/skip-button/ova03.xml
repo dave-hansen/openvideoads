@@ -1,0 +1,42 @@
+<config>
+   <ova.title>
+       Customising the "skip ad" using Region settings
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+          },
+
+          "ads": {
+              "skipAd": {
+                  "enabled": true,
+                  "html": "&lt;p&gt;SKIP!&lt;/p&gt;",
+              	  "region": {
+                        "id": "my-new-skip-ad-button",
+                        "verticalAlign": 3,
+                        "horizontalAlign": 3,
+                        "backgroundColor": "#FF3300",
+                        "opacity": 0.8,
+                        "borderRadius": 15,
+                        "padding": "0 1 1 13",
+                        "width": 60,
+                        "height": 20
+            	  }
+              },
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>

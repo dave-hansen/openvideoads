@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 3 - Identifying Ads in the Playlist with Javascript</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/flowplayer.playlist-3.0.8.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 3 - Identifying Ads in the Playlist with Javascript</h2>
+<p class="example">
+This example illustrates how you can identify the ad clips in the playlist via
+the Flowplayer Javascript API. This example loads up the show clips from an RSS
+based playlist. As each clip in the playlist plays, you can see the title and
+description for the clip at the bottom of the player. Additional information
+such as the ad position, zone ID and AD ID are listed for ad clips.
+</p>
+<p class="example">
+The RSS playlist file that is loaded by this example can be found <a href="test-templates/playlist.rss">here</a>.
+</p>
+<br/>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: OVA_RSS_PLAYLIST_1,  
+    
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "pre-roll"
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<div id="pl">
+	<div class="entries">			
+		<a href="#">
+			<strong>${title}</strong><br/>
+			<samp>${description}</samp><br/>
+		</a>
+	</div>			
+</div>
+<!-- initialize playlist -->
+<script>
+$(function() {
+   $f().playlist(".entries", {loop: true});
+});
+</script>
+
+<br clear="all" />
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: "<script type="text/javascript">document.write(OVA_RSS_PLAYLIST_1)</script>",  
+
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>"
+                   }
+                ],
+                "schedule": [
+                    {
+                       "zone": "5",
+                       "position": "pre-roll"
+                    }
+                 ]
+             }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1.10 - VPAID pre-roll and post-rolls with 2 show streams</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_2ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_2global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='vpaid/ova1.10.xml';</script>
+<h2>Example 1.10 - VPAID pre-roll and post-rolls with 2 show streams</h2>
+<p class="example">
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, ""));</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 1.9 - VPAID post-roll
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "shows": {
+              "baseURL": "OVA_HTTP_BASE_URL",
+              "streams": [
+                  {
+                      "file": "OVA_HTTP_SHOW_STREAM_FILE",
+                      "duration":"00:00:10"
+                  },
+                  {
+                      "file": "OVA_HTTP_SHOW_STREAM_FILE",
+                      "duration":"00:00:11"
+                  }
+              ]
+          },
+
+          "ads": {
+              "vpaid": {
+                 "controls": { "hideOnLinearPlayback": false }
+              },
+              "schedule": [
+                 {
+                   "position": "pre-roll",
+                   "server": {
+                       "type": "Adotube",
+      	               "tag": "http://www.adotube.com/kernel/vast/vast2.0VPAIDAS3Preroll.php?
+      	                       omlSource=http://www.adotube.com/php/services/player/OMLService.php?
+      	                       avpid=2ChPxDe__amp__platform_version=as3__amp__integration=
+      	                       __partner-id____amp__publisher=__domain____amp__title=
+      	                       __media-title____amp__tags=__media-keywords____amp__
+      	                       description=__media-description__",
+                       "customProperties": {
+      	                    "partner-id": "longtail",
+                            "media-title": "ova test",
+                            "media-keywords": "ova",
+                            "media-description": "video description"
+                      }
+                   }
+                 },
+                 {
+                   "position": "post-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                 }
+              ]
+          }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

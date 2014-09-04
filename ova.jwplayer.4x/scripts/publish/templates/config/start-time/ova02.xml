@@ -1,0 +1,38 @@
+<config>
+   <ova.title>
+       Example 2 - A pre-roll on a show stream with a start time and duration
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+              		{
+              			"file":"OVA_PSEUDO_SHOW_STREAM_1",
+              			"startTime": "00:00:15",
+              			"duration":"00:00:30"
+              		}
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

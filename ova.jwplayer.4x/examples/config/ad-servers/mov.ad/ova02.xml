@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 2 - VAST 2.0 Linear (Pre-Roll)
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+            "ads": {
+                "pauseOnClickThrough": true,
+                "displayCompanions": true,
+                "companions": [
+	                  { "id":"companion-300x250", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://v.movad.de/stream.ad?cid=101224"
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

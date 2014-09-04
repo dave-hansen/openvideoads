@@ -1,0 +1,43 @@
+<config>
+   <ova.title>
+       Example 5 (RTMP) - 1 stream with a pre, mid and post-roll
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "companions": [
+                    { "id":"companion", "width":"150", "height":"360" }
+                ],
+                "schedule": [
+                    {
+                       "zone": "1",
+                       "position": "pre-roll",
+                       "playOnce": true
+                    },
+                    {
+                       "zone": "4",
+                       "position": "mid-roll",
+                       "startTime": "00:00:10",
+                       "playOnce": true
+                    },
+                    {
+                       "zone": "1",
+                       "position": "post-roll",
+                       "playOnce": true
+                    }
+                ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+       }
+   </ova.json>
+</config>

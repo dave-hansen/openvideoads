@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 7.01.00 - Control bar positioning - Bottom</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="../../../dist/js/jwplayer.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 7.01.00 - Control bar positioning - Bottom</h2>
+<p class="example">
+</p>
+<div></div>
+<div id="container">Loading the player ...</div>
+<script type="text/javascript">
+jwplayer("container").setup({
+       flashplayer: OVA_PLAYER_2, 
+       playlist: [
+	       { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 30 }
+       ],
+       'controlbar.position': 'bottom',
+       "skin": "http://static.openvideoads.org/downloads/skins/lulu.zip",
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": {
+              "ads": {
+                 "schedule": [
+                     { 
+                        "position": "auto:bottom",
+                        "startTime": "00:00:05", 
+                        "duration": "recommended:20",
+                        "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=overlay0-0%3D28%7Coverlay1-0%3D41&nz=1&source=&r=R0.38950290251523256&block=1&format=vast&charset=UTF-8"
+                     }
+                 ]
+              },
+              
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              }
+           } 
+       },
+       height: 300,
+       width: 450
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+jwplayer("container").setup({
+       flashplayer: "<script type='text/javascript'>document.write(OVA_PLAYER_2)</script>", 
+       playlist: [
+	       { file: "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4", duration: 30 }
+       ],
+       'controlbar.position': 'bottom',
+       "skin": "http://static.openvideoads.org/downloads/skins/lulu.zip",
+       plugins: {
+           "../../../dist/swf/ova-jw.swf": {
+              "ads": {
+                 "schedule": [
+                     { 
+                        "position": "auto:bottom",
+                        "startTime": "00:00:05", 
+                        "duration": "recommended:20",
+                        "tag": "http://openx.openvideoads.org/.."
+                     }
+                 ]
+              },
+              
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+              }
+           } 
+       },
+       height: 300,
+       width: 450
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

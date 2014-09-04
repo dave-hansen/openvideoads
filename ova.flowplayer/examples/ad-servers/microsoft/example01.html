@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - VAST 2.0 Linear Pre-Roll</title>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 1- VAST 2.0 Linear Pre-Roll</h2>
+<p class="example">
+Linear pre-roll, selected as highest quality, limited to FLV format. The companions are selected based on their type as multiple types/size are returned in the VAST response.
+<p>
+<div>
+<div style="width:750px;height:255px;">
+	<a class="example" style="width:444px;height:252px;float:left"></a>
+	<div id="companion-300x250" style="width:300px;height:250px;border:1px solid #000;float:right;margin-top:0px;">300x250 Companion</div>
+</div>
+<div id="companion-300x60-1" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;float:left;margin-left:60px;">300x60 Companion</div>
+<div id="companion-300x60-2" style="width:300px;height:60px;border:1px solid #000;margin-bottom:3px;float:left;margin-left:10px;">300x60 Companion</div>
+
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF, {
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL,
+            
+            "debug": {
+                "levels": OVA_OAS_DEBUG
+            },
+            
+            "shows": {
+              "streams": [
+                   { "file":OVA_HTTP_SHOW_STREAM_1, "duration":"00:00:20" }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "deliveryType": "flv",
+                "companions": {
+                    "regions": [
+   	                    { "id":"companion-300x250", "width":"300", "height":"250" },
+	                    { "id":"companion-300x60-1", "width":"300", "height":"60", "resourceType": "static" },
+	                    { "id":"companion-300x60-2", "width":"300", "height":"60", "resourceType": "iframe" },
+                    ]
+                },
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "direct",
+      	                   "tag": "http://api.atdmt.com/adserv.api/viewad/sa=115571748;sf=VAST20_PreRoll_XML_alpha;pf=FLV;br=500;strm=0"
+                       }
+                    }
+                ]
+            }
+        }
+    }
+});
+</script>
+<br clear="all" />
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("example", "<script type="text/javascript">document.write(FP_SWF)</script>", {
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+            
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "deliveryType": "flv",
+                "companions": {
+                   "regions": [
+                        {  
+                           "id":"companion-300x250", 
+                           "width":"300", 
+                           "height":"250"
+                        },
+                        { 
+                           "id":"companion-300x60-1", 
+                           "width":"300", 
+                           "height":"60",
+                           "resourceType": "static"
+                        },
+                        { 
+                           "id":"companion-300x60-2", 
+                           "width":"300", 
+                           "height":"60",
+                           "resourceType": "iframe"
+                        }
+                   ]
+                },
+                "schedule": [
+                     {
+                        "position": "pre-roll",
+                        "server": {
+                           "type": "direct",
+     	                   "tag": "http://api.atdmt.com/adserv.api/viewad/sa=115571748;
+     	                           sf=VAST20_PreRoll_XML_alpha;pf=FLV;br=500;strm=0"
+                        }
+                     }
+                ]
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

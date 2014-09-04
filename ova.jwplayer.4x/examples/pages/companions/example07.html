@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 7 - Display of companions without a VAST creativeType declared</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../dist/js/jquery-1.3.1.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../dist/css/global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='companions/ova07.xml';</script>
+<h2>Example 7 - Display of companions without a VAST creativeType declared</h2>
+<p class="example">
+</p>
+<div style="width:640px;height:360px;top-margin:5px;">
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video"));</script>
+<div id="companion-300x250-static-1" style="width:300px;height:250px;border:1px solid #000;margin-bottom:3px;float:left;text-align:center;background:#DDD;">
+<br/><br/><br/>300x250 static</br>(image)
+</div>
+</div>
+
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&duration=30&provider=video")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 7 - Display of companions without a VAST creativeType declared
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+                     {
+                        "id":"companion-300x250-static-1",
+                        "width":"300",
+                        "height":"250"
+                     }
+                ],
+                "schedule": [
+                     {
+                        "position": "pre-roll",
+                        "server": {
+                           "type": "direct",
+                           "tag": "../../../dist/templates/companions/companions-no-creative-type-vast1.xml"
+                        }
+                     }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - VAST 2 Non-Linear Ad with Companion (static ad tag)</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_3ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_3global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='ad-servers/openx-v3/ova02.xml';</script>
+<h2>Example 2 - VAST 2 Non-Linear Ad with Companion (static ad tag)</h2>
+<p class="example"></p>
+<div style="width:754px;height:255px;">
+	<div class="example" style="width:444px;height:252px;float:left">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 3, 444, 252, "&file=OVA_HTTP_SHOW_STREAM_1&duration=30&provider=video"));</script>
+	</div>
+	<div id="companion-1" style="width:300px;height:250px;border:1px solid #000;float:right;"></div>
+</div>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 3, 450, 300)));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 1 - VAST 2 Linear Ad with Companion (static ad tag)
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+                	{ "id": "companion-1", "width": 300, "height": 250 }
+                ],
+                "schedule": [
+                    {
+                       "position": "auto:bottom",
+                       "startTime": "00:00:02",
+                       "tag": "http://oxdemo-d.openxenterprise.com/v/1.0/av?pgid=127__amp__test=true"
+                    }
+                ]
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

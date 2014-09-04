@@ -1,0 +1,34 @@
+<config>
+   <ova.title>
+       Always forcing Show Duration from Metadata
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "shows": {
+             "setDurationFromMetaData": true
+          },
+
+          "ads": {
+             "playOnce": false,
+             "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API"
+                   }
+             ],
+             "schedule": [
+                {
+                   "zone": "5",
+                   "position": "pre-roll"
+                }
+             ]
+          }
+       }
+   </ova.json>
+</config>
+

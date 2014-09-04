@@ -1,0 +1,141 @@
+<config>
+   <ova.title>
+
+   </ova.title>
+   <ova.json>
+        {
+            "overlays": {
+              "regions": [
+                  {
+                      "id": "bottom-center",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-center",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-center",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "left",
+                      "backgroundColor": "transparent",
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-left",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "left",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "bottom-right",
+                      "verticalAlign": "bottom",
+                      "horizontalAlign": "right",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "screen-center",
+                      "verticalAlign": "center",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  },
+                  {
+                      "id": "top-center",
+                      "verticalAlign": "top",
+                      "horizontalAlign": "center",
+                      "backgroundColor": "#000000",
+                      "opacity": 0.8,
+                      "borderRadius": 15,
+                      "padding": "-10 -10 -10 -10",
+                      "width": 450,
+                      "height": 50
+                  }
+              ]
+            },
+
+            "ads": {
+                "keepOverlayVisibleAfterClick": true,
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                       "allowAdRepetition": true
+                    }
+                ],
+              "schedule": [
+                  {   "zone": "41",
+                      "position": "bottom-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:02",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "bottom-left",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:08",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "bottom-right",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:14",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "screen-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:20",
+                      "duration": "5"
+                  },
+                  {   "zone": "41",
+                      "position": "top-center",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:26",
+                      "duration": "5"
+                  }
+              ]
+            },
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+            }
+        }
+   </ova.json>
+</config>

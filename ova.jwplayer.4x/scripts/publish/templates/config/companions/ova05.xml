@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+	   Example 5 - Selective Display of Companion Types
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "bestBitrate": "high",
+                "companions": [
+	                  { "id":"companion-300x60-static", "width":"300", "height":"60", "resourceType": "static" },
+	                  { "id":"companion-300x60-iframe", "width":"300", "height":"60", "resourceType": "iframe" },
+	                  { "id":"companion-728x90-static", "width":"728", "height":"90", "index": 0 },
+	                  { "id":"companion-728x90-iframe", "width":"728", "height":"90", "index": 1 },
+	                  { "id":"companion-300x250-static", "width":"300", "height":"250", "resourceType": "static" },
+	                  { "id":"companion-300x250-iframe", "width":"300", "height":"250", "index": 1 }
+                ],
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "server": {
+	                      "type": "direct",
+    	                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=1331__amp__LR_CAMPAIGN_ID=229__amp__LR_SCHEMA=vast2"
+                      }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

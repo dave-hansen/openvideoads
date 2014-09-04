@@ -1,0 +1,24 @@
+<config>
+   <ova.title>
+       Example 15 - Supporting Custom VAST Tags
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "schedule": [
+                   {
+                      "position": "auto:bottom",
+                      "startTime": "00:00:03",
+                      "duration": 15,
+                      "acceptedAdTypes": [ "image" ],
+                      "tag": "../../../dist/templates/custom-tags/extensions-clicktracking.xml"
+                   }
+              ]
+            },
+
+            "debug": {
+              "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+       }
+   </ova.json>
+</config>

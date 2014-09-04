@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+		A duration-less stream with a pre-roll that does not have a VAST duration
+   </ova.title>
+   <ova.json>
+       {
+			"debug": {
+			    "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+			},
+
+			"ads": {
+			    "pauseOnClickThrough": true,
+			    "servers": [
+			        {
+			          "type": "Direct",
+			          "apiAddress": "../../../../dist/templates/error-responses/vast1.0/zero-duration.xml"
+			        }
+			    ],
+			    "schedule": [
+			        {
+			          "zone": "5",
+			          "position": "pre-roll"
+			        }
+			    ]
+			}
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="pre-roll0-0" >
+        <InLine>
+            <AdSystem>OpenX</AdSystem>
+            <AdTitle><![CDATA[Audio MP3 Ad]]></AdTitle>
+            <Description><![CDATA[Inline MP3 Linear Ad]]></Description>
+            <Impression>
+               <URL id="primaryAdServer"><![CDATA[http://my-server/impression1]]></URL>
+            </Impression>
+               <Video>
+                    <Duration>00:01:00</Duration>
+                    <AdID><![CDATA[16]]></AdID>
+                    <MediaFiles>
+                        <MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="audio/x-mpeg-3">
+                            <URL><![CDATA[http://streaming.openvideoads.org/ads/audio/polyspot-60-secs.mp3]]></URL>
+                        </MediaFile>
+                    </MediaFiles>
+                </Video>
+                <TrackingEvents>
+                    <Tracking event="start">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=start]]></URL>
+                    </Tracking>
+                    <Tracking event="midpoint">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=midpoint]]></URL>
+                    </Tracking>
+
+                    <Tracking event="firstQuartile">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=firstquartile]]></URL>
+                    </Tracking>
+                    <Tracking event="thirdQuartile">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=thirdquartile]]></URL>
+                    </Tracking>
+                    <Tracking event="complete">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=complete]]></URL>
+                    </Tracking>
+                    <Tracking event="mute">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=mute]]></URL>
+                    </Tracking>
+                    <Tracking event="pause">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=pause]]></URL>
+                    </Tracking>
+                    <Tracking event="replay">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=replay]]></URL>
+                    </Tracking>
+
+                    <Tracking event="fullscreen">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=fullscreen]]></URL>
+                    </Tracking>
+                    <Tracking event="stop">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=stop]]></URL>
+                    </Tracking>
+                    <Tracking event="unmute">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=unmute]]></URL>
+                    </Tracking>
+                   <Tracking event="resume">
+                        <URL id="primaryAdServer"><![CDATA[http://my-server/tracking?vast_event=resume]]></URL>
+                    </Tracking>
+                </TrackingEvents>
+           </InLine>
+    </Ad>
+</VideoAdServingTemplate>

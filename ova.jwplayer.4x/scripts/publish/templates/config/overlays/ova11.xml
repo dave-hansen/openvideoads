@@ -1,0 +1,40 @@
+<config>
+   <ova.title>
+        Example
+   </ova.title>
+   <ova.json>
+        {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+			"overlays": {
+				"closeButton": {
+				    "type": "custom",
+				    "image": "OVA_EXAMPLE_OVERLAY_CUSTOM_BUTTON",
+				    "width": 15,
+				    "height": 15
+				}
+			},
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API"
+                    }
+                ],
+                "pauseOnClickThrough": true,
+                "schedule": [
+                    {
+                       "zone": "28",
+                       "startTime": "00:00:05",
+                       "position": "auto:bottom",
+                       "duration": "recommended:10"
+                    }
+                ]
+            }
+        }
+   </ova.json>
+</config>

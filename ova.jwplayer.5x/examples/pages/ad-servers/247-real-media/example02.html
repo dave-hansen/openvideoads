@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2 - A pre-roll and show stream with an overlay ad</title>
+</head>
+<body>
+<script type="text/javascript" src="../../../../dist/js/swfobject.js"></script>
+<script type="text/javascript" src="../../../../dist/js/ova-examples.js"></script>
+<script type="text/javascript" src="http://oasc16.247realmedia.com/Scripts/oas_analytics.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../../../dist/css/global.css);
+-->
+</style>
+<h2>Example 2 - A pre-roll and show stream with an overlay ad</h2>
+<p class="example">
+A very short pre-roll ad plays followed by the show stream. 5 seconds into the show stream an
+overlay appears for 15 seconds - click on the overlay to start up a video ad. Once the video
+ad has played, the show stream resumes at the point at which the overlay was clicked.
+</p>
+<div id="player">This will be replaced by the SWF.</div>
+<script type="text/javascript">
+   function buildOVAConfiguration() {
+      var result = '';
+      var OAS_url = 'http://oasc16.247realmedia.com/RealMedia/ads/adstream_sx.ads';
+      var OAS_sitepage = 'openvideoads.org/vast';
+      var OAS_listpos = 'x01';
+      OAS_rdl = OAS_rdl != '' ? OAS_rdl.split("&")[1] : '';
+
+      result += '{"blockUntilOriginalPlaylistLoaded":true,';
+      result += '"debug":{';
+      result += '"debugger":"firebug",';
+      result += '"levels":"fatal, config, vast_template"';
+      result += '},';
+      result += '"ads":{';
+      result += '"pauseOnClickThrough":true,';
+      result += '"servers":[';
+      result += '{';
+      result += '"type": "OAS",';
+      result += '"apiAddress":"' + OAS_url + '",';
+      result += '"customProperties": {';
+      result += '"target":["overlay","XE","' + OAS_rdl + '", "if_nt_CookieAccept=\'' + OAS_CA + '\'","XE"]';
+      result += '}';
+      result += '}';
+      result += '],';
+      result += '"schedule": [';
+      result += '{';
+      result += '"zone":"' + OAS_sitepage + '@x01",';
+      result += '"position":"pre-roll"';
+      result += '},';
+      result += '{';
+      result += '"zone":"' + OAS_sitepage + '@Bottom",';
+      result += '"position":"bottom",';
+      result += '"width":99,';
+      result += '"height":67,';
+      result += '"startTime":"00:00:05",';
+      result += '"duration":"15"';
+      result += '}';
+      result += ']';
+      result += '},';
+      result += '"overlays":{';
+      result += '"regions":[';
+      result += '{';
+      result += '"id":"bottom",';
+      result += '"verticalAlign":"bottom",';
+      result += '"horizontalAlign":"left",';
+      result += '"backgroundColor":"#000",';
+      result += '"padding":"-10 -10 -10 -10",';
+      result += '"width":99,';
+      result += '"height":67';
+      result += '}';
+      result += ']';
+      result += '}';
+      result += '}';
+      return escape(result);
+   }
+
+   var flashvars = {
+      'plugins':    	OVA_PLUGIN_3,
+      'playlist':   	'none',
+      'repeat': 		'list',
+      'autostart':		'false',
+      'dock':			'true',
+      'frontcolor':		'ffffff',
+      'title':			'Big%20Buck%20Bunny%20Trailer',
+      'image':			'http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg',
+      'stretching':		'uniform',
+      'ping.script':	'http://content.bitsontherun.com/pings/',
+      'lightcolor':		'009999',
+      'controlbar':		'over',
+      'displayclick':	'play',
+      'backcolor':		'000000',
+      'playlistsize':	'200',
+      'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',  
+      'file':			'http://content.bitsontherun.com/jwp/nPripu9l.xml',
+      'ova.json':       buildOVAConfiguration()
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   };
+
+   var attributes = {
+      'id':                 'player1',
+      'name':               'player1'
+   };
+
+   swfobject.embedSWF(OVA_PLAYER_3, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+&lt;script type="text/javascript"&gt;
+   function buildOVAConfiguration() {
+      var result = '';
+      var OAS_url = 'http://oasc16.247realmedia.com/RealMedia/ads/adstream_sx.ads';
+      var OAS_sitepage = 'openvideoads.org/vast';
+      var OAS_listpos = 'x01';
+      OAS_rdl = OAS_rdl != '' ? OAS_rdl.split("&")[1] : '';
+      
+      result += '{"blockUntilOriginalPlaylistLoaded":true,';
+      result += '"debug":{';
+      result += '"debugger":"firebug",';
+      result += '"levels":"fatal, config, vast_template"';
+      result += '},';
+      result += '"ads":{';
+      result += '"pauseOnClickThrough":true,';
+      result += '"servers":[';
+      result += '{';
+      result += '"type": "OAS",';
+      result += '"apiAddress":"' + OAS_url + '",';
+      result += '"customProperties": {';
+      result += '"target":["overlay","XE","' + OAS_rdl + '", "if_nt_CookieAccept=\'' + OAS_CA + '\'","XE"]';
+      result += '}';
+      result += '}';
+      result += '],';
+      result += '"schedule": [';
+      result += '{';
+      result += '"zone":"' + OAS_sitepage + '@x01",';
+      result += '"position":"pre-roll"';
+      result += '},';
+      result += '{';
+      result += '"zone":"' + OAS_sitepage + '@Bottom",';
+      result += '"position":"bottom",';
+      result += '"width":99,';
+      result += '"height":67,';
+      result += '"startTime":"00:00:05",';
+      result += '"duration":"15"';
+      result += '}';
+      result += '],';
+      result += '},';
+      result += '"overlays":{';
+      result += '"regions":[';
+      result += '{';
+      result += '"id":"bottom",';
+      result += '"verticalAlign":"bottom",';
+      result += '"horizontalAlign":"left",';
+      result += '"backgroundColor":"#000",';
+      result += '"padding":"-10 -10 -10 -10",';
+      result += '"width":99,';
+      result += '"height":67';
+      result += '}';
+      result += ']';
+      result += '}';
+      result += '}';
+      return escape(result);
+   }
+
+   var flashvars = {
+      'plugins':    	OVA_PLUGIN_3,
+      'playlist':   	'none',
+      'repeat':         'list',
+      'autostart':      'false',
+      'dock':           'true',
+      'frontcolor':     'ffffff',
+      'title':          'Big%20Buck%20Bunny%20Trailer',
+      'image':          'http://content.bitsontherun.com/thumbs/nPripu9l-480.jpg',
+      'stretching':     'uniform',
+      'ping.script':	'http://content.bitsontherun.com/pings/',
+      'lightcolor':     '009999',
+      'controlbar':     'over',
+      'displayclick':	'play',
+      'backcolor':      '000000',
+      'playlistsize':	'200',
+      'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',  
+      'file':           'http://content.bitsontherun.com/jwp/nPripu9l.xml',
+      'ova.json':       buildOVAConfiguration()
+   };
+
+   var params = {
+      'allowfullscreen':    'true',
+      'allowscriptaccess':  'always',
+      'bgcolor':            '#000000'
+   };
+
+   var attributes = {
+      'id':                 'player1',
+      'name':               'player1'
+   };
+
+   swfobject.embedSWF(OVA_PLAYER_3, 'player', '480', '272', '9', 'false', flashvars, params, attributes);
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<config>
+   <ova.title>
+       Example 19 - A post-roll following a show stream
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API",
+                       "allowAdRepetition": true
+                    }
+                ],
+                "schedule": [
+                    {
+                      "zone": "5",
+                      "position": "post-roll"
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 5 - Impression serving on an empty Ad VAST1 response</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-jquery.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 5 - Impression serving on an empty Ad VAST1 response</h2>
+<p class="example">
+This example illustrates how an ad server configuration can be set to ensure that
+the impression URL is called even if the VAST response provides no ad.
+</p>
+<a class="example"></a>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        { url: OVA_PSEUDO_SHOW_STREAM_1, duration:10 },
+        { url: OVA_PSEUDO_SHOW_STREAM_1, duration:11 },
+        { url: OVA_PSEUDO_SHOW_STREAM_1, duration:12 },
+        { url: OVA_PSEUDO_SHOW_STREAM_1, duration:13 }
+    ],
+    
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            "url": OVA_OAS_URL_2,
+
+            "debug": {
+              "levels": OVA_OAS_DEBUG
+            },
+
+            "ads": {
+                "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [0,2],
+                      "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "apiAddress": OVA_EMPTY_VAST_RESPONSE
+                      }
+                    },
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [1],
+                      "server": {
+                          "type": "direct",
+                          "apiAddress": OVA_EMPTY_VAST_RESPONSE
+                      }
+                    },
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [3],
+                      "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml__amp__zones=pre-roll0-0%3D5__amp__nz=1__amp__source=__amp__r=R0.807678107637912__amp__block=1__amp__format=vast__amp__charset=UTF-8"
+                      }
+                    }
+               ]
+           }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        { url: "<script type="text/javascript">document.write(OVA_PSEUDO_SHOW_STREAM_1)</script>", duration:10 },
+        { url: "<script type="text/javascript">document.write(OVA_PSEUDO_SHOW_STREAM_1)</script>", duration:11 },
+        { url: "<script type="text/javascript">document.write(OVA_PSEUDO_SHOW_STREAM_1)</script>", duration:12 },
+        { url: "<script type="text/javascript">document.write(OVA_PSEUDO_SHOW_STREAM_1)</script>", duration:13 }
+    ],
+
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "debug": {
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            },
+
+            "ads": {
+                 "schedule": [
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [0,2],
+                      "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_EMPTY_VAST_RESPONSE)</script>"
+                      }
+                    },
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [1],
+                      "server": {
+                          "type": "direct",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_EMPTY_VAST_RESPONSE)</script>"
+                      }
+                    },
+                    {
+                      "position": "pre-roll",
+                      "applyToParts": [3],
+                      "server": {
+                          "type": "direct",
+                          "forceImpressionServing": true,
+                          "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:
+                                         vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll0-0%3D5&nz=1&source=&
+                                         r=R0.807678107637912&block=1&format=vast&charset=UTF-8"
+                      }
+                    }
+                 ]
+             }
+         }
+     }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

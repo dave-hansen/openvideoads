@@ -1,0 +1,28 @@
+<config>
+   <ova.title>
+	   Example 15 - Skin compatibility
+   </ova.title>
+   <ova.json>
+       {
+            "autoPlay": false,
+            "ads": {
+                "servers": [
+                    {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "18",
+                        "position": "pre-roll"
+                    }
+                ]
+            },
+
+            "debug": {
+               "levels": "fatal, config, vast_template, vpaid, http_calls, playlist, api"
+            }
+        }
+   </ova.json>
+</config>

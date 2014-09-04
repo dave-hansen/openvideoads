@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 2.19.00 - Get active ad descriptor object</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 2.19.00 - Get active ad descriptor object</h2>
+<p class="example">
+</p>
+<br/>
+
+<a class="example"></a>
+
+<script type="text/javascript">
+function dumpAdDescriptor() {
+	var activeAdDescriptor = $f().getPlugin('ova').getActiveAdDescriptor();
+	if(activeAdDescriptor != null) {
+		console.log(">>> ACTIVE AD DESCRIPTOR DUMP:");
+		console.log(activeAdDescriptor);
+	}
+	else console.log(">>> NO DESCRIPTOR AVAILABLE");
+}
+
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        {
+            url: OVA_HTTP_SHOW_STREAM_1,
+            duration: 30
+        }
+    ],
+    
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+            "ads": {
+                 "servers": [
+                      {
+                          "type": "OpenX",
+                          "apiAddress": OVA_OPENX_API
+                      }
+                 ],
+                 "notice": { "textStyle": "smalltext" },
+                 "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                 ]
+            },
+
+            "debug": {
+                 "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<ul>
+  <li><a href="#" onclick="dumpAdDescriptor();">
+    Fetch Ad Descriptor and Dump to Console
+  </a></li>
+</ul>
+<br/>
+<p style="clear:both;">
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+&lt;script&gt;
+function dumpAdDescriptor() {
+	var activeAdDescriptor = $f().getPlugin('ova').getActiveAdDescriptor();
+	if(activeAdDescriptor != null) {
+		console.log(">>> ACTIVE AD DESCRIPTOR DUMP:");
+		console.log(activeAdDescriptor);
+	}
+	else console.log(">>> NO DESCRIPTOR AVAILABLE");
+}
+
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        {
+            url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+            duration: 30
+        }
+    ],
+
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                     }
+                 ],
+                 "notice": { "textStyle": "smalltext" },
+                 "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "pre-roll"
+                       }
+                 ]
+            },
+
+            "debug": {
+                 "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#" onclick="dumpAdDescriptor();"&gt;
+    Fetch Ad Descriptor and Dump to Console
+  &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

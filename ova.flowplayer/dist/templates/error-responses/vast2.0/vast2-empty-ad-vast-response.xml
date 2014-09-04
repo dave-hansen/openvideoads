@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<VAST version="2.0">
+		    <Ad id="Adotube">
+		        <InLine>
+		            <AdSystem>Adotube</AdSystem>
+		            <AdTitle>Adotube VAST 2.0 Video Ad</AdTitle>
+		            <Description/>
+		            <Impression>http://localhost/impression1</Impression>
+		            <Error>http://localhost/vast2-error-1?error=[ERRORCODE]</Error>
+		            <Creatives>
+		                <Creative>
+		                </Creative>
+		            </Creatives>
+		        </InLine>
+		    </Ad>
+		</VAST>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 4-03 - VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_2ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_2global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='xml-wrapper/ova4-03.xml';</script>
+<h2>Example 4-03 - VAST1 wrapper to a VAST2 wrapper to a VAST1 ad</h2>
+<p class="example">
+</p>
+<div style="width:750px;height:255px;">
+	<div class="example" style="width:444px;height:252px;float:left">
+        <script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 444, 252));</script>
+	</div>
+	<div id="companion-300x250" style="width:300px;height:250px;border:1px solid #000;float:right;margin-top:0px;">300x250 Companion</div>
+</div>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 514, 345)));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 4-03 - VAST1 wrapper to a VAST2 wrapper to a VAST1 ad
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+            "shows": {
+              "streams": [
+                   {
+                     "file": "OVA_HTTP_SHOW_STREAM_1",
+                     "duration":"00:00:10"
+                   }
+              ]
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+                	{ id: "companion-300x250", width: 300, height: 250 }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+                          "type": "direct",
+                          "tag": "OVA_DIST_TEMPLATES_2wrapper/vast1-wrapper-to-vast2-wrapper-vast1-ad.xml",
+                       }
+                    }
+                ]
+            },
+
+            "debug": {
+                "levels": "OVA_DEBUG"
+            }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

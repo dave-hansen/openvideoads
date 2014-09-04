@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 1 - VAST FLV RTMP Media Files Containing File Markers</title>
+</head>
+<body>
+<script type="text/javascript" src="OVA_DIST_JS_2ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(OVA_DIST_CSS_2global.css);
+-->
+</style>
+<script type="text/javascript">var OVA_CONFIG='rtmp-ads/ova04.xml';</script>
+<h2>Example 1 - VAST FLV RTMP Media Files Containing File Markers</h2>
+<p class="example">
+</p>
+<script type="text/javascript">document.write(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=OVA_RTMP_SHOW_STREAM_FILE&streamer=OVA_RTMP_BASE_URL&duration=10"));</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre style="white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;">
+<code>
+<script type="text/javascript">document.write(htmlEncode(writePlayerEmbedCode(OVA_CONFIG, 2, 450, 300, "&file=OVA_RTMP_SHOW_STREAM_FILE&streamer=OVA_RTMP_BASE_URL&duration=10")));</script>
+</code>
+</pre>
+</div>
+<p>
+"<script type="text/javascript">document.write(OVA_CONFIG)</script>" is defined as:
+</p>
+<div class="codebox">
+<pre>
+<code class="xml">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example 1 - VAST FLV RTMP Media Files Containing File Markers
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          },
+
+          "ads": {
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "OVA_VAST_FLV_RTMP_AD_WITH_MARKERS"
+                  }
+              ]
+          }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</code>
+</pre>
+</div>
+</body>
+</html>

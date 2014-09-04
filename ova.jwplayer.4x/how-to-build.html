@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="examples/css/global.css" />
+</head>
+<body>
+<div class="manual">
+<h2>Building the plugins</h2>
+<p>
+A simple build script (build.sh) is provided in the scripts/build directory to compile the release.
+</p>
+<p>
+Before using the build script, make sure that the FLEXPATH variable is set so that it correctly
+points to the location of your flex 3 sdk install.
+</p>
+<p>
+To build the release:
+<pre>./build.sh</pre>
+from the "scripts/build" directory.
+</p>
+<p>
+Successful compilation will result in "ova-jw.swf" being created in the "release" directory and a copy of that swf will be placed into the "dist/swf" directory.
+</p>
+<b>A Note on Debugging</b>
+<p>
+We use Firebug - all debug output from the SWF will go to the Firebug console by default.
+</p>
+<a href="index.html">Home</a>
+</div>
+</body>
+</html>

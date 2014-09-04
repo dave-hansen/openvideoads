@@ -1,0 +1,25 @@
+<config>
+   <ova.title>
+       VPAID Linear pre-roll with no visible control bar or show stream before or after ad playback
+   </ova.title>
+   <ova.json>
+       {
+          "ads": {
+             "vpaid": {
+                 "holdingClipUrl": "OVA_BLANK_PIXEL_IMAGE"
+             },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_VPAID_LINEAR_2_VAST"
+                }
+             ]
+          },
+
+          "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+          }
+       }
+   </ova.json>
+</config>

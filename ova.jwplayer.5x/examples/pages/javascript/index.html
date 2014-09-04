@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>OVA for JW5x - Javascript API</title>
+<link rel="stylesheet" type="text/css" href="../../../dist/css/global.css" />
+</head>
+<body>
+<a href="www.openvideoads.org"><img src="../../../dist/images/ova-logo-final.png" border="0"/></a>
+<h2>OVA for JW5x - Javascript API</h2>
+<p class="example">
+</p>
+<ol>
+<li><b>Callbacks from OVA to Javascript</b></li>
+<ul>
+<li><b>V1 Callbacks</b></li>
+<ul>
+<li><a href="example1.01.00.html">Ad Scheduling (pre-roll+overlay+companions)</a> (<a href="example1.01.01.html">wrapped VPAID</a>) (<a href="example1.01.02.html">no ads</a>) (<a href="example1.01.03.html">bad xml</a>) (<a href="example1.01.04.html">multiple</a>) (<a href="example1.01.05.html">wrapper empty</a>)</li>
+<li><a href="example1.05.00.html">"Load On Demand" Ad Scheduling and Loading</a></li>
+<li><a href="example1.06.00.html">Ad calls - started, failover and complete</a></li>
+<li><a href="example1.02.html">Ad Playback</a></li>
+<li><a href="example1.03.html">Show Playback With Duration</a> (<a href="example1.03-1.html">without Duration</a>)</li>
+<li>Event tracking callbacks</li>
+<ul>
+<li><a href="example1.04.00.html">VAST 1 Impression, Click and Events</a></li>
+<li><a href="example1.04.01.html">VAST 2 Impression, Click and Events</a></li>
+<li><a href="example1.04.02.html">VAST 1 + 2 Wrappers Impression, Click and Events</a></li>
+<li><a href="example1.04.03.html">VPAID Linear Impression, Click and Events</a></li>
+<li><a href="example1.04.04.html">Non-Linear Impression, Click and Events</a></li>
+</ul>
+</ul>
+<li><b>V2 Callbacks</b></li>
+<ul>
+<li><a href="example4.01.00.html">General Test Harness (all callbacks)</a></li>
+</ul>
+</ul>
+<li><b>Calls from Javascript to OVA via the Player</b></li>
+<ul>
+<li><b>Clip-by-Clip Loading</b></li>
+<ul>
+<li><a href="example2.00.00.html">Using "jwplayer().load(clip)" to load a new clip - no autoplay on load</a> (<a href="example2.00.02.html">delayedAdRequest</a>) (<a href="example2.00.03.html">vpaid</a>)</li>
+<li><a href="example2.01.00.html">Using "jwplayer().load(clip)" to load a new clip - JS triggered play</a> (<a href="example2.01.03.html">vpaid</a>)</li>
+<li><a href="example2.03.00.html">Using "jwplayer().load(clip)" with playlist pre-loaded</a> (<a href="example2.03.02.html">delayAdRequest</a>) (<a href="example2.03.03.html">delay VPAID</a>)</li>
+<li><a href="example2.04.00.html">Using "jwplayer().load(clip)" with the standard "autostart" or "autoPlay" config option</a></li>
+<li><a href="example2.08.00.html">Using "jwplayer().load(clip)" with empty playlist at startup</a> (<a href="example2.08.03.html">vpaid</a>)</li>
+<li><a href="example2.10.00.html">Using "jwplayer().load(clip)" with the "clearPlaylist:false", no autostart, with "autoPlayOnExternalLoad"</a></li>
+</ul>
+<li><b>Full Playlist Loading</b></li>
+<ul>
+<li><a href="example2.11.00.html">Using "jwplayer().load(playlist)" to load a new playlist - no autostart</a> (<a href="example2.11.03.html">vpaid</a>)</li>
+<li><a href="example2.02.00.html">Using "jwplayer().load(playlist)" to load a new playlist - JS triggered play</a> (<a href="example2.02.03.html">vpaid</a>)</li>
+<li><a href="example2.12.00.html">Using "jwplayer().load(playlist)" to load a new playlist - "autoPlayOnExternalLoad"</a> (<a href="example2.12.03.html">vpaid</a>)</li>
+<li><a href="example2.06.00.html">Using "jwplayer().load(playlist)" with "allowPlaylistControl":true, "clearPlaylist":false</a> (<a href="example2.06.03.html">vpaid</a>)</li>
+<li><a href="example2.07.00.html">Using "jwplayer().load(playlist)" using clip-by-clip loading, "clearPlaylist":false</a> (<a href="example2.07.03.html">vpaid</a>)</li>
+<li><a href="example2.09.00.html">Using "jwplayer().load(playlist)" with empty playlist at startup</a> (<a href="example2.09.03.html">vpaid</a>)</li>
+</ul>
+<li><b>General Player related Javascript Calls</b></li>
+<ul>
+<li><a href="example3.00.00.html">Triggering playback via jwplayer().play()</a> (<a href="example3.00.03.html">VPAID</a>)</li>
+<li><a href="example3.01.00.html">Delayed initialisation playback via jwplayer().play()</a> (<a href="example3.01.03.html">VPAID</a>)</li>
+</ul>
+</ul>
+<li><b>Calls from Javascript to OVA via Javascript</b></li>
+<ul>
+<li><a href="example2.05.00.html">Modifying linear ad playback volume - standard stream</a> (<a href="example2.05.01.html">VPAID</a>) (<a href="example2.05.02.html">Direct</a>)</li>
+<li><a href="example2.13.00.html">Rescheduling with the original playlist</a></li>
+<li><a href="example2.14.00.html">Rescheduling with a new playlist</a></li>
+<li><a href="example2.15.00.html">Skipping an ad - Linear ad stream</a> (<a href="example2.15.01.html">Linear VPAID ad</a>)</li>
+<li><a href="example2.16.00.html">Starting playback via getPlugin("ova").play() - Linear ad stream</a> (<a href="example2.16.01.html">Linear VPAID ad</a>) (<a href="example2.16.02.html">Delayed and On Demand</a>)</li>
+<li><a href="example2.17.00.html">Starting playback via _player.play() - Linear ad stream</a> (<a href="example2.17.01.html">Linear VPAID ad</a>) (<a href="example2.17.02.html">Delayed and On Demand VPAID</a>)</li>
+<li><a href="example2.18.00.html">Pausing/Resuming the active ad - Linear ad stream</a> (<a href="example2.18.01.html">Linear VPAID ad</a>)</li>
+<li><a href="example2.19.00.html">Get active ad descriptor object</a> (<a href="example2.19.01.html">Linear VPAID ad</a>)</li>
+</ul>
+<!-- <li><b>Some Examples</b></li> -->
+</ol>
+<p>
+<a href="../../index.html">Back to main index</a>
+</p>
+<p class="example">
+Copyright 2013 Open Video Ads
+</p>
+</body>

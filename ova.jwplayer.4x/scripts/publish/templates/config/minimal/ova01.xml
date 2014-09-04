@@ -1,0 +1,10 @@
+<config>
+   <ova.title>
+       Example 1 - A pre-roll ad only
+   </ova.title>
+   <ova.json>
+       {
+        	"tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll0-0%3D5&nz=1&source=&r=R0.8062691302038729&block=1&format=vast&charset=UTF-8"
+       }
+   </ova.json>
+</config>

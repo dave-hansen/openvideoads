@@ -1,0 +1,66 @@
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+      <Ad id="wrapped-non-linear">
+          <Wrapper>
+             <AdSystem>MyAdSystem</AdSystem>
+             <NonLinearAds>
+            	<NonLinearImpression>
+            	    <URL><![CDATA[http://localhost/vast1-wrapper-non-linear-impression]]></URL>
+            	</NonLinearImpression>
+            	<NonLinearAdTag>
+					<URL><![CDATA[http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=overlay0-0%3D28%7Coverlay1-0%3D41&nz=1&source=&r=R0.04010264668613672&block=1&format=vast&charset=UTF-8]]></URL>
+            	</NonLinearAdTag>
+             </NonLinearAds>
+             <Impression>
+                <URL><![CDATA[http://localhost/vast1-wrapper-impression]]></URL>
+             </Impression>
+             <Error>
+                <URL><![CDATA[http://localhost/vast1-wrapper-error]]></URL>
+             </Error>
+ 			 <VideoClicks>
+ 				<ClickTracking>
+ 					<URL id="anotheradserver"><![CDATA[http://localhost/vast1-wrapper-clicktracking-1]]></URL>
+ 					<URL id="athirdadserver"><![CDATA[http://localhost/vast1-wrapper-clicktracking-2]]></URL>
+				</ClickTracking>
+			 </VideoClicks>
+             <TrackingEvents>
+                 <Tracking event="start">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-start]]></URL>
+                 </Tracking>
+                 <Tracking event="midpoint">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-midpoint]]></URL>
+                 </Tracking>
+                 <Tracking event="firstQuartile">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-firstquartile]]></URL>
+                 </Tracking>
+                 <Tracking event="thirdQuartile">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-thirdquartile]]></URL>
+                 </Tracking>
+                 <Tracking event="complete">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-complete]]></URL>
+                 </Tracking>
+                 <Tracking event="mute">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-mute]]></URL>
+                 </Tracking>
+                 <Tracking event="replay">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-replay]]></URL>
+                 </Tracking>
+                 <Tracking event="fullscreen">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-fullscreen]]></URL>
+                 </Tracking>
+                 <Tracking event="stop">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-stop]]></URL>
+                 </Tracking>
+                 <Tracking event="unmute">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-unmute]]></URL>
+                 </Tracking>
+                <Tracking event="resume">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-resume]]></URL>
+                 </Tracking>
+                <Tracking event="pause">
+                     <URL id="primaryAdServer"><![CDATA[http://localhost/vast1-wrapper-pause]]></URL>
+                 </Tracking>
+             </TrackingEvents>
+          </Wrapper>
+      </Ad>
+</VideoAdServingTemplate>
+

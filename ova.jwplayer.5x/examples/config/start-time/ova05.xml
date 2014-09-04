@@ -1,0 +1,54 @@
+<config>
+   <ova.title>
+       Example 5 - A mid-roll and 2 overlays on a duration-less show with a start time
+   </ova.title>
+   <ova.json>
+       {
+            "shows": {
+              "streams": [
+              		{
+              			"file": "http://streaming.openvideoads.org:81/shows/the-black-hole.mp4",
+              			"startTime": "00:00:30"
+              		}
+              ]
+            },
+
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                      "allowAdRepetition": true
+                   }
+              ],
+              "schedule": [
+                  {
+                      "zone": "5",
+                      "position": "mid-roll",
+                      "startTime": "00:00:05"
+                  },
+                  {
+                      "zone": "33",
+                      "position": "auto:bottom",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:10",
+                      "duration": "15"
+                  },
+                  {
+                      "zone": "33",
+                      "position": "auto:bottom",
+                      "width": 450,
+                      "height": 50,
+                      "startTime": "00:00:35",
+                      "duration": "15"
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug"
+            }
+       }
+   </ova.json>
+</config>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 18 - Mid-Roll with a Show Stream</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 18 - Mid-Roll with a Show Stream</h2>
+<p class="example">
+A mid-roll will be shown 10 seconds into the show stream.
+</p>
+<div id="container">
+  <div id="player_row">
+     <div id="player_left">
+    <a class="example"></a>
+   </div>
+   <div id="player_right">
+    <div id="companion">
+      A COMPANION ADVERTISEMENT WILL APPEAR IN HERE
+    </div>
+   </div>
+  </div>
+</div>
+<script type="text/javascript">
+flowplayer("a.example", FP_SWF_2, {
+    playlist: [
+        {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           duration: 30
+        }
+    ],
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+        ova: {
+          url: OVA_OAS_URL_2,
+
+      "debug": {
+              "levels": OVA_OAS_DEBUG
+      },
+
+        "ads": {
+              "playOnce": false,
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": OVA_OPENX_API,
+                   }
+              ],
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+              "schedule": [
+                   {
+                      "zone": "6",
+                      "position": "mid-roll",
+                      "startTime": "00:00:10"
+                   }
+              ]
+        }
+        }
+    }
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+flowplayer("a.example", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+    playlist: [
+        url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+        duration: 30
+    ],
+    plugins: {
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL)</script>",
+
+            "debug": {
+                "debugger": "firebug",
+                "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>",
+            },
+
+            "ads": {
+                "playOnce": false,
+                "servers": [
+                    {
+                       "type": "OpenX",
+                       "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                    }
+                ],
+                "companions": {
+                   "restore": false,
+                   "regions": [
+                      { "id":"companion", "width":"150", "height":"360" }
+                   ]
+                },
+                "schedule": [
+                    {
+                       "zone": "6",
+                       "position": "mid-roll",
+                       "startTime": "00:00:10"
+                    }
+                ]
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

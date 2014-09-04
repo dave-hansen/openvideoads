@@ -1,0 +1,30 @@
+<config>
+   <ova.title>
+       Example 6 - Test enable of control bar during playback
+   </ova.title>
+   <ova.json>
+       {
+          "debug": {
+              "debugger": "firebug",
+              "levels": "fatal, config, vast_template, vpaid, playlist, api, analytics, http_calls"
+          },
+
+          "ads": {
+              "playOnce": false,
+              "disableControls": false,
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                   }
+              ],
+              "schedule": [
+                   {
+                      "zone": "5",
+                      "position": "pre-roll"
+                  }
+              ]
+          }
+       }
+   </ova.json>
+</config>

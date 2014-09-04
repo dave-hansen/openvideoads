@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Example 4 - Process Show Stream (Without Duration) Events with Javascript API</title>
+<script type="text/javascript" src="../../dist/js/jquery-1.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../dist/js/flowplayer.min.js"></script>
+<script type="text/javascript" src="../../dist/js/ova-examples.js"></script>
+<style type="text/css">
+<!--
+  @import url(../../dist/css/global.css);
+-->
+</style>
+<h2>Example 4 - Process Show Stream (Without Duration) Events with Javascript API</h2>
+<p class="example">
+This example illustrates the javascript callback API for show stream related events. Events are
+fired by the Open Ad Streamer when a show stream is started, stopped, complete, resumed,
+muted, unmuted or goes fullscreen</p>
+<p class="example">
+To start receiving these events, the "fireTrackingEvents" show streams config
+property must be set to "true". It is "false" by default. In addition, "canFireAPICalls"
+must also be set to true (it is "true" by default).
+</p>
+<p class="example">
+In this example, a series of DIVs are displayed around the player. As each event fires,
+the corresponding DIV is turned green. If you have Firebug installed, bring up the console.
+Debug output is shown as each event fires so you can see the javascript callback event occur.
+</p>
+<br/>
+<div id="container">
+     <div id="player-left-500">
+        <a class="player614x345-2"></a>
+        <div id="event-container-614x160">
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-start">
+	               <br/>Show Start
+	            </div>
+	            <div class="event-container-148x68" id="show-complete">
+	               <br/>Show Complete
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-paused">
+	               <br/>Show Paused
+	            </div>
+	            <div class="event-container-148x68" id="show-stopped">
+	               <br/>Show Stopped
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-resumed">
+	               <br/>Show Resumed
+	            </div>
+	            <div class="event-container-148x68" id="show-mute">
+	               <br/>Show Muted
+	            </div>
+            </div>
+            <div id="event-container-150x140">
+	            <div class="event-container-148x68" id="show-unmute">
+	               <br/>Show Unmuted
+	            </div>
+	            <div class="event-container-148x68" id="show-fullscreen">
+	               <br/>Show Fullscreen
+	            </div>
+            </div>        
+        </div>
+     </div>
+</div>
+
+<script type="text/javascript">
+function onShowStart(streamName, streamIndex) {
+	debug("OAS EVENT: onShowStart('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-start").style.backgroundColor = "#00CC00";	
+}
+
+function onShowComplete(streamName, streamIndex) {
+	debug("OAS EVENT: onShowComplete('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-complete").style.backgroundColor = "#00CC00";	
+}
+
+function onShowStopped(streamName, streamIndex) {
+	debug("OAS EVENT: onShowComplete('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-stopped").style.backgroundColor = "#00CC00";	
+}
+
+function onShowPaused(streamName, streamIndex) {
+	debug("OAS EVENT: onShowPaused('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-paused").style.backgroundColor = "#00CC00";	
+}
+
+function onShowResumed(streamName, streamIndex) {
+	debug("OAS EVENT: onShowResumed('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-resumed").style.backgroundColor = "#00CC00";	
+}
+
+function onShowMute(streamName, streamIndex) {
+	debug("OAS EVENT: onShowMute('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-mute").style.backgroundColor = "#00CC00";	
+}
+
+function onShowUnmute(streamName, streamIndex) {
+	debug("OAS EVENT: onShowUnmute('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-unmute").style.backgroundColor = "#00CC00";	
+}
+
+function onShowFullscreen(streamName, streamIndex) {
+	debug("OAS EVENT: onShowFullscreen('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-fullscreen").style.backgroundColor = "#00CC00";	
+}
+
+
+flowplayer("a.player614x345", FP_SWF_2, {
+   clip: {
+           url: OVA_HTTP_SHOW_STREAM_1,
+           onStart: function(clip){
+                  debug(">>>> onStart Event delivers fullDuration:'"+clip.fullDuration+"'");
+           },
+    },
+        
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: OVA_OAS_URL_2,
+
+			"canFireAPICalls": true,
+
+            "shows": {
+                 "fireTrackingEvents": true
+            },
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": OVA_OPENX_API,
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "post-roll"
+                      }
+                 ],
+            },
+
+            "debug": {
+                 "levels": OVA_OAS_DEBUG
+            }
+        }
+    }
+});
+</script>
+<p>
+The configuration for this example is:
+</p>
+<div class="codebox">
+<pre>
+<code class="javascript">
+// An example ad event Javascript callback
+
+function onShowStart(streamName, streamIndex) {
+    debug("OAS EVENT: onShowFullscreen('" + streamName + "', " + streamIndex + ")");
+    document.getElementById("show-fullscreen").style.backgroundColor = "#00CC00";	
+}
+
+//... the other callback functions go in here
+
+flowplayer("a.player614x345", "<script type="text/javascript">document.write(FP_SWF_2)</script>", {
+   clip: {
+           url: "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>",
+           onStart: function(clip){
+                  debug(">>>> onStart Event delivers fullDuration:'"+clip.fullDuration+"'");
+           },
+    },
+    plugins: {	    
+        controls: {
+            autoHide: "always"
+        },
+
+        ova: {
+            url: "<script type="text/javascript">document.write(OVA_OAS_URL_2)</script>",
+
+            "canFireAPICalls": true,
+
+            "shows": {
+                 "fireTrackingEvents": true,
+                 "streams": [
+                      {
+                          "file": "<script type="text/javascript">document.write(OVA_HTTP_SHOW_STREAM_1)</script>"
+                      }
+                 ]
+            },
+
+            "ads": {
+                 "servers": [
+                     {
+                          "type": "OpenX",
+                          "apiAddress": "<script type="text/javascript">document.write(OVA_OPENX_API)</script>",
+                     }
+                 ],
+                 "schedule": [
+                      {
+                          "zone": "5",
+                          "position": "post-roll"
+                      }
+                 ],
+            },
+
+            "debug": {
+                 "levels": "<script type="text/javascript">document.write(OVA_OAS_DEBUG)</script>"
+            }
+        }
+    }
+});
+</code>
+</pre>
+</div>
+</body>
+</html>

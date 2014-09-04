@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="3.0">    
+	<Ad id="ova-linear-1">
+    	<InLine>
+    		<AdSystem version="3.0">OVA static template</AdSystem>
+    		<AdTitle><![CDATA[linear tracking test]]></AdTitle>
+    		<Description><![CDATA[Linear ad event tracking test]]></Description>
+    		<Impression id="LR"><![CDATA[http://localhost/log?impression]]></Impression>
+    		<Error>http://localhost/log?error&code=[ERRORCODE]</Error>
+    	</InLine>
+    </Ad>
+</VAST>

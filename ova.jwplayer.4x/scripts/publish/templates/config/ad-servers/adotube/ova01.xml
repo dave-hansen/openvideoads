@@ -1,0 +1,35 @@
+<config>
+   <ova.title>
+       Example 1 - VAST 2.0 Linear (Pre-Roll)
+   </ova.title>
+   <ova.json>
+       {
+            "debug": {
+                "debugger": "firebug",
+                "levels": "OVA_DEBUG"
+            },
+
+            "ads": {
+                "pauseOnClickThrough": true,
+                "companions": [
+	                  { "id":"companion-300x250", "width":"300", "height":"250" }
+                ],
+                "schedule": [
+                    {
+                       "position": "pre-roll",
+                       "server": {
+	                       "type": "Adotube",
+      	                   "tag": "http://www.adotube.com/kernel/vast/vast2.0Preroll.php?omlSource=http://www.adotube.com/php/services/player/OMLService.php?avpid=2ChPxDe&platform_version=as3&integration=__partner-id__&displayWidth=__player-width__&displayHeight=__player-height__&publisher=__domain__&title=__media-title__&tags=__media-keywords__&description=__media-description__",
+      	                   "customProperties": {
+      	                        "partner-id": "longtail",
+                                "media-title": "ova test",
+                                "media-keywords": "ova",
+                                "media-description": "video description"
+      	                   }
+                       }
+                    }
+                ]
+            }
+       }
+   </ova.json>
+</config>

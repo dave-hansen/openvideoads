@@ -1,0 +1,31 @@
+<config>
+   <ova.title>
+       Example 1 - Repeating Ad Positions
+   </ova.title>
+   <ova.json>
+       {
+            "ads": {
+              "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API",
+                      "allowAdRepetition": true
+                   }
+              ],
+
+              "schedule": [
+                  {
+                    "zone": "5",
+                    "position": "pre-roll",
+                    "repeat": 3
+                  }
+              ]
+            },
+
+            "debug": {
+              "debugger": "firebug",
+              "levels": "OVA_DEBUG"
+            }
+       }
+   </ova.json>
+</config>

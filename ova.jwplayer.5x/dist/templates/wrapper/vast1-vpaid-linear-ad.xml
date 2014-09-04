@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+	<Ad id="BC0">
+		<InLine>
+			<AdSystem>OAS</AdSystem>
+			<AdTitle>Video Ad</AdTitle>
+			<Description>Video Ad</Description>
+			<Impression>
+				<URL id="simulatedNetwork">
+					<![CDATA[http://test/vast1-vpaid-linear-ad-impression]]>
+				</URL>
+			</Impression>
+			<TrackingEvents>
+				<Tracking event="start">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-start]]>
+					</URL>
+				</Tracking>
+				<Tracking event="firstQuartile">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-first-quartile]]>
+					</URL>
+				</Tracking>
+				<Tracking event="midpoint">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-midpoint]]>
+
+					</URL>
+				</Tracking>
+				<Tracking event="thirdQuartile">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-third-quartile]]>
+					</URL>
+				</Tracking>
+				<Tracking event="complete">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-complete]]>
+					</URL>
+				</Tracking>
+				<Tracking event="stop">
+					<URL id="simulatedNetwork">
+						<![CDATA[http://test/vast1-vpaid-linear-ad-stop]]>
+					</URL>
+				</Tracking>
+			</TrackingEvents>
+			<Video>
+				<Duration>00:00:30</Duration>
+				<AdID>BCID9001002</AdID>
+				<MediaFiles>
+            		<MediaFile width="300" height="250" type="APPLICATION/X-SHOCKWAVE-FLASH" apiFramework="VPAID">
+            		     <![CDATA[http://cdn.innovid.com/iroll/package/iab-vpaid/1hk28j.swf]]>
+            		</MediaFile>
+				</MediaFiles>
+			</Video>
+		</InLine>
+	</Ad>
+</VideoAdServingTemplate>
