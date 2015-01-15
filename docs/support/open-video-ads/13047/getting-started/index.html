@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/13047/getting-started/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Getting Started | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Getting Started</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<p>Our <em>Getting Started Guide</em> provides an detailed introduction to the OVA product set and is designed to help get you  up and running quickly. 
+For detailed support on specific areas of interest, please refer to the "Recommended Reading" material or product specific guides as listed in the left-hand navigation.</p>
+<h2>Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#test">Testing Your Ad Tags</a></li>
+<li><a href="#ova-for-jw5">Running OVA with JW Player 5</a></li>
+<li><a href="#ova-for-flowplayer">Running OVA with Flowplayer</a></li>
+<li><a href="#ova-for-as3">Using OVA as a Framework</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li>Getting started with - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">OVA for JW5</a>, <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">OVA for Flowplayer</a> or <a href="/support/open-video-ads/ova-for-as3/13063/getting-started">OVA for AS3</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/25373/examples">The OVA Examples</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13050/supported-ad-servers">Supported Ad Servers</a></li>
+</ul>
+<h2>Stay Up To Date</h2>
+<p>The OVA team uses a number of mechanisms to help keep everyone abreast of the latest developments:</p>
+<ul>
+<li>Twitter - follow us <a href="http://www.twitter.com/openvideoads">@openvideoads</a></li>
+<li>Forums - Follow and share in the discussions on the <a href="/support/forums/open-video-ads">OVA Forums</a></li>
+<li>Developer Site - Join the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a> and gain access to the most recent news and release candidates</a>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+<p><b>Open Video Ads</b> (OVA) is the leading open source solution driving the delivery of IAB VAST/VPAID compliant video advertising. It is capable of delivering 
+pre/mid/post-roll non-interactive (video) linear ad streams, interactive (VPAID) linear ads, non-interactive (e.g. image/text/swf) or interactive (VPAID) overlays, and companions. 
+<em>For an illustration of each of these ad types, please refer to the <a href="/support/open-video-ads/22820/supported-ad-formats">Supported Ad Formats</a> guide</em>.</p>
+<p>OVA provides two distinct sets of technology to deliver video advertising:</p>
+<ul>
+	<li>A series of pre-built player specific <b>plugins</b> that turn either the JW Player or Flowplayer into an IAB video ad compliant player.</li>
+	<li>An AS3 <b>framework</b> that can be used to turn any Flash based player into a IAB video ad compliant player.</li>
+</ul>
+<p>To run OVA on your site, you must have the following:</p>
+<ul>
+	<li>A Flash based video player</li>
+	<li>Either of the pre-built OVA player specific plugins, or the <a href="/support/open-video-ads/ova-for-as3">OVA for AS3</a> framework integrated with your own custom player</li>
+	<li>An IAB VAST compliant ad tag or ad server</li>
+</ul>
+<p>Please note that an <strong>HTML5 version of OVA</strong>, including the player plugins and the OVA framework, is in development. Please contact <a href="mailto:enquiries@openvideoads.org">enquiries@openvideoads.org</a> for more information on this exciting new development.</p>
+<h2><a name="test"></a>2. Testing your Ad Tags</h2>
+<p>To run OVA you must first have a valid VAST ad tag. A VAST ad tag is either a static URL that is provided by an ad provider or a dynamic URL that is 
+generated by OVA based upon a network address of an ad server that you host and run yourself (such as OpenX).</p>
+<p>The following code snippet illustrates a few example ad tags:</p>
+<pre class="prettyprint">
+http://track.adform.net/serving/videoad/?bn=45xxxx9&ord=1319031161332
+
+http://ad.afy11.net/ad?enc=4&asId=100000437xxxx&sf=0&ct=256
+
+http://ad.doubleclick.net/pfadx/N270.126913.6102xxxxx/B3876671.21;dcadv=2215309;sz=0x0;ord=__timestamp__;dcmt=text/xml
+
+http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=228&LR_SCHEMA=vast2
+</pre>
+<p>An ad tag returns a VAST response. A VAST response is a <i>Video Ad Server Template</i> built with an XML data structure that provides OVA with the details on the video ad 
+creatives to be played back or displayed. For more information on VAST, please refer to the <a href="/support/open-video-ads/23120/what-is-vast">What is VAST</a> guide.</p>
+<p>You can quickly test your ad tags with the OVA <b>Ad Tag Validators</b>. To test your ad tag, just load up the appropriate OVA Ad Tag Validator click 
+(<a href="/support/open-video-ads/22822/ova-for-jw5-tag-validator">here</a> for the OVA for JW5 based player, 
+or <a href="/support/open-video-ads/22822/ova-for-flowplayer-tag-validator">here</a> for the Flowplayer version) and enter your ad tag. If it is a valid VAST ad tag, the 
+ad will appear in the player.  For further information on VAST ad providers and how OVA supports them, please refer to 
+the <a href="/support/open-video-ads/open-video-ads/13050/supported-ad-servers">Supported Ad Servers</a> guide.</p>
+
+<h2><a name="ova-for-jw5"></a>3. Running OVA With JW Player</h2>
+<p>If your site is running JW Player, to add OVA support you must use the appropriate OVA plugin for the version of JW Player that you are running:</p>
+<ul>
+	<li><a href="/support/open-video-ads/ova-for-jw-player-4/">OVA for JW Player 4</a>&nbsp;- for JW Player 4.6&nbsp;</li>
+	<li><a href="/support/open-video-ads/ova-for-jw-player-5/">OVA for JW Player 5</a>&nbsp;- for JW Player 5.7 or greater</li>
+</ul>
+<p><i>Please Note: If you are user of OVA for JW4, this has version has now been depreciated and is no longer being actively developed. If you use JW Player 4, please <a href="/order/">upgrade to latest commercial version of the JW 
+Player</a> to use OVA for JW5.</i></p>
+
+<h4>3.1 Loading the Plugin</h4>
+
+<p>The default way to use OVA for JW5 is to load the plugin from the Longtail repository via the <span style="font-family: courier new,courier,monospace;">"plugins"</span> flashvar.</p>
+<p><i>OVA for JW5</i> is a player plugin referenced by the ID "<strong>ova-jw</strong>".  
+<p>If you are using the JW Embedder to configure your player, the OVA plugin would be setup as follows:</p>
+<pre class="prettyprint">
+jwplayer("container").setup({
+     plugins: {
+          <span style="background-color: yellow;">"ova-jw": {
+              // OVA configuration goes in here
+          }</span>
+});
+</pre>
+<p>We recommend loading OVA via the JW Embedder so that when OVA completely supports HTML5 mode this same embed code will support both the HTML5 and Flash versions of the plugin. The Flash plugin is required at this time.</p>
+<p>If you are using SWFObject or OBJECT/EMBED tags to embed your player, the OVA plugin would be configured via the flashvars as follows:</p>
+<pre class="prettyprint">
+flashvars=&quot;plugins=<span style="background-color: yellow;">ova-jw</span>&quot;
+</pre>
+<p>For more detailed information regarding the configuration of plugins with JW Player please refer to the support documentation on the <a href="/support/jw-player/jw-player-for-flash-v5/10629/using-jw-player-plugins">JW Player support site</a>.</p>
+<h4>3.2 Running OVA for JW Player Locally</h4>
+<p>Alternatively you can download the OVA for JW Plugin and run it locally within your environment. To obtain the OVA for JW5 files, register on the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a> and then download the latest release from the "Download the Latest" page.</p>
+<p>To run the plugin locally, you must configure JW Player to reference the plugin file based on the host location that you have used to serve the file(s). For example, if you are using OBJECT/EMBED tags or SWFObject to configure JW Player, you may end up with a plugin configuration as follows:</p>
+<pre class="prettyprint">
+flashvars=&quot;plugins=<span style="background-color: yellow;">../../dist/ova-jw.swf</span>&quot;
+</pre>
+<p>If you are using the JW Embedder to configure your player, the OVA plugin would be setup as follows:</p>
+<pre class="prettyprint">
+jwplayer("container").setup({
+     plugins: {
+          <span style="background-color: yellow;">"../../dist/ova-jw.swf": {
+          }</span>
+});
+</pre>
+<p>It is important to identify whether or not you need to load up the OVA for JW5 HTML5 plugin when configuring your plugin to run locally. If you require access to the OVA JavaScript API, then you should configure the HTML5 version of OVA to load as follows:</p>
+<pre class="prettyprint">
+jwplayer("container").setup({
+     plugins: {
+          <span style="background-color: yellow;">"../../dist/ova-jw.js": {
+          }</span>
+});
+</pre>
+<p>Both the "<span style="font-family: courier new,courier,monospace;">ova-jw.swf</span>" and "<span style="font-family: courier new,courier,monospace;">ova-jw.js</span>" files must reside in the same location and OVA will always operate in HTML5 "hybrid" mode until the full HTML5 implementation is available.</p>
+<h4>3.3 Configuring the Plugin</h4>
+<p>There are several ways to configure the OVA plugin. In all cases the plugin is configured via a JSON based specification. If you are setting up your JW Player to run via the JW Embedder, then the OVA plugin configuration can be declared "inline" in native JSON format as follows:</p>
+<pre class="prettyprint">
+&lt;script type="text/javascript"&gt;
+jwplayer("container").setup({
+       flashplayer: "../dist/player.swf",        
+
+       playlist: [ {  file: "http://video.bitmedianetwork.com/ads/testpattern.mp4" } ],
+
+       width: 450,
+       height: 300,
+
+       plugins: {
+           <span style="background-color: yellow;">"ova-jw": {
+               "ads": {
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "position": "pre-roll",
+                           "tag": "http://adserver/the-ad-tag"
+                       }
+                   ]
+               },
+               "debug": { "levels": "fatal, config, vast_template, vpaid" }
+           } </span>
+       }
+});
+&lt;/script&gt;
+</pre>
+<p>If you are using OBJECT/EMBED tags to embed the player, you may wish to either use the "<span style="font-family: courier new,courier,monospace;">ova.json</span>" flashvar to inject your OVA configuration, or load up an external configuration file that contains the OVA config via the "<span style="font-family: courier new,courier,monospace;">config=my-external-file.xml</span>" flashvar. The following code snippet illustrates what an example external configuration file may look like:</p>
+<pre class="prettyprint">
+&lt;config&gt;
+   &lt;ova.title&gt;
+       Example OVA Configuration
+   &lt;/ova.title&gt;
+   &lt;ova.json&gt;
+       {
+           "ads": {
+                "notice": { "textStyle": "smalltext" },
+                "schedule": [
+                     {
+                         "position": "pre-roll",
+                         "tag": "http://adserver/the-ad-tag"
+                     }
+                 ]
+           },
+           "debug": { "levels": "fatal, config, vast_template, vpaid" }
+       }
+   &lt;/ova.json&gt;
+&lt;/config&gt;
+</pre>
+<p>It is also possible to configure OVA via an external configuration file with the JW Embedder. To do so specify <span style="font-family: courier new,courier,monospace;">config: '/path/to/your/config.xml'</span> in 
+your player embed code. For a detailed account of how to configure OVA for JW5, please refer to the <a href="/support/open-video-ads/ova-for-jw-player-5/22849/embedding-options">Embedding Options</a> guide.</p>
+<p>To help illustrate how to configure OVA with JW Player 5, you can find a worked example <a href="/support/open-video-ads/ova-for-jw-player-5/22848/a-simple-example">here</a>.</p>  
+<h4>3.4 Debugging your Setup</h4>
+<p>With more complex setups, it is often helpful to be able to debug your config as it runs. OVA provides a <span style="font-family: courier new,courier,monospace;">"debug"</span> option that allows you to set the "<span style="font-family: courier new,courier,monospace;">level</span>" of debug information that OVA should provide as it runs. This information is printed within the Browser's JavaScript console and can be viewed via the standard Browser JavaScript/Developer Tools console or plugins such as <a href="http://www.getfirebug.com">Firebug</a>. For a detailed account of how to debug your setup, please refer to the <a href="/support/open-video-ads/22821/debugging-ova">Debugging OVA</a> guide.</p>
+
+<h4>3.5 Obtaining the source code</h4>
+<p>The source for the <i>OVA for JW</i> plugins is available in Open Source form. It is held in a Subversion repository on the 
+<b>OVA Developer Site</b>&nbsp;(<a href="http://developer.longtailvideo.com/ova">developer.longtailvideo.com/ova</a>). 
+You must first register on the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a> to gain access to the latest binaries, source repository, release archive, ticketing/issue system and roadmap. 
+Once registered, consult the "<a href="http://developer.longtailvideo.com/ova/wiki/OvaSubversionAccess">OVA Subversion Access</a>" page for instructions on how to check-out the latest <i>OVA for JW5</i> plugin code.</p>
+
+<h2><a name="ova-for-flowplayer"></a>4. Running OVA With Flowplayer</h2>
+<h4>4.1 Introducing the Plugin</h4>
+<p>If you use Flowplayer, a single pre-built custom OVA plugin is offered. At present this is a Flash only plugin and as such, it does not support the <span style="font-family: courier new,courier,monospace;">"flowplayer().ipad()"</span> mode of operation.</p>
+<p>It is recommended that you use at least Flowplayer 3.2.6 when running OVA.</p>
+<h4>4.2 Loading the Plugin</h4>
+<p>The OVA for Flowplayer plugin is a SWF file that must be configured to run as per the standard configuration for Flowplayer plugins:</p>
+<pre class="prettyprint">flowplayer(&quot;a.example&quot;, &quot;flowplayer-3.2.6.swf&quot;, {
+    plugins: {
+        ova: {
+           <span style="background-color: yellow;">"/path/to/your/ova.swf": {</span>
+
+           // OVA plugin configuration data goes here
+        }
+    }
+});
+</pre>
+<p>The SWF is packaged with the standard OVA for Flowplayer distribution and can be found in the <span style="font-family: courier new,courier,monospace;">/dist/swf</span> directory. You can download the latest release from the latest release from the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a>. Register on the site and then download the release package from the "Download the Latest" page.</p>
+<h4>4.3 Configuring the Plugin</h4>
+<p>The <i>OVA for Flowplayer</i> plugin requires a JSON based configuration to be specified. The configuration data identifies the source and type of advertising 
+to be scheduled and delivered by OVA. The OVA plugin will not operate without the appropriate configuration data. In terms of the Flowplayer setup, the configuration data is specified within the &quot;plugins&quot; element of the standard Flowplayer JSON configuration data structure.</p>
+<p>To help illustrate how to configure OVA with Flowplayer, you can find a worked example <a href="/support/open-video-ads/ova-for-flowplayer/22862/a-simple-examplee">here</a>.</p>  
+<p>For a detailed account of how to configure the OVA for Flowplayer plugin please refer to the <a href="/support/open-video-ads/ova-for-jw-player-4/13140/getting-started ">Getting Started</a> and <a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration</a> guides. The OVA <a href="/support/open-video-ads/25373/examples">examples</a> also provide a good source of reference as they illustrate the range of configuration options available.</p>
+<h4>3.4 Debugging your Setup</h4>
+<p>With more complex setups, it is often helpful to be able to debug your config as it runs. OVA provides a "debug" option that allows you to set the "level" of information that OVA should provide as it runs. This information is printed within the Browser's JavaScript console. For a detailed account of how to debug your setup, please refer to the <a href="/support/open-video-ads/22821/debugging-ova">Debugging OVA</a> guide.</p>
+
+<h4>4.5 Obtaining the source code</h4>
+<p>The source for the <i>OVA for Flowplayer</i> plugins is available in Open Source form. It is held in a Subversion repository on the 
+<b>OVA Developer Site</b>&nbsp;(<a href="http://developer.longtailvideo.com/ova">developer.longtailvideo.com/ova</a>). 
+You must first register on the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a> to gain access to the latest binaries, source repository, release archive, ticketing/issue system and roadmap. 
+Once registered, consult the "<a href="http://developer.longtailvideo.com/ova/wiki/OvaSubversionAccess">OVA Subversion Access</a>" page for instructions on how to check-out the latest <i>OVA for Flowplayer</i> plugin code.</p>
+
+<h2><a name="ova-for-as3"></a>4. Running OVA with a Custom Player</h2>
+<p>It is possible to use OVA with your own custom Flash player.</p>
+<p>OVA provides its core framework in AS3 format (an HTML5 version is in development). You can integrate this framework directly into your custom player to facilitate the calls to a VAST compliant ad server, inclusive of the scheduling of the ad playback, and the tracking of ad progress as ads are played.</p>
+<p>To find out more on the OVA for AS3 framework, refer to the <a href="/support/open-video-ads/ova-for-as3/13063/getting-started">OVA for AS3 Getting Started</a> guide.</p>					</article>	
+
+</body>
+</html>

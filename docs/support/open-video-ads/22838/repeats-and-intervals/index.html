@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22838/repeats-and-intervals/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Repeats and Intervals | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Repeats and Intervals</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to use the "repeat" option to force ad slot repetition across the schedule.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#using">Using "repeat"</a></li>
+	<li><a href="#spacing">Spacing repeated ad slots</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23688/delivering-overlay-ads">Delivering Overlays Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25461/example-repeating-ad-slots">Repeating Ad Slots</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>OVA offers a <span style="font-family: courier new,courier,monospace;">repeat"</span> option to allow ad slot definitions to be duplicated.</p>
+
+<h2><a name="using"></a>2. Using "repeat"</h2>
+
+<p>The following example illustrates the <span style="font-family: courier new,courier,monospace;">repeat</span> option in action - three pre-rolls are played before the show stream.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+        "ads": {
+            "servers": [
+                    {
+                        "type": "OpenX",
+                        "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php",
+                        "allowAdRepetition": true
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "5",
+                        "position": "pre-roll",
+                        "repeat": 3
+                    }
+                ]
+            },
+            "debug": { "levels": "fatal, config, vast_template, playlist" }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controls": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+<br/>
+
+<p>To specify that a specific ad slot is to be repeated a number of times, add the <span style="font-family: courier new,courier,monospace;">repeat</span> option to the ad slot declaration along with a number representing the times the ad slot is to be duplicated.</p>
+
+<p><b>Note:</b> At this time, OVA for Flowplayer mid-roll positions cannot be repeated without a spacing of at least 2 seconds between each mid-roll. This means that it is mandatory to use the <span style="font-family: courier new,courier,monospace;">"interval"</span> option with OVA for Flowplayer mid-roll ad slots that use the 
+<span style="font-family: courier new,courier,monospace;">"repeat"</span> option.</p>
+
+<h2><a name="spacing"></a>3. Spacing Repeated Ad Slots</h2>
+
+<p>It is possible to schedule repeated mid-stream (overlay and mid-roll) ad slots so that the start times are automatically spaced by a specific number of seconds.</p>
+
+<p>The <span style="font-family: courier new,courier,monospace;">interval</span> ad slot option has been provided to achieve this.</p>
+
+<p>The option should be declared as follows:</p>
+
+<pre class="prettyprint">
+{ 
+   ...
+   "ads": {
+        "schedule": [
+             {
+                 "zone": "5",
+                 "position": "mid-roll",
+                 "startTime": "00:00:10",
+                 "repeat": 3,</span>
+<span style="background-color: yellow;">                 "interval": 10</span>
+             }
+        ]
+   }
+   ...
+}
+</pre>
+
+<p>The <span style="font-family: courier new,courier,monospace;">interval</span> value should always be specified as the number of <i>seconds</i> that is to be placed between each repeating instance of the ad slot.</p>					</article>	
+
+</body>
+</html>

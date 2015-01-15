@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/25469/example-custom-click-through-notice/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Example - Custom Click-Through Notice | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Example - Custom Click-Through Notice</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<p>The following example illustrates how to customise the "click through" notice:</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+            "ads": {
+                "clickSign": {
+                   "enabled": true,
+                   "verticalAlign": "center",
+                   "horizontalAlign": "center",
+                   "width": 110,
+                   "height": 32,
+                   "opacity": 0.5,
+                   "borderRadius": 20,
+                   "backgroundColor": "#000000",
+                   "style": ".smalltext { font-size:12; }",
+                   "html": "CLICK ME NOW!",
+                   "scaleRate": 0.75
+                },
+                "servers": [
+                   {
+                       "type": "OpenX",
+                       "apiAddress": "OVA_OPENX_API"
+                }
+              ],
+                "schedule": [
+                   {
+                      "zone": "5",
+                      "position": "pre-roll"
+                   }
+                ]
+            },
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->					</article>	
+
+</body>
+</html>

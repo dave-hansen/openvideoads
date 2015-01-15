@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+    <Ad id="OVA">
+        <InLine>
+            <AdSystem>Hard Coded</AdSystem>
+            <AdTitle>OVA Test Non-Linear Ad</AdTitle>
+            <Description/>
+            <Impression/>
+            <Creatives>
+                <Creative>
+                    <NonLinearAds>
+                        <NonLinear width="300" height="50" apiFramework="VPAID">
+                            <AdParameters><![CDATA[field1=A&field2=B]]></AdParameters>
+                            <StaticResource creativeType="application/x-shockwave-flash">
+                                http://static.openvideoads.org/ads/vpaid/vpaid1-countdown-example.swf
+                            </StaticResource>
+                        </NonLinear>
+                    </NonLinearAds>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>

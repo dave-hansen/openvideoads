@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/ova-for-as3/13063/getting-started/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Getting Started | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Getting Started</h1>						
+			
+			<p>This guide provides an introduction to the <b>OVA for AS3</b> framework. It overviews how to download the source code and compile it.</p>
+<h2>1. Introduction</h2>
+<p>The OVA for AS3 framework is designed to allow flash based custom player implementations to be extended to support requests for and the playback of VAST compliant video advertising.</p>
+<p>Through the integration of the framework, a custom player can make requests to VAST compliant ad servers, process the results, schedule the ads to be played, play them and track the results.</p>
+<p>Both the <a href="/support/open-video-ads/ova-for-jw-player-5">OVA for JW Player</a> and the <a href="/support/open-video-ads/ova-for-flowplayer">OVA for Flowplayer</a> plugins utilise the framework in their respective implementations. In both cases, a minimal amount of code is required by each player to achieve &#39;VAST compliance&#39;.</p>
+<p>The current incarnation of the framework remains in beta - it&#39;s a little rough and ready, but it does power both plugins so the overall functionality is operational. We&#39;re now working on cleaning up the API a little, improving overall performance and implementing a set of test harnesses. The goal however is to provide a nice, clean VAST framework for widespread use across all player implementations.</p>
+<h2><a name="download"></a>2. How to Download the Framework</h2>
+<p>The<b> OVA for AS3</b> framework is available in both compiled library (SWC) and source formats.</p>
+<p>The OVA for AS3 product is only provided in one packaged format - that format includes both the compiled library and source distribution.</p>
+<h4><a name="download-zip"></a>2.1 Download the Distribution</h4>
+<p>The source distribution can be downloaded in &quot;.tar.gz&quot; format from the OVA Developer Site (<a href="http://developer.longtailvideo.com/ova">http://developer.longtailvideo.com/ova</a>). Register on the developer site and then grab the latest OVA for AS3 package from the "Download the Latest" page.</p>
+<h4><a name="checkout-source"></a>2.2 Checkout the Distribution from Subversion</h4>
+<p>To checkout the source distribution directly from the subversion repository:</p>
+<pre>svn checkout http://anonymous@developer.longtailvideo.com/svn/trunk/ova.as3</pre>
+<h2><a name="deploy"></a>3. How to Deploy the Framework</h2>
+<p>The frame can either be used as a compiled flash library (SWC) or in it&#39;s native source format.</p>
+<h4><a name="deploying-library"></a>3.1 Deploying the Compiled Library</h4>
+<p>The compiled format comes in the form of a Flash library (<a href="http://en.wikipedia.org/wiki/Adobe_SWC_file">SWC</a>) file called &quot;<span style="font-family: courier new,courier,monospace;">ova-vast-&lt;version&gt;.swc&quot;</span>&nbsp;where <i>&lt;version&gt;</i> is the version number for the distribution. This file should not to be confused with the JW and Flowplayer OVA plugins called &quot;<i>ova.</i><b><i>swf<span class="Apple-style-span" style="font-weight: normal;">&quot;</span></i></b>.</p>
+<p>The OVA flash library is available in the source distribution package - it can be found in the &quot;<i>dist</i>&quot; directory.</p>
+<p>Both the <a href="/support/open-video-ads/ova-for-jw-player-5">OVA for JW Player</a>&nbsp;and <a href="/support/open-video-ads/ova-for-flowplayer">OVA for Flowplayer</a> products compile against the OVA for AS3 framework in pre-compiled form.</p>
+<p>The following script illustrates how to compile against the OVA library. In this example, the <i>OVA for JW</i> plugin is being built. The script assumes that the OVA for AS3&nbsp;library&nbsp;(<span style="font-family: courier new,courier,monospace;"><span style="margin: 0px; padding: 0px; vertical-align: baseline; background-color: transparent;">&quot;ova-vast-&lt;version&gt;.swc</span>&quot;)</span>has been placed in a directory called &quot;<i>libraries</i>&quot;, and <span style="font-family: courier new,courier,monospace;">$FLEXPATH</span> identifies the location of the Flex SDK.</p>
+<pre>$FLEXPATH/bin/mxmlc src/ova.as 
+     -source-path src 
+     -o dist/ova.swf 
+     -warnings=false 
+     <span style="background-color: yellow;">-library-path libraries</span> 
+     -load-externs libraries/jwplayer-5-classes.xml 
+     -use-network=false
+</pre>
+<h4><a name="deploying-source"></a>3.2 Deploying the Source Distribution</h4>
+<p>It is also possible to compiled directly against the source. To achieve this, include the source path for the OVA for AS3 distribution into the build script as follows - the following example assumes that the OVA for AS3 distribution has been placed into a directory called &quot;<i>ova-as3</i>&quot; and that the source can be found in a sub-directory &quot;<i>src</i>&quot; :</p>
+<pre>$FLEXPATH/bin/mxmlc src/ova.as 
+     -source-path src <span style="background-color: yellow;">ova-as3/src</span>
+     -o dist/ova.swf 
+     -warnings=false 
+     -library-path libraries 
+     -load-externs libraries/jwplayer-5-classes.xml 
+     -use-network=false
+</pre>
+<br />					</article>	
+
+</body>
+</html>

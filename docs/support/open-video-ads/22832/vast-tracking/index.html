@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22832/vast-tracking/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>VAST Tracking | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>VAST Tracking</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how OVA supports the standard VAST tracking mechanics.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#illustration">An illustration</a></li>
+	<li><a href="#events">Observing Tracking Events Fire</a></li>
+	<li><a href="#using">Using the Custom Account</a></li>
+	<li><a href="#google">Tracking with Google Analytics</a></li>
+	<li><a href="#tracking">Tracking via Javascript Callbacks</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="http://iab.net/vast">IAB VAST Specification</a></li>
+<li><a href="/support/open-video-ads/22830/javascript-callbacks">Callbacks from OVA to Javascript</a></li>
+<li><a href="/support/open-video-ads/22833/google-analytics">Using Google Analytics with OVA</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25476/example-javascript-callbacks">Observing Tracking Events via Javascript</a></li>
+<li><a href="/support/open-video-ads/25466/example-google-analytics-and-impressions">Impression Tracking with Google Analytics</a></li>
+<li><a href="/support/open-video-ads/25467/example-google-analytics-and-everything">Tracking Everything with Google Analytics</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>The <i>Internet Advertising Bureau</i> (IAB) defines a number of <i>tracking events</i> that must be fired as video ads are played.</p>
+
+<p>The events range from simple impressions through to progress reports on the playback state of a linear video ad and any click-through actions that are taken on the ad.</p>
+
+<p>The events that must be fired for a given video ad are all declared in the VAST response. The following code snippet illustrates the form these declarations take in a VAST 1 response
+(VAST1 and VAST2 tracking events differ - OVA supports the tracking events in all versions of the VAST standard):</p>
+
+<pre class="prettyprint">
+...
+&lt;Ad id="pre-roll:0.0-0" &gt; 
+   &lt;InLine&gt;
+       ... 
+       &lt;Impression&gt; 
+          &lt;URL id="primaryAdServer"&gt;
+              &lt;![CDATA[http://openx.openvideoads.org/...&cb=dae0493001]]&gt;
+          &lt;/URL&gt; 
+       &lt;/Impression&gt; 
+       &lt;Video&gt; 
+          &lt;VideoClicks&gt; 
+             ...
+             &lt;ClickTracking&gt; 
+                 &lt;URL id="destination"&gt;
+                     &lt;![CDATA[http://openx.openvideoads.org/...=http://www.clb.co.uk]]&gt;
+                 &lt;/URL&gt; 
+             &lt;/ClickThrough&gt; 
+          &lt;/VideoClicks&gt;
+       &lt;/Video&gt; 
+       &lt;TrackingEvents&gt; 
+           &lt;Tracking event="start"&gt; 
+              &lt;URL id="primaryAdServer"&gt;
+                   &lt;![CDATA[http://openx.openvideoads.org/...&event=start]]&gt;
+              &lt;/URL&gt;  
+           &lt;/Tracking&gt; 
+           &lt;Tracking event="firstQuartile"&gt; 
+              &lt;URL id="primaryAdServer"&gt;
+                  &lt;![CDATA[http://openx.openvideoads.org/...&event=firstquartile]]&gt;
+              &lt;/URL&gt; 
+           &lt;/Tracking&gt; 
+           ...
+           &lt;Tracking event="complete"&gt;             
+               &lt;URL id="primaryAdServer"&gt;
+                  &lt;![CDATA[http://openx.openvideoads.org/...&event=complete]]&gt;
+               &lt;/URL&gt; 
+           &lt;/Tracking&gt; 
+       &lt;/TrackingEvents&gt;
+       ...
+</pre>
+
+<p>For further information on the VAST standard, please consult the <a href="http://www.iab.net/vast">VAST specification</a> on the IAB website.</li>
+
+<h2><a name="illustration"></a>2. An illustration</h2>
+
+<p>The following example illustrates the VAST linear ad progress tracking events firing as the linear, non-interactive ad stream plays back. As each event fires, the relevant square is coloured green. This example uses the OVA for Javascript callbacks to process each event as it is fired by the OVA SWF. 
+Note: The <span style="font-family: courier new,courier,monospace;">canFireEventAPICalls:true</span> option is used in the OVA configuration below to ensure that Javascript OVA API callbacks are fired as the plugin fires the standard VAST tracking events to the ad server. 
+If you are not using the OVA Javascript API to independantly track events, then this option is not required to enable VAST tracking.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+	    "canFireEventAPICalls": true,
+	    "ads": { 
+	       "schedule": [
+	          {
+	             "position": "pre-roll",
+	             "tag": "OVA_AD_TAG_LINEAR_WITH_CLICK_TRACKING"
+	          }
+	       ]
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<script type="text/javascript">
+function ovaPrintDebug(output) {
+	try {
+   		console.log(output);
+  	}
+  	catch(error) {}
+}
+
+function onImpressionEvent(event, forced) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-impression").css("background", "#9ACD32");
+   }
+}
+
+function onTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-" + event.eventType).css("background", "#9ACD32");
+   }
+}
+
+function onClickTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-click").css("background", "#9ACD32");
+   }
+}
+</script>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-output" style="margin-left:20px;margin-bottom:10px;height:300px;width:610px;">
+		<div id="ova-example-player" style="position:relative;height:100%;width:450px;float:left">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+        <div id="ova-event-status-blocks" style="width:150px;height:300px;background:#FFFFFF;float:right;">
+        	<div id="ova-impression" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;margin-top:2px;font-size:10px;padding-top:8px;text-align:center;">IMPRESSION</div>
+        	<div id="ova-tracking-start" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">START</div>
+        	<div id="ova-tracking-firstQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">1ST QUARTILE</div>
+        	<div id="ova-tracking-midpoint" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MIDPOINT</div>
+        	<div id="ova-tracking-thirdQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">3RD QUARTILE</div>
+        	<div id="ova-tracking-complete" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">COMPLETE</div>
+        	<div id="ova-tracking-click" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">CLICK</div>
+        	<div id="ova-tracking-mute" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MUTE</div>
+        </div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="events"></a>3. Observing Tracking Events Fire</h2>
+
+<p>The easiest way to observe OVA fire the various VAST tracking events as the ad plays is to turn up the OVA debug level to include 
+<span style="font-family: courier new,courier,monospace;">"http_calls"</span> and monitor the debug output on the Browser Javascript console:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "debug": { "levels": "vast_template, <span style="background-color: yellow;">http_calls</span>" }
+}
+</pre>
+
+<p>For example, a linear non-interactive pre-roll will fire the following debug events with the <span style="font-family: courier new,courier,monospace;">"http_calls"</span> 
+level enabled:</p>
+
+<pre class="prettyprint">
+11:52:51 GMT+0000 Impression: Making HTTP call to http://openx.openvideoads.org/...bannerid=23&campaignid=4&zoneid=5&loc=1&cb=9cf1d0abb0
+11:52:51 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=start
+11:52:54 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=mute
+11:52:58 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=firstquartile
+11:53:05 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=midpoint
+11:53:13 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=thirdquartile
+11:53:20 GMT+0000 NetworkResource: Making HTTP call to http://openx.openvideoads.org/....&banner_id=23&zone_id=5&vast_event=complete
+</pre>
+
+<p>These calls all map to the tracking event tags specified in the VAST response used by that example:</p>
+
+<pre class="prettyprint">
+&lt;TrackingEvents&gt; 
+    &lt;Tracking event="start"&gt; 
+          &lt;URL id="primaryAdServer"&gt;
+               &lt;![CDATA[http://openx.openvideoads.org/...event=start]]&gt;
+          &lt;/URL&gt;  
+    &lt;/Tracking&gt;
+    &lt;Tracking event="firstQuartile"&gt; 
+          &lt;URL id="primaryAdServer"&gt;
+               &lt;![CDATA[http://openx.openvideoads.org/...event=firstquartile]]&gt;
+          &lt;/URL&gt; 
+    &lt;/Tracking&gt; 
+    &lt;Tracking event="midpoint"&gt; 
+          &lt;URL id="primaryAdServer"&gt;
+               &lt;![CDATA[http://openx.openvideoads.org/...event=midpoint]]&gt;
+          &lt;/URL&gt; 
+    &lt;/Tracking&gt; 
+    &lt;Tracking event="thirdQuartile"&gt;
+          &lt;URL id="primaryAdServer"&gt;
+               &lt;![CDATA[http://openx.openvideoads.org/...event=thirdquartile]]&gt;
+          &lt;/URL&gt; 
+    &lt;/Tracking&gt; 
+    &lt;Tracking event="complete"&gt;  
+          &lt;URL id="primaryAdServer"&gt;
+               &lt;![CDATA[http://openx.openvideoads.org/...event=complete]]&gt;
+          &lt;/URL&gt; 
+    &lt;/Tracking&gt; 
+&lt;/TrackingEvents&gt;
+</pre>
+
+<h2><a name="using"></a>4. Using the Custom Account</h2>
+
+<h2><a name="google"></a>5. Tracking with Google Analytics</h2>
+
+<p>It is possible to configure OVA to fire tracking events to Google Analytics as it processes the events as part of the standard VAST tracking mechanic.</p> 
+
+<p>For example, the following configuration sets up OVA to track the linear video progress events to Google Analytics:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                       "accountId": "UA-10158122-2",
+                       "progress": {
+                            "enable": true,
+                            "start": "/ova-example/progress/start",
+                            "firstQuartile": "/ova-example/progress/firstQuartile",
+                            "midpoint": "/ova-example/progress/midpoint",
+                            "thirdQuartile": "/ova-example/progress/thirdQuartile",
+                            "complete": "/ova-example/progress/complete",
+                            "pause": "/ova-example/progress/pause",
+                            "resume": "/ova-example/progress/resume",
+                            "fullscreen": "/ova-example/progress/fullscreen",
+                            "mute": "/ova-example/progress/mute",
+                            "unmute": "/ova-example/progress/unmute",
+                            "expand": "/ova-example/progress/expand",
+                            "collapse": "/ova-example/progress/collapse",
+                            "acceptInvitation": "/ova-example/progress/acceptInvitation",
+                            "close": "/ova-example/progress/close"
+                       }
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>VPAID ad playback states can also be tracked, along with companion ad display states, non-linear ad display states, ad call states and template load success/failed/failover states.</p>
+
+<p>For further information on how to use Google Analytics with OVA, please consult the <a href="/support/open-video-ads/22833/google-analytics">OVA and Google Analytics</a> guide.</p>
+
+<h2><a name="tracking"></a>6. Tracking via Javascript Callbacks</h2>
+
+<p>As OVA fires tracking events, it can also optionally fire Javascript callbacks.</p>
+
+<p>These callbacks cover all events from starting/stopping the player through to the status of the OVA ads as they play. For example, 
+linear ads are capable of firing the following Javascript callbacks as they playback. To turn on these callbacks, the <span style="font-family: courier new,courier,monospace;">canFireEventAPICalls:true</span> 
+option must be set.</p>
+
+<pre class="prettyprint">
+onImpressionEvent(event, forced)
+onTrackingEvent(event)
+onClickTrackingEvent(event)
+onCustomClickTrackingEvent(event)
+</pre>
+
+<p>For further information on the OVA Javascript API, please consult the <a href="/support/open-video-ads/22829/the-ova-javascript-api">Javascript Callback</a> guide.</p>					</article>	
+
+</body>
+</html>

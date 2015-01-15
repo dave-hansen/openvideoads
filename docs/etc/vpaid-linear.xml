@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VAST version="2.0">
+    <Ad id="Adotube">
+        <InLine>
+            <AdSystem>Innovid</AdSystem>
+            <AdTitle>Innovid VAST Video Ad</AdTitle>
+            <Description></Description>
+            <Impression/>
+            <Creatives>
+                <Creative>
+                    <Linear>
+                    	<Duration>00:00:30</Duration>
+                    	<VideoClicks>
+                    		<ClickThrough/>
+                    	</VideoClicks>
+                    	<MediaFiles>
+                    		<MediaFile delivery="progressive" width="300" height="250" type="APPLICATION/X-SHOCKWAVE-FLASH" apiFramework="VPAID">
+                    		     <![CDATA[http://cdn.innovid.com/iroll/package/iab-vpaid/1hk28j.swf]]>
+                    		</MediaFile>
+                    	</MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>

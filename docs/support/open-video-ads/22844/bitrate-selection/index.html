@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22844/bitrate-selection/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Bitrate Selection | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Bitrate Selection</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>OVA is capable of selecting a specific bit-rated media file from a VAST response for playback. This short guide describes how to configure 
+OVA using the <span style="font-family: courier new,courier,monospace;">"bitrate"</span> settings.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#configuring">Configuring the Required Bitrate</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li>
+<li>OVA for JW Player 5 - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25486/example-linear-selection-by-bitrate">Linear Ad Selection By Bitrate</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>Ad providers sometimes provide a range of bit-rated media files for linear ads.</p>
+
+<p>For example, as illustrated by the following VAST response segment, an ad provider may provide a <span style="font-family: courier new,courier,monospace;">"low"</span>, 
+<span style="font-family: courier new,courier,monospace;">"medium"</span> and <span style="font-family: courier new,courier,monospace;">"high"</span> bit-rate source 
+for a specific MP4 linear ad.</p>
+
+<pre class="prettyprint">
+&lt;MediaFiles&gt;
+   &lt;MediaFile delivery="progressive" <span style="background-color: yellow;">bitrate</span>="256" type="video/x-flv"&gt;
+      &lt;![CDATA[ http://cdn.liverail.com/adasset/229/7969/lo.flv ]]&gt;
+   &lt;/MediaFile&gt;
+   &lt;MediaFile delivery="progressive" <span style="background-color: yellow;">bitrate</span>="512" type="video/x-flv"&gt;
+      &lt;![CDATA[ http://cdn.liverail.com/adasset/229/7969/me.flv ]]&gt;
+   &lt;/MediaFile&gt;
+   &lt;MediaFile delivery="progressive" <span style="background-color: yellow;">bitrate</span>="1024" type="video/x-flv"&gt;
+      &lt;![CDATA[ http://cdn.liverail.com/adasset/229/7969/hi.flv ]]&gt;
+   &lt;/MediaFile&gt;
+&lt;/MediaFiles&gt;
+</pre>
+
+<p>By default, OVA will select the first media file from the set specified in a VAST response. If a specific bit-rate is required, OVA supports a mechanism to allow the bit-rate level to be defined in the OVA configuration data.</p>
+
+<h2><a name="configuring"></a>2. Configuring the Required Bitrate</h2>
+
+<p>The following code snippet illustrates how to pre-define a required bit-rate level for linear ad media.</p>
+
+<pre class="prettyprint">
+{
+    ...
+          "ads": {
+              <span style="background-color: yellow;">"bitrate": "medium",</span> 
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "http://my-ad-provider.com/adserver/tag"
+                  }
+              ]
+         }
+   ...
+}
+</pre>
+
+<p>In this particular example, a "<span style="font-family: courier new,courier,monospace;">medium"</span> bit rate is specified. As a result OVA will order the media types by 
+bit-rate and return one of the media types that is around the middle of the set.</p>
+
+<p>Valid values for the <span style="font-family: courier new,courier,monospace;">"bitrate"</span> option are:</p>
+<ul>
+<li>A numerical range (e.g. 500-700)</li>
+<li>Low</li>
+<li>Medium</li>
+<li>High</li>
+</ul>					</article>	
+
+</body>
+</html>

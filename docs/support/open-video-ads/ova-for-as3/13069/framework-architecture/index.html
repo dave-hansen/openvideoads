@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/ova-for-as3/13069/framework-architecture/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Framework Architecture | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Framework Architecture</h1>						
+			
+			<p>The OVA for AS3 is a set of Actionscript 3 classes that:</p>
+<ul>
+	<li>Control calls to a VAST compliant ad server to request and retrieve any number of VAST compliant video ads</li>
+	<li>Manage the process of tracking timing events as ads play, triggering the appropriate action at the required time</li>
+	<li>Translation of a VAST ad request into an appropriate playlist format that can be loaded into a player and played Facilitate the display and processing of overlay, non-overlay, companion ads and ad notices.</li>
+</ul>
+<p>The framework is housed under the package:</p>
+<pre>org.openvideoads.vast.*</pre>
+<p>The following diagram illustrates the package structure of the framework:</p>
+<p><img alt="AS3 Framework Architecture" src="http://static.openvideoads.org/downloads/images/longtailvideo.com/vast-framework-architecture.png" style="width: 345px; height: 550px;" /></p>
+<p>There are 8 key packages that work together to request, parse and manipulate a VAST response from a VAST complaint ad server:</p>
+<ul>
+	<li><b>Configuration</b></li>
+	<li><b>Events</b></li>
+	<li>The VAST <b>model</b></li>
+	<li>Ad &amp; Stream <b>Scheduling</b></li>
+	<li>Ad <b>Tracking</b></li>
+	<li><b>Playlist</b> management</li>
+	<li>Ad <b>Server</b> control</li>
+	<li><b>Overlay</b> management</li>
+</ul>
+<p>These packages in turn rely on a number of support packages that provide more generic functionality:</p>
+<ul>
+	<li>A set of <b>base</b> classes</li>
+	<li>A set of <b>utility</b> classes</li>
+	<li>The <b>Regions</b> framework (used by the overlay classes)</li>
+</ul>
+<p>In general access to the framework is controlled through a centralised class known as the &#39;<span style="font-family: courier new,courier,monospace;">VASTController</span>&#39;.</p>
+<h2>1. Configuration</h2>
+<p>The Configuration package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config</span>) contains a series of classes that define the way configuration information is passed around the framework.</p>
+<p>There is 1 core class in the package <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config.Config</span> through which all elements of the framework configuration are controlled. Broadly speaking, the configuration information is broken into 4 key groupings:</p>
+<ol>
+	<li>Ad specific configuration information</li>
+	<li>Show oriented configuration</li>
+	<li>Debug configuration</li>
+	<li>Overlay configuration</li>
+</ol>
+<p>Ad notices and the click through sign shown when a user mouses over a linear video ad with a click through defined can also be configured via this package.</p>
+<p>For a detailed guide on the configuration parameters permitted by the framework, review the <a href="/support/open-video-ads/13048/ova-configuration-guide ">OVA Configuration Guide.</a></p>
+<h2>2. Events</h2>
+<p>A custom player implementation receives notifications of state changes in the framework via the Actionscript Events model. The VAST events package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.events</span>) implements the different types of events that a custom player may listen for and process. These include:</p>
+<ul>
+	<li>Linear ad play events</li>
+	<li>Non-linear scheduling and display related events</li>
+	<li>Ad Tracking events</li>
+	<li>Ad notice events</li>
+	<li>Stream scheduling events</li>
+	<li>Control bar events</li>
+	<li>VAST data load events</li>
+	<li>Companion events</li>
+</ul>
+<p>The bulk of the activity required when integrating the VAST framework with a custom player centers around the definition of the appropriate event listeners.</p>
+<h2>3. The VAST Model Package</h2>
+<p>The Model (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.model</span>) package contains a series of classes that define the VAST data model. The VAST data returned by the VAST complaint ad server is parsed and a traversable model of the ad(s) is formed. This package forms the heart of the VAST framework:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">VideoAdServingTemplate</span> - the controller class that coordinates calls to and parsing of responses back from VAST compliant ad servers</li>
+	<li><span style="font-family: courier new,courier,monospace;">VideoAd</span> - The high level grouping object that represents one video ad to play at some point within a stream. The grouping may contain a linear video ad and an associated companion ad(s), or a non-linear ad (e.g. overlay), optional associated linear ad (triggered when the overlay is clicked) and associated companion ad(s)
+		<ul>
+			<li><span style="font-family: courier new,courier,monospace;">TrackedVideoAd</span> - an individual video ad element that is to be tracked as it plays - there are three types of tracked video ad:
+				<ul>
+					<li><span style="font-family: courier new,courier,monospace;">LinearVideoAd</span> - represents the notion of a linear video ad (which is a TrackedVideoAd)
+						<ul>
+							<li><span style="font-family: courier new,courier,monospace;">MediaFile</span> - encapsulates the definition of the &quot;media file&quot; that is to be played as the linear video ad</li>
+						</ul>
+					</li>
+					<li><span style="font-family: courier new,courier,monospace;">CompanionAd</span> - defines an associated display ad that is to be shown outside of the player (on the web page) as a linear or non-linear ad is played</li>
+					<li><span style="font-family: courier new,courier,monospace;">NonLinearVideoAd</span> - encapsulates the notion of an overlay style (non-linear) video ad (that is also of type TrackedVideoAd)</li>
+				</ul>
+			</li>
+			<li><span style="font-family: courier new,courier,monospace;">TemplateLoadListener</span> - the interface that must be implemented by a player to be notified when the VAST data has been loaded or a failure to load has occurred</li>
+		</ul>
+	</li>
+</ul>
+<p>In general a custom player implementation will not have to explicitly access and manipulate this model. Instead most of the work centers around the manipulation of Ad Slots and Streams that are scheduled as a result of parsing this model and the definition of the show streams that the player is to play.</p>
+<h2>4. The Ad &amp; Stream Schedule Package</h2>
+<p>When an ad schedule is declared it results in a sequence of ad slots being defined and sequenced. That sequence of ad slots is then spliced together with a sequence of show streams to play to form a list of streams (shows and ads) that are to be played. The schedule package (org.openvideoads.vast.schedule) provides the classes to manage streams, ad slots and sequences of both:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">StreamConfig</span> - The configuration controller for a stream. Covers the storage and manipulation of the stream filename, location and where appropriate, the netconnection URL. Also covers properties such as the duration of the stream, the start time and whether or not it is only to be played once</li>
+	<li><span style="font-family: courier new,courier,monospace;">StreamSequence</span> - a sequence of streams that are to run in order from position 0 to the last position. May hold either standard show streams or ad slots Stream - The base class that encapulates a video stream that is to be played Ad specific stream classes:
+		<ul>
+			<li><span style="font-family: courier new,courier,monospace;">AdSlot</span> - a specific type of stream that holds a VAST compliant video ad</li>
+			<li><span style="font-family: courier new,courier,monospace;">AdSequence</span> - a sequence of ad slots that are to be played in the order stored. Equates to the &quot;ad schedule&quot; that is declared in the player configuration</li>
+		</ul>
+	</li>
+</ul>
+<h2>5. The Ad Tracking Package</h2>
+<p>The play progress of a VAST ad is tracked via the tracking package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.tracking</span>). The tracking data is reported to the VAST compliant ad server according to the tracking URLs that it provides.</p>
+<p>The following events are tracked by the framework:</p>
+<ul>
+	<li>The start and end of a linear video ad</li>
+	<li>Progression part the 1st, midpoint and third quartile of a linear video ad</li>
+	<li>Impressions are served for linear and non-linear video ads</li>
+	<li>User controlled actions such as mute, fullscreen and pause</li>
+</ul>
+<p>The tracking package provides a series of classes that help manage the way these events are identified and tracked as the streams are played by the player.</p>
+<ul>
+	<li>The <span style="font-family: courier new,courier,monospace;">TrackingTable</span> holds a series of registered <span style="font-family: courier new,courier,monospace;">TrackingPoint(s)</span> which are scheduled to occur as the stream plays</li>
+	<li>A TrackingPoint is a particular point in time that is held in the tracking table to identify a specific type of event which is expected to occur at that time (e.g. the time at which a video passes the 1st quartile point)</li>
+	<li>The <span style="font-family: courier new,courier,monospace;">TrackingPointListener</span> is the interface to be implemented by the player where the player supports a mechanism to record tracking points and fire them at specific times (e.g. the cuepoint API in Flowplayer)</li>
+	<li>A <span style="font-family: courier new,courier,monospace;">TimeEvent</span> occurs at a specific point in time and is passed into the <span style="font-family: courier new,courier,monospace;">TrackingTable</span> to determine if there is a TrackingEvent? scheduled to occur at that point in time</li>
+</ul>
+<h2>6. The Playlist Management Package</h2>
+<p>Ultimately the framework attempts to convert a VAST ad response into a viable playlist that can be loaded into the player.</p>
+<p>The Playlist Management Package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.playlist</span>) provides a series of classes that control the construction and manipulation of playlists. These classes include:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">Playlist</span> - the interface for all Playlist type instances. The framework generates the following playlist types:
+		<ul>
+			<li><span style="font-family: courier new,courier,monospace;">MediaRSSPlaylist</span></li>
+			<li><span style="font-family: courier new,courier,monospace;">XSPFPlaylist</span></li>
+			<li><span style="font-family: courier new,courier,monospace;">RSSPlaylist</span></li>
+			<li><span style="font-family: courier new,courier,monospace;">SMILPlaylist</span></li>
+			<li><span style="font-family: courier new,courier,monospace;">XMLPlaylist</span></li>
+		</ul>
+	</li>
+	<li><span style="font-family: courier new,courier,monospace;">PlaylistController</span> - the key controller class that manages the process of constructing a playlist of a specified type given a <span style="font-family: courier new,courier,monospace;">StreamSequence</span></li>
+</ul>
+<h2>7. The Ad Server Control Package</h2>
+<p>The Server Control Package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.server</span>) provides the classes needed to make requests to a VAST compliant ad server.</p>
+<p>A factory class <span style="font-family: courier new,courier,monospace;">AdServerRequestFactory</span> is provided to facilitate the construction of a specific ad server&nbsp;instance.</p>
+<p>A specific ad server request instance requires an instance of the <span style="font-family: courier new,courier,monospace;">AdServerConfig</span> class when initialising to ensure that the appropriate URLs and settings can be applied when the calls are made to the ad server.</p>
+<h2>8. The Overlay Management Package</h2>
+<p>The framework supports the triggering and display of overlay (non-linear) advertising while a show stream is in play. The Overlay Management package (<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.overlay</span>) provides the classes necessary to monitor stream progress to display and hide overlays as required.</p>
+<p>The overlay classes make use of the generic Regions framework (<span style="font-family: courier new,courier,monospace;">org.openvideoads.regions</span>) to display the overlay content on the player stage.</p>
+					</article>	
+
+</body>
+</html>

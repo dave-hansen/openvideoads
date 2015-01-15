@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/ova-for-jw-player-5/22856/working-with-live-streams/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Working with Live Streams | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Working with Live Streams</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to use OVA with live streams.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#running">Running pre-rolls</a></li>
+        <li><a href="#supporting">Supporting mid-rolls</a></li>
+	<li><a href="#overlays">Supporting overlays</a></li>	
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/13047/getting-started.">Getting started with OVA for JW5</a></li>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-jw-player-5/22859/a-simple-example">A Simple Example</a></li>
+<li>OVA for JW5 - <a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>Running OVA with live streams generally requires some slightly more complex configuration options to be applied. This guide explores the delivery of three types of advertising with live streams:</p>
+<ul>
+<li>Pre and Post-rolls</li>
+<li>Mid-rolls</li>
+<li>Overlays</li>
+</ul>
+<h2><a name="running"></a>2. Running Pre-rolls</h2>
+
+<p>Pre-rolls are the easiest form of advertising to run with live streams - basically they start and finish before the live stream plays.</p>
+
+<p>There is no change to the OVA config for pre-rolls with live streams. For example, the following config would work:</p>
+
+<pre class="prettyprint">
+jwplayer("container").setup({
+       flashplayer: "player.swf",
+       height: 254,
+       width: 320 
+       streamer: "rtmp://server/streamer",
+       file: "my-live-stream"
+       plugins: {
+           "ova-jw": { "tag": "http://my-ad-server.com/ad-tag.php?format=vast" } 
+       }
+});
+</pre>
+
+<h2><a name="supporting"></a>3. Supporting Mid-rolls</h2>
+
+<p>Running mid-rolls with live streams is a little more complex.</p>
+
+<p>Typically OVA supports mid-rolls by <i>slicing</i> up a show stream into several <i>parts</i> relative to the mid-roll - the part before the mid-roll, the mid-roll ad and then the part following the mid-roll.</p>
+
+<p>Normally after the mid-roll has played, OVA will attempt to seek forward in the part following the mid-roll so that the show resumes at the point at which the mid-roll started.</p>
+
+<p>For live streams, OVA doesn't need to seek forward.</p>
+
+<p>To instruct OVA to not seek post playing a mid-roll ad, the <span style="font-family: courier new,courier,monospace;">postMidRollSeekPosition</span> option should be used as follows:</p>
+
+<pre class="prettyprint">
+&lt;script type="text/javascript">jwplayer("container").setup({&gt;
+       flashplayer: "player.swf", 
+
+       width: 450,
+       height: 300,
+
+       'controlbar.position':'bottom',
+
+       file: 'mylivestream',
+       streamer: 'rtmp://myserver/mystreams',
+       duration: 60,
+
+       plugins: {
+           "ova-jw": { 
+               "ads": {
+                   <span style="background-color: yellow;">"postMidRollSeekPosition": 0,</span>
+                   "schedule": [
+                       {
+                           "zone": "5",
+                           "position": "mid-roll",
+                           "startTime": "00:00:10",
+                           "tag": "http://ad.server.com/the-ad-tag"
+                       }
+                   ]
+               },
+               "debug": {
+                  "levels": "fatal, config, vast_template"
+               }
+           }
+       }
+});
+&lt;/script&gt;
+</pre>
+
+<h2><a name="overlays"></a>4. Supporting Overlays</h2>
+
+<p>To support overlays on live streams in JW Player 5, the <span style="font-family: courier new,courier,monospace;">streamTimer</span> configuration option is required. 
+This option allows a <i>timer</i> to be started when the live stream starts to play. The timer generates time events every 10th of a second (by default) - these 
+timing events are critical for OVA to receive so that it knows when to start playing the overlay. JW Player 5 does not generate these timing events on live 
+streams by default.</p>
+
+<p>The following code snippet illustrates how to use the <span style="font-family: courier new,courier,monospace;">streamTimer</span> option:</p>
+
+<pre class="prettyprint">
+{
+     <span style="background-color: yellow;">"shows": {
+          "streamTimer": { "enabled": true, "tickRate": 100 }
+     },</span>
+            
+     "ads": {
+        "schedule": [
+              {
+                  "position": "center:auto",
+                  "startTime": "00:00:02",
+                  "duration": 10,
+                  "width": 450,
+                  "height": 50,
+                  "tag": "http://my-ad-server.com/ad-tag.php?format=vast"
+              }
+         ]
+    }
+}
+</pre>					</article>	
+
+</body>
+</html>

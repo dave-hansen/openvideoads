@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23120/what-is-vast/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>What is VAST? | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>What is VAST?</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Contents</h2>
+<p>This short guide overviews the VAST standard as defined by the IAB.</p> 
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#vast">The Vast Response</a></li>
+</ol>
+
+<h2>Other Reading</h2>
+<ul>
+<li><a href="http://www.iab.net/vast">IAB VAST Documentation</a>
+<li><a href="http://www.iab.net/iab_products_and_industry_services/508676/digitalvideo/vast/vast_xml_samples">IAB VAST Samples</a>
+<li><a href="http://www.iab.net/vpaid">IAB VPAID Documentation</a>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting started with OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting started with OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/ova-for-as3/13063/getting-started">Getting started with OVA for AS3</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">Configuration Guide</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+<p>The <a href="http://www.iab.net"> Interactive Advertising Bureau </a>(IAB) has released a specification known as the Digital <i>Video Ad Serving Template</i> (VAST) to standardize the communication requirements between video players and the ad servers.</p>
+
+<p>To date, the VAST standard has been released in four versions - 1.0, 1.1 and 2.0 and 2.0.1. Open Video Ads supports all four versions of the standard. This short guide provides an introduction to the OVA product set and is designed to help get you up and running quickly. For detailed coverage of specific areas of interest, please refer to the <i>Recommended Reading</i> material or product specific guides as outline in the left hand navigation.</p>
+
+<h2><a name="vast"></a>2. The VAST Response</h2>
+<p>To deliver a video ad within a video player, the video player makes an ad request using an <i>Ad Tag</i> to a VAST compliant ad server.</p>
+
+<p>An ad tag is a simple HTTP based URL that typically appears as follows:</p>
+
+<pre class="prettyprint">
+http://ad3.liverail.com/?LR_PUBLISHER_ID=1xxx1&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2
+</pre>
+
+
+<p>In response, the ad server returns a VAST data structure. A VAST data structure is an XML template that declares the following:</p>
+<ul>
+<li>The ad creatives to play</li>
+<li>How they should be played</li>
+<li>What to track as they play</li>
+</ul>
+<p>For example, the ad tag above returns the following VAST data structure (click on this <a href="http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2" target="_blank">link</a> to view the full template). The response is a VAST 2.0 response:</p>
+
+<pre class="prettyprint">
+&lt;VAST version="2.0"&gt;
+   &lt;Ad id="2291331"&gt;
+      &lt;InLine&gt;
+         &lt;AdSystem version="4.3.0-7"&gt;LiveRail&lt;/AdSystem&gt;
+         &lt;AdTitle&gt;&lt;/AdTitle&gt;
+         &lt;Description&gt;&lt;/Description&gt;
+         &lt;Impression id="LR"&gt;&lt;/Impression&gt;
+         &lt;Creatives&gt;
+            &lt;Creative sequence="1" id="7969"&gt;
+               &lt;Linear&gt;
+                  &lt;Duration&gt;00:00:10&lt;/Duration&gt;
+                  &lt;TrackingEvents&gt;
+                      &lt;Tracking event="firstQuartile"&gt;&lt;/Tracking&gt;
+                      &lt;Tracking event="midpoint"&gt;&lt;/Tracking&gt;
+                      &lt;Tracking event="resume"&gt;&lt;/Tracking&gt;
+                      &lt;Tracking event="fullscreen"&gt;
+                      ......
+&lt;/VAST&gt;
+</pre>
+
+<p>For further information on the structure of a VAST response, please refer to the IAB <a href="http://www.iab.net/vast">VAST specification</a> available on the <a href="http://www.iab.net/vast">IAB website.</a>
+</p>
+</ul>					</article>	
+
+</body>
+</html>

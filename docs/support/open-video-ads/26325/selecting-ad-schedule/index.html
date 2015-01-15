@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/26325/selecting-ad-schedule/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Selecting Ad Schedule | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Selecting Ad Schedule</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to use the <span style="font-family: courier new,courier,monospace;">"applyToParts"</span> option to selectively apply ad slots across a playlist.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Worked Example</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23688/delivering-overlay-ads">Delivering Overlays Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25463/example-selective-application">Selective Application of Ad Slots</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA is introducing a number of options that allow various "rules" to be applied during ad scheduling. These rules impact the way ad slots are applied across a playlist. The <span style="font-family: courier new,courier,monospace;">"applyToParts"</span> rule is the first option that is available.</p>
+
+<p>The <span style="font-family: courier new,courier,monospace;">"applyToParts"</span> rule can be used to identify the specific clips in a playlist (by index) that will have a particular ad slot "applied to" it. For example, if there is a playlist with four items in it and pre-rolls are only to be applied to the first and last items in the playlist, <span style="font-family: courier new,courier,monospace;">"applyToParts"</span> would used with the pre-roll ad slot declaration as follows:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"applyToParts": [0, 3]</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<p><span style="font-family: courier new,courier,monospace;">"applyToParts"</span> takes a list of playlist index numbers as the value. Playlist items are numbered 0 through to the length of the playlist minus 1, so a four item playlist would have clips as index 0, 1, 2 and 3. As a result, in our example above, the "pre-roll" ad slot is declared as being "applied to" playlist clips at index 0 and 3 (the first and last clips).</p>
+
+<p><span style="font-family: courier new,courier,monospace;">"applyToParts"</span> can be used across all ad slot types. For example, if pre-rolls were to be played on the first and last clips in a four clip playlist, and overlays on the second clip in a playlist and a mid-roll on the third clip in the playlist, the following config would be used:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"applyToParts": [0, 3]</span>
+              },
+              {
+                  "position": "auto:bottom",
+                  "startTime": "00:00:10",
+                  <span style="background-color: yellow;">"applyToParts": [1]</span>
+              },
+              {
+                  "position": "mid-roll",
+                  "startTime": "00:00:30",
+                  <span style="background-color: yellow;">"applyToParts": [2]</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<p>It is also possible to have multiple ad slots applied to the same clip. For example, the following config results in pre and post-rolls being applied to the second clip in a playlist:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"applyToParts": [1]</span>
+              },
+              {
+                  "position": "post-roll",
+                  <span style="background-color: yellow;">"applyToParts": [1]</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<h2><a name="example"></a>2. Worked Example</h2>
+
+<p>The following example illustrates how to selectively apply ad slots across a playlist. The pre-roll ad slot will be played on the first, third and sixth clips in the playlist:</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "ads": {
+               "servers": [
+                   {
+                      "type": "OpenX",
+                      "apiAddress": "OVA_OPENX_API",
+                      "allowAdRepetition": true
+                   }
+              ],
+              "schedule": [
+                  {
+                    "zone": "19",
+                    "position": "pre-roll",
+                    "applyToParts": [0, 2, 5]
+                  }
+              ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 11
+	        },
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 12
+	        },
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 13
+	        },
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 14
+	        },
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 15
+	        },
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 16
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 11
+	        },
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 12
+	        },
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 13
+	        },
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 14
+	        },
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 15
+	        },
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 16
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->					</article>	
+
+</body>
+</html>

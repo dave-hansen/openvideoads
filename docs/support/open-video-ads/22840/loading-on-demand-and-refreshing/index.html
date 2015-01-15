@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22840/loading-on-demand-and-refreshing/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Loading &quot;On Demand&quot; and &quot;Refreshing&quot; | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Loading &quot;On Demand&quot; and &quot;Refreshing&quot;</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to configure the OVA schedule to support "on-demand" loading and ad slot "refreshing".</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#delaying">Delaying ad calls until play</a></li>
+	<li><a href="#loading">Loading on demand</a></li>
+<ol>	<li><a href="#holding">Holding Clips</a></li>
+	<li><a href="#blocking">Blocking the first on-demand ad call</a></li>
+	<li><a href="#playlists">On-demand loading with playlists</a></li></ol>
+	<li><a href="#refreshing">Refreshing on replay</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started OVA for JW5 </a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started OVA for Flowplayer </a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25454/example-delayed-loading">Delayed Loading</a></li>
+<li><a href="/support/open-video-ads/25455/example-loading-on-demand">Loading On-Demand</a></li>
+<li><a href="/support/open-video-ads/25480/example-loading-jw5-playlist-on-demand">Loading JW5 Playlist On-Demand</a></li>
+<li><a href="/support/open-video-ads/25456/example-refresh-on-replay">Refreshing On Replay</a></li>
+<li><a href="/support/open-video-ads/25472/example-jw5-playlist-control">Forcing Ad Playback With Playlist Controls</a>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>By default, OVA pre-fetches all of the ads that are scheduled.</p>
+
+<p>This behaviour however can be modified in a number of ways:</p>
+<ul>
+<li>The ad calls can be delayed until the user presses the play button</li>
+<li>The ad calls can be made "on-demand" just before the ad is to play</li>
+</ul>
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example illustrates a pre-roll ad position that is only fetched once the user presses play (which triggers the viewing of the ad). 
+It also illustrates a post-roll that is loaded "on-demand" when the stream has finished playing.</p>
+
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+            "delayAdRequestUntilPlay": true,
+
+            "ads": {
+                "servers": [
+                    {
+                      "type": "OpenX",
+                      "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                    }
+                ],
+                "schedule": [
+                    {
+                        "zone": "6",
+                        "position": "pre-roll"
+                    },
+                    {
+                        "zone": "6",
+                        "position": "post-roll",
+                        "loadOnDemand": true
+                    }
+                ]
+            },
+
+	    "debug": {
+	       "levels": "fatal, config, vast_template, http_calls"
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controls": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+
+<h2><a name="delaying"></a>3.Delaying Ad Calls Until Play</h2>
+
+<p>The <span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span> option exists to force OVA to not make the first ad call until the 
+user presses the play button the player. If it is used without an accompanying <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option, 
+all ads will be fetched once the user presses play.</p>
+
+<p>If it used with <span style="font-family: courier new,courier,monospace;">loadOnDemand</span>, only the first pre-roll ad call will be made if one is declared in the ad schedule.</p>
+
+<p>The following code snippet illustrates how to block ad calls from firing until the user presses play.</P>
+
+<pre class="prettyprint">
+{
+    ...
+    <span style="background-color: yellow;">"delayAdRequestUntilPlay": true,</span>
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<h2><a name="loading"></a>4. Loading "on-demand"</h2>
+
+<p>OVA can be instructed to load ad slots "on-demand" just before they are required via the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option.</p>
+
+<p>If OVA parses and ad slot that has a <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option set to <span style="font-family: courier new,courier,monospace;">true</span> then the ad call will only be made just before the ad is to be played.</p>
+
+<p>The following code snippet illustrates how to declare a pre-roll ad position that is to be loaded "on-demand":</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                    <span style="background-color: yellow;">"loadOnDemand": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25455/example-loading-on-demand">here</a>.</li>
+
+<h2><a name="holding"></a>4.1 Holding Clips</h2>
+
+<p>When OVA schedules <i>on-demand</i> ad clips it places a <i>holding clip</i> in place of the actual ad in the playlist.</p>
+
+<p>For OVA for JW5, this holding clip needs to have a valid, playable stream configured within it. If the ad call fails, the holding clip plays allowing playback to smoothly continue on. For that reason it is best that the holding 
+clip be a short, blank, soundless MP4.</p>
+
+<p>OVA for Flowplayer does not require the holding clip to be a valid, playable clip and as such, does not require holding clip information to be specified in on-demand based configurations.</p>
+
+<p>In general you do not need to worry about "holding clips" as OVA internally takes care of this requirement for you, however if you want to override the internal OVA setting for a holding clip, you may.</p>
+
+<h2><a name="ova"></a>4.1.1. OVA for JW5 Holding Clips</h2>
+
+<p>OVA for JW5 has an internally declared holding clip that is loaded from the Longtail CDN. If you wish to declare your own holding clip URL, you may as follows:</p> 
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         <span style="background-color: yellow;">"holdingClipUrl": "http://your-domain.com/path/to/your/holding/clip.mp4",</span>
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "loadOnDemand": true,
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>A simple holding clip can be downloaded from the OVA static asset server <a href="http://lp.longtailvideo.com/5/ova/blank.mp4">here</a>. This clip is a 1 second blank MP4 clip.</p>
+
+<p>Please note, never run a production config using holding clips served from the OVA asset server. This is a test server and is up and down constantly. Failure to retrieve a holding clip will impact the playback in your player. Always serve the holding clip from a server that you can rely on.</p>
+
+<h2><a name="blocking"></a>4.2 Blocking the First "On-Demand" Ad Call Until the Play button is Pressed</h2>
+
+<p>In the case of a pre-roll, although the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option may be set, the ad call for that pre-roll will still occur when the player is loaded up.</p>
+
+<p>To ensure that this first ad call does not happen until the user hits play, add in the <span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    <span style="background-color: yellow;">"delayAdRequestUntilPlay": true,</span>
+
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "loadOnDemand": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25454/example-delayed-loading">here</a>.</p> 
+
+<h2><a name="playlists"></a>4.3 "On Demand" Loading with Playlists</h2>
+
+<p>The <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option can be used with fully loaded playlists. As the playlist progresses, ad clips are progressively loaded</p>
+
+<p>This happens by default with OVA for Flowplayer.</p>
+
+<p>With OVA for JW5, playlist control needs to be explicitly configured otherwise the default option of loading a clips one at a time into the player prevails.</p>
+
+<p>To configure OVA for JW5 to load a full playlist in one go the <span style="font-family: courier new,courier,monospace;">allowPlaylistControl</span> option must be used as follows.</p>
+
+<pre class="prettyprint">
+{
+     <span style="background-color: yellow;">"allowPlaylistControl": true,</span>
+
+     "debug": { 
+          "levels": "fatal, config, vast_template, vpaid, http_calls, tracking_events, playlist, api" 
+     },
+               
+     "ads": {
+          "schedule": [
+               {
+                    "position": "pre-roll",
+                    "loadOnDemand": true,
+                    "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?..."
+               }
+          ]
+     }
+}
+</pre>
+
+<p>
+<span style="font-family: courier new,courier,monospace;">allowPlaylistControl</span> results in a full playlist be loaded into the player. Holding clips will be placed where 
+ads are expected to be played, and then as the player gets to a point in the playlist where an ad is to be played, 
+the ad call will be triggered and the returned ad will be loaded up in place of the holding clip.</p>
+
+<p>An example can be found <a href="/support/open-video-ads/25480/example-loading-jw5-playlist-on-demand">here</a>.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">loadOnDemand</span> may also be used with the <span style="font-family: courier new,courier,monospace;">enforceLinearAdsOnPlaylistSelection</span> option.</p>
+
+<p>An example can be found running <a href="/support/open-video-ads/25472/example-jw5-playlist-control">here</a>.</p>
+
+<p>For further information regarding the "load on demand" option, please consult the <a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading "On-Demand" and "Refreshing"</a> guide.
+
+<h2><a name="refreshing"></a>5. Refreshing "On Replay"</h2>
+
+<p>A <span style="font-family: courier new,courier,monospace;">refreshOnReplay</span> option has been introduced to allow OVA to request a new ad each time the ad slot is played.<p>
+
+<p>This option is only available with the "load on demand" model.</p>
+
+<p>The following code snippet illustrates how to ensure that a new ad call for a pre-roll occurs each time the ad slot is played:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "loadOnDemand": true,
+                   <span style="background-color: yellow;">"refreshOnReplay": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25456/example-refresh-on-replay">here</a>.</p>
+
+<p>For further information regarding the "load on demand" option, please consult the <a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading "On-Demand" and "Refreshing"</a> guide.</p>					</article>	
+
+</body>
+</html>

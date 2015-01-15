@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23833/customising-display-regions/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Customising Display Regions | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Customising Display Regions</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to declare custom regions in OVA.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#regions">Pre-defined regions</a></li>
+	<li><a href="#declaring">Declaring Custom regions</a></li> 
+<ol>	<li><a href="#styling">The Region Styling Attributes</a></li></ol>
+	<li><a href="#applying">Applying regions</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23688/delivering-overlay-ads">Delivering Overlay Ads</a></li>
+<li><a href="/support/open-video-ads/22835/using-ad-notices">Using Ad Notices</a></li>
+<li><a href="/support/open-video-ads/23809/supporting-click-throughs">Supporting Click-throughs</a></li>
+<li><a href="/support/open-video-ads/22836/configuring-a-skip-button">Configuring the Skip Ad Button</a></li>
+</ul>
+
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25378/example-non-linear-flash-mode-overlay">Non-Linear Image Overlay</a></li>
+<li><a href="/support/open-video-ads/25447/example-a-customised-ad-notice">Customised Ad Notice</a></li>
+<li><a href="/support/open-video-ads/25444/example-customised-skip-ad-button">Customised Skip Ad Button</a></li>
+<li><a href="/support/open-video-ads/25469/example-custom-click-through-notice">Customised Click-Through Message</a></li>
+</ul>
+<br/>
+<hr/>
+
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p><i>Regions</i> are OVA specific constructs that represent a visual component of the player display that can be styled within an OVA configuration declaration 
+using a range of properties.</p>
+
+<p>OVA uses the concept of <i>regions</i> to identify how:</p>
+<ul>
+<li>Overlays are displayed</li>
+<li>Ad notices are displayed</li>
+<li>Click through messages are displayed</li>
+<li>VPAID ads are displayed</li>
+<li>The Skip Ad button is displayed</li>
+</ul>
+<p>A number of <i>reserved</i> regions have been declared within OVA and you may declare you own custom regions via the 
+<span style="font-family: courier new,courier,monospace;">"regions"</span> configuration block as follows:<p>
+
+<pre>
+{
+     <span style="background-color: yellow;">"regions": {</span>
+          "declarations": [
+              { 
+                  ....
+              }
+         ]
+     }
+}
+</pre>
+
+<p>Regions definitions are always identified by a unique ID that is assigned to the region at the start of it's declaration.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>Custom <i>regions</i> can be used to reposition overlays as they are served by OVA.</p>
+
+<p>The following example illustrates how to attach specific overlay ad slots to custom region declarations via the ad slot <span style="font-family: courier new,courier,monospace;">"region"</span> config option.<p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+      "regions": {
+         "declarations": [
+             {
+                "id": "screen-center",
+                "verticalAlign": "center",
+                "horizontalAlign": "center",
+                "backgroundColor": "#000000",
+                "opacity": 0.8,
+                "borderRadius": 15,
+                "padding": "-10 -10 -10 -10",
+                "width": 450,
+                "height": 50
+             }
+         ]
+      },
+      "ads": {
+         "servers": [
+             {
+                "type": "OpenX",
+                "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+             }
+         ],
+         "schedule": [
+            {   
+                "zone": "41",
+                "region": "screen-center",
+                "width": 450,
+                "height": 50,
+                "startTime": "00:00:05",
+                "duration": 5
+            }
+         ]
+      },
+      "debug": {
+          "levels": "fatal, config, vast_template, vpaid"
+      }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+
+<p>For further guidance on how to use custom regions with overlays, please consult the <a href="/support/open-video-ads/23688/delivering-overlay-ads">Delivering Overlays</a> guide.
+
+<h2><a name="regions"></a>3. Pre-Defined Regions</h2>
+
+<p>OVA has pre-defined 16 different regions.</p>
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h78px-000000-o50</span> - a region at the bottom of the player screen, 100% wide, 78 pixels high, with a black background at 50% opacity, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-000000-o50</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high, with a black background at 50% opacity, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-transparent</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high with a transparent background, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-transparent-0m</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high with a transparent background, 0 margins all around, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-000000-o50</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a black background at 50% opacity, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-transparent</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-transparent-0m</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a transparent background and 0 margins all around, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-000000-o50</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a black background with 50% opacity, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-transparent</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-transparent-0m</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, 0 margins all around</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-000000-o50</span> - a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a black background with 50% opacity, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-transparent</span> - a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a transparent background, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-transparent-0m</span> - a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a transparent background, 0 margins all around, with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-system-message</span> - a thin region at the base of the player screen, 100% wide, 20 pixels high, no close button, and 2 font definitions - one large sized writing 12pt (class if normaltext), one small sized writing 10pt (class is smalltext)</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-top</span> - 100% wide, 50px high, transparent region with an active close button</li>
+<li><span style="font-family: courier new,courier,monospace;">reserved-fullscreen</span> - 100% wide, 100% high transparent region with no close button</li>
+</ul>
+<p>To use any of these pre-defined regions when configuring a visual element within OVA, refer to the region by it's region ID.</p>
+
+<p>For example, the following code snippet illustrates how to instruct OVA to deliver an overlay in a region at the bottom of the screen, 
+50 pixels high with a background at 50% opacity and an active close button:</p>
+
+<pre>
+{
+     "ads": {
+         "schedule": [
+               {
+                    <span style="background-color: yellow;">"region": "reserved-bottom-w100pct-h50px-000000-o50",</span>
+                    "startTime": "00:00:05",
+                    "duration": 15,
+                    "tag": "http://my-ad-server-domain.com/ad-tag.php?type=vast"
+               }
+         ]
+     }
+}
+</pre>
+
+<h2><a name="declaring"></a>4. Declaring Custom Regions</h2>
+
+<p>OVA supports the declarations of custom regions via the <span style="font-family: courier new,courier,monospace;">"regions"</span> configuration block.</p>
+
+<p>For example, if you were to declare your own custom region that matched the styling of the pre-defined region <span style="font-family: courier new,courier,monospace;">
+reserved-bottom-w100pct-h50px-000000-o50</span>, the following declaration would be made:</p>
+
+<pre>
+{
+      "regions": {
+           "declarations": [
+               <span style="background-color: yellow;">{
+                    "id": "reserved-bottom-w100pct-h50px-000000-o50", 
+                    "verticalAlign": "bottom", 
+                    "backgroundColor": "#000000",
+                    "opacity": 0.5, 
+                    "width": "100pct", 
+                    "height": 50
+               }</span>
+           ]
+      },
+      "ads":
+</pre>
+
+<p>All region declarations have two key components defined:</p>
+<ul>
+<li>An identifier for the region ("id")</li>
+<li>A set of visual styling attributes</li>
+</ul>
+<h2><a name="styling"></a>4.1 The Region Styling Attributes</h2>
+
+<p>A range of visual aspects may be declared when defining a custom region. These include:</p>
+
+<p><trclass="zebra"> </trclass="zebra"></p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">background</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>A shorthand way of setting all background properties at once. Similar to CSS. The format is as follows: backgroundImage backgroundRepeat left top. For example: <span style="font-family: courier new,courier,monospace;">url(/my/image.jpg) no-repeat 100 30</span>. The last two numbers specify the background image positioning</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">backgroundColor</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Background color as a hexadecimal value. For example: <span style="font-family: courier new,courier,monospace;">#ffcccc</span>. The length of the value is 6 characters and the prefix # is optional.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">backgroundImage</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>The absolute or relative path to the image that should be used as the background to this plugin. Supported formats are GIF, JPEG and PNG. The syntax is similar to CSS in that you must enclose your path inside a <span style="font-family: courier new,courier,monospace;">url()</span> wrapper. See example above</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">backgroundGradient</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Defines a region&#39;s background gradient (ie, the way the background is faded in and out vertically). The value can be one of the predefined values &quot;low&quot;, &quot;medium&quot; or &quot;high&quot;, or you can supply an array of values, each one representing how much transparency is applied at a particular point. For example, the array<span style="font-family: courier new,courier,monospace;"> [0.2, 1.0]</span> means that the background will be 80% visible at the top edge and 0% visible at the bottom, and there will be a linear gradient of transparency between the two edges. You can supply any number of point definitions in your array and they will be placed so that there is equal distance between them. For example, passing the array <span style="font-family: courier new,courier,monospace;">[0.4, 0.6, 1.0]</span> will result in points at the top, middle and bottom of the background</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">backgroundTransparent</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Defines whether or not a region is to be transparent. Values are true or false - the default is false</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">border</span></td>
+			<td>String</td>
+			<td>0px none</td>
+			<td>Draws a border around a region&#39;s edges. The syntax follows the CSS standard: width style color. For example: &quot;<span style="font-family: courier new,courier,monospace;">1px solid #cccccc</span>&quot;. The only supported style currently is &quot;solid&quot;, but the width and colour can be set to any valid value</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">borderColor</span></td>
+			<td>String</td>
+			<td>#000</td>
+			<td>A CSS style hex value that specifies the color to apply for the border</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">borderRadius</span></td>
+			<td>Numeric</td>
+			<td>0</td>
+			<td>Specifies the amount of rounding for each corner. Larger values mean more rounding</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">borderWidth</span></td>
+			<td>Xpx</td>
+			<td>0px</td>
+			<td>A CSS style value in pixels that specifies the width of the border</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">clickable</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Identifies whether or not the region is to be clickable. This value does not override any click action properties that may be defined on at the HTML level for the objects shown in the region. This value enables or stops <span style="font-family: courier new,courier,monospace;">theOnClick()</span>&nbsp;javascript callback from firing</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">height</span></td>
+			<td>Y% | Ypx</td>
+			<td>&nbsp;</td>
+			<td>Specifies the height of the region - the values can either be numeric (the number of pixels) or a percentage of the screen width (e.g. &#39;100%&#39;)</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">horizontalAlignment</span></td>
+			<td>left | right | X</td>
+			<td>None</td>
+			<td>Specifies the horizonal alignment of the region - values can be &#39;left&#39;, &#39;right&#39; or a numeric value representing the X coordination (in pixels)</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">html</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Specifies the initial HTML content to be loaded by default for the region</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">id</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>very region that is declared using the regions tag must be identified by a unique name. This id is used by OVA to identify which region is to be used to display a specific overlay or non-overlay AdSlot</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">padding</span></td>
+			<td>String</td>
+			<td>0 0 0 0</td>
+			<td>Specifies the level of padding to be allocated inside of the region - uses the standard CSS format - top right bottom left</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">showCloseButton</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Indicates whether or not a close button is to be shown on the region</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">style</span></td>
+			<td>Object</td>
+			<td>None</td>
+			<td>A styling object that is specified directly in the configuration. If an external stylesheet is in use, these settings override those external settings. You can find more information about styling here</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">stylesheet</span></td>
+			<td>URI</td>
+			<td>None</td>
+			<td>Path to the stylesheet file which specifies how each tag in the content is styled. You can find more information about styling here</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">verticalAlign</span></td>
+			<td>top | bottom | Y</td>
+			<td>None</td>
+			<td>Specifies the vertical alignment of the region - values can be &#39;top&#39;, &#39;bottom&#39; or a numeric value representing the Y coordination (in pixels)</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">width</span></td>
+			<td>X% | Xpx</td>
+			<td>None</td>
+			<td>Specifies the width of the region - the values can either be numeric (the number of pixels) or a percentage of the screen width (e.g. &#39;100%&#39;)</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2><a name="applying"></a>5. Applying Custom Regions</h2>
+
+<p>Custom regions can be used with Ad Notices to modify their appearance on the player display. For further information regarding the customisation of ad notices 
+please refer to the <a href="/support/open-video-ads/22835/using-ad-notices">Using Ad Notices</a> guide.
+
+<p>Equally, click through messages can be customised via region declarations. For instructions on how to do this, refer to 
+the <a href="/support/open-video-ads/23809/supporting-click-throughs">Supporting Click-Throughs</a> guide.
+
+<p>Overlays use region declarations extensively to determine how they are to be displayed on the player view - for guidance on how to use custom 
+regions with overlays, please review the <a href="/support/open-video-ads/23688/delivering-overlay-ads">Delivering Overlays</a> guide.
+
+<p>Finally, custom regions can be used modify the styling of a <i>Skip Ad</i> button. To understand how to display a custom ad button, please 
+refer to the  <a href="/support/open-video-ads/22836/configuring-a-skip-button">Configuring a Skip Ad Button</a> guide.					</article>	
+
+</body>
+</html>

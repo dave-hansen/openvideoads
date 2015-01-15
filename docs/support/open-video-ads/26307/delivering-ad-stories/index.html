@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/26307/delivering-ad-stories/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Delivering Ad Stories | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/nQTLliMZeuepL4CnFm_Hvocg7mz0uxU9OerAVekB_2k/mtime:1397760436/sites/default/files/js/js_12af978d799ccbe50896f301e8a0cade.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Delivering Ad Stories</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This short guide explores how to deliver sequences of linear ads that form an "ad story".</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+        <li><a href="#single-slot">A Single Position Story</a></li>
+<!--        <li><a href="#multi-slot">Running a Story Over Multiple Positions</a></li> -->
+        <li><a href="#midrolls">Delivering a Story Over Mid-Rolls</a></li>  
+        <li><a href="#multiple">Supporting Multiple Ad Stories</a></li>
+	<li><a href="#example">Worked Example</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25463/example-selective-application">Selective Application of Ad Slots</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA is capable of supporting the notion of an ad "story" that is a sequence of linear ads that have to be played in a particular order to tell a "story" to the viewer. The most direct form that an <i>ad story</i> can take is a series of "pre-rolls" that are played sequentially before a main stream. More complex forms that the form of pre, mid and post-rolls that are spread across the stream but have to be played in a particular order.</p>
+
+<p>To configure an ad story, three OVA config option groups have to be used together in a specific way. The two option groups are:</p>
+
+<ol>
+<li>The AdSlot <span style="font-family: courier new,courier,monospace;">"repeat"</span> option (and potentially the optional <span style="font-family: courier new,courier,monospace;">"interval"</span> option), along with</li>
+<li>The ad tag config options within a <span style="font-family: courier new,courier,monospace;">"servers"</span> or the ad slot <span style="font-family: courier new,courier,monospace;">"server"</span> grouping</li>
+<li>The <span style="font-family: courier new,courier,monospace;">"oneAdPerRequest"</span> option</li>
+</ol>
+
+<h2><a name="single-slot"></a>2. A Single Position Ad Story</h2>
+
+<p>To deliver a series of related ads in one specific pre, mid or post-roll position, the "repeat" option should be used as follows:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"repeat": 3,
+                  "server": {
+                      "tag": "your-ad-tag-goes-in-here",
+                      "oneAdPerRequest": false
+                  }</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<p>In this example, because <span style="font-family: courier new,courier,monospace;">"oneAdPerRequest": false</span> is specified, the three repeated pre-roll ad slots will share a single ad call. For that ad call to deliver an ad story, it must deliver enough inventory to fill the three ad slots. Any ad slots that are not filled will not be played.</p>
+
+<p>It is also possible to declare the same setup as follows:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"repeat": 3,
+                  "tag": "your-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<!--
+<h2><a name="multi-slot"></a>3. Running a Story Over Multiple Positions</h2>
+
+<p>When an ad story is to be delivered over multiple pre, mid and/or post-roll positions, the ad tag must be declared as a general ad tag outside of the specific ad slots. The following code snippet illustrates how to use the <span style="font-family: courier new,courier,monospace;">"oneAdPerRequest": false</span> option to instruct OVA to use a single ad call to deliver inventory for 2 pre-rolls, a single mid-roll and 2 post-rolls.</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        <span style="background-color: yellow;">"servers": [
+              {
+                  "type": "direct",
+                  "tag": "your-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false
+              }
+        ],</span>
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  "repeat": 2
+              },
+              {
+                  "position": "mid-roll",
+                  "startTime": "00:00:30"
+              },
+              {
+                  "position": "post-roll",
+                  "repeat": 2
+              },
+        ]
+    }
+}
+</pre>
+-->
+
+
+<h2><a name="midrolls"></a>4. Running a Story Over Multiple Mid-Rolls</h2>
+
+<p>OVA for Flowplayer has a limitation at present that means that when delivering multiple sequential mid-rolls via the <span style="font-family: courier new,courier,monospace;">"repeat"</span> option, the mid-roll positions need to be spaced at least 2 seconds apart using the <span style="font-family: courier new,courier,monospace;">"interval"</span> option to specify the spacing in terms of a specific number of seconds. The following config illustrates how to deliver a mid-roll ad story that has 3 mid-roll positions being delivered 30 seconds apart:</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "mid-roll",
+                  <span style="background-color: yellow;">"repeat": 3,
+                  "interval": 30,
+                  "tag": "your-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false</span>
+              }
+        ]
+    }
+}
+</pre>
+
+<h2><a name="multiple"></a>4. Supporting Multiple Ad Stories</h2>
+
+<p>It is also possible to deliver multiple ad stories across an ad schedule. For example, the following config snippet illustrates how to deliver an ad story in the pre-roll position across 3 ad slots, a different ad story in the mid-roll position across 2 mid-roll ad slots, and a third story in the post-roll position across 3 ad slots.</p>
+
+<pre>
+{
+    ... 
+    "ads": {
+        "schedule": [
+              {
+                  "position": "pre-roll",
+                  "repeat": 3,
+                  "tag": "your-first-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false
+              },
+              {
+                  "position": "mid-roll",
+                  "startTime": "00:00:30",
+                  "repeat": 2,
+                  "interval": 30,
+                  "tag": "your-second-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false
+              },
+              {
+                  "position": "post-roll",
+                  "repeat": 3,
+                  "tag": "your-third-ad-tag-goes-in-here",
+                  "oneAdPerRequest": false
+              },
+        ]
+    }
+}
+</pre>
+
+<h2><a name="example"></a>5. Worked Example</h2>
+
+<p>The following example illustrates a series of 3 pre-roll ad slots that are delivered sequentially to form a single "story":</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "ads": {
+               "servers": [
+                   {
+                      "type": "direct",
+                      "tag": "/sites/default/files/vast1-3-track-ad-story.xml",
+                      "oneAdPerRequest": false
+                   }
+              ],
+              "schedule": [
+                  {
+                    "position": "pre-roll",
+                    "repeat": 3
+                  }
+              ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 11
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+	           "duration": 11
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->					</article>	
+
+</body>
+</html>

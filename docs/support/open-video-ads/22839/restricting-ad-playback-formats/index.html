@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22839/restricting-ad-playback-formats/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Restricting Ad Playback Formats | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Restricting Ad Playback Formats</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This short guide explores how to use the "mime-type" exclusion rules of OVA to limit the possible set of ad types that are played.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Example - Delivering Audio Ads</a></li>
+	<li><a href="#configuration">The Configuration Options</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li>
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+</ul>
+<br/>
+<hr/>
+
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>A VAST response often includes ad streams of differing bitrates and mime-types.</p>
+
+<p>Sometimes a player instance will only require ad types of specific mime types - for example where the player is being used to deliver an audio-only experience. In that case, only MP3 (or other audio format) based ads are acceptable for playback.</p>
+
+<p>The <i>mime-type exclusion rules</i> supported by OVA allow the set of acceptable ad formats to be restricted to a defined list.</p>
+
+<h2><a name="example"></a>2. Example - Delivering Audio Ads</h2>
+
+<p>The following example illustrates how to use the mime-type exclusion rules to deliver audio only linear ad experience.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+       "providers": {
+   	        "http": "PLAYER_SPECIFIC_AUDIO_PROVIDER"
+        },
+
+        "ads": {
+            "acceptedLinearAdMimeTypes": [ "audio/x-mpeg-3" ],
+            "filterOnLinearAdMimeTypes": true,
+            "notice": { "show": false },
+            "schedule": [
+                {
+                  "position": "pre-roll",
+                  "tag": "OVA_AUDIO_AD_TAG" 
+                }
+            ]
+        },
+	    "debug": {
+	       "levels": "fatal, config, vast_template, http_calls"
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_AUDIO_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+            "controls": {
+               "fullscreen": false,
+               "autoHide": false,
+               "height": 30
+            },
+            "audio": {
+               "url": "OVA_FLOWPLAYER_AUDIO_PLUGIN_SWF"
+            },
+            "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_AUDIO_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 24,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:30px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="configuration"></a>3. The Configuration Options</h2>
+
+<p>Two configuration options have been added to the <span style="font-family: courier new,courier,monospace;">"ads"</span> configuration block to allow media files to be excluded during OVA search to identify relevant linear streams to playback.</p>
+
+<p>The two options are illustrated below.</p>
+
+<pre class="prettyprint">
+"ads": {
+      <span style="background-color: yellow;">"acceptedLinearAdMimeTypes": [ "video/x-flv" ],
+      "filterOnLinearAdMimeTypes": true,</span>
+      ...
+}
+</pre>
+
+<p>In this example, only FLV based ad streams will be selected.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">acceptedLinearAdMimeTypes</span> is an Array based configuration property. A set of mime types can be configured as per a normal Array based definition. For instance, to limit the filtering to FLV and MP4, the following declaration should be made:</p>
+
+<pre class="prettyprint">
+<span style="background-color: yellow;">"acceptedLinearAdMimeTypes": [ "video/x-flv", "video/x-mp4"]</span>
+</pre>
+
+<p>By default:</p>
+
+<ul>
+<li>In the AS3 framework <span style="font-family: courier new,courier,monospace;">filterOnLinearAdMimeTypes</span> is false</li>
+<li>In the OVA JW4, JW5 and Flowplayer plugins, <span style="font-family: courier new,courier,monospace;">filterOnLinearAdMimeTypes</span> is true and <span style="font-family: courier new,courier,monospace;">acceptedLinearAdMimeTypes</span> is set to <span style="font-family: courier new,courier,monospace;">["video/x-flv","video/x-mp4","application/x-shockwave-flash"]</span></li>
+</ul>
+
+<p>To turn off the default filtering in the OVA plugins just set <span style="font-family: courier new,courier,monospace;">filterOnLinearAdMimeTypes</span> to false - all media files elements of the VAST response will then be searched for a match to playback.</p>					</article>	
+
+</body>
+</html>

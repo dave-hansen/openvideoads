@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/13050/supported-ad-servers/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Supported Ad Servers | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Supported Ad Servers</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<p>This document briefly presents the level of VAST ad server support provided by OVA.</p>
+<h2>Content</h2>
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#static-tags">Using Static Ad Tags</a></li>
+<li><a href="#dynamic-tags">Support for Dynamic Ad Tags</a></li>
+</ol>
+<h2>Further Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/22825/using-ad-tag-variables">Configuring Ad Tag Variables</a></li>
+</ul>
+<hr/>
+<h2>1. Introduction</h2>
+<p>In short, Open Video Ads will work with any VAST (1 or 2) compliant video ad server or provider. The following list covers just some of the VAST ad providers that are known to work with OVA.</p>
+<div id="three-column-layout" style="width:450px;margin-left:20px;">
+<div id="column-1" style="width:150px;float:left;">
+<ul>
+<li><a href="http://www.247realmedia.com">24/7 Real Media</a></li>
+
+<li><a href="http://www.adap.tv">Adapt.tv</a></li>
+<li><a href="http://www.adform.com/site/">AdForm</a></li>
+<li><a href="http://www.adify.com">Adify</a></li>
+<li><a href="http://www.adjuggler.com">AdJuggler</a></li>
+<li><a href="http://adotube.com/site/">Adotube</a></li>
+<li><a href="http://adrise.com">Adrise</a></li>
+<li><a href="http://www.adtech.com">AdTech</a></li>
+<li><a href="http://www.dotandmedia.com">DotandMedia</a></li>
+</ul>
+</div>
+<div id="column-2" style="width:150px;float:left;">
+<ul>
+<li><a href="http://www.doubleclick.com">DoubleClick</a></li>
+<li><a href="http://www.emediate.com">Emediate</a></li>
+<li><a href="http://www.eyewonder.com">Eyewonder</a></li>
+<li><a href="http://www.innovid.com">Innovid</a></li>
+<li><a href="http://www.lightningcast">Lightningcast</a></li>
+<li><a href="http://liverail.com">Liverail</a></li>
+<li><a href="http://www.mediamind.com/">MediaMind</a></li>
+<li><a href="http://www.microsoft.com">Microsoft</a></li>
+<li><a href="http://www.movad.de">Mov.ad</a></li>
+</ul>
+</div>
+<div id="column-3" style="width:150px;float:left;">
+<ul>
+<li><a href="http://oasis.sourceforge.net">Oasis</a></li>
+<li><a href="http://www.openx.org">OpenX V2 & V3</a></li>
+<li><a href="http://www.smartclip.com">Smartclip</a></li>
+<li><a href="http://www.smartadserver.com">Smart Ad Server</a></li>
+<li><a href="http://www.spotxchange.com">SpotXchange</a></li>
+<li><a href="http://www.telemetry.com">Telemetry</a></li>
+<li><a href="http://www.tidaltv.com">TidalTV</a></li>
+<li><a href="http://www.yume.com">Yume</a></li>
+<li><a href="http://www.zedo.com">Zedo</a></li>
+<li><a href="http://www.adman.gr">Adman</a></li>
+</ul>
+</div>
+</div>
+<h2>2. Connecting Directly with Static Ad Tags</h2>
+<p>As a rule of thumb, a VAST ad provider generally provides what is known as a <i>static ad tag</i> to use with OVA. A <i>static ad tag</i> is a predefined URL that when called, delivers a VAST response in XML form.</p>
+<p><i>Static</i> ad tags are the easiest type of ad tag to use with OVA. In nearly all cases, you will configure OVA with a static ad tag. The following are examples of static ad tags for a variety of ad server types:</p>
+<pre class="prettyprint">
+http://track.adform.net/serving/videoad/?bn=45xxxx&ord=1319031161332
+
+http://ad.afy11.net/ad?enc=4&asId=10000043xxxx7&sf=0&ct=256
+
+http://ad.doubleclick.net/pfadx/N270.126913.6102203221521/B3876671.21;dcadv=221xxx;sz=0x0;ord=__timestamp__;dcmt=text/xml
+
+http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=228&LR_SCHEMA=vast2
+</pre>
+<p>Although static ad tags are predefined by the ad provider, a number of <a href="/support/open-video-ads/22825/using-ad-tag-variables"><i>Ad Tag Variables</i></a> (e.g. <span style="font-family: courier new,courier,monospace;">__timestamp__</span>) may be used with the ad tag to allow OVA to place run-time specific information directly into the URL as it is called - for example, the URL of the page running the player, the referrer, a random-number to break the cache or a timestamp. Please consult the <a href="/support/open-video-ads/22825/using-ad-tag-variables">Using OVA Tag Variables</a> guide for further information on this topic.</p>
+<p>Static ad tags are best used with OVA via the <span style="font-family: courier new,courier,monospace;">tag</span> config option. The following code snippet illustrates a typical setup for a pre-roll ad position with a static ad tag that includes the <i>referrer</i> OVA ad tag variable:</p>
+<pre class="prettyprint">
+{
+    "ads": {
+          "schedule": [
+                {
+                     "position": "pre-roll"
+                     <span style="background-color: yellow;">"tag": "http://ad.afy11.net/ad?enc=4&asId=10407&referrer=__referrer__"</span>
+                }
+          }
+    }
+}
+</pre>
+<p>For more information regarding static ad tags, please consult the <a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a> tutorial.</p>
+<h2>3. Support for Dynamic Ad Tags</h2>
+<p>A few providers however encourage the ad tag URL to be "dynamically" generated by OVA at runtime based on a URL <i>template</i> for the specified ad server "<span style="font-family: courier new,courier,monospace;">type</span>". This is useful if the ad server supports fulfilling multiple ad positions in a single request. OVA directly supports a number of these ad servers "out-of-the-box" - namely OpenX, AdTech, 24/7 Real Media and OASIS. The most obvious example of an ad server that uses the dynamic ad tag feature is the "OpenX" Community Edition. The following code snippet illustrates an example OpenX OVA config:</p>
+<pre class="prettyprint">
+{
+    "debug": {
+          "levels": "fatal, config, vast_template"
+    },
+    "ads": {
+<span style="background-color: yellow;">           "servers": [
+               {
+                   "type": "OpenX",
+                   "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+               }
+          ],</span>
+          "schedule": [
+               {
+<span style="background-color: yellow;">                    "zone": "5",</span>
+                    "position": "pre-roll"
+               },
+               {
+<span style="background-color: yellow;">                    "zone": "33",</span>
+                    "position": "auto:bottom",
+                    "startTime": "00:00:10"
+               }
+          ]
+    }
+}
+</pre>
+<p>In this example, a single ad request is formatted for a pre-roll (zone 5) and overlay ad (zone 33). The ad tag constructed by OVA would look like:</p>
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll:0.0-0%3D5%7Cbottom:1.0-0%3D33&nz=1&source=&r=R0.9885416775941849&block=1&format=vast&charset=UTF-8
+</pre>
+<p>If you find that your ad server is not on the supported list and does not work with OVA via static ad tags, please contact <a href="mailto:enquiries@openvideoads.org?subject=Support%20required%20for%20a%20new%20ad%20server">enquiries@openvideoads.org</a> and we will arrange to add support directly for your ad server.</p>					</article>	
+
+</body>
+</html>

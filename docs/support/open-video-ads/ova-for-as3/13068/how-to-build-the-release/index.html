@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/ova-for-as3/13068/how-to-build-the-release/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>How to Build the Release | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>How to Build the Release</h1>						
+			
+			<p>This tutorial provides a quick guide as to how to build the <i>OVA for AS3</i> release. 
+It covers the build script that compiles the <i>OVA for AS3</i> source into a pre-compiled SWC library.</p>
+
+<h2><a name="download"></a>1. How to Download the Framework</h2>
+<p>The <i>OVA for AS3</i> framework is available in both compiled library (SWC) and source formats on the 
+<a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a>.</p>
+<p>The OVA for AS3 product is only provided in one packaged format - that format includes both the compiled library and source distribution.</p>
+<h3><a name="download-zip"></a>1.1 Download the Distribution</h3>
+<p>To download the release package from the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a>:</p>
+<ul>
+<li>Go to <a href="http://developer.longtailvideo.com/ova">http://developer.longtailvideo.com/ova</a></li>
+<li>Register on the Site</li>
+<li>Download the release package from the "Download the Latest" page</li>
+</ul>
+<h3><a name="checkout-source"></a>1.2 Checkout the Distribution from Subversion</h3>
+<p>To checkout the source distribution directly from the subversion repository:</p>
+<pre>svn checkout http://anonymous@developer.longtailvideo.com/svn/trunk/ova.as3</pre>
+
+<h2><a name="deploy"></a>2. How to Deploy the Framework</h2>
+<p>The framework can either be used as a compiled flash library (SWC) or in it&#39;s native source format.</p>
+
+<h2>3. The Build Process</h2>
+
+<p>The OVA for AS3 build process uses Ant.</p>
+
+<p>Three forms of the OVA SWC can be built via the ant build scripts:</p>
+<ul>
+<li>A <i>debug</i> version that includes all of the standard OVA debug output (this is the default form)</li>
+<li>A <i>release</i> version that excludes the debug output and associated debug library functions</li>
+<li>A <i>minimal</i> version that excludes debug, prepackaged button resources,custom ad server functionality and Javascript callbacks</li>
+</ul>
+
+<p>The components that are "excluded" by the minimal build can be customised via the <span style="font-family: courier new,courier,monospace;">build.properties</span> file found in the distribution <span style="font-family: courier new,courier,monospace;">build</span> directory.</p>
+
+<p><b>Note:</b> If you build a "release" or "minimal" version of the OVA SWC that excludes the debug functions, any subsequent builds of OVA for Flowplayer or OVA for JW5 must also be "release" builds that exclude the "debug" functions otherwise the compiler will throw a "cannot find debug methods" style error message.</p>
+
+<h3>3.1 Customising the Build Properties</h3>
+
+<p>Before OVA for AS3 (or any OVA product) can be built, a number of environmental variables need to be set in the build.properties file that is located in the distribution `build directory.</p>
+
+<p>For OVA for AS3, the FLEX_DIR variable is the only mandatory entry that needs to be set. It must point to the base directory of your Flex SDK install so that the compilers etc. can be located by the OVA build scripts.</p>
+
+<pre class="prettyprint">
+FLEX_DIR = /Applications/flex_sdk_3
+</pre>
+
+<p>If you are intending on building an OVA product that uses OVA for AS3 (i.e. OVA for Flowplayer or OVA for JW Player) and you have not located the source for those products relative to the OVA for AS3 package, you can customise the locations of these products via the build.properties file. The default values in the file are:</p>
+
+<pre class="prettyprint">
+OVA_JW5_BUILD_DIR = ../../ova.jwplayer.5x
+OVA_FLOWPLAYER_BUILD_DIR = ../../ova.flowplayer
+OVA_VPAID_BUILD_DIR = ../../ova.vpaid.ads
+</pre>
+
+<p>Finally, if you intend to build a "minimal" version of the OVA SWC, you can customise the components that are excluded in the build via the following variables in the build.properties file:</p>
+
+<pre class="prettyprint">
+INCLUDE_CONNECTORS = false
+INCLUDE_CALLBACKS = false
+INCLUDE_BUTTONS = false
+</pre>
+
+<p><span style="font-family: courier new,courier,monospace;">INCLUDE_CONNECTORS</span> refers to those components that provide "custom ad server" implementations. If these are excluded, the only ad server/tag type that can be used in your OVA config is "direct"/"static ad tags", excluding types such as "OpenX", "AdTech", "OASIS" etc.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">INCLUDE_CALLBACKS</span> refers to the code in the OVA Library that triggers OVA Javascript callbacks. Excluding this component ensures that no Javascript callbacks are implemented.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">INCLUDE_BUTTONS</span> refers to the embedded default button images for the Skip Ad and Overlay close buttons. Excluding these components means that you have to use custom formats for these features when configuring OVA.</p>
+
+<h3>3.2 Building the OVA SWC</h3>
+
+<p>To build OVA for AS3 use the following command from the OVA for AS3 build directory:</p>
+
+<pre class="prettyprint">
+ant &lt;command>
+</pre>
+
+<p>where command can be any one of the following instructions:</p>
+
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">help</span> - lists all available build commands</li>
+<li><span style="font-family: courier new,courier,monospace;">build</span> - does the default build - a debug version of the OVA SWC library</li>
+<li><span style="font-family: courier new,courier,monospace;">build-all</span> - builds all three formats - debug, release and minimal OVA SWC libraries</li>
+<li><span style="font-family: courier new,courier,monospace;">build-debug</span> - builds a debuggable version of the OVA SWC</li>
+<li><span style="font-family: courier new,courier,monospace;">build-release</span> - builds a version of the OVA SWC that excludes any debug output</li>
+<li><span style="font-family: courier new,courier,monospace;">build-minimal</span> - builds a minimal version of the OVA SWC that excludes a number of components (see below for details)</li>
+<li><span style="font-family: courier new,courier,monospace;">deploy</span> - the default deploy option - builds and deploys the debug version of the OVA SWC to the OVA plugin lib directories</li>
+<li><span style="font-family: courier new,courier,monospace;">deploy-debug</span> - builds and deploys the debug version of the OVA SWC to the OVA plugin lib directories</li>
+<li><span style="font-family: courier new,courier,monospace;">deploy-release</span> - builds and deploys the release version of the OVA SWC to the OVA plugin lib directories</li>
+<li><span style="font-family: courier new,courier,monospace;">deploy-minimal</span> - builds and deploys the minimal version of the OVA SWC to the OVA plugin lib directories</li>
+</ul>
+
+<p>Typically, to build the default version of the OVA SWC (that includes all components including debug), the following ant command is used:</p>
+
+<pre class="prettyprint">
+ant build
+</pre>
+
+<p>To build and deploy the default OVA SWC to the OVA for Flowplayer and/or OVA for JW5 build workspaces, the following ant command is used:</p>
+
+<pre class="prettyprint">
+ant deploy
+</pre>
+
+<p>Alternatively, if you wish to build and deploy a "release" version of the OVA SWC (that excludes debug), use:</p>
+
+<pre class="prettyprint">
+ant deploy-release
+</pre>
+
+<p>And finally, if a "minimal" version of the OVA SWC is to be built and distributed to the OVA for Flowplayer and/or OVA for JW5 workspaces, use:</p>
+
+<pre class="prettyprint">
+ant deploy-minimal
+</pre>
+
+<p>Upon the successful completion of a build task, you should see something that appears as follows:</p>
+
+<pre class="prettyprint">
+ps-macbook-pro:build paulschulz$ ant deploy-minimal
+Buildfile: /Users/paulschulz/workspace/ova/lt-svn/trunk/ova.as3/build/build.xml
+
+build-minimal:
+     [echo] Building the 'minimal' version of the OVA for AS3 SWC...
+     [exec] Loading configuration file /Applications/flex_sdk_3/frameworks/flex-config.xml
+     [exec] /Users/paulschulz/workspace/ova/lt-svn/trunk/ova.as3/dist/minimal/ova-as3-1.0.1.swc (278900 bytes)
+     [echo] Build complete.
+
+deploy-minimal:
+     [echo] Deploying the 'minimal' SWC 'ova-as3-1.0.1.swc' to the specified OVA product directories...
+     [copy] Copying 1 file to /Users/paulschulz/workspace/ova/lt-svn/trunk/ova.jwplayer.5x/lib
+     [copy] Copying 1 file to /Users/paulschulz/workspace/ova/lt-svn/trunk/ova.flowplayer/lib
+     [copy] Copying 1 file to /Users/paulschulz/workspace/ova/lt-svn/trunk/ova.vpaid.ads/lib
+     [echo] Deployment complete.
+
+BUILD SUCCESSFUL
+Total time: 10 seconds
+ps-macbook-pro:build paulschulz$
+</pre>
+
+<p>The OVA for AS3 build scripts will only deploy the library to OVA product areas that exist so if you only have OVA for JW5 installed, the OVA SWC will only be copied to that product's lib directory.</p>					</article>	
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22846/ad-scaling/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Ad Scaling | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Ad Scaling</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to enable scaling for linear and non-linear ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#linear">Scaling Linear Ads</a></li>
+<ol>	<li><a href="#automatic">Automatic scaling based on VAST attributes</a></li>
+	<li><a href="#forcing">Forcing Scaling</a></li></ol>
+	<li><a href="#scaling">Scaling Overlays</a></li>
+<ol>
+<li><a href="#non-linear-scaling-images">Enabling Scaling on Image and Non VPAID SWF Non-Linear Ads</a></li>
+<li><a href="#non-linear-dimensions">Scaling to Specific Dimensions</a></li>
+<li><a href="#non-linear-aspect">Maintaining Aspect Ratio</a></li>
+</ol>
+<li><a href="#disabling-vpaid-scaling">Disabling OVA Initiated Scaling of VPAID ads</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/13047/getting-started">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23688/delivering-overlay-ads/r">Delivering Overlays Ads</a></li>
+<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID Linear and Overlay Ads</a></li>
+</ul>
+
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25509/example-scaled-linear-ad">Scaled Linear Ad</a></li>
+<li><a href="/support/open-video-ads/25510/example-scaled-image-overlay">Scaled Image Overlay</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>OVA scales linear and non-linear ads automatically based on the scaling attributes provided in the VAST response. It is possible to override the automatic 
+scaling rules and forcibly set the scaling attributes for all linear or non-linear ads.</p>
+
+<h2><a name="linear"></a>2. Scaling Linear Ads</h2>
+
+<h3><a name="automatic"></a>2.1 Automatic scaling based on the VAST attributes</h3>
+
+<p>OVA will automatically scale linear ads to "fill" the player where possible.</p>
+
+<p>A VAST response however may specify that a linear ad is not to be scaled via the <span style="font-family: courier new,courier,monospace;">"scalable"</span> attribute on the media file tagset. For example:</p>
+
+<pre class="prettyprint">
+&lt;MediaFile <span style="background-color: yellow;">scalable="false"</span> width="640" height="480" type="video/x-mp4">
+    &lt;URL>
+       &lt;![CDATA[http://static.bouncingminds.com/ads/30secs/country_life_butter_600.mp4]]>
+    &lt;/URL>
+&lt;/MediaFile>
+</pre>
+
+<p>If a linear ad has <span style="font-family: courier new,courier,monospace;">scalable="false"</span> set in the VAST response, the ad will not be scaled by OVA</p>
+
+<h3><a name="forcing"></a>2.2 Forcing scaling</h3>
+
+<p>A configuration option has been added to allow the <i>linear scaling</i> attributes of ad streams to be forcibly set.</p>
+
+<p>To forcibly set the linear scaling attributes, use the <span style="font-family: courier new,courier,monospace;">linearScaling</span> as follows:</p>
+
+<pre class="prettyprint">
+{
+   ...
+      "ads": {
+          <span style="background-color: yellow;">"linearScaling": "value-goes-in-here",</span>
+          "schedule": [
+               ...
+          ]
+      }
+   ...
+}
+</pre>
+
+<p><span style="font-family: courier new,courier,monospace;">linearScaling</span> takes a string value. The value is dependant upon the player implementation.</p>
+
+<p>For Flowplayer, the value can be either:</p>
+
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">"orig"</span></li>
+<li><span style="font-family: courier new,courier,monospace;">"fit"</span></li>
+<li><span style="font-family: courier new,courier,monospace;">"scale"</span></li>
+</ul>
+
+<p>For JW Player, the value can be either:</p>
+
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">"uniform"</span></li>
+<li><span style="font-family: courier new,courier,monospace;">"fill"</span></li>
+<li><span style="font-family: courier new,courier,monospace;">"exactfit"</span></li>
+<li><span style="font-family: courier new,courier,monospace;">"none"</span></li>
+</ul>
+
+<h2><a name="scaling"></a>3. Scaling Non-Linear Ads</h2>
+
+<p>By default, OVA will not scale non-linear ads unless they are VPAID ads. To scale image and non-VPAID SWF non-linear ads types, scaling must be explicitly turned on.</p>
+
+<p>Regardless of whether or not OVA scaling is enabled, scaling will not be activated unless the non-linear VAST tags specify that the asset is <span style="font-family: courier new,courier,monospace;">"scalable"</span>. For example,
+the following VAST response specifies that the non-linear image is scaled:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="12" width="728" height="90" <span style="background-color: yellow;">scalable="true"</span>> 
+   &lt;StaticResource creativeType="image/gif"> 
+      http://static.openvideoads.org/ads/overlays/yu-gi-oh-728x90.gif
+   &lt;/StaticResource>
+&lt;/NonLinear>
+</pre>
+
+<h3><a name="non-linear-scaling-images">3.1 Enabling Scaling on Image and Non VPAID SWF Non-Linear Ads</h3>
+
+<p>To enable scaling on image and non-VPAID SWF non-linear ad types, use the <span style="font-family: courier new,courier,monospace;">"enableScaling"</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        "overlays": {
+           <span style="background-color: yellow;">"enableScaling": true</span>
+        },
+        "schedule": [
+           {
+              "region": "auto:bottom",
+              "startTime": "00:00:03",
+              "duration": "recommended:15",
+              "tag": "http://ad.server.com/my-ad-tag"
+           }
+        ]
+    }
+}
+</pre>
+
+<p>It is also possible to declare scaling for specific ad slots as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        "schedule": [
+           {
+              "region": "auto:bottom",
+              "startTime": "00:00:03",
+              "duration": "recommended:15",
+              <span style="background-color: yellow;">"enableScaling": true,</span>
+              "tag": "http://ad.server.com/my-ad-tag"
+           }
+        ]
+    }
+}
+</pre>
+
+<h3><a name="non-linear-dimensions">3.2 Scaling to Specific Dimensions</h3>
+
+<p>When OVA scales images and SWFs, by default it will try to scale the assets to the dimensions of the player. It is possible to instruct OVA to scale to specific
+dimensions as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        "schedule": [
+           {
+              "region": "auto:bottom",
+              "startTime": "00:00:03",
+              "duration": "recommended:15",
+              <span style="background-color: yellow;">"enableScaling": true,</span>
+              "width": 300,
+              "height": 50,
+              "tag": "http://ad.server.com/my-ad-tag"
+           }
+        ]
+    }
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25510/example-scaled-image-overlay">here</a></p>
+
+<h3><a name="non-linear-aspect">3.3 Maintaining Aspect Ratio</h3>
+
+<p>When OVA scales image and SWF assets, it will attempt to maintain the aspect ratio of the assets if the <span style="font-family: courier new,courier,monospace;">"maintainAspectRatio"</span> 
+attribute is set on the non-linear VAST ad tags as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="12" width="728" height="90" scalable="true" <span style="background-color: yellow;">maintainAspectRatio="true"</span>> 
+   &lt;StaticResource creativeType="image/gif"> 
+      http://static.openvideoads.org/ads/overlays/yu-gi-oh-728x90.gif
+   &lt;/StaticResource>
+&lt;/NonLinear>
+</pre>
+
+<h3><a name="disabling-vpaid-scaling">4. Disabling OVA Initiated Scaling of VPAID ads</h3>
+
+<p>If a VAST response has <span style="font-family: courier new,courier,monospace;">"scalable=true"</span> set, then OVA will automatically attempt to scale the VPAID SWF resource to fit the player dimensions.</p>
+
+<p>At times, this forced scaling impacts the way VPAID ads internally scale often resulting in a VPAID ad not rendering correctly.</p>
+
+<p>It is possible to disable OVA auto-scaling via the following options:</p>
+
+<pre class="prettyprint">
+...
+      "ads": {
+           "vpaid": {
+               <span style="background-color: yellow;">"enableLinearScaling": false,
+               "enableNonLinearScaling": false</span>
+           },
+           .....
+</pre>					</article>	
+
+</body>
+</html>

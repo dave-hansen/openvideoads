@@ -1,0 +1,710 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22830/javascript-callbacks/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Javascript Callbacks | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Javascript Callbacks</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores the OVA Javascript <i>Callback</i> API.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working example</a></li>
+	<li><a href="#loading">Turning on Javascript callbacks</a></li>
+	<li><a href="#ova">OVA Object Types</a></li>
+<ol>	<li><a href="#vast">VAST Ad Container</a></li>
+	<li><a href="#example">Linear Ad</a></li>
+	<li><a href="#loading">Non-Linear Ad</a></li>
+	<li><a href="#holdinf">Companion Ad</a></li>
+	<li><a href="#introduction">VPAID Ad Runtime State</a></li>
+	<li><a href="#example">VAST Extension</a></li>
+	<li><a href="#loading">DIV Specification</a></li>
+	<li><a href="#adslot">Ad Slot</a></li>
+	<li><a href="#tracking">Tracking Event</a></li></ol>
+	<li><a href="#scheduling">Scheduling callbacks</a></li>
+	<li><a href="#template">Template callbacks</a></li>
+	<li><a href="#on-demand">On-demand callbacks</a></li>
+	<li><a href="#linear">Linear ad callbacks</a></li>
+	<li><a href="#vpaid">VPAID callbacks</a></li>
+	<li><a href="#non-linear">Non-linear callbacks</a></li>
+	<li><a href="#companion">Companion callbacks</a></li>
+	<li><a href="#event">Tracking event callbacks</a></li>
+	<li><a href="#notice">Ad notice callbacks</a></li>
+	<li><a href="#ready">Ready to begin playback callbacks</a></li>
+	<li><a href="#calls">Ad call callbacks</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started with OVA for Flowplayer</a>,
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started with OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/13047/getting-started">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13060/configuring-ova-to-deliver-overlay-ads">Delivering Overlays</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25500/example-ad-scheduling-callbacks">Ad Scheduling Callbacks</a></li>
+<li><a href="/support/open-video-ads/25476/example-javascript-callbacks">Ad Tracking Callbacks</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>OVA provides a Javascript API that bridges the gap between a HTML page and OVA running within a Flash player SWF.</p>
+
+<p>The API has two discrete categories of functionality:</p>
+<ul>
+<li><i>Callbacks</i> from the OVA SWF into Javascript</li>
+<li>Calls from Javascript <i>into</i> the OVA SWF</li>
+</ul>
+<p>This guide details the <i>callback</i> API which covers the following areas of functionality:</p>
+<ul>
+<li>Ad scheduling</li>
+<li>Template loading</li>
+<li>On-demand ad slot loading</li>
+<li>Linear ad playback</li>
+<li>VPAID ad playback</li>
+<li>Non-linear ad playback</li>
+<li>Companion ad display</li>
+<li>Tracking events</li>
+<li>Ad notice display</li>
+<li>OVA is ready to start playback</li>
+</ul>
+<p>As OVA makes callbacks to Javascript, a range of Javascript <i>Objects</i> are passed back. These objects represent ads, templates, ad slots and the general state of OVA as it's playing an ad scheduled playlist.</p>
+
+<p>For the purposes of this API documentation, where the callback passes one or more parameters back, the callback function will be documented as follows with each 
+parameter declaring a <i>type</i> (in much the same way as these types are declared in AS3). This ensures that you can map the structure of the Object parameter back to one of the OVA Object definitions provided in section 4 of this guide.</p>
+
+<pre class="prettyprint">
+function(param:type)
+</pre>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example illustrates the OVA Javascript API in action.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+	    "canFireEventAPICalls": true,
+	    "ads": { 
+	       "schedule": [
+	          {
+	             "position": "pre-roll",
+	             "tag": "OVA_AD_TAG_LINEAR_WITH_CLICK_TRACKING"
+	          }
+	       ]
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<script type="text/javascript">
+function ovaPrintDebug(output) {
+	try {
+   		console.log(output);
+  	}
+  	catch(error) {}
+}
+
+function onImpressionEvent(event, forced) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-impression").css("background", "#9ACD32");
+   }
+}
+
+function onTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-" + event.eventType).css("background", "#9ACD32");
+   }
+}
+
+function onClickTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-click").css("background", "#9ACD32");
+   }
+}
+</script>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-output" style="margin-left:20px;margin-bottom:10px;height:300px;width:610px;">
+		<div id="ova-example-player" style="position:relative;height:100%;width:450px;float:left">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+        <div id="ova-event-status-blocks" style="width:150px;height:300px;background:#FFFFFF;float:right;">
+        	<div id="ova-tracking-impression" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;margin-top:2px;font-size:10px;padding-top:8px;text-align:center;">IMPRESSION</div>
+        	<div id="ova-tracking-start" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">START</div>
+        	<div id="ova-tracking-firstQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">1ST QUARTILE</div>
+        	<div id="ova-tracking-midpoint" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MIDPOINT</div>
+        	<div id="ova-tracking-thirdQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">3RD QUARTILE</div>
+        	<div id="ova-tracking-complete" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">COMPLETE</div>
+        	<div id="ova-tracking-click" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">CLICK</div>
+        	<div id="ova-tracking-mute" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MUTE</div>
+        </div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<p>In this example, each event fires a Javascript callback event that is captured by a Javascript function. As the Javascript captures the event, the matching DIV region matching that event is colored 
+green. The following code snippet presents the Javascript callback event functions that have been implemented for this example.</p>
+
+<pre class="prettyprint">
+function ovaPrintDebug(output) {
+   try {
+      console.log(output);
+   }
+   catch(error) {}
+}
+
+function onImpressionEvent(event, forced) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-impression").css("background", "#9ACD32");
+   }
+}
+
+function onTrackingEvent(event) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-" + event.eventType).css("background", "#9ACD32");
+   }
+}
+
+function onClickTrackingEvent(event) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-click").css("background", "#9ACD32");
+   }
+}
+</pre>
+
+<h2><a name="enabling"></a>3. Enabling Javascript Callbacks</h2>
+
+<p>By default, OVA fires Javascript callbacks for all event types except event tracking.</p> 
+
+<p>To enable tracking callbacks to fire, the <span style="font-family: courier new,courier,monospace;">"canFireEventAPICalls": true</span> option should be used as follows:</p>
+
+<pre class="prettyprint">
+{
+    "canFireEventAPICalls": true,
+    "ads": {
+         "schedule": [
+               ...
+         ]
+    }
+}
+</pre>
+
+<p>It is also possible to turn off all API callbacks using the <span style="font-family: courier new,courier,monospace;">"canFireAPICalls":false</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+    "canFireAPICalls": false,
+    "ads": {
+         "schedule": [
+               ...
+         ]
+    }
+}
+</pre>
+
+<h2><a name="objects"></a>4. OVA Objects</h2>
+
+<p>A number of OVA specific Object types are passed back via the callback API. These types include objects representing VAST ad containers, linear, non-linear, companion and
+ VPAID ads along with media files and other ad related components.</p>
+
+<h2><a name="vast"></a>4.1 VAST Ad Container Object</h2>
+
+<p>Where callbacks provide parameters with objects of type <i>AdContainer</i>, the object contains the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   type:String // "linear", "linear-vpaid", "non-linear", "non-linear-vpaid",
+   id:String,  
+   uid:String,
+   inlineAdId:String,  
+   adId:String,
+   sequenceId:String,
+   creativeId:String,
+   adSystem:String, 
+   adTitle:String,
+   description:String,
+   survey:String,
+   linearAd:Object,
+   nonLinearAds:Array,
+   companionAds:Array
+   extensions:Array
+}
+</pre> 
+
+<p>The <span style="font-family: courier new,courier,monospace;">nonLinearAds</span> array contains objects of type 
+<i>NonLinearAd</i> while the 
+<span style="font-family: courier new,courier,monospace;">companionAds</span> array contains objects of type 
+<i>CompanionAd</i>.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">Extensions</span> is an array of Extension objects that are pulled from the VAST response when 
+it's returned from the ad server.</p>
+
+<h2><a name="linear"></a>4.2 Linear Ad Object</h2>
+
+<p>Callbacks returning parameters of object type <i>LinearAd</i> contain the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   adId:String,
+   id:String,
+   uid:String,
+   scalable:String,
+   maintainAspectRatio:String,
+   duration:String,
+   mediaFiles:Array
+}
+</pre>
+
+<p>The <span style="font-family: courier new,courier,monospace;">mediaFiles</span> array contains objects of type <i>MediaFile</i>:</p>
+
+<pre class="prettyprint">
+{
+   id:String,
+   bandwidth:String,
+   delivery:String,
+   scale:String,
+   maintainAspectRatio:String,
+   mimeType:String,
+   bitRate:String,
+   width:String,
+   height:String,
+   apiFramework:String,
+   urlId:String,
+   url:String,
+   adParameters:String
+}
+</pre>
+
+<h2><a name="non-linear"></a>4.3 Non-Linear Ad Object</h2>
+
+<p><i>NonLinearAd</i> Objects contain the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   id:String,
+   adId:String,
+   uid:String,
+   width:int,
+   height:int,
+   expandedWidth:int,
+   expandedHeight:int,
+   resourceType:String,
+   creativeType:String,
+   apiFramework:String,
+   scalable:Boolean,
+   maintainAspectRatio:Boolean,
+   recommendedMinDuration:int,
+   url:String,
+   codeblock:String
+}
+</pre>
+
+<h2><a name="companion"></a>4.4 Companion Ad Object</h2>
+
+
+<p>Each <i>CompanionAd</i> object has the following attributes set:</p>
+
+<pre class="prettyprint">
+{
+   id:String,
+   adId:String,
+   uid:String,
+   divId:String,
+   altText:String,
+   width:int,
+   height:int,
+   resourceType:String,
+   creativeType:String
+   markup:String
+}
+</pre>
+
+<h2><a name="vpaid"></a>4.5 VPAID Ad Runtime State Object</h2>
+
+<p>Callbacks that provide the runtime state of a VPAID ad deliver that state in a <i>VPAIDRuntimeState</i> Object with the following attributes:</p>
+
+<pre class="prettyprint">
+{
+    adExpanded:Boolean.
+    adLinear:Boolean,
+    adRemainingTime:Number,
+    adVolume:int
+}
+</pre>
+
+<h2><a name="vast"></a>4.6 VAST Extension</h2> 
+
+<p><span style="font-family: courier new,courier,monospace;">extensions</span> are the VAST extensions that have been provided by the ad server. 
+The field is an array of Objects, with each element being the content of the <span style="font-family: courier new,courier,monospace;">"&lt;extension>&lt;/extension>"</span> 
+tagset in the VAST response - two attributes are declared on the objects in the array - <span style="font-family: courier new,courier,monospace;">label</span> and 
+<span style="font-family: courier new,courier,monospace;">text</span>. The <span style="font-family: courier new,courier,monospace;">"label"</span> is the type declared for the 
+extension and the <span style="font-family: courier new,courier,monospace;">text</span> is the content within the extension tagset.</p>
+
+<p>For example, an extension tagset as follows:</p>
+
+<pre class="prettyprint">
+&lt;Extensions&gt;
+   &lt;Extension type="LR-Pricing"&gt;
+      &lt;Price model="CPM" currency="USD">6</Price&gt;
+   &lt;/Extension&gt;
+   &lt;Extension type="SpotX-Count"&gt;
+      &lt;total_available>9</total_available&gt;
+   &lt;/Extension>
+   &lt;Extension type="Location"&gt;
+       London
+   &lt;/Extension&gt;
+&lt;/Extensions&gt;
+</pre>
+
+<p>yields:</p>
+
+<pre class="prettyprint">
+ad.extensions[0] == { label: "LR-Pricing", text: "<Price model="CPM" currency="USD">6</Price>" }
+ad.extensions[1] == { label: "SpotX-Count", text: "<total_available>9</total_available>" }
+ad.extensions[2] == { label: "Location", text: "London" }
+</pre>
+
+<h2><a name="div"></a>4.7 DIV Object</h2>
+
+<p>Callbacks returning parameters of object type <i>DIV</i> contain the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   id:String,
+   width: Number,
+   height: Number
+}
+</pre>
+
+<h2><a name="adslot"></a>4.8 AdSlot Object</h2>
+
+<p>Callbacks returning parameters of object type <i>AdSlot</i> contain the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   id: String,
+   uid: String,
+   type: String, //"Linear", "Linear-Interactive", "Non-Linear", "Non-Linear Interactive", "Companion"
+   position: String, "pre-roll", "post-roll" or "mid-roll"
+   loadOnDemand: Boolean,
+   refreshOnReplay: Boolean,
+   associatedStreamIndex: Number,
+   showNotice: Boolean,
+   regions: Array
+}
+</pre>
+
+<h2><a name="tracking"></a>4.9 Tracking Event Object</h2>
+
+<p>Callbacks returning parameters of object type <i>TrackingEvent</i> contain the following attributes:</p>
+
+<pre class="prettyprint">
+{
+   milliseconds:Number,
+   seconds:Number,
+   duration:Number,
+   label:String
+}
+</pre>
+
+<h2><a name="scheduling"></a>5. Scheduling callbacks</h2>
+
+
+<p>The following callbacks cover the ad scheduling process executed by OVA:</p>
+
+<pre class="prettyprint">
+onAdSchedulingStarted()
+onLinearAdScheduled(ad:LinearAd)
+onNonLinearAdScheduled(ad:NonLinearAd)
+onCompanionAdScheduled(divSpecification:DIV, companionAd:CompanionAd, parentAd:AdContainer)
+onAdSchedulingComplete(ads:Array)
+</pre>
+
+<p>When OVA starts ad scheduling, it calls <span style="font-family: courier new,courier,monospace;">onAdSchedulingStarted()</span>. As it proceeds with the ad calls 
+and scheduling, as each ad type is scheduled the appropriate callback is fired. If a linear ad is scheduled, 
+<span style="font-family: courier new,courier,monospace;">onLinearAdScheduled(ad)</span> is called. 
+<span style="font-family: courier new,courier,monospace;">onNonLinearAdScheduled(ad)</span> is called when non-linear ads have been successfully scheduled and 
+<span style="font-family: courier new,courier,monospace;">onCompanionAdScheduled(div, companionAd, parentContainer)</span> is called as companions are identified 
+as being attached to the linear or non-linear ads.</p>
+
+<p>Once the scheduling process is complete <span style="font-family: courier new,courier,monospace;">onAdSchedulingComplete(ads)</span> is called. You can interrogate 
+the provided array of ads to determine if OVA has successfully scheduled ads to play. For example, the following code snippet illustrates how to use the OVA callback 
+functions to determine if an ad has been successfully acquired by OVA to playback:</p>
+
+<pre class="prettyprint">
+function onAdSchedulingComplete(ads) {
+     if(ads.length > 0) { 
+          // OVA has ads to play
+     }  
+     else { 
+          // OVA does not have any ads to play
+     }
+}
+</pre>
+
+<p>An example of the scheduling callbacks in action can be found <a href="/support/open-video-ads/25500/example-ad-scheduling-callbacks">here</a>.</p>
+
+<h2><a name="template"></a>6. Template callbacks</h2>
+
+<p>As OVA loads a VAST template as a result of one or more ad calls, the callback are issued:</p>
+
+<pre class="prettyprint">
+onTemplateLoadSuccess(template:String)
+onTemplateLoadFailure(error:String)
+onTemplateLoadTimeout(error:String)
+</pre>
+
+<p>Upon successful loading of a template, the <span style="font-family: courier new,courier,monospace;">onTemplateLoadSuccess(template)</span> call is fired. 
+This call contains a String representation of the template data in it's raw XML format.</p>
+
+<p>Failure to load the template results in <span style="font-family: courier new,courier,monospace;">onTemplateLoadFailure(error)</span> firing, providing the 
+error message as the parameter while <span style="font-family: courier new,courier,monospace;">onTemplateLoadTimeout(error)</span> is called when the ad call to 
+load the template times out.</p>
+
+<h2><a name="on-demand"></a>7. On-demand callbacks</h2>
+
+<p>Callbacks are supported for ad slots that are loaded <i>on-demand</i>. For information on <i>on-demand</i> loading, please refer to 
+the <a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading on-demand and refreshing</a> guide.</p>
+
+<p>Four callbacks are supported, reflecting the various states an ad slot may have post an on-demand call:</p>
+
+<pre class="prettyprint">
+onAdSlotLoaded(adSlot:AdSlot)
+onAdSlotLoadError(message:String)
+onAdSlotLoadTimeout(message:String)
+onAdSlotLoadDeferred(message:String)
+</pre>
+
+<p>Ad slots loaded successfully result in the <span style="font-family: courier new,courier,monospace;">onAdSlotLoaded(adSlot)</span> callback. Failure loading 
+results in the <span style="font-family: courier new,courier,monospace;">onAdSlotLoadError(error)</span> callback with the error message provided. Ad slot are 
+deferred initially when scheduled and have the <span style="font-family: courier new,courier,monospace;">onAdSlotDeferred(message)</span> and the ad calls may timeout 
+resulting in the <span style="font-family: courier new,courier,monospace;">onAdSlotLoadTimeout(message)</span> call firing.</p>
+
+<h2><a name="loading"></a>8. Linear ad callbacks</h2>
+
+<p>OVA supports a full set of callbacks that identify the state of a linear ad as it is playing. These callbacks are for non-interactive linear ads only. VPAID linear 
+ads have their own callbacks.</p>
+
+<p>The callbacks cover player actions as well as progress reports on the linear video ad stream as it plays. These states map to the VAST ad tracking states in the IAB specification.</p>
+
+<pre class="prettyprint">
+onLinearAdStart(ad:LinearAd)
+onLinearAdStop(ad:LinearAd)
+onLinearAdPause(ad:LinearAd)
+onLinearAdResume(ad:LinearAd)
+onLinearAdClick(ad:LinearAd)
+onLinearAdFullscreen(ad:LinearAd)
+onLinearAdFullscreenExit(ad:LinearAd)
+onLinearAdMute(ad:LinearAd)
+onLinearAdUnmute(ad:LinearAd)
+onLinearAdReplay(ad:LinearAd)
+onLinearAdMidPointComplete(ad:LinearAd)
+onLinearAdFirstQuartileComplete(ad:LinearAd)
+onLinearAdThirdQuartileComplete(ad:LinearAd)
+onLinearAdFinish(ad ad:LinearAd Object)
+</pre>
+
+<p>If a user clicks through on a linear ad, the <span style="font-family: courier new,courier,monospace;">onLinearAdClick()</span> callback is fired.</p>
+
+<h2><a name="vpaid"></a>9. VPAID callbacks</h2>           
+
+<p>The full range of VPAID tracking events and playback states are supported with OVA callbacks. These range from the VPAID ad loading, through to started, complete, 
+in error and the various creative tracking elements such as video started, midpoint complete etc.</p>
+
+<pre class="prettyprint">
+onVPAIDAdLoaded(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdImpression(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdStart(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdComplete(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdError(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdVideoStart(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdVideoFirstQuartile(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdVideoMidpoint(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdVideoThirdQuartile(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdVideoComplete(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdClickThru(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdUserAcceptInvitation(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdUserMinimize(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdUserClose(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdPaused(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdPlaying(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdExpandedChange(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdLinearChange(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdRemainingTimeChange(ad:*, state:VPAIDRuntimeState)
+onVPAIDAdLog(ad:*, event:Object)
+</pre>
+
+<p>If a user clicks through on a VPAID ad, the <span style="font-family: courier new,courier,monospace;">onVPAIDAdClickThru()</span> callback is fired.</p>
+
+<h2><a name="non-linear"></a>10. Non-linear ad playback callbacks</h2>
+
+<p>Non-linear, non-interactive ads also have a number of callbacks. These cover the showing, hiding and click-through of the overlay creative.</p>
+
+<pre class="prettyprint">
+onNonLinearAdShow(ad:NonLinearAd)
+onNonLinearAdHide(ad:NonLinearAd)
+onNonLinearAdClicked(ad:NonLinearAd)
+onNonLinearAdCloseClicked(ad:NonLinearAd)
+</pre>
+
+<h2><a name="campanion"></a>11. Companion callbacks</h2>           
+
+<p>When a companion is shown and hidden (in relation to a linear or non-linear ad playing), the companion callbacks are fired.</p>
+
+<pre class="prettyprint">
+onCompanionAdShow(ad:CompanionAd)
+onCompanionAdHide(ad:CompanionAd)
+</pre>
+
+<h2>12. Event tracking callbacks</h2>
+
+<p>OVA supports callbacks on the full range of VAST tracking events across linear and non-linear ads.</p>
+
+<pre class="prettyprint">
+onImpressionEvent(event:TrackingEvent, forced:Boolean)
+onTrackingEvent(event:TrackingEvent)
+onClickTrackingEvent(event:TrackingEvent)
+onCustomClickTrackingEvent(event:TrackingEvent)
+</pre>
+
+<p>Linear ad tracking (start, firstQuartile, midpoint, thirdQuartile and complete) are fired via the 
+<span style="font-family: courier new,courier,monospace;">onTrackingEvent()</span> callback.</p>
+
+<p>By default, tracking event callbacks are not fired by OVA. OVA has to be explicitly instructed to fire these 
+callbacks via the <span style="font-family: courier new,courier,monospace;">canFireEventAPICalls</span> configuration option.</p>
+
+<h2><a name="notice"></a>13. Ad notice callbacks</h2>
+
+<p>Ad notices are shown as non-interactive linear ads are played. A callback is fired when the notice is shown, hidden and in the case 
+of <span style="font-family: courier new,courier,monospace;">countdown</span> notices, on each tick of the duration timer.</p>
+
+<pre class="prettyprint">
+onAdNoticeShow()
+onAdNoticeHide()
+onAdNoticeTick(remainingDuration:int)
+</pre>
+
+<h2><a name="ready"></a>12. OVA is ready to begin playback callbacks</h2>
+
+<p>When OVA has completed initialisation and produced the ad schedule, a "ready to begin playback" callback event is fired. The callback takes the following form:</p>
+
+<pre class="prettyprint">
+onOVAReadyToPlay()
+</pre>
+
+<h2><a name="calls"></a>14. Ad call callbacks</h2>
+
+<p>A set of Javascript callbacks have been provided to allow ad calls to be tracked as they execute. The callbacks are as follows:</p>
+
+<pre class="prettyprint">
+function onAdCallStarted(request)
+function onAdCallFailover(masterRequest, failoverRequest)
+function onAdCallComplete(request, hasAds)
+</pre>
+
+<p>Each "request" Object passed back in the callbacks has an "index" attribute that allows you to identify the sequence number of the ad call being made.</p>
+
+					</article>	
+
+</body>
+</html>

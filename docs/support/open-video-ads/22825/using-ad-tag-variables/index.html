@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22825/using-ad-tag-variables/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Using Ad Tag Variables | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Using Ad Tag Variables</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Contents</h2>
+<p>This short guide details how to use OVA variables with your ad tags.</p> 
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#example">Working Example</a></li>
+<li><a href="#variables">The Variables</a></li>
+<li><a href="#encoding">Encoding Variable Values</a></li>
+<li><a href="#declaring">Declaring Custom Variables</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25452/example-using-ad-tag-variables">Using Tag Variables</a></li>
+</ul>
+<br/>
+<hr/>
+<br/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+<p><i>Tag Variables</i> are runtime variables that can be added to static and dynamic ad tags within an OVA configuration to ensure that the required elements of information are inserted into an ad tag by OVA before OVA calls the ad provider. Typically ad providers require cache-busting information, domain, location, referrer or other related information to be dynamically inserted into an ad tag as they are called. Many times this helps ensure that the ad request is optimized on the ad server side.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>Consider the following ad tag:</p>
+
+<pre class="prettyprint">
+http://search.spotxchange.com/?VPAID=1&content=__page-url__&cb=__random-number__
+</pre>
+
+<p>This SpotXchange ad tag has two OVA tag variables declared:</p>
+<ul>
+<li><a >The <span style="font-family: courier new,courier,monospace;">__url__</span> of the page containing the video player and OVA</a></li>
+<li><a >A <span style="font-family: courier new,courier,monospace;">__random-number__</span> acting as a cache-busting variable</a></li> 
+</ul>
+<br/>
+<p>
+When this ad tag was provided by SpotXchange, it wasn't provided with the OVA variables declared. Rather, it was provided as follows:
+</p>
+
+<pre class="prettyprint">
+http://search.spotxchange.com/?VPAID=1&content=mycontent&cb=random-number
+</pre>
+
+<p>To ensure that OVA provides the page URL and the random number in the ad tag at runtime, when configuring the ad tag with OVA, elements of that ad tag have been replaced with required pre-defined OVA tag variables.</p>
+
+<p>Tag variables always take the form of a variable name pre and post fixed with double underscores "__":<p>
+
+<pre class="prettyprint">
+<i>__variable-name__</i>
+</pre>
+
+<p>In our example, two tag variables are used:</p>
+
+<pre class="prettyprint">
+__random-number__
+__page-url__
+</pre>
+
+<p>This results in the ad tag being configured with OVA as follows:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "tag":"http://search.spotxchange.com/?VPAID=1&content=
+                         <span style="background-color: yellow;">__page-url__</span>&cb=<span style="background-color: yellow;">__random-number__</span>"
+             } 
+         ]
+    }
+}
+</pre>
+
+<p>When OVA makes the ad call, the final ad tag will have the ad tag variables (<i>__variable-name__</i>) replaced with real values. As a result the following call will be made:</p>
+
+<pre class="prettyprint">
+http://search.spotxchange.com/?VPAID=1&content=http://my-domain.com/my-page.html&cb=0.548754398
+</pre>
+
+<h2><a name="variables"></a>3. The Variables</h2>
+<p>A number of ad tag variables have been provided:</p>
+
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Variables</td>
+			<td>Definitions</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">__page-url__</span></td>
+			<td>Inserts the URL of the web page containing OVA</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">__domain__</span></td>
+			<td>Inserts the domain hosting the web page containing OVA</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">__referrer__</span></td>
+			<td>Insert the URL of the web page containing OVA</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">__random-number__</span></td>
+			<td>Inserts a random number - often used for cache busting</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">__timestamp__</span></td>
+			<td>Inserts a timestamp value</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">__player-height__</span></td>
+			<td>Inserts the height of the player</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">__player-width__</span></td>
+			<td>Inserts the width of the player</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">__zone__</span></td>
+			<td>Inserts the zone specified in the ad slot making the ad call</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">__allow-duplicates-as-binary__</span></td>
+			<td>OpenX Community Edition variable - maps to the "allowAdRepetition" OVA config option</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">__allow-duplicates-ad-boolean__</span></td>
+			<td>OpenX Community Edition variable - maps to the "allowAdRepetition" OVA config option</td>
+		</tr>
+		
+	</tbody>
+</table>
+
+<h2><a name="encoding"></a>4. Encoding Variable Values</h2>
+
+<p>By default, should the value of a tag variable contain question marks or ampersands, OVA will URL encode the value to ensure that it doesn't break the ad tag structure.</p>
+
+<p>For example, if the <span style="font-family: courier new,courier,monospace;">__page-url__</span> is inserted and that URL is as follows:</p>
+
+<pre class="prettyprint">
+http://mydomain.com/my-page.html?format=1&test=2
+</pre>
+
+<p>The <span style="font-family: courier new,courier,monospace;">page-url</span> will be inserted as follows:</p>
+
+<pre class="prettyprint">
+http%3a//mydomain.com/my-page.html/format%3d1%26test%3d2
+</pre>
+
+<p>If the tag variable value does not include ampersands or question marks, but you wish to ensure that the value is always encoded, use the "<span style="font-family: courier new,courier,monospace;">encodeVars</span>" config option as follows with the ad call:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "server": {
+                       <span style="background-color: yellow;">"encodeVars": true,</span>
+                       "tag": "http://search.spotxchange.com/?VPAID=1&
+                               content=__page-url__&cb=__random-number__"
+                  }
+             } 
+         ]
+    }
+}
+</pre>
+
+<p>Note that you need to declare the ad tag within a <span style="font-family: courier new,courier,monospace;">"server"</span> config block for the <span style="font-family: courier new,courier,monospace;">encodeVars</span> variable to work.</p>
+
+<h2><a name="declaring"></a>5. Declaring Custom Variables</h2>
+
+<p>It is possible for you to declare your own tag variables and have OVA replace those at runtime. This is particularly useful when combined with JavaScript functions to allow you to manipulate the ad tag at runtime.</p>
+
+<p>The following code snippet illustrates how to declare your own custom variables:</p>
+
+<pre class="prettyprint">
+
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "server": {
+                      "encodeVars": true, 
+<span style="background-color: yellow;">                      "customProperties": {
+                           "my-variable": getMyVariableContents() 
+                      },</span>
+                      "tag":"http://search.spotxchange.com/vast/2.00/
+                             __my-variable__&content=__page-url__&cb=__random-number__"
+                  }
+             } 
+         ]
+    }
+}
+</pre>
+
+<p>In this example a custom variable called <span style="font-family: courier new,courier,monospace;">my-variable</span> is declared and the value of that variable is derived from a custom JavaScript function called <span style="font-family: courier new,courier,monospace;">getMyVariableContents()</span> which will be declared somewhere in the JavaScript code on the page.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">"customProperties"</span> can only be declared within <span style="font-family: courier new,courier,monospace;">"server"</span> config blocks.</p>					</article>	
+
+</body>
+</html>

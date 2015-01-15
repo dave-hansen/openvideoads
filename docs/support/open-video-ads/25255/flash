@@ -1,0 +1,986 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/25255/delivering-non-linear-ads/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Delivering Non-Linear Ads | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Delivering Non-Linear Ads</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to use OVA to deliver <i>Non-Linear</i> video ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Worked Example</a></li>
+	<li><a href="#adslots">Configuring Non-Linear Ad Slots</a></li>
+	<li><a href="#rules">Selection Rules</a></li>
+	<ol>
+	<li><a href="#declaring">Declaring Selection Rules</a></li>
+	<li><a href="#size">Selection by Size</a></li>
+	<li><a href="#ad">Selection by Ad Type</a></li>
+	<li><a href="#size-ad">Selection by Size and Ad Type</a></li>
+	<li><a href="#always">Always Match</a></li>
+	</ol>
+	<li><a href="#templates">Content Templates</a></li>
+	<li><a href="#modes">Non-Linear Display Modes</a></li>
+	<ol>
+	<li><a href="flash">Overlays and Flash Mode</a></li>
+	<li><a href="html5">Non-Linear Ads With HTML5 Mode</a></li>
+	<li><a href="preferred">Preferred Display Mode</a></li>
+	</ol>
+	<li><a href="max">Setting a Maximum Limit on Non-Linear Ad Display</a></li>
+	<li><a href="scaling">Scaling Non-Linear Ads</a></li>
+	<li><a href="javascript">Supporting Javascript Non-Linear Ads</a></li>
+	<li><a href="live">Supporting Live Streams</a></li>
+	<li><a href="anchor">Anchoring to the Bottom (OVA for JW5 only)</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li>
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/22820/supported-ad-formats/revisions/23228/view">Supported Ad Formats</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide/revisions/23374/view">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID Linear and Overlay Ads</a></li>
+<li><a href="/support/open-video-ads/22846/ad-scaling">Ad Scaling</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25378/example-non-linear-flash-mode-overlay">Non-Linear Image Overlay</a></li>
+<li><a href="/support/open-video-ads/25378/example-non-linear-vpaid">Non-Linear VPAID Overlay</a></li>
+<li><a href="/support/open-video-ads/25380/example-non-linear-non-overlay">Non-Linear Non-Overlays</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA can be used to deliver <i>non-linear</i> video advertising. Non-linear video ads are banner style ads that appear either <i>within</i> or <i>around</i> the player display. 
+While similar in appearance, non-linear ads should not be confused with <i>Companion Ads</i> that appear in conjunction with either <i>Linear</i> or <i>Non-Linear</i> ads.
+Unlike Companion Ads, Non-linear ad may be VPAID ads that support interaction with the underlying player.</p>
+<p>Non-linear video ads that appear within the player display are known as <i>Overlays</i>. Those that appear around the player display are termed <i>Non-Overlay</i>.</p>
+<p>The IAB has defined a "minimum" set of standard sizes for Non-Linear ad formats - 300x50 and 450x50 for overlays and 300x50, 300x60, 234x60 and 400x20 for non-overlays.
+Publishers may offer more formats than these, however overlays should not exceed 1/5 of the player height. For more detailed guidance on non-linear ad formats, 
+please refer to the <a href="http://www.iab.net/media/file/IAB-Video-Ad-Format-Standards.pdf">IAB Video Ad Format Standards</a> guide
+available on the <a href="http://www.iab.net/vast">IAB</a> website.</p>
+
+<h2><a name="example"></a>2. Worked Example</h2>
+<p>The following example illustrates the delivery of both a non-linear <i>overlay</i> and a non-linear <i>non-overlay</i>. 
+The overlay appears at the bottom of the player display just above the controls while the non-overlay appears below the player in a static position.
+The non-overlay is positioned within a DIV tagset declared within the HTML page while the overlay is displayed as a flash region on the player display.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "ads": {
+             "schedule": [
+                 {
+                    "startTime": "00:00:03",
+                    "duration": 10,
+                    "regions": {
+                        "flash": [
+                            {
+                               "acceptedAdTypes": [ "image" ]
+                            }
+                        ],
+                        "html5": [
+                            {
+                               "enable": true,
+                               "overlay": false,
+                               "acceptedAdTypes": [ "iframe" ]
+                            }
+                        ]
+                    },
+                    "tag": "OVA_AD_TAG_MULTIPLE_NON_LINEAR_TYPES"
+                 }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:350px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+		<div id="bottom" style="background:#FF6600;width:450px;height:50px;">
+		   <!--- A 450x50 non-linear ad will appear in here -->
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<p>The non-overlay is an "iFrame" creative type while the overlay is an "image". Non-Overlays are always displayed by OVA using the OVA HTML5 jQuery library ("ova-jquery.js") while 
+overlays may be displayed either using the same OVA jQuery library or by the OVA SWF itself. If the OVA jQuery library is used, DIV regions must be declared within the HTML page 
+to hold the non-linear creative(s).</p>
+
+<h2><a name="adslots"></a>3. Configuring Non-Linear Ad Slots</h2>
+
+<p>Non-linear ads are configured within an OVA <i>ad schedule</i> as illustrated by the following code snippet:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            <span style="background-color: yellow;">{
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            },
+            {
+                 "startTime": "00:00:45",
+                 "duration": "recommended:10",
+                 "tag": "http://my-ad-server.com/ad-tag2.xml"
+            }</span>
+        ]
+    },
+    ...
+}
+</pre>
+
+<p>In this example, 2 non-linear ads are served - the first after 5 seconds into the show clip for a duration of 10 seconds, the second after 45 seconds into the show clip for 10 seconds. 
+Each non-linear ad is obtained using separate ad tags.</p>
+<p>Non-linear ad slots always have a <span style="font-family: courier new,courier,monospace;">"startTime"</span> specified. OVA uses this to identify the ad slot as "non-linear".</p>
+<p>An optional <span style="font-family: courier new,courier,monospace;">"duration"</span> value may be specified to detail how long an overlay should be shown (in seconds). 
+Ad slots without a <span style="font-family: courier new,courier,monospace;">"duration"</span> specified will run indefinately. VAST 2 supports the notion 
+of a <span style="font-family: courier new,courier,monospace;">"minSuggestedDuration"</span> attribute 
+on a non-linear creative. To instruct OVA to use the VAST <span style="font-family: courier new,courier,monospace;">"minSuggestedDuration"</span> value, the Ad Slot definition 
+should take the form of <span style="font-family: courier new,courier,monospace;">"recommended:X"</span> where X is the duration to apply if no 
+<span style="font-family: courier new,courier,monospace;">"minSuggestedDuration"</span> is provided in the VAST response</p>
+<p>Each ad slot may be displayed using either the default Flash display mode or HTML5, or both concurrently. A number of additional configuration options (such as 
+<span style="font-family: courier new,courier,monospace;">"region"</span> and sizing information) may 
+be specified with non-linear ad slots depending upon the display mode being used.</p>
+<p>OVA will only display non-linear ads if it can:</p>
+<ol>
+<li>Successfully find a matching non-linear creative type in the VAST response based on the configured OVA <i>Display Rules</i> and</li>
+<li>Apply a non-linear <i>Content Template</i> to derive the markup/code to form the ad creative and</li>
+<li>Successfully display the ad creative markup/code using the <i>Display Mode</i> declared in the OVA configuration</li>
+</ol>
+
+<h2><a name="selection"></a>4. Selection Rules</h2>
+
+<p>A VAST response will often include a number of non-linear ad creatives of different sizes and potentially creative types.</p>
+
+<p>OVA implements a number of rules to govern how it selects the most appropriate creative to display for a given ad slot. These rules include:</p>
+<ol>
+<li>Matching based on size</li>
+<li>Matching based on ad type</li>
+<li>Matching based on size and ad type</li>
+<li>Always matching</li>
+</ol>
+
+<h3><a name="declaring">4.1 Declaring Selection Rules</h3>
+
+<p>By default, OVA will match as follows:</p>
+
+<ol>
+<li>If sizing information is specified in the ad slot, this takes priority and an exact match based on size is required, unless the <span style="font-family: courier new,courier,monospace;">"alwaysMatch"</span> option is specified</li>
+<li>If no sizing information is provided, the player size will be used for guidance and the best fit will be matched</li>
+<li>If ad types are specified for matching, then those will be used to reduce the number of creatives that can be matched to the corresponding set. 
+If size information is provided in the ad slot along with permitted ad types, then the size rules will be applied to the matched set of creatives.</li>
+<li>If <span style="font-family: courier new,courier,monospace;">"alwaysMatch"</span> is specified, then a match will always be made, regardless of the selection rules specified. The match will always 
+be the first creative in the set available in the VAST response.</li>
+</ol>
+
+<p>The default matching rules can be overriden with custom settings. Matching rules can be specified at either the <i>general level</i> or within a specific <i>ad slot</i>.</p>
+
+<h4>4.1.1 Specifying Selection Rules at the General Level</h4>
+
+<p>The following code snippet illustrates how to declare matching rules at a general level to ensure that these rules are applied across all non-linear ad slots. 
+General rules are declared within an <span style="font-family: courier new,courier,monospace;">"ads.overlays"</span> config block:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       <span style="background-color: yellow;">"overlays": {
+             "width": 400,
+             "height": 50
+       },</span>
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            },
+            {
+                 "startTime": "00:00:45",
+                 "duration": "recommended:10",
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+
+<h4>4.1.2 Specifying Selection Rules at the Ad Slot Level</h4>
+
+<p>Specific selection rules to apply per ad slot can be declared at the ad slot level as follows.</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 <span style="background-color: yellow;">"acceptedAdTypes": [ "image" ],</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            },
+            {
+                 "startTime": "00:00:45",
+                 "duration": "recommended:10",
+                 <span style="background-color: yellow;">"acceptedAdTypes": [ "iframe" ],</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+
+<p>The code snippet above illustrates how to limit creative selection to "image" ad types for the first ad slot and "iframe" ad types for the second ad slot.</p>
+
+<h3><a name="size">4.2 Selection by Size</h3>
+
+<p>If an ad slot has a width and height specified, those values are used to match to VAST creative.</p>
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 <span style="background-color: yellow;">"width": 400,
+                 "height": 50,</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+<p>For example, an ad slot declared as illustrated above will result in OVA searching the VAST response for a creative ad unit that is 400 width by 50 high.</p> 
+
+<p>An illustration of this option can be found <a href="/support/open-video-ads/25484/example-non-linear-selection-by-size">here</a>.</p>
+
+<h3><a name="ad">4.3 Selection by Ad Type</h3>
+
+<p>Alternatively an ad slot can declare a set of ad types that are applicable.</p>
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 <span style="background-color: yellow;">"acceptedAdTypes": [ "image" ],</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+
+<p>When a set of mime types are declared, only those creatives matching the ad type set will be available for selection. For example. the code snippet above ensures that 
+only non-linear image ads are displayed.</p>
+
+<p>The list of possible ad types includes:</p>
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">image</span></li>
+<li><span style="font-family: courier new,courier,monospace;">html</span></li>
+<li><span style="font-family: courier new,courier,monospace;">text</span></li>
+<li><span style="font-family: courier new,courier,monospace;">swf</span></li>
+<li><span style="font-family: courier new,courier,monospace;">vpaid</span></li>
+<li><span style="font-family: courier new,courier,monospace;">iframe</span></li>
+<li><span style="font-family: courier new,courier,monospace;">javascript</span></li>
+</ul>
+
+<p>An illustration of this option can be found <a href="/support/open-video-ads/25485/example-non-linear-selection-by-type">here</a>.</p>
+
+<h3><a name="size-ad">4.4 Selection by Size and Ad Type</h3>
+
+<p>It is possible to limit creative selection based on both ad type and size. The list of possible creatives that can match will be restricted first by ad type, and then by size.</p>
+
+<p>The following code snippet illustrates how to specify a size and type selection criteria for an ad slot. In this example, only 400x50 image based non-linear ads will be displayed:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 <span style="background-color: yellow;">"width": 400,
+                 "height": 50,
+                 "acceptedAdTypes": [ "image" ],</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+
+<h3><a name="always">4.5 Always Match</h3>
+
+<p>While matching rules are great in theory, generally an ad should always be selected for display, particularly if it is a creative type that can be scaled such as SWF non-linear ads.</p>
+
+<p>The "alwaysMatch" option exists to ensure that if all else fails, a creative will be selected from the VAST response. The creative matched will always be the first one in the non-linear ad block.</p>
+
+<p>The following code snippet illustrates how to use the "alwaysMatch" option:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+       "schedule": [
+            {
+                 "startTime": "00:00:05",
+                 "duration": "recommended:10",
+                 "width": 400,
+                 "height": 50,
+                 "acceptedAdTypes": [ "image" ],
+                 <span style="background-color: yellow;">"alwaysMatch": true,</span>
+                 "tag": "http://my-ad-server.com/ad-tag1.xml"
+            }
+        ]
+    },
+    ...
+}
+</pre>
+
+<h2><a name="templates"></a>5. Creative Templates</h2>
+
+<p>Non-linear ads can be of different creative types:</p>
+<ul>
+<li>Image</li>
+<li>Javascript</li>
+<li>VPAID SWF</li>
+<li>Non-VPAID SWF</li>
+<li>HTML</li>
+<li>Text</li>
+<li>iFrame</li>
+</ul>
+<p>A VAST response that specifies a non-linear creative can declare that creative using either a URL or an embedded markup (HTML or Javascript) code snippet.</p>
+
+<p>OVA forms the final code segment used to display a non-linear creative using a <i>Creative Template</i> that governs how to read the VAST response and transform 
+it accordingly into the required HTML5 or Flash display instructions.</p>
+
+<p>It is possible to override the default template for each overlay type to customise the code used to display non-linear ads. For example, the following code 
+snippet illustrates how to override the template applied for HTML overlay types:</p>
+
+<pre class="prettyprint">
+"ads": {
+    "schedule": [
+        {
+            "zone": "31",
+            "startTime": "00:00:05",
+            "duration": "15",
+            <span style="background-color: yellow;">"templates": {
+               "html": "&lt;body&gt;MY NEW TEMPLATE: _code_&lt;/body&gt;",
+            }</span>
+        }
+    ],
+}
+</pre>
+
+<h2><a name="modes"></a>6. Non-Linear Display Modes</h2>
+
+<p>OVA supports two different <i>modes</i> of operation to display non-linear ads:</p>
+<ol>
+<li>via Flash (the default mode)</li>
+<li>via HTML5</li>
+</ol>
+
+<p><i>Flash</i> display mode uses the facilities of AS3 to obtain and display the non-linear ad on the player stage. Only overlays can be displayed using <i>Flash</i> mode 
+and the type of overlay creative that can be displayed is restricted to:</p>
+<ul>
+<li>Image</li>
+<li>Restricted HTML</li>
+<li>Text</li>
+<li>Non-VPAID Flash</li>
+<li>VPAID SWF</li>
+</ul>
+<p>Alternatively, non-linear ads displayed in HTML5 mode can be placed as either <i>overlay</i> or <i>non-overlays</i> and a broader set of non-linear creative types are supported by HTML5 display mode:</p>
+<ul>
+<li>Image</li>
+<li>Full HTML</li>
+<li>Text</li>
+<li>Non-VPAID Flash</li>
+<li>iFrame</li>
+<li>Javascript</li>
+</ul>
+<p>VPAID non-linear ads can only be displayed using <i>Flash</i> display mode. This means that it is not 
+possible to display non-linear, non-overlay VPAID ads.</p>
+
+<h3><a name="flash"></a>6.1 Overlays and Flash Mode</h3>
+
+<p>By default, OVA attempts to display non-linear ads in <i>Flash</i> mode. In <i>Flash</i> mode, only <i>overlays</i> can be displayed. When overlays are displayed in Flash mode, OVA 
+attempts to display the creative using the in-built features of Flash. Generally this means placing the creative on a Sprite based region on the player, however for <i>HTML</i> and <i>Text</i> non-linear ad 
+types, the ad content is displayed using the restricted HTML facilities of the <span style="font-family: courier new,courier,monospace;">TextField</span> in AS3. This means that a subset of HTML is supported. For details on the HTML tags that Flash supports, 
+please consult the Adobe <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/TextField.html">TextField</a> reference guide.</p>
+
+<p>OVA uses the <span style="font-family: courier new,courier,monospace;">"region"</span> configuration within an ad slot declaration to identify where on the non-linear ad is to be placed on the player display.</p>
+
+<p><i>Regions</i> can either be:</p>
+<ul>
+<li><i>Manually</i> declared via the "regions" config block</li>
+<li><i>Automatically</i> created by OVA based on a range of keywords</li>
+</ul>
+
+<h3>3.1 Using Automatic Overlay Regions</h3>
+<p>The sizing of&nbsp;<i>automatic</i>&nbsp;regions is determined at runtime based on the sizing information provided in the VAST response.</p>
+<p>The following configuration snippet illustrates how to declare a requirement for overlay advertising that is to be displayed using "automatic"&nbsp;regions.</p>
+<pre class="prettyprint">...
+   "ads": {
+       "schedule": [
+            {
+                 "zone": "28",
+                 "startTime": "00:00:05",
+                 <span style="background-color: yellow;">"position": "auto:center",</span>
+                 "duration": "recommended:10"
+            }
+        ]
+   }
+...
+</pre>
+<p>A position that has "auto" specified as the position name instructs OVA to create a region on the screen that matches the dimensions of the overlay ad specified in the VAST response. A "placement" identifier must alway be specified along with the "auto" keyword.</p>
+<p>Valid placements are:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">auto:top</span> - centered at the top of the screen</li>
+	<li><span style="font-family: courier new,courier,monospace;">auto:bottom</span> - centered at the bottom of the screen</li>
+	<li><span style="font-family: courier new,courier,monospace;">auto:center</span> - placed in the center of the screen</li>
+	<li><span style="font-family: courier new,courier,monospace;">auto:left</span> - placed to the left center of the screen</li>
+	<li><span style="font-family: courier new,courier,monospace;">auto:right</span> - placed to the right center of the screen</li>
+</ul>
+<h3>3.2 Manually Specifying Overlay Regions</h3>
+<p>In addition to automatic region creation, it is possible to specify a "region" that is to be used to display an overlay manually by specifying either:</p>
+<ul>
+	<li>The name of a <i>pre-defined</i> OVA region, or</li>
+	<li>The name of a <i>custom</i> region declared within the OVA configuration block</li>
+</ul>
+<p>OVA has 14 general purpose overlays declared. These range from invisible full screen regions, to top, middle, bottom, left and right definitions that are either invisible, opaque or black.</p>
+<p>The following code snippet illustrates how to tie an overlay to a pre-defined region - in this case the region is a transparent region, 450x50 pixels placed at the bottom center of the screen (labeled <span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-transparent</span>).</p>
+<pre class="prettyprint">
+...
+   "ads": {
+       "servers": [
+            {
+                ...
+            }
+       ],
+       "showOverlayCloseButton": false,
+       "schedule": [
+            {
+                 "zone": "28",
+                 "startTime": "00:00:05",
+                 <span style="background-color: yellow;">"region": "reserved-bottom-w450px-h50px-transparent",</span>
+                 "duration": "recommended:10"
+            }
+        ]
+   }
+...
+</pre>
+<p>For a full description of the pre-defined region names, refer to the <a href="/support/open-video-ads/13048/ova-configuration-guide ">OVA Configuration Guide</a>.</p>
+<p>Custom regions can be declared within the OVA configuration block. The following configuration snippet illustrates how a custom region with an ID of 
+<span style="font-family: courier new,courier,monospace;">"top-center"</span> is declared. It has a black background, no padding and a border 15 pixels wide. 
+The dimensions of the overlay are 450 x 50 pixels.</p>
+<pre class="prettyprint">
+{
+  "regions": {
+     "declarations": [
+          {
+              <span style="background-color: yellow;">"id": "top-center",</span>
+              "verticalAlign": "top",
+              "horizontalAlign": "center",
+              "backgroundColor": "#000000",
+              "opacity": 0.8,
+              "borderRadius": 15,
+              "padding": "-10 -10 -10 -10",
+              "width": 450,
+              "height": 50
+          }
+     ]
+  },
+  "ads": {
+     ....
+  } 
+}
+</pre>
+<p>For a full account of how to specify custom regions, refer to the <a href="customising-display-regions">Customing Display Regions</a> guide.</p>
+
+<h3><a name="html5"></a>6.2 Non-Linear Ads and HTML5 Mode</h3>
+
+<p>Non-linear ads can be displayed by OVA using the OVA HTML5 library <span style="font-family: courier new,courier,monospace;">"ova-jquery.js"</span>. The <span style="font-family: courier new,courier,monospace;">"ova-jquery.js"</span> 
+file can be found in the <i>OVA for JW5</i> or <i>OVA for Flowplayer</i> distribution pages (in the <span style="font-family: courier new,courier,monospace;">/dist/js</span> directory), or it can be downloaded 
+from <a href="/content/ova/download/ova-jquery.zip">here</a> or from the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a>.</p>
+
+<p>HTML5 display mode requires the <span style="font-family: courier new,courier,monospace;">"ova-jquery.js"</span> library to be included on the web page before the player is setup.</p>
+
+<p>Once the library has been included, to enable HTML5 display mode, use the <span style="font-family: courier new,courier,monospace;">"html5"</span> regions option at either general or ad slot specific levels. The 
+following code snippet illustrates how to enable HTML5 display mode for all ad slots:</p>
+
+<pre class="prettyprint">
+...
+   "ads": {
+       <span style="background-color: yellow;">"overlays": {
+           "regions": {
+               "html5": true
+           }
+       },</span>
+       "schedule: [
+           {
+               ...
+           }
+       ]
+   }
+...
+</pre>
+
+<p>The config above results in HTML5 display mode being enabled to run concurrently with Flash display mode. To turn off Flash display mode, and enable HTML5, use the following config:
+
+<pre class="prettyprint">
+...
+   "ads": {
+       <span style="background-color: yellow;">"overlays": {
+           "regions": {
+               "html5": true,
+               "flash": false
+           }
+       },</span>
+       "schedule: [
+           {
+               ...
+           }
+       ]
+   }
+...
+</pre>
+
+<p>The following code snippet illustrates how to enable HTML5 display mode for a specific ad slot. In this example, the first ad slot is displayed using HTML5, while the second ad slot 
+is displayed using the default Flash display mode. The first non-linear ad will be placed into a DIV region with an ID of <span style="font-family: courier new,courier,monospace;">"bottom"</span> while the second ad slot will be positioned in the 
+<span style="font-family: courier new,courier,monospace;">"auto:bottom"</span> region on the player display.</p>
+
+<pre class="prettyprint">
+...
+   "ads": {
+       "schedule: [
+           {
+               "startTime": "00:00:05",
+               "duration": 10,
+               "tag": "http://my-ad-server.com/ad-tag.xml",
+               <span style="background-color: yellow;">"regions": {
+    	           "html5": true,
+        	       "flash": false
+               }</span>
+           },
+           {
+               "startTime": "00:00:45",
+               "duration": 10,
+               "tag": "http://my-ad-server.com/ad-tag.xml"
+           }
+       ]
+   }
+...
+</pre>
+
+<h4>6.2.1 Placing Non-Linear ads on the page</h4>
+
+<p>HTML5 displayed non-linear ads use jQuery and DIV regions to place the non-linear ad on the web page.</p>
+
+<p>By default, OVA will attempt to place the non-linear ad in a DIV region with an ID <span style="font-family: courier new,courier,monospace;">"bottom"</span>.</p>
+
+<p>Typically, the HTML markup for a DIV region will appear in the web page as follows:</p>
+
+<pre class="prettyprint">
+&lt;div>
+	&lt;div>
+	    &lt;div id="container" style="width:450px;height:300px;">
+	        Loading the player ...
+	    &lt;/div>
+	&lt;/div>
+	<span style="background-color: yellow;">&lt;div id="bottom" style="background:#FF6600;width:450px;height:50px;">
+	   &lt;!--- A 450x50 non-linear ad will appear in here -->
+	&lt;/div></span>
+&lt;/div>
+</pre>
+
+<div style="margin-left:20px;margin-bottom:20px;">
+<img src="/sites/default/files/non-overlay.jpg" border=0/>
+</div>
+
+<p>This markup results in a DIV region that is immediately visible the moment the page is loaded. As such, it is suitable for a non-linear, non-overlay ad.</p>
+
+<p>OVA assumes HTML5 displayed non-linear ads are "overlays" by default. This means that before the non-linear ad is displayed, the DIV region holding the non-linear ad will be shown and hidden as required</p>
+
+<p>To display HTML5 non-linear overlays, the DIV region created on the page must have the CSS property <span style="font-family: courier new,courier,monospace;">"visibility:hidden;"</span> 
+set by default. For example, the following HTML code snippet illustrates how to declare a HTML DIV region that is 400x50, is positioned at the bottom of the player above the controls and 
+is hidden by default:</p>
+
+<pre class="prettyprint">
+&lt;div style="position:relative;width:450px;height:300px;">
+  &lt;div id="container" style="top:0px;left:0px;width:450px;height:300px;position:absolute;">
+     Loading the player ...
+  &lt;/div>
+  <span style="background-color: yellow;">&lt;div id="bottom" style="top:223px;left:0px;width:450px;height:50px;background:transparent;position:absolute;visibility:hidden;">
+	 &lt;!--- A 450x50 overlay ad will appear in here -->
+  &lt;/div></span>
+&lt;/div>
+</pre>
+
+<div style="margin-left:20px;margin-bottom:20px;">
+<img src="/sites/default/files/overlay.jpg" border=0/>
+</div>
+
+<p>When OVA shows the non-linear overlay, the CSS "visibility" property will be changed to <span style="font-family: courier new,courier,monospace;">"visible"</span> and then back to 
+<span style="font-family: courier new,courier,monospace;">"hidden"</span> when the overlay is to be closed.</p>
+
+<p>Once the DIV region has been specified in the web page, OVA needs to be instructed via the config to display non-linear ads as overlays. This is accomplished via the 
+<span style="font-family: courier new,courier,monospace;">"overlays.overlay"</span> config option as follows:</p>
+
+<pre class="prettyprint">
+...
+   "ads": {
+       "overlays": {
+           <span style="background-color: yellow;">"overlay": { "html5": true },</span>
+           "regions": {
+               "html5": true,
+               "flash": false
+           }
+       },
+       "schedule: [
+           {
+               "startTime": "00:00:05",
+               "duration": 10,
+               "tag": "http://my-ad-server.com/ad-tag.xml",
+           }
+       ]
+   }
+...
+</pre>
+
+<p>An example of this setup can be found <a href="/support/open-video-ads/25379/example-non-linear-html5-mode-overlay">here</a>.</p>
+
+<p>Setting the "overlay" value to "false" ensures that the non-linear ad is displayed as a "non-overlay" where the original DIV content in the container for the non-linear ad is held while the ad is displayed and then restored once the ad display is complete.</p>
+
+<p>It is also possible to instruct OVA to display an ad slot as a "non-overlay" by specifying <span style="font-family: courier new,courier,monospace;">"overlay": false</span> at 
+the ad slot level as follows:</p>
+
+<pre class="prettyprint">
+...
+   "ads": {
+       "schedule: [
+           {
+               "startTime": "00:00:05",
+               "duration": 10,
+               <span style="background-color: yellow;">"overlay": false,</span>
+               "regions": {
+                   "html5": true,
+                   "flash": false
+               },
+               "tag": "http://my-ad-server.com/ad-tag.xml",
+           }
+       ]
+   }
+...
+</pre>
+
+<h3><a name="preferred"></a>6.3 Preferred Display Mode</h3>
+
+<p>By default, OVA will attempt to display non-linear ads using Flash mode. This means that non-linear overlays centered at the bottom of the player display are the
+default for OVA.</p>
+
+<p>It is possible to change the default and set a "preferred" display mode for non-linear ads. This is useful when two display modes (HTML5 and Flash) are set to run concurrently and one should be given "preference" over the other.</p>
+
+<p>When multiple display modes are set, OVA gives the "flash" display mode preference by default - this means that when a creative is to be displayed in a region, by default OVA searches the enabled "flash" regions for a possible display slot before it assesses the HTML5 regions.</p>
+
+<p>If you wish to give HTML5 regions preference in the display, use the <span style="font-family: courier new,courier,monospace;">"preferred:<display-mode>"</span> (e.g. <span style="font-family: courier new,courier,monospace;">preferred:"html5"</span>) option as follows:</p>
+
+<pre class="prettyprint">
+{
+      "ads": {
+           "overlays": {
+                "regions": {
+                     <span style="background-color: yellow;">"preferred": "html5",</span>
+                     "flash": [
+                           {
+                              "region": "auto:bottom",
+                              "enable": true
+                           }
+                     ],
+                     "html5": [
+                           {
+                              "region": "bottom",
+                              "enable": true,
+                              "overlay": false
+                           }
+                     ]
+                 }
+           },
+           "schedule": [
+                 {   
+                     "startTime": "00:00:03",
+                     "duration": 10,
+                     "tag": "http://my-ad-tag/for-an-image-overlay.xml"
+                 },
+                 {   
+                     "startTime": "00:00:15",
+                     "duration": 40,
+                     "tag": "http://my-ad-tag/for-a-vpaid-overlay.xml"
+                 }
+           ]
+      }
+}
+</pre>
+
+<p>In the example above, two overlays are to be delivered - one at 3 seconds for 10 seconds, the other at 15 seconds for 40 seconds. The first is an image overlay, the second is a VPAID overlay.</p>
+
+<p><span style="font-family: courier new,courier,monospace;">"html5"</span> has been set as the "preferred" display mode. This means that when OVA attempts to display the ad creative, the "html5" regions (with an ID "bottom" in this case) will be given preference. Because VPAID ads cannot be displayed by HTML5 however, OVA will not match the "html5" region and will fallback to the flash display mode in this case.</p>
+
+<p>Flash display mode supports - image, text, vpaid, html and flash (non-VPAID) non-linear creative types while HTML5 mode supports image, text, html, flash (non-VPAID), iframe and Javascript non-linear creative types.</p>
+
+<h3><a name="max"></a>8. Setting a Maximum Limit on the Non-Linear Ads that can be displayed per Ad Slot</h3>
+
+<p>By default, OVA will attempt to display non-linear creatives in all enabled display modes and regions. If HTML5 and Flash display modes are enabled concurrently and the VAST response provides more than one creative, both regions could be displayed concurrently.</p>
+
+<p>The <span style="font-family: courier new,courier,monospace;">"maxDisplayCount"</span> option has been implemented to allow a maximum number of display positions to be declared per ad slot. For example, the following config snippet illustrates how to enable HTML5 and Flash mode concurrently but only display a single non-linear creative per ad slot:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        "overlays": {
+            "regions": {
+                 "html5": [
+                     {
+                        "enable": true,
+                        "overlay": false
+                     }
+                 ]
+             }
+        },
+        "schedule": [
+             {   
+                 "startTime": "00:00:03",
+                 "duration": 10,
+                 <span style="background-color: yellow;">"maxDisplayCount": 1,</span>                       
+                 "tag": "my-ad-tag.xml"
+             }
+        ]
+   }
+}
+</pre>
+
+<h3><a name="scaling"></a>8. Scaling Non-Linear Ads</h3>
+
+<p>Non-Linear Overlays displayed using the "Flash" display mode may be scaled. HTML5 displayed non-linear ads cannot be scaled at this time.</p>
+<p>For a detailed account of the scaling rules applied to non-linear overlays, please refer to the <a href="/support/open-video-ads/22846/ad-scaling">Ad Scaling</a> guide.</p>
+
+<h3><a name="javascript"></a>9. Supporting Javascript Non-Linear Ads</h3>
+
+<p>OVA supports the display of Javascript non-linear ads. Javascript non-linear ads can only be delivered by OVA when it is operating in "HTML5" display mode.</p>
+
+<p>The following VAST structures are supported by OVA to deliver Javascript non-linear creatives:</p>
+
+<p>The VAST 1 <span style="font-family: courier new,courier,monospace;">&lt;Code></span> tag as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="232316847" width="450" height="50" resourceType="script" creativeType="text/javascript"> 
+    &lt;Code> 
+        &lt;![CDATA[document.write('&lt;a href="http://www.openx.org">&lt;img src="8e19787394a3c7870acc4c4c16fe2172.gif">&lt;/a>');]]>  
+    &lt;/Code> 
+&lt;/NonLinear>
+</pre>
+
+<p>The VAST 1 <span style="font-family: courier new,courier,monospace;">&lt;URL></span> tag as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="232316847" width="450" height="50" resourceType="script" creativeType="text/javascript"> 
+     &lt;URL> 
+         &lt;![CDATA[http://static.openvideoads.org/tests/overlay-script.js]]> 
+     &lt;/URL> 
+&lt;/NonLinear>
+</pre>
+
+<p>The VAST 2 <span style="font-family: courier new,courier,monospace;">&lt;StaticResource></span> tag as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="12" width="450" height="50" minSuggestedDuration="00:00:20"> 
+     &lt;StaticResource creativeType="text/javascript">http://static.openvideoads.org/tests/overlay-script.js</StaticResource> 
+&lt;/NonLinear>
+</pre>
+
+<p>The VAST 2 <span style="font-family: courier new,courier,monospace;">&lt;HTMLResource></span> tag as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="12" width="450" height="50" minSuggestedDuration="00:00:20">
+    &lt;HTMLResource> 
+         &lt;![CDATA[
+              &lt;script type="text/javascript">
+                 document.write('&lt;a href="http://www.openx.org">&lt;img src="8e19787394a3c7870acc4c4c16fe2172.gif">&lt;/a>');
+              &lt;/script>
+         ]]> 
+    &lt;/HTMLResource> 
+&lt;/NonLinear>
+</pre>
+
+<p>The VAST 2 <span style="font-family: courier new,courier,monospace;">&lt;HTMLResource></span> tag as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinear id="12" width="450" height="50" minSuggestedDuration="00:00:20"> 
+    &lt;HTMLResource> 
+          &lt;![CDATA[&lt;script src="http://static.openvideoads.org/tests/overlay-script.js">&lt;/script>]]> 
+    &lt;/HTMLResource> 
+&lt;/NonLinear>
+</pre>
+
+<h3><a name="live"></a>10. Supporting Live Streams</h3>
+
+<p>By default, non-linear ads will work with OVA for Flowplayer and live streams. No additional configuration is required.</p>
+
+<p>OVA for JW5 however does require an additional option (<span style="font-family: courier new,courier,monospace;">"streamTimer"</span>) to support non-linear ads with live streams as illustrated by the config snippet below:</p>
+
+<pre class="prettyprint">
+{
+     <span style="background-color: yellow;">"shows": {
+          "streamTimer": { "enabled": true, "tickRate": 100 }
+     },</span>
+            
+     "ads": {
+        "schedule": [
+              {
+                  "position": "center:auto",
+                  "startTime": "00:00:02",
+                  "duration": 10,
+                  "width": 450,
+                  "height": 50,
+                  "tag": "http://my-ad-server.com/ad-tag.php?format=vast"
+              }
+         ]
+    }
+}
+</pre>
+
+<p>The additional option is required because JW Player does not fire time events as the live stream plays, leaving OVA insufficient information to know when to display or hide a non-linear ad. For more information regarding the delivery of non-linear ads with live streams and JW Player 5, please consult the <a href="support/open-video-ads/ova-for-jw-player-5/22856/working-with-live-streams">Working with Live Streams</a> guide.</p>
+
+<h3><a name="anchor"></a>11. Anchoring to the Bottom (OVA for JW5 only)</h3>
+
+<p>There may be times when you wish to anchor non-linear ads to the bottom of the display overwriting the control bar if it is in an over position.</p>
+
+<p>For OVA for JW5, the <span style="font-family: courier new,courier,monospace;">"anchorNonLinearToBottom"</span> has been provided to facilitate this. Use the option as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "player": {
+         "controls": {
+             "vpaid": { <span style="background-color: yellow;">"anchorNonLinearToBottom": true</span> }
+         }
+    },
+    ...
+}
+</pre>					</article>	
+
+</body>
+</html>

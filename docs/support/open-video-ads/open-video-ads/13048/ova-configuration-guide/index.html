@@ -1,0 +1,2248 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/13048/ova-configuration-guide/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Configuration Guide | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Configuration Guide</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide walks through the various configuration options available when using Open Video Ads.</p>
+<h2>Contents</h2>
+<p>This guide is broken into the following sections:</p>
+<ol>
+	<li><a href="#introduction">The JSON Approach</a></li>
+	<li><a href="#example-configuration">An Example Configuration</a></li>
+	<li><a href="#configuration-structure">Configuration Structure</a></li>
+	<li><a href="#configuration-general">General Configuration Options</a></li>
+	<li><a href="#player-specific-configuration-options">Player Specific Configuration Group Options</a></li>
+	<ol>
+   	    <li><a href="#hard-coding">Hard Coding the Player Dimensions</a></li>
+   	    <li><a href="#control-bar">Setting the Control Bar Operating Rules</a></li>
+   	    <li><a href="#display-margins">Setting the Display Margins</a></li>
+   	    <li><a href="#custom-logo">Hiding the Custom Player Logo During Ad Playback</a></li>
+	</ol>
+	<li><a href="#show-stream-configuration-options">Show Stream Configuration Group Options</a></li>
+		<ol>
+            <li><a href="#shows-general-options">General Show Configuration Options</a></li>
+            <li><a href="#overlays-and-live-streams">Overlays and Live Streams</a></li>
+		</ol>
+	<li><a href="#overlay-configuration">Regions Configuration Group Options</a>
+		<ol>
+			<li><a href="#overlay-general">General Configuration</a></li>
+			<li><a href="#declaring-regions">Declaring regions</a></li>
+			<li><a href="#default-region-mappings">Default region mappings</a></li>
+			<li><a href="#region-configuration-options">Configuration options</a></li>
+		</ol>
+	</li>
+	<li><a href="#ad-configuration">Ads Configuration Group Options</a>
+		<ol>
+			<li><a href="#configuring-ads-general">General ad options</a></li>
+			<li><a href="#configuring-ad-notice">Configuring the Ad Notice</a></li>
+			<li><a href="#configuring-click-through-notice">Configuring the Linear Click-Through Notice</a></li>
+			<li><a href="#configuring-companions">Configuring Companions</a></li>
+			<li><a href="#configuring-ad-servers">Configuring the Ad Server(s)</a></li>
+			<li><a href="#configuring-ad-schedule">Ad Scheduling Options</a></li>
+			<li><a href="#configuring-vpaid">Configuring VPAID Ad Support</a></li>
+			<li><a href="#configuring-rtmp">Configuring RTMP Ads</a></li>
+            <li><a href="#excluding-mime-types">Excluding Ad Media Files based on Mime Type</a></li>
+			<li><a href="#configuring-ad-title">Changing the Default Ad Title and Description</a></li>
+		</ol>
+	</li>
+	<li><a href="#provider-configuration">Provider Group Configuration Options</a></li>
+	<li><a href="#debug-configuration">Debug Group Configuration Options</a>
+		<ol>
+			<li><a href="#the-debug-levels">Debug Levels</a></li>
+			<li><a href="#supported-debuggers">Supported Debuggers</a></li>
+		</ol>
+	</li>
+        <li><a href="#controls-configuration">Controls Group Configuration Options</a></li>
+        <li><a href="#analytics-configuration">Analytics Configuration Options</a></li>
+</ol>
+<h2><a name="recommended-reading">Recommended Reading</h2>
+<p>The following examples, guides and tutorials are recommended reading with this guide:</p>
+<ul>
+	<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started ">Getting Started - OVA for Flowplayer</a></li>
+	<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started ">Getting Started - OVA for JW Player 5</a></li>
+	<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+	<li><a href="/support/open-video-ads/25255/delivering-non-linear-ads">Delivering Non-Linear Ads</a></li>
+	<li><a href="/support/open-video-ads/23689/delivering-companions">Delivering Companions</a></li>
+	<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">Delivering VPAID Ads</a></li>
+	<li><a href="/support/open-video-ads/25373/examples">The OVA Examples</a></li>
+</ul>
+<hr/>
+<h2><a name="introduction"></a>1. The JSON Approach</h2>
+<p>A common approach to configuration is taken across all Open Video Ads products. The same configuration data will work for the framework, the JW Player plugins and the Flowplayer plugin.</p>
+<p>Configuration data is specified in JSON (Javascript Object Notation) form which is fairly easy to read and write.</p>
+<p>A wide range of configuration options are available to ensure that Open Video Ads can sequence and schedule just about any form of VAST compliant video advertising across any number of programme streams.</p>
+<h2><a name="example-configuration"></a>2. An Example</h2>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="true">
+	{
+          "ads": {
+             "skipAd": {
+                 "enabled": true
+             },
+       "companions": {
+          "regions": [
+            {
+              "id": "companion",
+              "width": 80,
+              "height": 300
+            }
+          ]
+        },
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_AD_TAG_LINEAR_STREAM_WITH_80x300_COMPANION"
+                }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="configuration-structure"></a>3. Configuration Structure</h2>
+<p>While reviewing that specific configuration it is important to acknowledge that the configuration data is broken into 9 separate "groupings":</p>
+<ul>
+	<li><a href="#configuration-general">General</a></li>
+	<li><a href="#player-specific-configuration-options">Player</a></li>
+	<li><a href="#show-stream-configuration-options">Shows</a></li>
+	<li><a href="#region-configuration">Regions</a></li>
+	<li><a href="#ad-configuration">Ads</a></li>
+	<li><a href="#provider-configuration">Provider</a></li>
+	<li><a href="#the-debug-levels">Debug</a></li>
+	<li><a href="#controls-configuration">Controls</a></li>
+	<li><a href="#analytics-configuration">Analytics</a></li>
+</ul>
+<p>Each of these "groupings" have a specific set of configuration options that impact the way ads are played by the VAST Framework and OVA plugins.</p>
+<p>As a result, at a high level a typical configuration template appears as follows:</p>
+<pre class="prettyprint">{
+   // "<b>general</b>" options here
+
+   "player": {
+       // <b>player</b> specific configuration items go in here
+   },
+
+   "shows": {
+       // <b>show</b> stream options here
+   },
+
+   "regions": {
+       // <b>regions</b> options here
+   },
+
+   "ads": {
+       // <b>ad</b> schedule options here
+   },
+
+   "provider": {
+       // <b>provider</b> settings go in here
+   },
+
+   "debug": {
+       // <b>debug</b> configuration here
+   },
+
+   "controls": {
+       // <b>controls</b> specific configuration items go in here
+   }
+
+   "analytics": {
+       // <b>analytics</b> specific configuration items go in here
+   }
+}
+</pre>
+<p>The only grouping that is mandatory is the "ad" grouping - without that, OVA is unable to play any ads. The rest of the groupings are really supporting items for the scheduling of ads against show streams.</p>
+<p>Let&#39;s assess the detailed options available in each of these configuration groups.</p>
+<h3><a name="configuration-general"></a>3.1 General Configuration Options</h3>
+<p>General configuration options are applied across all configuration groups. In general they apply to the way streams are to be played by the player (e.g. indicating if the ad streamer is only to serve "progressive" or "streaming" types, the bit rate of the streams, the type of stream (mp4 or flv), if file extensions are to be automatically removed, and the base address for streams.</p>
+<p>A full example of a general config grouping options is as follows:</p>
+<pre class="prettyprint">
+"autoStart": true,
+"deliveryType": "progressive",
+"removeFileExtension": true,
+"delayAdRequestUntilPlay": true,
+"canFireAPICalls": true,
+"canFireEventAPICalls": true,
+
+// The following options are for OVA for JW5 only
+
+"blockUntilOriginalPlaylistLoaded": true,  
+"allowPlaylistControl": true, 
+"clearPlaylist": true, 
+"supportExternalPlaylistLoading": true, 
+"autoPlayOnExternalLoad": true
+</pre>
+<p>A description of each property follows:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">allowPlaylistControl</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JW5 only: Turn on playlist control - enables the next/previous controlbar buttons and load the entire playlist into the player in one go.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">assessControlBarState</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>OVA for JWx only: Specifies whether or not overlays and ad notices are to be repositioned based on whether or not the control bar shows and hides.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">autoPlayOnExternalLoad</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JW5 only: If OVA triggers a revised ad schedule based on a trigger from an player.load() external call, "autoPlayOnExternalLoad" determines if OVA should start playback immediately upon loading that newly ad scheduled playlist</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">autoStart</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Trigger the player to automatically start playing the first stream once OVA has completed initialisation</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">blockUntil<br />
+				OriginalPlaylistLoaded</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JWx only: Specifies whether or not the player is to block initialisation of the OVA plugin until the playlist is completely loaded. Required to ensure that the streams specified in an externally accessed XML file (e.g. RSS playlist etc.) are loaded into the player configuration before OVA tries to access them and schedule against against each. Consider this option mandatory for JW configurations that use external playlist files in the "file=" flashvar setting</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">canFireAPICalls</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Specifies if OVA can fire off the Javascript API callbacks as it operates.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">canFireEventAPICalls</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Specifies if OVA can fire off the Javascript Event Tracking API callbacks as it operates.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">clearPlaylist</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>OVA for JW5 only: Clear the playlist from the player before loading up the ad scheduled playlist.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Delay the first ad request until the user presses the "play" button</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">deliveryType</span></td>
+			<td>progressive | streaming | any</td>
+			<td>any</td>
+			<td>Specifies the type of stream to be served - can be either "<span style="font-family: courier new,courier,monospace;">progressive</span>", "<span style="font-family: courier new,courier,monospace;">streaming</span>" or "<span style="font-family: courier new,courier,monospace;">any</span>". "<span style="font-family: courier new,courier,monospace;">any</span>" is the default. Overriding the default setting will be very rarely required unless you want to guarantee that only HTTP Progressive or RTMP/HTTP pseudo-streaming streams are specifically selected and played</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">ignoreOriginalSplashImage</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Used by OVA for JW5 only. When a pre-roll is the first stream in the playlist, set this to "true" to stop the flickering of the splash screen as the player initialises.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">removeFileExtension</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Forces the removal of file extensions for video stream file names returned in the VAST response - particularly useful for ensuring that FLV streams plan on a streaming server that requires the ".flv" extension to be removed in the stream address</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">supportExternalPlaylistLoading</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JW5 only: Enable OVA to react to player.load() external API calls</td>
+		</tr>
+	</tbody>
+</table>
+<h4>Clearing the Playlist (OVA for JW5 Only)</h4>
+<p>When OVA for JW5 initialises, the original playlist is cleared from the player. This ensures that the first clip in the list doesn't start playing while a VPAID pre-roll is loaded.</p>
+<p>In the case of a playlist that has a VPAID pre-roll, the player playlist will remain empty until the VPAID pre-roll is played. This may have the undesired effect of stopping a splash image from showing in the player when it loads (e.g. 'image=X' flashvar will stop working).</p>
+<p>There may be times when it is not desirable to have OVA clear the original playlist.</p>
+<p>OVA can be instructed to not clear the playlist on initialisation with the "clearPlaylist" option.</p>
+<p>The following code snippet illustrates how to use this option:</p>
+<pre class="prettyprint">
+{
+    "clearPlaylist": false,
+    "ads": {
+         ....
+    }
+}
+</pre>
+<p>If "delayAdRequestUntilPlay: true" is set and there is a splash image to show, OVA for JW5 will force "clearPlaylist: false" to be set. This ensures that the splash image shows until the user presses play and the ad scheduled playlist is generated and installed.</p>
+
+<h3><a name="player-specific-configuration-options"></a>3.2 Player Specific Configuration Options</h3>
+
+<p>The "player" specific config block allows various display related configuration options to be set. These options include hard coding the dimensions of the player,
+setting the control bar operating rules, declaring whether or not a custom logo should be shown during ad playback (OVA for JW5 only) and specifying the 
+bottom margins to apply to the display when OVA positions visual elements on it.</p> 
+
+<p>The following code snippet illustrates how to use this block:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "height": 250,
+        "width": 400,
+        "modes": {
+           "linear": {
+              "controls": {
+                 "hideLogo": true,
+                 "stream": {
+                      visible: true,
+                      manage: true,
+                      enablePlay: true,
+                      enablePause: true,
+                      enablePlaylist: false,
+                      enableTime: false,
+                      enableFullscreen: true,
+                      enableMute: true,
+                      enableVolume: true
+                 },
+                 "vpaid": {
+                      visible: false                   
+                 }
+              },
+              "margins": {
+                 "normal": {
+                     "withControls": 0,
+                     "withoutControls": 0,
+                     "withControlsOverride": 0,
+                     "withoutControlsOverride": 0
+                 },
+                 "fullscreen": {
+                     "withControls": 0,
+                     "withoutControls": 0,
+                     "withControlsOverride": 0,
+                     "withoutControlsOverride": 0
+                 }
+              }
+           }
+        }
+    },
+    "ads": {
+         ....
+    }
+}
+</pre>
+
+<h4><a name="player-dimensions"></a>3.2.1 Hard Coding the Player Dimensions</h4>
+
+<p>In the case of OVA for JW and OVA for Flowplayer, OVA automatically extracts the width and height dimensions of the player. It is possible however to hard code the player dimensions via the 
+width and height options:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "height": 250,
+        "width": 400,
+        "modes": {
+           "linear": {
+               ....
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<h4><a name="control-bar"></a>3.2.2 Setting the Control Bar Operating Rules</h4>
+
+<p>During linear ad playback, it is possible to change the way OVA manipulates the control bar. By default, for linear ad streams, the control bar will be disabled. 
+For linear VPAID ads, the control bar will be hidden.</p>
+
+<p>To specify how OVA is to handle the control bar during linear ad playback, use the "player.modes.linear" option as follows:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "modes": {
+           "linear": {
+               "stream": {
+                  "controls": {
+                      "visible": true
+                  }
+               },
+               "vpaid": {
+                  "controls": {
+                      "visible": false
+                  }
+               }
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<p>Control bar operating rules can be independently specified for linear ad "streams" and linear VPAID ads.</p>
+
+<p>It is possible to specify the control bar rules once for both "streams" and "vpaid" ads as follows:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "modes": {
+           "linear": {
+               "controls": {
+                   "visible": true
+               }
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<p>In general, the control bar options can be enabled/disabled with fine grained control using the following options:</p>
+
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">manage</span> - when set to false, stops OVA manipulating the control bar. True by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enabled</span> - sets all individual control settings to this value (e.g. setting this to false will disable all controls in one go unless individually overridden)</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePlay</span> - the play button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePause</span> - the pause button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableStop</span> - the stop button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePlaylist</span> - the playlist buttons - false by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableTime</span> - the time/scrubber - false by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableVolume</span> - the volume controls - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableMute</span> - the mute button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableFullscreen</span> - the fullscreen button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableLinearSkipAd</span> - the skip ad button - false by default</li>
+</ul>
+
+<p>For a detailed description of these options and in general how to manipulate the control bar with OVA, refer to the 
+<a href="/support/open-video-ads/22834/configuring-the-control-bar">Configuring the Control Bar</a> guide.</p>
+
+<h4><a name="display-margins"></a>3.2.3 Setting the Display Margins</h4>
+
+<p>Occasionally it is important to declare bottom margins to OVA so that when it is calculating the positions of various visual elements (ad notices, click through notices and regions in general), 
+a bottom margin can be deducted from the player height.</p>
+
+<p>Bottom margin values can be independently specified for linear and non-linear ads as illustrated by the following code snippet:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "modes": {
+           "linear": {
+               "margins": {
+                   "normal": {
+                       "withControls": 0,
+                       "withoutControls": 0,
+                       "withControlsOverride": 0,
+                       "withoutControlsOverride": 0
+                   },
+                   "fullscreen": {
+                       "withControls": 0,
+                       "withoutControls": 0,
+                       "withControlsOverride": 0,
+                       "withoutControlsOverride": 0
+                   }
+               }
+           }
+           "nonLinear": {
+               "margins": {
+                   "normal": {
+                       "withControls": 0,
+                       "withoutControls": 0,
+                       "withControlsOverride": 0,
+                       "withoutControlsOverride": 0
+                   },
+                   "fullscreen": {
+                       "withControls": 0,
+                       "withoutControls": 0,
+                       "withControlsOverride": 0,
+                       "withoutControlsOverride": 0
+                   }
+               }
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<p>When specifying bottom margin values, they can be independently specified for "normal" and "fullscreen" modes.</p>
+
+<p>It is also possible to set the margin values once for both "normal" and "fullscreen" modes as follows:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "modes": {
+           "linear": {
+               "margins": {
+                   "withControls": 0,
+                   "withoutControls": 0,
+                   "withControlsOverride": 0,
+                   "withoutControlsOverride": 0
+               }
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<h4><a name="custom-log"></a>3.2.4 Hiding the Custom Player Logo During Ad Playback</h4>
+
+<p>In the case of OVA for JW5, it is possible to instruct OVA to hide the Custom Player Logo when OVA is used with the Commercial JW player.</p>
+
+<p>The following code snippet illustrates how to do this:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "modes": {
+           "linear": {
+               "hideLogo": true
+           }
+        }
+    }
+    "ads": {
+        ...
+    }
+}
+</pre>
+
+<h3><a name="show-stream-configuration-options"></a>3.3 Show Stream Configuration Options</h3>
+<p>While it is preferred that player specific show stream specification mechanisms (e.g. 
+JSON based playlist definitions in Flowplayer, the "<span style="font-family: courier new,courier,monospace;">file=</span>" flashvar in JW Player be used with OVA) 
+it is possible to identify the show streams to play within an OVA configuration block. The "shows" configuration block exists for this purpose.</p>
+
+<h4>3.3.1 General Show Configuration Options</h4>
+<p>Below is an example of a "shows" configuration:</p>
+<pre class="prettyprint">"shows": {
+   "baseURL": "rtmp://ne7c0nwbit.rtmphost.com/videoplayer",
+   "streams": [ 
+       { 
+         "file":"mp4:bbb_640x360_h264.mp4", 
+         "duration":"00:00:35",
+         "player": {
+            "scaling": "orig"
+         } 
+       } 
+   ]
+   "autoPlay": true,
+   "removeFileExtension": true
+}
+</pre>
+<p>The "streams" configuration entry is probably the most important property in the "Shows" group as it declares the actual streams to be played. It is only mandatory field in the group.</p>
+<p>A stream must be declared with either:</p>
+<ul>
+	<li>An optional <span style="font-family: courier new,courier,monospace;">baseURL</span> address</li>
+	<li>With a fully qualified <span style="font-family: courier new,courier,monospace;">file</span>&nbsp;address</li>
+</ul>
+<p>The following examples illustrate valid show stream definitions:</p>
+<pre class="prettyprint">"shows": {
+    "baseURL": "http://streaming.openvideoads.org:81/shows",
+    "streams": [
+        {
+            "file":"the-black-hole.mp4",
+            "duration":"00:01:00",
+            "providers": {
+               "http": "pseudo"
+            }
+        }
+    ]
+}
+</pre>
+<p>In the case above, a single stream is defined to be served from a specific baseURL. The stream will be played via a "pseudo" streaming provider - if this is a Flowplayer setup, OVA will expect an appropriate provider plugin to be made available with the plugin ID "pseudo".</p>
+<pre class="prettyprint">"shows": {
+   "streams": [
+       { 
+          "file":"http://video.bitmedianetwork.com/ads/testpattern.mp4"
+       }
+   ]
+}
+</pre>
+<p>The example above illustrates the minimum stream configuration - in this case a single stream is provided without a duration or provider. It is assumed to be delivered using the standard HTTP provider and the duration will be derived from the stream metadata.</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">autoPlay</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>A <span style="font-family: courier new,courier,monospace;">true</span> or <span style="font-family: courier new,courier,monospace;">false</span> value that identifies whether or not each stream is to automatically start playing</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">baseURL</span></td>
+			<td>URI</td>
+			<td>none</td>
+			<td>The base URL from which the file is to be served. In the case of an RTMP stream, the baseURL is normally the connection address of the RTMP server</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">deliveryType</span></td>
+			<td>progressive | streaming | any</td>
+			<td>any</td>
+			<td>The type of streams to be served - can be either "<span style="font-family: courier new,courier,monospace;">progressive</span>", "<span style="font-family: courier new,courier,monospace;">streaming</span>" or "<span style="font-family: courier new,courier,monospace;">any</span>" to cover a mixed set of types</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">fireTrackingEvents</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>OVA can fire a range of different Javascript events as show streams are played. These include <span style="font-family: courier new,courier,monospace;">onShowStart</span>, <span style="font-family: courier new,courier,monospace;">onShowComplete</span>, <span style="font-family: courier new,courier,monospace;">onShowStopped</span>, <span style="font-family: courier new,courier,monospace;">onShowPaused</span>, <span style="font-family: courier new,courier,monospace;">onShowResumed</span>, <span style="font-family: courier new,courier,monospace;">onShowMute</span>/<span style="font-family: courier new,courier,monospace;">Unmute</span> and <span style="font-family: courier new,courier,monospace;">onShowFullscreen</span>. If this option is set to "<span style="font-family: courier new,courier,monospace;">false</span>" the tracking events will not be fired.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">metaData</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Indicates whether or not the player should wait for the metadata information in the stream to be received before starting to play - always set to "<span style="font-family: courier new,courier,monospace;">false</span>" if you notice a video can be heard but not seen - the value is "<span style="font-family: courier new,courier,monospace;">false</span>" by default</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">player</span></td>
+			<td>Object</td>
+			<td>null</td>
+			<td>Player specific settings to be applied to the show streams only. See the "Player" configuration grouping section above to find out which properties can be set in here. At present this configuration option is only used for the Flowplayer OVA plugin</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">removeFileExtension</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Forces removal of file extensions for video stream file names returned in the VAST data - particularly useful for ensuring that FLV streams play on a streaming server</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">setDurationFromMetaData</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>When the option is set to "true", OVA will forcibly set the duration will always be set according to the metadata duration for the stream. The option is "false" by default.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">streams</span></td>
+			<td>list of streams</td>
+			<td>empty list</td>
+			<td>An array of stream definitions which identifies the main programme streams to be played by the player - ads are sequenced in accordance with the Ad Slot schedule against these streams. As the property is an array, the following format is expected <span style="font-family: courier new,courier,monospace;">[ { stream1-name, stream1-duration }, ... { streamN-name, streamN-duration} ]</span>. The stream-duration must be declared in time stamp format <span style="font-family: courier new,courier,monospace;">HH:MM:SS</span> (e.g. <span style="font-family: courier new,courier,monospace;">01:10:15</span> for a duration of 1 hour 10 minutes and 15 seconds). Streams may be declared as a fully qualified filename (e.g.&nbsp;<span style="font-family: courier new,courier,monospace;">rtmp://ne7c0nwbit.rtmphost.com/vp/mp4:bbb.mp4</span>) or as files relative to the baseURL declared in the shows configuration grouping.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">streamType</span></td>
+			<td>mp4 | flv | any</td>
+			<td>any</td>
+			<td>A specific value that identifies the type of stream to be played - can be either "<span style="font-family: courier new,courier,monospace;">mp4</span>", "<span style="font-family: courier new,courier,monospace;">flv</span>" or "<span style="font-family: courier new,courier,monospace;">any</span>"</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;</p>
+<p>For each show stream, a number of configuration options are available:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">duration</span></td>
+			<td>"HH:MM:SS"</td>
+			<td>"00:00:00"</td>
+			<td>The duration of the stream. Always specified in the format "<span style="font-family: courier new,courier,monospace;">HH:MM:SS</span>". Not a mandatory field. If not specified the value will be derived from the stream metadata</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">file</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>The address of the file to serve. If no baseURL is specified, the file address must be fully qualified (e.g. "<span style="font-family: courier new,courier,monospace;">http://...</span>" or "<span style="font-family: courier new,courier,monospace;">rtmp://...</span>")</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">player</span></td>
+			<td>Object</td>
+			<td>None</td>
+			<td>Player specific settings - see the "Player" configuration grouping details for options that can be provided here. Currently only used by the Flowplayer OVA plugin</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">providers</span></td>
+			<td>Object</td>
+			<td>{ "http":"http", "rtmp":"rtmp"}</td>
+			<td>A string value that can be used by an OVA plugin to identify the "provider" to use to stream the file - in the case of Flowplayer, this will be a provider plugin ID. Values by default are "http" for HTTP streams, "rtmp" for RTMP streams.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4><a name="overlays-and-live-streams">3.3.2 Overlays and Live Streams</a></h4>
+<p>Support for running overlays with live streams has been added to OVA for Flowplayer and OVA for JW Player 5.</p>
+<p>To support overlays on live streams in JW Player 5, a new option "streamTimer" has been introduced to the "shows" config block. This option allows a "timer" to be started when the live stream starts to play. The timer generates time events every 10th of a second (by default) - these timing events are critical for OVA to receive so that it knows when to start playing the overlay. JW Player 5 does not generate these timing events on live streams by default. Flowplayer does - as a result this option is not required for the Flowplayer implementation.</p>
+<p>The following code snippet illustrates how to use the "streamTimer" option:</p>
+<pre class="prettyprint">
+{
+    "shows": {
+          "streamTimer": { "enabled": true, "tickRate": 100 }
+    },
+    ....
+}
+</pre>
+<p>Two parameters are specified with the "streamTimer" option - "enabled" which should be set to true (turn it on) or false (turn it off). "tickRate" is an integer value that dictates how often the timer is fired - in the case above, it is fired every 100 milliseconds (1/10 of a second) which mirrors the standard behaviour of JW Player timer events for non-live streams.</p>
+
+<h3><a name="region-configuration"></a>3.4 Region Configuration Options</h3>
+<p>The "regions" configuration grouping allows multiple rectangular display "regions" to be defined on the player canvas. These regions in turn can be used to display non-linear (overlay) advertising, ad notices and general messages.</p>
+<p>A region is in essence a region of the player stage that allows various types of content (text, limited html, swf objects and images) to be inserted via using a restricted set of HTML tags.</p>
+<p>The following code snippet illustrates the the "regions" configuration grouping in action.</p>
+
+<pre class="prettyprint">{
+   ...
+   "regions": {
+       "declarations": [
+          // an array of region declarations
+       ]
+   }
+   ...
+}</pre>
+
+<h4><a name="declaring-regions"></a>3.4.1 Declaring Regions</h4>
+<p>By default, 14 regions have been declared for general use by non-linear ads and system messages.</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h78px-000000-o50</span> - a region at the bottom of the player screen, 100% wide, 78 pixels high, with a black background at 50% opacity, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-000000-o50</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high, with a black background at 50% opacity, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-transparent</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high with a transparent background, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w100pct-h50px-transparent-0m</span> - a region at the bottom of the player screen, 100% wide, 50 pixels high with a transparent background, 0 margins all around, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-000000-o50</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a black background at 50% opacity, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-transparent</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-w450px-h50px-transparent-0m</span> - a region at the bottom of the player screen, 450 pixels wide, 50 pixels high, with a transparent background and 0 margins all around, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-000000-o50</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a black background with 50% opacity, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-transparent</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w450px-h50px-transparent-0m</span> - a region at the bottom center of the player screen, 450 pixels wide, 50 pixels high, with a transparent background, 0 margins all around</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-000000-o50</span> - a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a black background with 50% opacity, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-transparent&nbsp;</span>- a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a transparent background, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-bottom-center-w300px-h50px-transparent-0m</span> - a region at the bottom center of the player screen, 300 pixels wide, 50 pixels high with a transparent background, 0 margins all around, with an active close button</li>
+	<li><span style="font-family: courier new,courier,monospace;">reserved-system-message</span> - a thin region at the base of the player screen, 100% wide, 20 pixels high, no close button, and 2 font definitions - one large sized writing 12pt (class if normaltext), one small sized writing 10pt (class is smalltext)</li>
+</ul>
+<p>In addition, any number of customised regions can be declared. To illustrate how this is done, review the following Flowplayer Ad Streamer example that illustrates the options that are declared for the default "message" region:</p>
+<pre class="prettyprint">....
+    "regions": {
+            "declarations": [
+                 { 
+                     "id": "message",
+                     "verticalAlign": "bottom",
+                     "horizontalAlign": "right",
+                     "width": "100%",
+                     "height": 20
+                 } 
+             ]
+    },
+....
+</pre>
+<p>Region configurations can be quite complex. There is a wide range of options that can be specified to define the "appearance" of a region. Many of these options mirror the standard CSS style attributes.</p>
+<p>Here is a more example configuration:</p>
+<pre class="prettyprint">
+....
+    "regions": {
+        "declarations": [
+             {
+                 "id": "top-center",
+                 "verticalAlign": "top",
+                 "horizontalAlign": "center",
+                 "backgroundColor": "#000000",
+                 "opacity": 0.8,
+                 "borderRadius": 15,
+                 "padding": "-10 -10 -10 -10",
+                 "width": 450,
+                 "height": 50
+             }
+        ]
+    }
+....
+</pre>
+<h4><a name="default-region-mappings"></a>3.4.2 The Default Overlay Ad Type/Region Mappings</h4>
+<p>By default, each region format has a default pre-defined region that is set. If no region is specified for an AdSlot, the default region ID is chosen based on the width of the overlay and type of creative. The following code snippet identifies the ID of each region selected given a creative type and width:</p>
+<pre class="prettyprint">if(width == 300) {
+	regions.text = "reserved-bottom-w300px-h50px-000000-o50";
+	regions.image = "reserved-bottom-w300px-h50px-transparent-0m";
+	regions.swf = "reserved-bottom-w300px-h50px-transparent";
+	regions.html = "reserved-bottom-w300px-h50px-000000-o50";								
+}
+else if(width == 450) {
+	regions.text = "reserved-bottom-w450px-h50px-000000-o50";
+	regions.image = "reserved-bottom-w450px-h50px-transparent-0m";
+	regions.swf = "reserved-bottom-w450px-h50px-transparent";
+	regions.html = "reserved-bottom-w450px-h50px-000000-o50";				
+}
+else {
+	regions.text = "reserved-bottom-w100pct-h78px-000000-o50";
+	regions.image = "reserved-bottom-w100pct-h50px-transparent-0m";
+	regions.swf = "reserved-bottom-w100pct-h50px-transparent";
+        regions.html = "reserved-bottom-w100pct-h50px-000000-o50";
+}
+</pre>
+<h4><a name="region-configuration-options"></a>3.4.3 Region Configuration Options</h4>
+<p>A wide range of configuration options are available for a region. You can define regions of pretty much any shape and style. Below is a complete list of the options available:</p>
+<p><trclass="zebra"> </trclass="zebra"></p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">background</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>A shorthand way of setting all background properties at once. Similar to CSS. The format is as follows: backgroundImage backgroundRepeat left top. For example: <span style="font-family: courier new,courier,monospace;">url(/my/image.jpg) no-repeat 100 30</span>. The last two numbers specify the background image positioning</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">backgroundColor</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Background color as a hexadecimal value. For example: <span style="font-family: courier new,courier,monospace;">#ffcccc</span>. The length of the value is 6 characters and the prefix # is optional.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">backgroundImage</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>The absolute or relative path to the image that should be used as the background to this plugin. Supported formats are GIF, JPEG and PNG. The syntax is similar to CSS in that you must enclose your path inside a <span style="font-family: courier new,courier,monospace;">url()</span> wrapper. See example above</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">backgroundGradient</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Defines a region&#39;s background gradient (ie, the way the background is faded in and out vertically). The value can be one of the predefined values "low", "medium" or "high", or you can supply an array of values, each one representing how much transparency is applied at a particular point. For example, the array<span style="font-family: courier new,courier,monospace;"> [0.2, 1.0]</span> means that the background will be 80% visible at the top edge and 0% visible at the bottom, and there will be a linear gradient of transparency between the two edges. You can supply any number of point definitions in your array and they will be placed so that there is equal distance between them. For example, passing the array <span style="font-family: courier new,courier,monospace;">[0.4, 0.6, 1.0]</span> will result in points at the top, middle and bottom of the background</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">backgroundTransparent</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Defines whether or not a region is to be transparent. Values are true or false - the default is false</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">border</span></td>
+			<td>String</td>
+			<td>0px none</td>
+			<td>Draws a border around a region&#39;s edges. The syntax follows the CSS standard: width style color. For example: "<span style="font-family: courier new,courier,monospace;">1px solid #cccccc</span>". The only supported style currently is "solid", but the width and colour can be set to any valid value</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">borderColor</span></td>
+			<td>String</td>
+			<td>#000</td>
+			<td>A CSS style hex value that specifies the color to apply for the border</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">borderRadius</span></td>
+			<td>Numeric</td>
+			<td>0</td>
+			<td>Specifies the amount of rounding for each corner. Larger values mean more rounding</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">borderWidth</span></td>
+			<td>Xpx</td>
+			<td>0px</td>
+			<td>A CSS style value in pixels that specifies the width of the border</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">clickable</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Identifies whether or not the region is to be clickable. This value does not override any click action properties that may be defined on at the HTML level for the objects shown in the region. This value enables or stops <span style="font-family: courier new,courier,monospace;">theOnClick()</span>&nbsp;javascript callback from firing</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">height</span></td>
+			<td>Y% | Ypx</td>
+			<td>&nbsp;</td>
+			<td>Specifies the height of the region - the values can either be numeric (the number of pixels) or a percentage of the screen width (e.g. &#39;100%&#39;)</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">horizontalAlignment</span></td>
+			<td>left | right | X</td>
+			<td>None</td>
+			<td>Specifies the horizonal alignment of the region - values can be &#39;left&#39;, &#39;right&#39; or a numeric value representing the X coordination (in pixels)</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">html</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>Specifies the initial HTML content to be loaded by default for the region</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">id</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>very region that is declared using the regions tag must be identified by a unique name. This id is used by OVA to identify which region is to be used to display a specific overlay or non-overlay AdSlot</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">padding</span></td>
+			<td>String</td>
+			<td>0 0 0 0</td>
+			<td>Specifies the level of padding to be allocated inside of the region - uses the standard CSS format - top right bottom left</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">showCloseButton</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Indicates whether or not a close button is to be shown on the region</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">style</span></td>
+			<td>Object</td>
+			<td>None</td>
+			<td>A styling object that is specified directly in the configuration. If an external stylesheet is in use, these settings override those external settings. You can find more information about styling here</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">stylesheet</span></td>
+			<td>URI</td>
+			<td>None</td>
+			<td>Path to the stylesheet file which specifies how each tag in the content is styled. You can find more information about styling here</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">verticalAlign</span></td>
+			<td>top | bottom | Y</td>
+			<td>None</td>
+			<td>Specifies the vertical alignment of the region - values can be &#39;top&#39;, &#39;bottom&#39; or a numeric value representing the Y coordination (in pixels)</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">width</span></td>
+			<td>X% | Xpx</td>
+			<td>None</td>
+			<td>Specifies the width of the region - the values can either be numeric (the number of pixels) or a percentage of the screen width (e.g. &#39;100%&#39;)</td>
+		</tr>
+	</tbody>
+</table>
+<h3><a name="ad-configuration"></a>3.5 Ads Configuration Options</h3>
+<p>The Ads grouping captures all ad specific configuration settings.</p>
+<p>An example configuration is as follows:</p>
+<pre class="prettyprint">"ads": {
+   "servers": [
+       {
+          "type": "OpenX",
+          "apiAddress": "http://openx.openvideoads.org/
+                         openx/www/delivery/fc.php"
+       }
+   ],
+
+   "schedule": [
+       {
+          "zone": "1",
+          "position": "pre-roll"
+       },
+       {
+          "zone": "2",
+          "position": "bottom",
+          "width": 450,
+          "height": 50,
+          "startTime": "00:00:05",
+          "duration": "15"
+       }
+   ],
+}
+</pre>
+<p>In this example the ad server is defined to be of type "OpenX", a request URL is specified, and an ad schedule is defined as two separate ad slots - a pre-roll ad followed by a non-linear ad (overlay) placed in the region named "bottom".</p>
+<p>Generally speaking, an ad configuration grouping has up to 8 sets of configuration data:</p>
+<pre class="prettyprint">"ads": {
+    // general level settings
+    "notice": {},
+    "clickSign": {},
+    "companions": {},
+    "servers": [],
+    "vpaid": {},
+    "streamers": {}
+    "metaData": {},
+    "schedule": []
+}
+</pre>
+<h4><a name="configuring-ads-general"></a>3.5.1 Configuring ads at a general level</h4>
+<p>General settings specify the general behaviour of OVA when it plays ads. A limited number of general options are available. A typical configuration that includes "general" ad level configuration options appears as follows:</p>
+<pre class="prettyprint">"ads": {
+    "acceptedLinearAdMimeTypes": [ "video/x-flv", "video/x-mp4"],
+    "companions": {
+        "restore": false,
+        "nativeDisplay": false,
+        "millisecondsDelayOnInjection": 100,
+        "regions": [
+           { "id": "companion-300x250", "width": 300, "height": 250 }
+        ],
+        "additionalParamsForSWFCompanions": [{ "name": "wmode", value: "transparent" }],
+    },
+    "enableProxies": true,    
+    "enforceLinearAdsOnPlaylistSelection": true,
+    "filterOnLinearAdMimeTypes": false,
+    "holdingClipUrl": "http://my-domain/my-holding-clip.mp4",    
+    "keepOverlayVisibleAfterClick": true,
+    "linearScaling": true,
+    "parseWrappedAdTags": true,
+    "pauseOnClickThrough": true,
+    "setDurationFromMetaData": true,
+    
+    // OVA for JW5 only
+
+    "hideLogoOnLinearPlayback": true,
+    "positionMidRollSeekPosition": true
+}</pre>
+<p>The options that can be used include:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">acceptedLinearAdMimeTypes</span></td>
+			<td>Array of Strings</td>
+			<td>null</td>
+			<td>Allows media files to be excluded during OVA search to identify relevant linear streams to playback. Must be specified in the format of an Array of Strings with each string being a valid MIME type - e.g.  <em>[ "video/x-flv", "video/x-mp4"]</em>. See the section on "<a href="#excluding-mime-types">Excluding Mime Types During Linear Playback"</a> in this guide. To turn this option on, <em>acceptedLinearAdMimeTypes</em> must be used in conjunction with the <em>filterOnLinearAdMimeTypes</em> option (see below).</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">companions</span></td>
+			<td>Object</td>
+			<td>null</td>
+			<td>Declaration of the companion display attributes (see the section below on how to enable companions)</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">enableProxies</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for Flowplayer only: Support had been added into OVA for Flowplayer to enable URL resolvers/proxies such as the Akamai plugin to be used with RTMP based ad stream URLs. Setting "enableProxies:true" in the OVA config allows the final ad stream URLs (e.g. the netConnectionURL etc) to be derived at runtime by supporting plugins such as the Akamai plugin. 
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">enforceLinearAdsOnPlaylistSelection</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JW5 only: When used on conjuction with "allowPlaylistControl:true", "enforceLinearAdsOnPlaylistSelection" ensures that user driven playlist changes assess whether or not there are pre-rolls to be played before the newly selected item is played by the player.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">filterOnLinearAdMimeTypes</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Turns on custom filtering of Linear ad playback types based on the mime types specified with the <em>acceptedLinearAdMimeTypes</em> option.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">hideLogoOnLinearPlayback</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>OVA for JW5 only - when "true" ensures that the custom logo configured on the player is hidden when linear ads are played</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">holdingClipUrl</span></td>
+			<td>String</td>
+			<td>Longtail CDN</td>
+			<td>When linear ad clips are loaded "onDemand", they need to have a spare "holding clip" specified to allow the playlist structure to be created initially by OVA - as ad calls are successfully completed, the holding clips are replaced with actual clips. A holding clip should be a very short, blank (black) MP4. It must always be hosted on your servers to ensure that it is always available as OVA operates. An unavailable holding clip will cause OVA to incorrectly operate. 
+			You can download the sample holding clip that we use in the demos from here: <a href="http://static.openvideoads.org/ads/blank/blank.mp4">http://static.openvideoads.org/ads/blank/blank.mp4</a></td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">keepOverlayVisibleAfterClick</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>Instructs OVA to either hide or keep an overlay visible on the player screen after it has been clicked. False by default.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">linearScaling</span></td>
+			<td>String</td>
+			<td>null</td>
+			<td>This option has been added to allow the "linear scaling" attributes of ad streams to be forcibly set. "linearScaling" takes a string value. The value is dependant upon the player implementation. For Flowplayer, the value can be either - "orig", "fit" or "scale". For JW Player, the value can be either - "uniform", "fill", "exactfit", "none"</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">pauseOnClickThrough</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Indicates whether or not OVA is to pause the current ad stream if the user clicks on an ad during playback</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">parseWrappedAdTags</span></td>
+			<td>true | false</td>
+			<td>false</td>
+			<td>allows OVA variables such as "site-url", "random-number" etc. housed in Wrapper URLs to be dynamically replaced when the ad tag is called. Turned off by default.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">positionMidRollSeekPosition</span></td>
+			<td>Integer</td>
+			<td>-1</td>
+			<td>OVA for JW5 Only: Used in conjuction with live streams (and "positionMidRollSeekPosition:0") to ensure that the live stream is resumed appropriately upon the completion of a mid-roll. Turned off by default.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">setDurationFromMetaData</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Indicates whether or not OVA should derive the ad duration from the stream metadata. By default this option is set to true which means that if the duration specified for an ad in the VAST response differs from the actual stream duration, the stream duration will override the VAST value. Set this option to false to take the VAST value as the truth.</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;</p>
+<h4><a name="configuring-ad-notice"></a>3.5.2 Configuring the Ad Notice</h4>
+<p>When a linear pre, mid or post-roll ad stream is played, an "ad notice" can be displayed.&nbsp;</p>
+<p>A range of examples have been provided to illustrate changes to the ad and click-through notices. You can find them&nbsp;<a href="" style="margin: 0px; padding: 0px; vertical-align: baseline; background-color: transparent; color: rgb(102, 153, 0);">here</a>.</p>
+<p>By default the notice reads "<i>This advertisement runs for X seconds</i>" where X is the duration of the ad. The notice appears in the bottom right hand side of the player screen, typically just above the player controlbar.</p>
+<ul>
+	<li>The default region used by the ad notice is "<span style="font-family: courier new,courier,monospace;">reserved-system-message</span>"</li>
+	<li>The r<span style="font-family: courier new,courier,monospace;">eserved-system-message</span> region:
+		<ul>
+			<li>Is placed in the bottom 50 pixels of the player screen (excluding the controlbar)</li>
+			<li>Covers the width of the player screen</li>
+			<li>Has two text styles defined:
+				<ul>
+					<li>"<span style="font-family: courier new,courier,monospace;">smalltext</span>" - fontsize: 10pt; font-family:"sans-serif"; font-style: normal; color: #CCC;</li>
+					<li>"<span style="font-family: courier new,courier,monospace;">normaltext</span>" - &nbsp;fontsize: 12pt; font-family:"sans-serif"; font-style: normal; color: #CCC;</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<p>The content, location and styling of the ad notice can be modified using both the "notice" configuration option and optionally, new overlay/region definitions. The ad notice can also be turned off.</p>
+<h4>3.5.2.1 Changing the Ad Notice Text</h4>
+<p>It is possible to just change the text of the ad notice with the following config:</p>
+<pre class="prettyprint">"ads": {
+   ...
+   "notice": { 
+       "message": "&amp;lt;p class="smalltext" align="right"&amp;gt;
+                   My New Ad Notice - _seconds_ seconds&amp;lt;/p&amp;gt;"
+   }
+   ...
+} 
+</pre>
+<p><span style="font-family: courier new,courier,monospace;">_seconds_</span> is a reserved word that will be replaced with the ad duration.&nbsp;</p>
+<h4>3.5.2.2 Deploying a Countdown Ad Notice</h4>
+<p>A countdown ad notice can be set - a "countdown" ad notice displays the time remaining in the ad notice.</p>
+<p>The default wording for the countdown timer is:</p>
+<p>"<i>This advertisement runs for X seconds</i>"</p>
+<p>where the X is progressive reduced as the ad plays.</p>
+<p>The following config snippet illustrates how to set a countdown ad notice.</p>
+<pre class="prettyprint"><span class="Apple-style-span" style="font-size: 12px; line-height: 18px; white-space: normal;"><font class="Apple-style-span" face="'Lucida Console', Courier" size="3"><span class="Apple-style-span" style="font-size: 11px; line-height: 13px; white-space: pre;">"ads": {
+   ...
+   "notice": { "type": "countdown" },
+   ...
+}</span></font></span></pre>
+<p>When changing the text of a "countdown" ad notice, use the reserved word<span style="font-family: courier new,courier,monospace;"> _countdown_</span> to identify where the reducing seconds total is to be placed in the new ad notice text.</p>
+<h4>3.5.2.3 Changing the Appearance of the Ad Notice</h4>
+<p>The following configuration snippet illustrates how to change both the appearance and text of the ad notice:</p>
+<pre class="prettyprint">...
+  "overlays": {
+<span style="background-color: yellow;">     "regions": [
+         {
+            "id": "my-ad-notice",
+            "verticalAlign": "bottom",
+            "horizontalAlign": "right",
+            "backgroundColor": "transparent",
+            "width": "100pct",
+            "height": 40,
+            "style": ".smalltext { font-style: italic; font-size:10; }"
+         }
+</span>      ]
+  },
+
+  "ads": {
+      "servers": [
+         {
+            "type": "OpenX",
+            "apiAddress": "http://openx.openvideoads.org/
+                           openx/www/delivery/fc.php",
+         }
+      ],
+      "schedule": [
+         {
+            "zone": "5",
+            "position": "pre-roll",
+<span style="background-color: yellow;">            "notice": {
+                "show": true,
+                "region": "my-ad-notice",
+                "message": "&amp;"
+            },
+</span>         }
+      ]
+  },
+...
+
+</pre>
+<p>To modify the standard appearance (placement on the screen or the colors etc.) of the ad notice, a new region is defined. In the example above, this region is identified as "my-ad-notice".</p>
+<p>To associate the new region with the ad notice, a "notice" configuration is placed into the ad schedule and the region "my-ad-notice" specified. Any styles to be applied to the ad notice text are derived from the associated ad region.</p>
+<h4>3.5.2.4 Changing the Size of the Ad Notice Text</h4>
+<p>There are easier ways to change the ad notice. For example, say you just want to use "smalltext" when displaying the ad notice. The following configuration achieves this:</p>
+<pre class="prettyprint">"ads": {
+   ...
+   "notice": { "textStyle": "smalltext" },
+   ...
+}</pre>
+<p>"<span style="font-family: courier new,courier,monospace;">smalltext</span>" is a valid value because it is one of the pre-defined styles for the reserved-system-message region. "<span style="font-family: courier new,courier,monospace;">normaltext</span>" would be used to set the message to a standard 12pt size font.</p>
+<h4>3.5.2.5 The Ad Notice Configuration Options</h4>
+<p>The following table summarises the configuration options available to modify the ad notice:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">message</span></td>
+			<td>HTML String</td>
+			<td>"This advertisement runs for X seconds"</td>
+			<td>An option that allows the default ad notice text to be modified. The value must be a valid HTML string. An example is "<span style="font-family: courier new,courier,monospace;">&amp;;lt;p align="right" class="smalltext"&amp;gt;My New Ad Notice - _seconds_ seconds&amp;lt/p&amp;gt;</span>". Two reserved words can be used to identify the ad duration - <span style="font-family: courier new,courier,monospace;">_seconds_</span> and <span style="font-family: courier new,courier,monospace;">_countdown_</span></td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">region</span></td>
+			<td>String</td>
+			<td>reserved-system-message</td>
+			<td>Identifies the region to be used to display the ad notice. The ad notice uses the default system message region by default. That region has two text styles pre-defined - <span style="font-family: courier new,courier,monospace;">smalltext</span> and <span style="font-family: courier new,courier,monospace;">normaltext</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">show</span></td>
+			<td>true | false</td>
+			<td>true</td>
+			<td>Turns the ad notice on and off. By default it is on - <span style="font-family: courier new,courier,monospace;">true</span></td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">textStyle</span></td>
+			<td>String</td>
+			<td>normaltext</td>
+			<td>Allows a pre-defined text style to be identified for use with the ad notice. By default the ad notice is shown with a CSS style called "<span style="font-family: courier new,courier,monospace;">normaltext</span>". If the ad text is to be displayed in small text, use "<span style="font-family: courier new,courier,monospace;">smalltext</span>" with the reserved-system-message region</td>
+		</tr>
+	</tbody>
+</table>
+<p>For a detailed account of how to configure the Ad Notice, please refer to the <a href="/support/open-video-ads/22835/using-ad-notices">Customising the Ad Notice</a> guide.</p>
+<h4><a name="configuring-click-through-notice"></a>3.5.3 Configuring the Linear Click-Through Notice</h4>
+<p>The <i>Linear "Click-Through" Notice</i>&nbsp;appears when a pre, mid or post-roll ad stream is played and that ad has a "click-through" specified on it. When the user mouses over the ad stream, a "Click Me" notice appears on the screen.</p>
+<h4>3.5.3.1 Modifying the Appearance of the Notice&nbsp;</h4>
+<p>The appearance and text of default message can be changed.</p>
+<p>The following config snippet illustrates the range of options available to change the <i>Click-Though Notice</i>.</p>
+<pre class="prettyprint">"ads": {
+   ...
+   "clickSign": {
+       "enabled": true, 
+       "verticalAlign": "center",
+       "horizontalAlign": "center",
+       "width": 150,
+       "height": 32,
+       "opacity": 0.5,
+       "borderRadius": 20,
+       "backgroundColor": "#000000",
+       "style": ".smalltext { font-size:12pt; }",
+       "html": "&amp;lt;p class="smalltext" align="center"&amp;gt;
+                CLICK ME!&amp;lt;/p&amp;gt;",
+       "scaleRate": 0.75
+   },
+   ...
+}</pre>
+<p>Most of the options impact the appearance of the notice. To change the text, the "html" option is used. The notice displays a message based on a HTML template that is configured.</p>
+<p>The following configuration snippet illustrates how to change the text of the message:</p>
+<pre class="prettyprint">"ads": {
+   ...
+   "clickSign": { 
+       "html": "&amp;lt;p class="smalltext" align="center"&amp;gt;
+                MY NEW CLICK-THROUGH TEXT&amp;lt;/p&amp;gt;"
+   }
+   ...
+}</pre>
+<p>You will notice when the "html" option is used, the HTML tags are specified using "&amp;lt;" and "gt;" for the "less-than" and "greater-than" signs, and all quotes are escaped with a slash (""). This ensures that the HTML is effectively parsed when read in JSON form.&nbsp;</p>
+<p>So</p>
+<pre class="prettyprint">&lt;p class="smalltext" align="center"&gt;MY NEW CLICK-THROUGH TEXT&lt;/p&gt;</pre>
+<p>is entered as:</p>
+<pre class="prettyprint">&amp;lt;p class="smalltext" align="center"&amp;gt;MY NEW CLICK-THROUGH TEXT&amp;lt;/p&amp;gt;</pre>
+<p>The styling of the text can be changed by specifying new styles and applying those to the HTML. The styling options mirror those that can be used to define new regions.</p>
+<p>By default, a single text CSS style is defined:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">smalltext</span> - defined as "<span style="font-family: courier new,courier,monospace;">{ font-size: 10pt; }</span>"</li>
+</ul>
+<p>It is very easy to change the text of the message and the CSS style used to display it. The following code snippet illustrates an example:</p>
+<pre class="prettyprint">"ads": {
+   ...
+   "clickSign": {
+       "style": ".my-style { font-family: sans-seif; 
+                 font-size:14pt; font-style: normal; color:#CCC;",
+       "html": "&amp;lt;p class="my-style" align="center"&amp;gt;
+                MY NEW MESSAGE&amp;;lt;/p&amp;gt;" 
+   }
+   ...
+}</pre>
+<p>The range of configuration options available to change the appearance of the click-through notice reflect the same options that can be used to define a 
+region - backgroundColor, width, height etc. Refer to the section on "<a href="#declaring-regions">Declaring Regions</a>" to view the various properties that 
+can be used on the Ad Notice configuration block.</p>
+<p>For a detailed account of how to customise the Click-Through Message, please consult the <a href="/support/open-video-ads/23809/supporting-click-throughs">Customising Click-Throughs</a> guide.</p>
+<h4>3.5.3.2 Turning off the Click-Through Notice</h4>
+<p>To turn off the click-through notice, use the following configuration option:</p>
+<pre class="prettyprint">...
+    "clickSign": { 
+        "enabled": false 
+    },
+...</pre>
+<h4>3.5.3.3 Modifying the target window for click-through URLs</h4>
+<p>A "target" option has been added to the "clickSign" config element to allow a target browser window to be specified for a click-through action. The valid options are "_self", "_blank", "_parent" and "_top". The default setting is "_blank".</p>
+<p>The option can be used as follows:</p>
+<pre class="prettyprint">
+{
+    "ads": {
+          "clickSign": {
+                 "target": "_self"
+                 ...
+          },
+          ...
+    }
+}
+</pre>
+<h4><a name="configuring-companions"></a>3.5.4 Configuring Companions</h4>
+<p>OVA is capable of triggering the display of "companion" ads to accompany linear or non-linear ads.</p>
+<p>A companion ad can be of the following types:</p>
+<ul>
+	<li>Static - image (JPG, GIF or PNG) or SWF</li>
+	<li>IFrame</li>
+	<li>HTML</li>
+</ul>
+<p>OVA places companion ads into &lt;DIV&gt; blocks on the containing HTML page.</p>
+<p>A single option is required to enable Companion ads on a web page:</p>
+<ul>
+	<li><span style="font-family: courier new,courier,monospace;">"companions": { "regions": [ { companion-descriptor-1 }, { companion-descriptor-2 } ... { companion-descriptor-N } ] }</span></li>
+</ul>
+<p>The following configuration snippet illustrates a typical OVA companion configuration block:</p>
+<pre class="prettyprint">
+...
+  "ads": {
+     "companions": {
+        "restore": false,
+        "regions": [
+           { 
+               "id":"companion-160x600", 
+               "width":"160", 
+               "height":"600" 
+           },
+           { 
+               "id":"companion-300x250", 
+               "width":"300", 
+               "height":"250" 
+           }
+        ]
+     }
+  },
+...
+</pre>
+<p>In the example above, two companion regions are identified on the surrounding web page - the first region is 160x600 pixels in size, the second 300x250 pixels. The first region has a DIV ID "companion-160x600", the second "companion-300x250".</p>
+<p>When OVA runs, it searches for companions that match the dimensions of the specified companion descriptors. If the dimensions are matched, then the appropriate content is generated and inserted into the DIV with the specified ID.</p>
+<p>"<span style="font-family: courier new,courier,monospace;">restore</span>" specifies that the original DIV content is to be restored after the associated ad duration has been shown. This has the effect of showing and hiding ad related companions on the page.</p>
+<p>"<span style="font-family: courier new,courier,monospace;">millisecondsDelayOnInjection</span>" can be used to specify the number of milliseconds to wait between insertion of the companion code. This option can be useful if a significant number of SWF companions are to be inserted into a page at once loading down the browser as they startup.</p>
+<p>For a more detailed account of how to configure Companions, please consult the <a href="/support/open-video-ads/23689/delivering-companions">Delivering Companions</a> guide.</p>
+
+<h4><a name="configuring-ad-servers"></a>3.5.5 Configuring the Ad Server(s)</h4>
+<p>OVA obtains the information needed to display a video from a VAST compliant ad server.</p>
+<p>To identify the way OVA is to address that ad server, the "servers" configuration option is required within the "ads" configuration block.</p>
+<p>The following configuration snippet illustrates a typical ad server configuration - in this case, for calls to AdTech:</p>
+<pre class="prettyprint">...
+  "ads": {
+      "servers": [
+          {
+              "type": "AdTech",
+              "apiAddress": "http://adserver.adtech.de/?adrawdata/3.0/990.1",
+          }
+      ],
+      "schedule": [
+          {
+              "zone": "2366662/0/1725", 
+              "position": "pre-roll"
+          },
+          {
+              "zone": "2366662/0/1725",
+              "position": "post-roll"
+          }
+      ]
+  }
+...</pre>
+<h4>3.5.5.1 Out-of-the Box Ad Server Support</h4>
+<p>Some ad servers allow more complex calls to be configured to support targeting, aggregation of multiple ads in 1 response etc. Others don&#39;t and use standardised URLs that can be directly called without first being manipulated by OVA.</p>
+<p>OVA supports a number of ad servers out-of-the-box. These include AdTech, OpenX, OASIS, 24/7 Real Media, Adify and Google DoubleClick.&nbsp;</p>
+<h4>3.5.5.2 Using Ad Tag URLs Directly</h4>
+<p>Regardless, OVA supports calls to all VAST compliant ad servers.</p>
+<p>If an ad server type is not explicitly supported, the ad server "<span style="font-family: courier new,courier,monospace;">type</span>" can be optionally specified as "<span style="font-family: courier new,courier,monospace;">direct</span>" and the complete ad tag (URL) specified.</p>
+<p>The following configuration snippet illustrates a "direct" ad server call:</p>
+<pre class="prettyprint">...
+   "ads": {  
+       "pauseOnClickThrough": true, 
+       "schedule": [ 
+          { 
+              "position": "pre-roll", 
+              "server": { 
+                  "tag": "http://adserver.adtech.de/
+                          ?adrawdata/3.0/990.1/
+                          2366662/0/1725/noperf=1;
+                          cc=2;header=yes;alias=myalias; 
+                          cookie=yes;adct=204;
+                          key=key1+key2;grp=[group]; 
+                          misc=__random-number__" 
+              } 
+          } 
+       ] 
+   }
+... 
+</pre>
+<p>For a complete account of how to use direct addressing with an ad server, refer to the <a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a> guide.</p>
+<p><b>Take Care with Ampersands</b></p>
+<p>If the ad tag that you are inserting has ampersands in it (e.g.<span style="font-family: courier new,courier,monospace;"> value&amp;value&amp;value</span>), the ampersands must be replaced with "<span style="font-family: courier new,courier,monospace;">__amp__</span>" to ensure that the OVA JSON configuration is correctly parsed. When OVA formulates the final ad server call, the <span style="font-family: courier new,courier,monospace;">__amp__</span> values are replaced with actual ampersands in the URL.</p>
+<p>The following configuration snippet illustrates a direct ad server call where the ampersands have been replaced in the OVA configuration:</p>
+<pre class="prettyprint">...
+   "ads": {
+       ...
+       "schedule": [
+           {
+               "position": "pre-roll",
+               "server": {
+                  "type": "Adify",
+<span style="background-color: yellow;">                  "tag": "http://ad.afy11.net/ad?
+                          enc=4__amp__asId=1000002629107
+                          __amp__sf=0__amp__ct=256"
+</span>               }
+           }
+       ]
+   }
+...
+</pre>
+<h4><a name="configuring-ad-schedule"></a>3.5.6 Configuring the Ad Schedule</h4>
+<p>The core function of OVA is to schedule a range of ad types against a set of show streams.</p>
+<p>The central element of the OVA configuration is therefore the ad schedule that details which ad types are to be scheduled when against the specified show streams.&nbsp;For example, if a <i>pre-roll</i>, <i>mid-roll</i> and <i>post-roll </i>linear&nbsp;video ad were to be scheduled when a stream plays, three individual <i>ad spots</i> would have to be defined - one for each video ad type. If alternatively a <i>pre-roll</i>&nbsp;and <i>overlay </i>ad&nbsp;were to be scheduled, two unique <i>ad spot</i> definitions would be required.</p>
+<p><i>Ad Spot</i> definitions can be limited to a particular "stream" or duration, and in the case of overlay/non-overlay video ads, can be scheduled to start at a particular time during a programme stream.</p>
+<p>Ad Spots are defined as an array with the format <span style="font-family: courier new,courier,monospace;">[ { adspot1-options }, ... { adSpotN-options} ]</span>. Each ad definition may contain:</p>
+<ul>
+	<li>A <b>zone</b> (optional)&nbsp;</li>
+	<li>A <b>position</b> (mandatory)</li>
+	<li>A <b>duration</b> (optional)</li>
+	<li>An <b>ad server</b> declaration (optional)&nbsp;</li>
+</ul>
+<p>In addition, Overlay and Non-Overlay ads must also define a <b>width</b>&nbsp;and <b>height</b>.</p>
+<h4>3.5.6.1 Identifying Ad Positions</h4>
+<p>The following configuration snippet illustrates an ad schedule that declares a pre-roll, overlay and post-roll ad requirement, where the pre-roll is limited to the first show stream, the overlay is to be played on all streams 5 seconds into the stream for 15 seconds while the post-roll only on the third show stream:</p>
+<pre class="prettyprint">...
+   "ads": {
+       "schedule": [
+           {
+              "zone": "5",
+              "position": "pre-roll",
+              "applyToParts": [0]
+           },
+           {
+              "zone": "33",
+              "position": "bottom",
+              "startTime": "00:00:05",
+              "duration": 15,
+              "width": 300,
+              "height": 50
+           },
+           {
+              "zone": "6",
+              "position": "post-roll",
+              "applyToParts": [2]
+           }
+       ]
+   }
+...</pre>
+<p>The following table summarises the ad schedule configuration options that are available:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Values</td>
+			<td>Default</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">applyToParts</span></td>
+			<td>Array</td>
+			<td>None</td>
+			<td>Allows an ad spot declaration to be restricted to a specific set of programme streams. The value is specified as an array of integers between 0 and the number of programme streams declared. For example if an Ad Spot is to be limited to only the first stream, a value of <span style="font-family: courier new,courier,monospace;">[0]</span> would be declared. To limit a spot to the second and third streams <span style="font-family: courier new,courier,monospace;">[2,3]</span> would be declared and so forth.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">duration</span></td>
+			<td>Seconds</td>
+			<td>Unlimited</td>
+			<td>The duration of an ad - mandatory in the case of time restricted non-linear overlay and non-overlay ads. The value is specified as a number of seconds or &#39;<span style="font-family: courier new,courier,monospace;">unlimited</span>&#39; if the ad is to play for the entire duration of the programme stream. The default value is unlimited.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">height</span></td>
+			<td>Integer</td>
+			<td>0</td>
+			<td>The height of the ad spot - applicable for non-linear overlay/non-overlay ads which are bound by strict dimensions. An ad must be found in the VAST data to match this width to ensure that it is displayed.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">notice</span></td>
+			<td>Object</td>
+			<td>n/a</td>
+			<td>Identifies whether or not a special notice is to be displayed when a video ad plays. For example, wording such as "<span style="font-family: courier new,courier,monospace;">This advertisement runs for 30 seconds</span>" may be displayed. Notices are declared in the format <span style="font-family: courier new,courier,monospace;">{ show: value, region: value, message: value, ...}</span> where show is a true or false value, region is the id of the region where the message is to be shown and message is a HTML text block that specifies what to show. The message can contain a keyword _seconds_ to allow the duration of the ad to be placed into the text when the message is shown. Any class styling defined in the message must be declared as available in the associated region declaration.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">position</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>The position of this ad - can be one of the following values: for linear ads <span style="font-family: courier new,courier,monospace;">pre-roll</span>, <span style="font-family: courier new,courier,monospace;">mid-roll</span>, <span style="font-family: courier new,courier,monospace;">post-roll</span>, for non-linear overlay and non-overlay ads the value must be specified as a <i>region ID</i>.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">startTime</span></td>
+			<td>HH:MM:SS</td>
+			<td>00:00:00</td>
+			<td>The time an ad is to start - used by mid-roll and non-linear ads to identify when an ad is to be started during the programme stream. The value must be specified in the form of a timestamp &#39;<span style="font-family: courier new,courier,monospace;">HH:MM:SS</span>&#39;</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">server</span></td>
+			<td>Object</td>
+			<td>None</td>
+			<td>Definition of the ad server call to be made to acquire the creative for this ad spot. See the second on Configuring Ad Servers for a description of how to configure an ad call at the Ad Spot level</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">template</span></td>
+			<td>Object</td>
+			<td>None</td>
+			<td>Allows the default template for various overlay content types to be overridden. The setting takes the form of <span style="font-family: courier new,courier,monospace;">{ html: "", text: "", image: "" }</span>. See the section below entitled <i>Modifying the Default Overlay Templates</i> for more information on this configuration option.</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">width</span></td>
+			<td>Integer</td>
+			<td>0</td>
+			<td>The width of the ad spot - applicable for non-linear overlay/non-overlay ads which are bound by strict dimensions. An ad must be found in the VAST data to match this width to ensure that it is displayed.</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">zone</span></td>
+			<td>String</td>
+			<td>None</td>
+			<td>A string value that provides a unique identifier for this ad slot when a call is made to an ad server. See the OpenX, AdTech etc. <a href="/support/open-video-ads/13050/supported-ad-servers ">Ad Server Configuration Guides</a> for more information on how zones are used</td>
+		</tr>
+	</tbody>
+</table>
+<h4>3.5.6.2 Attaching an Ad Server Call to an Ad Spot</h4>
+<p>Using the "server" configuration option it is possible to attach a specific ad server call to an ad spot.</p>
+<p>The following configuration example illustrates how this is achieved:</p>
+<pre class="prettyprint">...
+   "ads": {  
+       "pauseOnClickThrough": true, 
+       "schedule": [ 
+          { 
+              "position": "pre-roll", 
+              "server": { 
+                  "type": "direct", 
+                  "tag": "http://adserver.adtech.de/
+                          ?adrawdata/3.0/990.1/
+                          2366662/0/1725/noperf=1;
+                          cc=2;header=yes;alias=myalias; 
+                          cookie=yes;adct=204;
+                          key=key1+key2;grp=[group]; 
+                          misc=__random-number__" 
+              } 
+          } 
+       ] 
+   }
+... 
+</pre>
+<p>The "<span style="font-family: courier new,courier,monospace;">server.tag</span>" configuration option allows an ad server ad tag URL to be directly attached to an ad slot. When OVA requires the creative for that ad slot, that URL is called to obtain the VAST response.</p>
+<h4>3.5.6.2 Modifying the Overlay Ad Templates</h4>
+<p>The content for an overlay is derived based on the overlay type.&nbsp;</p>
+<p>If the overlay is of type "text", then a "text" is formulated using a HTML template, and the resulting HTML string is then inserted into the region.</p>
+<p>Image based overlays are constructed using the HTML <span style="font-family: courier new,courier,monospace;">img</span> tag.</p>
+<p>HTML overlays are inserted directly with a surrounding set of <span style="font-family: courier new,courier,monospace;">&lt;body&gt;</span> tags.</p>
+<p>It is possible to override the default template for each overlay type to customise it&#39;s appearance on your site.</p>
+<p>The following code snippet illustrates how to use the "<span style="font-family: courier new,courier,monospace;">templates.html</span>" configuration option to override the template for HTML overlay types.</p>
+<pre class="prettyprint">"ads": {
+    "schedule": [
+        {
+            "zone": "31",
+            "startTime": "00:00:05",
+            "duration": "15",
+            "templates": {
+               "html": "&amp;lt;body&amp;gt;MY NEW TEMPLATE: _code_&amp;lt;/body&amp;gt;",
+            }
+        }
+    ],
+}</pre>
+<p>If the image overlay template is to be overridden use the configuration option "image" (e.g. <span style="font-family: courier new,courier,monospace;">"templates": { "text": "new value" }</span>).</p>
+<p>For text overlay types, use the "<span style="font-family: courier new,courier,monospace;">text</span>" configuration option.</p>
+<h4>3.5.6.3 Mapping Overlay Ad Slots to Regions</h4>
+<p>When overlay ad spots are scheduled, they must be mapped to a valid, pre-defined overlay region.</p>
+<p>By default, a range of overlay regions have been pre-defined to cover the top, bottom, center, left and right of the player screen. These regions can be used to place the overlay without a requirement to specifically define a custom region. Refer to the section in this guide entitled "<a href="#declaring-regions">Declaring Regions</a>" to review the full set of pre-defined regions.</p>
+<p>The following code snippet illustrates how to define an overlay based ad spot that is to be shown at the bottom of the player screen using a region with a transparent background.</p>
+<pre class="prettyprint">...
+  "ads": {
+      "servers": [
+          {
+             "type": "OpenX",
+             "apiAddress": "http://openx.openvideoads.org/
+                            openx/www/delivery/fc.php"
+          }
+      ],
+      "companions": 
+          "regions": [
+              { "id":"companion", "width":"150", "height":"360" }
+         ]
+      },
+      "schedule": [
+          {
+             "zone": "29",
+             "startTime": "00:00:05",
+             "duration": "15", 
+             "position: "reserved-bottom-center-w450px-h50px-transparent"
+          }
+      ],
+  },
+...
+</pre>
+<p>It is possible however to leave out the "position" setting for an overlay. In this case, the default "region" for the overlay type will be selected.</p>
+<p>The default regions per overlay type are as follows:</p>
+<ul>
+	<li><b>text</b>: reserved-bottom-w450px-h78px-000000-o50</li>
+	<li><b>html</b>: reserved-bottom-w450px-h50px-000000-o50</li>
+	<li><b>image</b>: reserved-bottom-w450px-h50px-transparent-0m</li>
+	<li><b>swf</b>: reserved-bottom-w450px-h50px-transparent</li>
+</ul>
+<h4>3.5.7 Enabling the "Skip Ad" Button</h4>
+<p>A "skip" button can be enabled as follows:</p>
+<pre class="prettyprint">
+{
+     "ads": {
+          "controls": {
+               "skipAd": {
+                   "enabled": true
+               }
+          },
+          ....
+     }
+}
+</pre>
+
+<h4>3.5.7.1 The Standard Skip Ad Button</h4>
+<p>By default a button with a pre-defined image is used.</p>
+<p>To see the standard "skip ad" button in action, click <a href="/support/open-video-ads/25443/example-skip-ad-button">here</a>. 
+<p>That image can be overridden.</p>
+<h4>Using a Custom Image for the Skip Ad Button</h4>
+<p>To override the standard skip ad button image, use the "image" property and specify the new image "width" and "height":</p>
+<pre class="prettyprint">
+{
+    "ads": {
+         "controls": {
+                "skipAd": {
+                     "enabled": true,
+                     "image": "../../images/my-new-skip-button.jpg",
+                     "width": 65,
+                     "height": 15
+                }
+        },
+        ....
+    }
+}
+</pre>
+<h4>3.5.7.2 Using Region Attributes with the Skip Ad Button</h4>
+<p>It is also possible to use the region attributions to declare a skip button - background color, margins, borders and html content can be specified to construct the look of the button.</p>
+<pre class="prettyprint">
+{
+     "ads": {
+           "controls": {
+                "skipAd": {
+                     "enabled": true,
+                     "html": "&lt;p&gt;SKIP!&lt;/p&gt;",
+                     "region": {
+                            "id": "my-new-skip-ad-button",
+                            "verticalAlign": 3,
+                            "horizontalAlign": 3,
+                            "backgroundColor": "#FF3300",
+                            "opacity": 0.8,
+                            "borderRadius": 15,
+                            "padding": "0 1 1 13",
+                            "width": 60,
+                            "height": 20
+                     }
+                }
+           },
+           ....
+      }
+}
+</pre>
+<p>An example of an overridden button image can be found <a href="/support/open-video-ads/25444/example-customised-skip-ad-button">here</a>. 
+<h4>3.5.7.3 Showing the Skip Button on Ads with a minimim duration</h4>
+<p>It is possible to configure the "skip ad" button so that it only shows on ads that are longer than a specific duration.</p>
+<p>For example, the following configuration configures the "skip ad" button to show only on ads that are 10 seconds or longer in duration.</p>
+<pre class="prettyprint">
+{
+     "ads": {
+          "controls": {
+               "skipAd": {
+                   "enabled": true,
+                   "minimumAdDuration": 10
+               }
+          },
+          ....
+     }
+}
+</pre>
+<h4><a name="configuring-vpaid"></a>3.5.8 Configuring VPAID Specific Options</h4>
+<p>Support has been added for VPAID 1.1 linear ads.</p>
+<p>For a detailed account of the VPAID API as defined by the IAB, please refer to the <a href="http://www.iab.net/vpaid">VPAID specification</a>.</p>
+<h4>3.5.8.1 Enabling VPAID for OVA for Flowplayer</h4>
+<p>VPAID ads will be played by default with OVA for Flowplayer. No specific configuration is required.</p>
+<p>To see an example VPAID linear ad in action with Flowplayer, click  <a href="/support/open-video-ads/25377/example-linear-vpaid-ad">here</a>.</p>
+<h4>VPAID Ads and "always" autoHide control bars</h4>
+<p>By default, VPAID ads will cover "always" autoHide configured control bars.</p>
+<p>For some reason however, the control bar may occasionally appear over the VPAID ad when the mouse is moved over the control bar area. This is not a consistent bug and seems to happen randomly.</p>
+<p>If you notice this behaviour and wish to size the VPAID ad so that it is not appearing over the control bar area, use the following option in conjunction with the "autoHide": "always" Flowplayer player configuration:</p>
+<pre class="prettyprint">
+    "ads": {
+          "vpaid": {
+                "controls": { "hideOnLinearPlayback": "false" }
+          }
+    }
+</pre>
+<h4>3.5.8.2 Enabling VPAID for OVA for JW Player 5</h4>
+<p>For VPAID Linear Ads to work with OVA for JW Player 5, a "holding" clip must be placed in the position of the linear ad within the playlist. A holding clip is a "minimal" clip - for example, a one 
+second black FLV or MP4 stream.</p>
+<p>OVA automatically places this "holding" clip into the player when it schedules a VPAID ad to play. By default this holding clip is loaded from the Longtail CDN.</p>
+<p>We have provided a default (1 second black MP4) clip that you can download and use <a href="http://lp.longtailvideo.com/5/ova/blank.mp4">http://lp.longtailvideo.com/5/ova/blank.mp4</a> and optionally host on your servers. This may help improve the performance of OVA running on your site.</p>
+<p>Never reference the holding clip from the OVA QA server ("static.openvideoads.org") as the file cannot be guaranteed to always be available.</p>
+<p>The following configuration structure is used to instruct OVA for JW4 as to the location of the holding clip:</p>
+<pre class="prettyprint">
+{
+    "ads": {
+        "vpaid": {
+             "holdingClipUrl": "http://xxx.longtailvideo.com/5/xxx/blank.mp4",
+        },
+        "schedule": [
+               .....
+        ]
+    }
+}
+</pre>
+<p>It is also possible to declare the holding clip as follows - if you are deploying "on demand loading", the same holding clip can be used for "on demand" ad slots as well as VPAID ads:</p>
+<pre class="prettyprint">
+{
+    "ads": {
+        "holdingClipUrl": "http://xxx.longtailvideo.com/5/xxx/blank.mp4",
+        "schedule": [
+               .....
+        ]
+    }
+}
+</pre>
+<p>To see an example JW5 VPAID linear ad in action, click <a href="/support/open-video-ads/25377/example-linear-vpaid-ad">here</a>.</p>
+<h4>3.5.8.3 Instructing OVA to pass a Referrer URL to the VPAID Ads</h4>
+<p>Sometimes VPAID ads require a "referrer" URL to be passed to them.</p>
+<p>To enable this information to be passed, configure OVA as follows:</p>
+<pre class="prettyprint">
+      ...
+          "ads": {
+             "vpaid": {
+                 "supplyReferrer": true
+             },
+     ....
+</pre>
+<p>It is also possible to manually specify the value of the "referrer" string that is passed into a VPAID ad. The following config snippet illustrates how to achieve this:</p>
+<pre class="prettyprint">
+      ...
+          "ads": {
+             "vpaid": {
+                 "supplyReferrer": true,
+                 "referrer": "www.my-domain.com"
+             },
+     ....
+</pre>
+<h4>3.5.8.5 Setting the Maximum Timeout Option</h4>
+<p>If a VPAID ad has an internal exception that cannot be caught by OVA, a default timer can be set to ensure that OVA will eventually close down the VPAID ad and continue on to the next clip.</p>
+<p>The following configuration sets the default timer to 30 seconds. The timer is disabled by default.</p>
+<pre class="prettyprint">
+   ...
+       "ads": {
+            "vpaid": {
+                  "enableMaxDurationTimeout": true,
+                  "maxDurationTimeout": 30
+            },
+   ...
+</pre>
+<h4><a name="configuring-rtmp"></a>3.5.9 Supporting RTMP Streaming Ads</h4>
+<p>RTMP ads are more difficult to deliver than HTTP because three critical pieces of information are required to configure an RTMP clip:</p>
+<ul>
+<li>The Net Connection Address of the RTMP server</li>
+<li>The Filename of the stream</li>
+<li>Any adornments that are to accompany the filename as required by the RTMP server (e.g. "MP4:")</li>
+</ul>
+<p>VAST responses typically deliver RTMP based Media File URLs in either of the following formats:</p>
+<pre class="prettyprint">
+rtmp://ne7c0nwbit.rtmphost.com/videoplayer/mp4:ads/30secs/country_life_butter.mp4
+rtmp://ne7c0nwbit.rtmphost.com/videoplayer/ads/30secs/country_life_butter.mp4
+</pre>
+<p>The key difference between both of these RTMP URLs is that the first includes a specific "file marker" that allows OVA to easily determine the "netConnectionAddress" of the RTMP server as well as the filename for the RTMP ad stream. Often in the case of MP4 streams, the "file marker" doubles as an important prefix that the RTMP server expects on the filename address.</p>
+<p>The second URL doesn't include any of these distinguishing characteristics.</p>
+<p>So the challenge for OVA is to work out how to extract both the Net Connection Address, Filename and File Adornments from a simple URL.</p>
+<p>RC4 implements two mechanisms to improve OVA's ability to play RTMP ad streams:</p>
+<ul>
+<li>A new ad "streamers" configuration block</li>
+<li>A default set of rules that govern the splicing of a standard URL into it's Net Connection Address and Filename components</li>
+</ul>
+<h4>The Ad "streamers" configuration block</h4>
+<p>To help OVA identify the Net Connection Address and Filename components of an RTMP URL, a set of "ad streamers" may now be declared.</p>
+<p>Each ad streamer declaration has the following elements:</p>
+<ul>
+<li>A "netConnectionAddress" pattern</li>
+<li>A definition of which types of files to explicitly remove the file extension if one is provided</li>
+<li>A definition of which types of files to add a prefix</li>
+</ul>
+<p>The following config snippet illustrates how to declare a set of "ad streamers" for RTMP ads:</p>
+<pre class="prettyprint">
+{
+    ...
+          "ads": {
+              "streamers": [
+                  {
+                      "netConnectionAddress": "rtmp://ne7c0nwbit.rtmphost.com/videoplayer",
+                      "removeFilenameExtensions": [ "flv" ],
+                      "addFilenamePrefixes": [ "mp4" ]
+                  },
+                  {
+                      "netConnectionURL": "rtmp://another-ad-streamer.com/ads"
+                  }
+              ],
+              "schedule": [
+                  {
+                      "position": "pre-roll",
+                      "tag": "../../../dist/templates/rtmp-ads/vast1-mp4-no-markers.xml"
+                  }
+              ]
+         }
+   ...
+}
+</pre>
+<p>In this configuration block two ad streamers are declared. The first states:</p>
+<p>That RTMP ads will be streamed from "rtmp://ne7c0nwbit.rtmphost.com/videoplayer"</p>
+<ul>
+<li>If the RTMP ad is an "flv" ad, remove the file extension when configuring</li>
+<li>If the RTMP ad is an "mp4" ad, add a prefix ("mp4:") to the filename when configuring it</li>
+</ul>
+<p>The first ad streamer configuration will match on an RTMP URL such as:</p>
+<pre class="prettyprint">
+rtmp://ne7c0nwbit.rtmphost.com/videoplayer/ads/30secs/country_life_butter.mp4
+</pre>
+<p>and produce the following components:</p>
+<ul>
+<li>netConnectionAddress: rtmp://ne7c0nwbit.rtmphost.com/videoplayer</li>
+<li>filename: mp4:ads/30secs/country_life_butter.mp4</li>
+</ul>
+<h4>The Default RTMP URL Splicing Rules</h4>
+<p>In the absence of a set of "ad streamers" being declared, OVA will implement a default set of "splicing" rules when configuring RTMP ad streams from URLs that do not have any relevant "file markers".</p>
+<p>Consider the following URL:</p>
+<pre class="prettyprint">
+rtmp://ne7c0nwbit.rtmphost.com/videoplayer/ads/30secs/country_life_butter.mp4
+</pre>
+<p>The following rules will be applied:</p>
+<ul>
+<li>The netConnectionAddress will be determined as the domain name part of the URL followed by the first directory name in the URL string</li>
+<li>The filename will be determined by removing the part derived as the netConnectionAddress</li>
+<li>If the URL has either an ".mp4" file extension or an MP4 mime type set on the VAST Media File tag set, "mp4:" will be prefixed to the filename</li>
+<li>If the URL has a ".flv" file extension it will be removed</li>
+</ul>
+<p>As a result, the following components will be derived:</p>
+<ul>
+<li>netConnectionAddress: rtmp://ne7c0nwbit.rtmphost.com/videoplayer</li>
+<li>filename: mp4:ads/30secs/country_life_butter.mp4</li>
+</ul>
+<h4>Enabling/Disabling "rtmp.subscribe" (OVA for JW5 only)</h4>
+<p>When "rtmp.subscribe" is set for show clips in JW5, any RTMP ad clips *may* need to have the "rtmp.subscribe" value forcibly set to false.</p>
+<p>To support this, the following configuration options have been implemented:</p>
+<pre class="prettyprint">
+{
+   ...
+   "ads": {
+        "providers": { 
+             "enforceSettingSubscribeRTMP":true, 
+             "subscribeRTMP": false 
+        },
+        "schedule": [
+            ....
+</pre>
+<p>"enforceSettingSubscribeRTMP" forces OVA for JW5 to set a "rtmp.subscribe" value on the ad clip if it is an RTMP stream.</p>
+<p>"subscribeRTMP" is the value that gets set as "rtmp.subscribe" on the ad clip if it is an RTMP ad stream and "enforceSettingSubscribeRTMP" is set to true.</p>
+<h4><a name="excluding-mime-types"></a>3.5.10 Excluding Ad Media Files based on Mime Type</h4>
+<p>Two configuration options have been added to the "ads" configuration block to allow media files to be excluded during OVA search to identify relevant linear streams to playback.</p>
+<p>The two options are illustrated below.</p>
+<pre class="prettyprint">
+"ads": {
+      "acceptedLinearAdMimeTypes": [ "video/x-flv" ],
+      "filterOnLinearAdMimeTypes": true,
+      ...
+}
+</pre>
+<p>In this example, only FLV based ad streams will be selected.</p>
+<p>"acceptedLinearAdMimeTypes" is an Array based configuration property. A set of mime types can be configured as per a normal Array based definition. For instance, to limit the filtering to FLV and MP4, the following declaration should be made:</p>
+<pre class="prettyprint">
+"acceptedLinearAdMimeTypes": [ "video/x-flv", "video/x-mp4"]
+</pre>
+<p>By default:</p>
+<ul>
+<li>In the AS3 framework "filterOnLinearAdMimeTypes" is false</li>
+<li>In the OVA JW4, JW5 and Flowplayer plugins, <em>"filterOnLinearAdMimeTypes"</em> is true and <em>"acceptedLinearAdMimeTypes"</em> is set to <em>["video/x-flv","video/x-mp4","application/x-shockwave-flash"]</em></li>
+</ul>
+<p>To turn off the default filtering in the OVA plugins just set <em>"filterOnLinearAdMimeTypes"</em> to <em>false</em> - all "media files" elements of the VAST response will then be searched for a match to playback.</p>
+<h4><a name="configuring-ad-title"></a>3.5.10 Changing the Default Ad Title and Description (OVA for Flowplayer only)</h4>
+<p>The "metaData" config group can be used to modify the default title and description for ads to be changed when shown in playlist selection controls.</p>
+<p>By default, OVA sets the clip title and description fields to the following values:</p>
+<ul>
+<li>Default Title: "Advertisement"</li>
+<li>Default Description: The value in the title field of the VAST response for the ad</li>
+</ul>
+<p>In all cases, the title and description are set on the clip objects as:</p>
+<ul>
+<li>title</li>
+<li>description</li>
+</ul>
+<p>To modify the default values that OVA inserts for the title and description, use the "metaData" config option within the "ads" config group as follows:</p>
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+        "metaData": {
+             "linear": {
+                  "title": "my new title goes here",
+                  "description": "my description goes here"
+             }
+        }
+        .....
+    }
+}
+</pre>
+<p>Two variables are available to use in the title and description text:</p>
+<ul>
+<li><em>__duration__</em> - insert this variable if you want to add the duration to the text</li>
+<li><em>__index__</em> - insert this variable if you want to insert the sequence number of the ad</li>
+</ul>
+<p>For example, if you specify a line of text such as:</p>
+<pre class="prettyprint">
+"My ad is __duration__ seconds and is ad number __index__"
+</pre>
+<p>You will end up with a line like:</p>
+<pre class="prettyprint">
+"My ad is 30 seconds and is ad number 1"
+</pre>
+<h3><a name="provider-configuration"></a>3.6 Provider Configuration Options</h3>
+<p>The "providers" configuration block allows new player streaming providers to be specified.</p>
+<p>By default, the following settings are active in the OVA framework:</p>
+<pre class="prettyprint">"providers": {
+    "http": "http",
+    "rtmp": "rtmp"
+}</pre>
+<p>The providers block is currently only actively used by OVA for Flowplayer. By default when a HTTP stream is to be played, the default Flowplayer HTTP streaming provider is used. If you wish to override the default and use a pseudo-streaming plugin for instance, the Flowplayer Plugin ID configured to provide pseudo-streaming would be provided as the "http" provider setting.</p>
+<pre class="prettyprint">"providers" {
+    "http": "pseudo"
+}</pre>
+<p>Equally, if a different RTMP streaming provider plugin is to be used, the "rtmp" value would be overridden with the required Flowplayer plugin ID.</p>
+<h3><a name="debug-configuration"></a>3.7 Debug Configuration Options</h3>
+<p>The debug level output by OVA is controlled via the "debug" configuration group. A typical configuration is:</p>
+<pre class="prettyprint">"debug": {
+      "levels": "fatal, config, vast_template"
+},
+</pre>
+<p>If you do not specify a debug configuration, a default level of "fatal" is assumed. "Levels" are specified as a comma delimited list.</p>
+<h4><a name="the-debug-levels"></a>3.7.1 The Debug Levels</h4>
+<p>To fine tune and identify the debug information to output, a range of options can be specified in the levels configuration parameter</p>
+<p>The following table identifies the various debug information categories that can be output:</p>
+<table class="support-table" style="margin: 0px;">
+	<tbody>
+		<tr class="header">
+			<td>Option</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">all</span></td>
+			<td>Prints all debug messages</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">clickthrough_events</span></td>
+			<td>Prints debug messages associated with click through events</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">cuepoints_events</span></td>
+			<td>Prints all debug messages fired when cuepoints are triggered</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">config</span></td>
+			<td>Prints all debug messages generated as the config data is read</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">cuepoint_formation</span></td>
+			<td>Prints all debug messages associated with establishing cuepoints</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">display_events</span></td>
+			<td>Prints all debug messages associated with non-linear ad display events</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">fatal</span></td>
+			<td>Prints all debug messages marked as fatal</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">http_calls</span></td>
+			<td>Prints all debug messages generated as HTTP calls are made</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">mouse_events</span></td>
+			<td>Prints all debug messages associated with mouse events</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">none</span></td>
+			<td>Turns off all debug output</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">playlist</span></td>
+			<td>Prints all debug messages generated as playlists are manipulated</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">region_formation</span></td>
+			<td>Prints all debug messages associated with the construction of regions</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">segment_formation</span></td>
+			<td>Prints all debug messages generated when the stream sequence is formed</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">tracking_events</span></td>
+			<td>Prints all debug messages tied to tracking events</td>
+		</tr>
+		<tr>
+			<td><span style="font-family: courier new,courier,monospace;">tracking_table</span></td>
+			<td>Prints all debug messages tied to the tracking table</td>
+		</tr>
+		<tr class="zebra">
+			<td><span style="font-family: courier new,courier,monospace;">vast_template</span></td>
+			<td>Prints debug messages generated during requesting and parsing the VAST ad data</td>
+		</tr>
+	</tbody>
+</table>
+<h4><a name="supported-debuggers"></a>3.7.2 Supported Debuggers</h4>
+<p>OVA uses "console.log()" to output the debug data. Any browser that supports a Javascript console should be capable of displaying the debug lines generated by OVA.</p>
+<p>Further information is available within the "<a href="/support/open-video-ads/22821/debugging-ova">Debugging OVA</a>" guide.</p>
+<h3><a name="analytics-configuration"></a>3.8 Analytics Configuration Options</h3>
+<p>The "analytics" configuration block enables various tracking systems to be turned on to support reporting of OVA impression and tracking events.</p>
+<p>The first analytics system integrated with OVA is Google Analytics.</p>
+<p>Today the "analytics" mechanism can only be used to support impression reporting. Over time support for additional analytics systems and metric points will be added.</p>
+<h4>3.8.1 Enabling Custom Tracking</h4>
+<p>To configure a custom account ID, use the following configuration approach:</p>
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "enable": true,
+                        "accountId": "UA-10158120-1",
+   	        	"impressions": {
+                              "linear": "put-your-custom-url-here",
+                              "nonLinear": "put-your-custom-url-here",
+                              "companion": "put-your-custom-url-here"
+                        }
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+<p>The code snippet presented above turns on impression tracking to the GA account "UA-10158120-1". For further information on the Google Analytics tracking options available, please
+consult to the <a href="/support/open-video-ads/22833/google-analytics">OVA and Google Analytics</a> guide.					</article>
+
+		</div><!-- /.section_wrapper -->
+	</section>
+
+
+	<section id="player_bottom_promo">
+		<div class="section_wrapper">
+			<h2>Still don't have the new JW Player? <a href="http://jwplayer.com/sign-up/" class="promo_button">Get It Here <span>&nbsp;</span></a></h2>
+		</div><!-- /.section_wrapper -->
+	</section><!-- /#player_bottom_promo -->
+
+<footer id="site_footer">
+  <section id="footer_links">
+    <div class="section_wrapper clearfix">
+      	<div id="player_column" class="nav_column">
+	       <h4>JW Player</h4>
+          <ul>
+            <li><a href="http://www.jwplayer.com/features/">Features</a></li>
+            <li><a href="http://www.jwplayer.com/pricing/">Pricing</a></li>
+            <li><a href="http://www.jwplayer.com/video-ads/">Video Ads</a></li>
+            <li><a href="http://www.jwplayer.com/hosting-and-streaming/">Hosting</a></li>
+            <li><a href="http://www.jwplayer.com/enterprise/">Enterprise</a></li>
+            <li><a href="http://www.jwplayer.com/customers/">Customers</a></li>
+          </ul>
+        </div> <!-- nav_column -->
+        <div id="company_column" class="nav_column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="http://www.jwplayer.com/company/">About Us</a></li>
+            <li><a href="http://www.jwplayer.com/careers/">Careers</a></li>
+            <li><a href="http://www.jwplayer.com/news/">Press</a></li>
+            <li><a href="http://www.jwplayer.com/blog/">Blog</a></li>
+            <li><a href="http://www.jwplayer.com/contact-us/">Contact</a></li>
+          </ul>
+        </div> <!-- nav_column -->
+        <div id="platform_column" class="nav_column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="http://support.jwplayer.com/customer/portal/topics/601063-frequently-asked-questions/articles">Frequently Asked</a></li>
+            <li><a href="http://support.jwplayer.com">Support Articles</a></li>
+            <li><a href="http://www.jwplayer.com/wizard/">Setup Wizard</a></li>
+            <li><a href="http://www.jwplayer.com/download/">Download Info</a></li>
+          </ul>
+        </div> <!-- nav_column -->
+        <div id="quicklinks_column" class="nav_column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="http://www.jwplayer.com/html5/">HTML5 Video Report</a></li>
+            <li><a href="http://www.jwplayer.com/license/">License</a></li>
+            <li><a href="http://www.jwplayer.com/upgrade-steps/">Upgrade Steps</a></li>
+            <li><a href="http://www.jwplayer.com/jw5/">JW5 Legacy</a></li>
+            <li><a href="http://www.jwplayer.com/support/open-video-ads">OVA</a></li>
+          </ul>
+        </div> <!-- nav_column -->
+      <div class="social_subscribe clearfix">
+        <div class="social_links clearfix">
+            <div id="fb-root"></div>
+                <!-- FB Start -->
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like" data-href="https://www.facebook.com/jwplayer" data-width="140" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                <!-- FB End -->
+                &nbsp;&nbsp;&nbsp;
+                <!-- Twitter Start -->
+                <a href="https://twitter.com/jwplayer" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jwplayer</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <!-- Twitter End -->
+                &nbsp;&nbsp;&nbsp;
+                <!-- LinkedIn Start -->
+                <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                <script type="IN/FollowCompany" data-id="1907786" data-counter="none"></script>
+                <!-- LinkedIn End -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="footer_copyright">
+    <div class="section_wrapper">
+      <p>&copy;2014 LongTail Ad Solutions. All Rights Reserved. LongTail Video is a registered trademark.  &nbsp; <a href="http://jwplayer.com/tos/">Terms of Service</a> / <a href="http://jwplayer.com/privacy/">Privacy Policy</a> / <a href="http://jwplayer.com/dmca/">DMCA</a></p>
+      <a class="made_in_ny" href="http://wearemadeinny.com" rel="nofollow" target="_blank">Made in NY</a>
+      <span class="logo">JW Player</span>
+    </div>
+  </section>
+</footer>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-4011032-1"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+</body>
+</html>

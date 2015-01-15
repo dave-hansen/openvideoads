@@ -1,0 +1,941 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23679/delivering-linear-ads/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Delivering Linear Ads | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Delivering Linear Ads</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to use OVA to deliver linear video ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#declaring">Declaring linear positions</a></li>
+    <li><a href="#supporting">Supporting companions</a></li>
+	<li><a href="#repeating">Repeating ad slots</a></li>
+	<li><a href="#delaying">Delaying the ad request until play is pressed</a></li>
+	<li><a href="#loading">Loading "on-demand"</a>
+	<li><a href="#refreshing">Refreshing "on replay"</a></li>
+	<li><a href="#playing">Playing an ad position just once</a></li>
+	<li><a href="#ad">Configuring the ad notice"</a>
+	<li><a href="#prompt">Configuring the click-through prompt</a></li>
+	<li><a href="#skip">Configuring a "skip ad" button</a>
+	<li><a href="#controlling">Controlling the control bar during playback</a></li>
+	<li><a href="#enforcing">Enforcing Pre-Rolls To Play on Playlist Selected Clips</a></li>
+	<li><a href="#impression">Impression and event tracking</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started with OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started with OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/22820/supported-ad-formats/revisions/23228/view">Supporting Formats</a></li>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide/revisions/23374/view">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID Linear and Overlay Ads</a></li>
+<li><a href="/support/open-video-ads/23120/what-is-vast">What is VAST? and VAST Tracking</a></li>
+<li><a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading On-Demand and Refreshing</a></li>
+<li><a href="/support/open-video-ads/22836/configuring-a-skip-button">Configuring a "Skip Ad Button</a></li>
+<li><a href="/support/open-video-ads/13047/getting-started">Configuring the "Click-Through" Prompt</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25375/example-linear-ad-stream">Linear Ad Stream Pre-Roll</a></li>
+<li><a href="/support/open-video-ads/25377/example-linear-vpaid-ad">VPAID Pre-Roll</a></li>
+<li><a href="/support/open-video-ads/25450/example-using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/25455/example-loading-on-demand">Loading On-Demand</a></li>
+<li><a href="/support/open-video-ads/25443/example-skip-ad-button">The Skip Ad Button</a></li>
+<li><a href="/support/open-video-ads/25443/example-skip-ad-button">Customising the Ad Notice</a></li>
+<li><a href="/support/open-video-ads/25466/example-google-analytics-and-impressions">Tracking Impressions with Google Analytics</a></li>
+<li><a href="/support/open-video-ads/25463/example-selective-application">Selective Application of Ad Slots</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA can be used to deliver linear video ads. Linear video ads take the form of pre, mid or post roll ad positions that can be either:</p>
+<ul>
+<li>Non-interactive ad streams (e.g. MP4 or FLV etc. clips) or</li>
+<li>Interactive VPAID Flash ad units (SWF ad assets that comply to the VPAID format)</li>
+</ul>
+<p>Linear ads can be delivered with or without companion ads.</p>
+
+<p>Viewers can optionally click-through linear ads if a click-through URL is provided in the VAST response. Where a click-through is provided, 
+a default click through prompt is shown on the player screen when the viewer mouses over the player. The wording and format of the prompt can be re-configured.</p>
+
+<p>Non-interactive linear ad streams also display a default ad notice that declares the duration of the ad. The format and wording of this 
+notice can also be re-configured.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example plays a short linear pre-roll ad stream provided by a static ad tag. The default click-through prompt and ad notice are displayed:</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_AD_TAG_LINEAR_STREAM_WITH_80x300_COMPANION"
+                }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<p>To deliver this linear ad stream, the example uses the following OVA configuration:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "tag": "http://openx.openvideoads.org/openx/www/delivery..."
+             } 
+         ]
+    }
+}
+</pre>
+
+<h2><a name="declaring"></a>3. Declaring Linear Positions</h2>
+
+<p>Linear ads can be played back in <i>pre</i>, <i>mid</i> or <i>post-roll</i> ad positions.</p>
+
+<p>Pre-rolls are played before a show stream, mid-rolls during a show stream at a pre-defined start-time and post-rolls are always played after the completion of a show stream.</p>
+
+<p>Linear ad positions are declared as part of the OVA <i>schedule</i>. The following code snippet illustrates the declaration of pre, mid and post roll ad positions for a show stream.</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+             },
+             {
+                  "position": "mid-roll",
+                  "startTime": "00:00:25",
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+             },
+             {
+                  "position": "post-roll",
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+             } 
+         ]
+    }
+}
+</pre>
+
+<h3><a name="support"></a>3.1 Support for mid-rolls</h3>
+
+<p>Mid-rolls are supported with varying degrees of finess within OVA for Flowplayer and OVA for JW5.</p>
+
+<p>As Flowplayer supports <i>instream clips</i>, mid-rolls play mid-stream without requiring the show stream to be spliced into individual clips.</p>
+
+<p>As JW Player 5.8 or earlier did not support an "instream" API, OVA for JW5 presents mid-rolls by splicing up the original show stream into a set of clip that are inserted around the mid-roll ads.
+This means that to resume the clip post the mid-roll, JW5 needs to seek forward in the underlying show clip to the time at which the mid-roll started. 
+Accordingly, mid-rolls can only be played with OVA for JW5 if:</p>
+<ul>
+<li>The underlying show stream supports seek (e.g. via RTMP or HTTP psuedo-streaming)</li>
+<li>A duration is specified for the underlying show stream</li>
+</ul>
+<p>Configuring a mid-roll is simple - only two attributes need to be declared in the ad slot to activate a mid-roll position - the ad slot 
+<span style="font-family: courier new,courier,monospace;">position</span> and the <span style="font-family: courier new,courier,monospace;">startTime</span>.</p>
+
+<p>For example, the following code snippet declares a mid-roll to start playing at 25 seconds into the underlying show clip:</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "schedule": [
+             {
+                  <span style="background-color: yellow;">"position": "mid-roll",</span>
+                  <span style="background-color: yellow;">"startTime": "00:00:25",</span>
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+             }
+...
+</pre>
+
+<h3><a name="attaching"></a>3.2 Attaching Linear Ad Tags to Ad Slots</h3>
+
+<p>Linear ad tags can be attached to ad slots by either:</p>
+<ol>
+<li>Declaring the ad tag directly within the ad slot</li>
+<li>Declaring the ad tag as part of an overall servers declaration applicable across the ad schedule</li>
+</ol>
+<p>The first approach is useful if you have a static ad tag that is just to be applied to a single linear ad slot.</p>
+
+<p>Alternatively, if you have an ad tag that has multiple ad creatives that are to be applied across several ad slots, then the second approach should be used.</p>
+
+<p>It is also possible to mix and match your ad calls and declare some at a general "servers" level outside of the ad slot as well as others individually within specific ad slots in the schedule</p>
+
+<h4>3.2.1 Declaring Ad Tags within an Ad Slot</h4>
+
+The following code snippet illustrates how to attach an ad tag directly to a linear ad slot:
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "schedule": [
+             {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."</span>
+             }
+...
+</pre>
+
+<p>In this example, OVA will make a single ad call for the pre-roll ad slot to obtain the creative to play in that ad position.</p>
+
+<p>The tag config option is a short-cut option that expands to the following config:</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "schedule": [
+             {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"server": {
+                      "type": "direct",
+                      "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+                  }</span>
+             }
+...
+</pre>
+
+<p>It can be useful to declare an ad tag at an ad slot level using the long form "server" config option if you have a more complex ad tag type or need to specify failover ad tags.</p>
+
+<p>For example, the following config illustrates a more complex ad tag structure where two failover ad tags are provided to cover the case where the primary static ad tag fails to yeild an ad.</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "schedule": [
+             {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"server": {
+                     "tag": "http://openx.openvideoads ... &charset=UTF-8",
+                     "failoverServers": [
+                         {
+                             "tag": "http://ad3.liverail.com/? ... amp__LR_SCHEMA=vast2"
+                         },
+                         {
+                             "tag": "http://track.adform.net/s ... p__ord=1328005854622"
+                         }
+                     ]
+                  }</span>
+             },
+             ...
+...
+</pre>
+
+<p>For further information on how to failover ad tags, please consult the <a href="/support/open-video-ads/22826/ad-server-fail-over">Ad Server Failover</a> guide.</p>
+
+<h4>3.2.2 Declaring Ad Tags at a General "Servers" Level</h4>
+
+<p>Ad tags can be applied across a range of ad slots by specifying the tag at a general level via the <span style="font-family: courier new,courier,monospace;">"servers"</span> config block. 
+The following code snippet illustrates how a single ad tag can be declared so that it is applied to both the pre-roll and post-roll ad slots</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        <span style="background-color: yellow;">"servers": [
+            {
+                "type": "direct",
+                "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+            }
+        ],</span>
+        "schedule": [
+             {
+                "position": "pre-roll"
+             },
+             {
+                "position": "post-roll"
+             }
+        ]
+   }
+...
+</pre>
+
+<p>In this example the liverail ad call is made twice - once for the pre-roll and once for the post-roll.</p>
+
+<p>If you have an ad tag that returns multiple creatives in a single response (e.g. two linear ads etc.), then you can instruct OVA to only fire the ad tag once for the ad slots by
+adding the <span style="font-family: courier new,courier,monospace;">"oneAdPerRequest": false</span> option to the server declaration. The following code snippet illustrates
+how to fulfill both a pre and post roll ad slot with a single ad call:</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "servers": [
+            {
+                "type": "direct",
+                "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_...",
+                <span style="background-color: yellow;">"oneAdPerRequest": false</span>
+            }
+        ],
+        "schedule": [
+             {
+                "position": "pre-roll"
+             },
+             {
+                "position": "post-roll"
+             }
+        ]
+   }
+...
+</pre>
+
+<p>It is also possible to mix and match ad calls by specifying them at the general level via the "servers" tag and also at the ad slot level.
+The following code snippet illustrates how to ensure that a pre and post roll ad position is fulfilled via a single ad call specified at the
+general level via the "servers" config block while the mid-roll ad is obtained by separate ad call declared at the ad slot level.</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        <span style="background-color: yellow;">"servers": [
+            {
+                "type": "direct",
+                "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_...",
+                "oneAdPerRequest": false
+            }
+        ],</span>
+        "schedule": [
+             {
+                "position": "pre-roll"
+             },
+             {
+                "position": "mid-roll",             
+                "startTime": "00:01:00",
+                <span style="background-color: yellow;">"tag": "http://ads.eyewonder.com/xxxx...."</span>
+             },
+             {
+                "position": "post-roll"
+             }
+        ]
+   }
+...
+</pre>
+
+<h4>3.2.3 Ad Tags and Flowplayer - The Ampersand Issue</h4>
+
+<p>When ad tags are specified in an OVA for Flowplayer configuration, any ampersands (&) must be replaced with "__amp__". The Flowplayer JSON parser unfortunately has
+a problem with ampersands when specified in the JSON configuration so OVA looks for "__amp__" and replaces any instances of that variable name with an actual ampersand
+before calling the ad server.</p>
+
+<p>For example, if your ad tag is:</p>
+
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml<span style="background-color: yellow;">&</span>zones=pre-roll:0.0-0%3D50&nz=1<span style="background-color: yellow;">&</span>source=<span style="background-color: yellow;">&</span>r=R0.05822725687175989<span style="background-color: yellow;">&</span>block=1<span style="background-color: yellow;">&</span>format=vast<span style="background-color: yellow;">&</span>charset=UTF-8
+</pre>
+
+<p>it should be declared as follows when using OVA for Flowplayer:</p>
+
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml<span style="background-color: yellow;">__amp__</span>zones=pre-roll:0.0-0%3D50<span style="background-color: yellow;">__amp__</span>nz=1<span style="background-color: yellow;">__amp__</span>source=<span style="background-color: yellow;">__amp__</span>r=R0.05822725687175989<span style="background-color: yellow;">__amp__</span>block=1<span style="background-color: yellow;">__amp__</span>format=vast<span style="background-color: yellow;">__amp__</span>charset=UTF-8
+</pre>
+
+<h4>3.2.4 Using OVA Variables with Ad Tags</h4>
+
+<p>Often when ad calls are made, dynamic values need to be placed into the ad tag itself before it is called by OVA. In many cases these dynamic variables contain
+timestamps, cache-busting random-numbers, domains, referrer addresses etc.</p>
+
+<p>OVA supports a number of dynamic variables. OVA variables are always pre and postfixed with "__" (e.g. <span style="font-family: courier new,courier,monospace;">__domain__</span>). To specify a dynamic OVA variable, just add it to the ad tag when 
+you are declaring that ad tag in the OVA configuration. For example, the following code snippet illustrates how to add a random number to an ad tag when OVA makes the call.</p>
+
+<pre class="prettyprint">
+...
+  "ads": { 
+     "schedule": [
+         {
+            "position": "pre-roll"
+            "tag": "http://my.adserver.com/vastads.php?cache-buster=<span style="background-color: yellow;">__random-number__</span>"
+         }
+     ]
+  }
+...
+</pre>
+
+<p>For more detailed information on the OVA variables available and how to use them, please consult the <a href="/support/open-video-ads/22825/using-ad-tag-variables">Ad Tag Variables</a> guide.<p>
+
+<h2><a name="supporting"></a>4. Supporting Companions</h2>
+
+<p>It is possible to display companion ads along with linear video ads.</p>
+
+<p>A companion ad is a supporting image, iframe, javascript or HTML code segment, SWF or text asset that is inserted into a DIV tagset within the HTML page holding the player.</p>
+
+<p>To configure a companion ad to be displayed, add in the appropriate <span style="font-family: courier new,courier,monospace;">companions</span> configuration 
+settings to your OVA setup. The following code snippet illustrates how to declare that a 300x250 companion is to be inserted into a 
+pre-declared DIV tag with an "id" of <span style="font-family: courier new,courier,monospace;">companion-300x250</span>:
+</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "companions": { 
+            "regions": [
+                { "id": "companion-300x250", width: 300, height: 250 }
+            ]
+        },
+        "schedule": [
+             {
+                  "position": "mid-roll",
+                  "startTime": "00:00:25",
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_...."
+             }
+...
+</pre>
+
+<p>For further information regarding companions, please consult the <a href="/support/open-video-ads/ova-for-flowplayer/13240/supporting-companions">Supporting Companions</a> guide.
+
+<h2><a name="repeating"></a>5. Repeating Ad Slots</h2>
+
+<p>It is possible to specify that an ad position be repeated a number of times before moving onto the next item in the playlist.</p>
+
+<p>For example, consider that you wish to play 3 pre-rolls before a clip is played.</p>
+
+<p>To repeat a specific ad slot, use the <span style="font-family: courier new,courier,monospace;">repeat</span> configuration option as follows:</p>
+
+<pre class="prettyprint">
+...
+   "ads": { 
+        "schedule": [
+             {
+                  "position": "pre-roll",
+                  <span style="background-color: yellow;">"repeat": 3,</span>
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_...."
+             }
+...
+</pre>
+
+<p>It is currently not possible to use the <span style="font-family: courier new,courier,monospace;">repeat</span> option with <i>mid-roll</i> positions in OVA for Flowplayer.</p>
+
+<p>Further information can also be found in the <a href="/support/open-video-ads/22838/repeats-and-intervals">Repeats and Intervals</a> guide.
+
+<h2><a name="delaying"></a>6. Delaying the Ad Request Until Play is Pressed</h2>
+
+<p>When OVA for Flowplayer or OVA for JW5 first starts up, the ad calls that have been scheduled will automatically be called.<p>
+
+<p>It is possible to defer these calls until after the user first presses the "play" button the player.</p>
+
+<p>To instruct OVA to delay calling the ad servers, use the <span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+   <span style="background-color: yellow;">"delayAdRequestUntilPlay": true,</span>
+   "ads": { 
+        "schedule": [
+             {
+                  "position": "pre-roll",
+                  "tag": "http://ad3.liverail.com/?LR_PUBLISHER_ID=xxx&LR_..."
+             }
+        ]
+   }
+}
+</pre>
+<p>Further information on the <span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span> option can be found in the 
+<a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading On-Demand and Refreshing</a> guide.
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25454/example-delayed-loading">here</a>.</p>
+
+<h2><a name="loading"></a>7. Loading "On-Demand"</h2>
+
+<p>Previous versions of OVA pre-fetch all ads at startup time. The pre-fetching can be slightly delayed with the 
+<span style="font-family: courier new,courier,monospace;">delayAdRequestsUntilPlay</span> option, but with the pre-fetch model they still all happen 
+when the user presses the play button.</p>
+
+<p>This is less than ideal for player setups that have long playlists as it results in many unused ad calls.</p>
+
+<p>From an ad provider perspective, this in turn makes the task of inventory management just that little bit more difficult.</p>
+
+<p>OVA provides a solution via the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option.</p>
+
+<p>Individual ad slots within a schedule may be declared as <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> - if OVA sees this 
+config option set to <span style="font-family: courier new,courier,monospace;">true</span>, then the ad call will only be made just before the ad is to be played.</p>
+
+<p>Detailed below is an example configuration that illustrates how to use this option to ensure that each pre-roll ad is fetched only as required:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   <span style="background-color: yellow;">"loadOnDemand": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25455/example-loading-on-demand">here</a>.</p>
+
+<p>Further information on the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option can be found in the 
+<a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading On-Demand and Refreshing</a> guide.
+
+<h3><a name="ova"></a>7.1 OVA for JW5 Holding Clips</h3>
+
+<p>Within <i>OVA for JW5</i>, linear on-demand ad clips use a blank clip termed a <i>Holding Clip</i> as 
+a placeholder in the player playlist while the ad is being fetched and loaded into the player. If the ad call fails, the blank holding clip plays allowing 
+playback to smoothly continue on.</p>
+
+<p>By default, OVA loads the holding clip off the Longtail CDN. If you wish to specify your own holding clip you can as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         <span style="background-color: yellow;">"holdingClipUrl": "specify-your-holding-clip-url-here",</span>
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "loadOnDemand": true,
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+
+<h3><a name="play"></a>7.2 Blocking the First "On-Demand" Ad Call Until the Play button is Pressed</h3>
+
+<p>In the case of a pre-roll, although the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option is set, the ad call for that pre-roll 
+will still occur when the player is loaded up.</p>
+
+<p>To ensure that this first ad call does not happen until the user hits play, add in the <span style="font-family: courier new,courier,monospace;">delayAdRequestUntilPlay</span> option 
+as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    <span style="background-color: yellow;">"delayAdRequestUntilPlay": true,</span>
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   <span style="background-color: yellow;">"loadOnDemand": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<h3><a name="demand"></a>7.3 "On Demand" Ad Slots and JW5 Playlists</h3>
+
+<p>In the case of OVA for JW5, <span style="font-family: courier new,courier,monospace;">allowPlaylistControl</span> results in a full playlist be loaded into the player in one pass. This allows the JW Player playlist controller to be used. 
+To compensate for ad positions that are yet to be loaded (on-demand), <i>holding clips</i> will be placed where ads are expected to be played, and then as the player gets to a point in the playlist where an ad is to be played, the ad call 
+will be triggered and the returned ad will be loaded up in place of the holding clip.</p>
+
+<pre class="prettyprint">
+{
+   <span style="background-color: yellow;">"allowPlaylistControl": true,</span>
+   "debug": { 
+       "levels": "fatal, config, vast_template" 
+   },
+   "ads": {
+       "schedule": [
+           {
+              "position": "pre-roll",
+              <span style="background-color: yellow;">"loadOnDemand": true,</span>
+              "tag": "http://openx.openvideoads.org/openx/www/delivery/fc.php?..."
+           }
+       ]
+   }
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25480/example-loading-jw5-playlist-on-demand">here</a>.</p>
+
+<h2><a name="refreshing"></a>8. Refreshing "On Replay"</h2>
+
+<p>The <span style="font-family: courier new,courier,monospace;">refreshOnReplay</span> option has been introduced to allow OVA to request a new ad each time the ad slot is played.</p>
+
+<p>This option is only available with the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> model.</p>
+
+<p>The following code snippet illustrates how to ensure that a new ad call for a pre-roll occurs each time the ad slot is played:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "loadOnDemand": true,
+                   <span style="background-color: yellow;">"refreshOnReplay": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+</ul>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25456/example-refresh-on-replay">here</a>.</p>
+
+<p>For further information regarding the "load on demand" option, please consult the <a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading On-Demand and Refreshing</a> guide.</p>
+
+<h2><a name="playing"></a>9. Playing Ad Slots Just Once </h2> 
+
+<p>By default, OVA will replay an ad position each time the playlist is replayed.</p>
+
+<p>It is possible to instruct OVA to play specific linear ad slots just once using the <span style="font-family: courier new,courier,monospace;">playOnce</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "tag": "place-your-ad-tag-here",
+                   <span style="background-color: yellow;">"playOnce": true</span>
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25462/example-just-once">here</a>.</p>
+
+<h2><a name="ad"></a>10. Configuring the "Ad Notice"</h2>
+
+<p>By default, OVA will display a standard <i>Ad Notice</i> for linear ad streams.</p>
+
+<p>The ad notice appears as follows:</p>
+
+<p class="rtecenter"><img alt="Ad notice" src="/sites/default/files/ad-notice.jpg" /></p>
+
+<p>The appearance of the ad notice can be modified. The wording can be changed along with the size and style of the text or it can be turned off.</p>
+
+<p>To modify the default ad notice, use the <span style="font-family: courier new,courier,monospace;">notice</span> config block as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "tag": "place-your-ad-tag-here",
+                   <span style="background-color: yellow;">"notice": { "show": false }</span>
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>The ad notice will not be displayed for VPAID ads.</p>
+
+<p>For further information regarding changing the standard ad notice, please consult the 
+<a href="/support/open-video-ads/22835/using-ad-notices">Using Ad Notices</a> guide.</p>
+
+<h2><a name="prompt"></a>11. Configuring the "Click-through" Prompt</h2>
+
+<p>Linear ad streams may have an optional <span style="font-family: courier new,courier,monospace;">click-through</span> URL provided in the VAST response. Where this is 
+provided, OVA will configure a default <span style="font-family: courier new,courier,monospace;">click through</span> prompt. The prompt appears on the player 
+display when the viewer mouses over the display.</p>
+
+<p class="rtecenter"><img alt="Click through" src="/sites/default/files/click-through.jpg" /></p>
+
+<p>The wording and appearance of the click-through prompt may be modified using the <span style="font-family: courier new,courier,monospace;">clickSign</span> config option 
+as illustrated by the following code snippet:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         "pauseOnClickThrough": true,
+         <span style="background-color: yellow;">"clickSign": {
+               "enabled": true,
+               "verticalAlign": "center",
+               "horizontalAlign": "center",
+               "width": 150,
+               "height": 32,
+               "opacity": 0.5,
+               "borderRadius": 20,
+               "backgroundColor": "#000000",
+               "style": ".smalltext { font-size:12; }",
+               "html": "&lt;p class="smalltext" align="center">CLICK ME!&lt;/p>",
+               "scaleRate": 0.75
+         },</span>
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>The click-through notice will not be displayed for VPAID ads. It is the responsibility of the VPAID ad itself to take care of that function.</p>
+
+<p>For further information regarding modifying the standard "click-through" prompt, please refer 
+to the <a href="/support/open-video-ads/23809/supporting-click-throughs">Configuring "Click-throughs"</a> guide.</p>
+
+<h2><a name="skip"></a>12. Adding Support for a "Skip Ad" Button</h2>
+
+<p>It is possible to configure a <i>Skip Ad</i> button to appear with non-interactive linear ad streams.</p>
+
+<p class="rtecenter"><img alt="Short Linear pre-roll ad" src="/sites/default/files/skip-ad.jpg" /></p>
+
+<p>The format of the default skip ad button button can be modified via <i>skipAd</i> OVA configuration option as follows:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": { 
+         <span style="background-color: yellow;">"skipAd": {
+             "enabled": true
+         },</span>
+         "schedule": [
+             {
+                "position": "pre-roll",
+                "tag": "place-your-ad-tag-here"
+             }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25443/example-skip-ad-button">here</a>.</p>
+
+<p>For further information regarding the <span style="font-family: courier new,courier,monospace;">skipAd</span> option, please consult 
+the guide - <a href="/support/open-video-ads/22836/configuring-a-skip-button">Configuring a Skip Ad Button</a>.</p>
+
+<h2><a name="controlling"></a>13. Controlling the Control Bar during Playback</h2>
+
+<p>By default OVA disables key elements of the control bar during linear ad playback.</p>
+
+<p>For OVA for JW5 this includes the pause/next/previous and timeline controls, while for OVA for Flowplayer this includes disabling the timeline/next/previous controls.</p>
+
+<p>It is possible to declare within the OVA configuration data how the control bar is to be treated by OVA during linear ad playback.</p>
+
+<p>The following code snippet illustrates an example where all controls are disabled except the play/pause buttons:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "player": {
+       "modes": {
+           "linear": {
+               <span style="background-color: yellow;">"controls": {
+                  "enablePlay": true,
+                  "enablePause": true,
+                  "enablePlaylist": false,
+                  "enableTime": false,
+                  "enableMute": false,
+                  "enableVolume": false
+               }</span>
+           }
+       }
+    },
+    "ads": { 
+         "schedule": [
+              {
+                  ...
+}
+</pre>
+
+<p>For further information on the options available, please consult the 
+<a href="/support/open-video-ads/22834/configuring-the-control-bar">Configuring the Control Bar</a> guide.</p>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25471/example-managing-the-controls">here</a>.</p>
+
+<h3><a name="enforcing"></a>14. Enforcing Pre-Rolls To Play on Playlist Selected Clips</h3>
+
+<p>It is possible to schedule ads to forcibly play when the user clicks on a playlist controller.</p>
+
+<p class="rtecenter"><img alt="Ad notice" src="/sites/default/files/playlist-control.jpg" /></p>
+
+<p>In the case of OVA for JW5, if a playlist controller is used, the <span style="font-family: courier new,courier,monospace;">enforceLinearAdsOnPlaylistSelection</span> option
+must be set to ensure that OVA forcibly plays a pre-roll before the selected playlist clip.<p>
+
+<pre class="prettyprint">
+{
+    ...
+    "ads": {
+         <span style="background-color: yellow;">"enforceLinearAdsOnPlaylistSelection": true,</span>
+         "schedule": [
+              {
+                   "position": "pre-roll",
+                   <span style="background-color: yellow;">"loadOnDemand": true,</span>
+                   "tag": "place-your-ad-tag-here"
+              }
+         ]
+    }
+    ...
+}
+</pre>
+
+<p>In addition, the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option can be used in conjunction with <span style="font-family: courier new,courier,monospace;">enforceLinearAdsOnPlaylistSelection</span> 
+to ensure that ads are only loaded and played once the user has selected the playlist item from the controller.</p>
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25472/example-jw5-playlist-control">here</a>.</p>
+
+<h2><a name="impression"></a>15. Impression and Event Tracking</h2>
+
+<p>As required by the VAST standard, OVA includes support for full impression and event tracking across Linear ads.</p>
+
+<p>This includes:</p>
+
+<ul>
+<li>Firing of impressions when the ad is played</li>
+<li>Firing of first quartile, midpoint, third quartile and complete events during playback</li>
+<li>Firing of tracking events for pause, resume, mute, fullscreen</li>
+</ul>
+
+<p>While OVA automatically fires the tracking and impression events recorded in a VAST response, it is possible to configure OVA to 
+trigger tracking events to Google Analytics as linear ads play.</p>
+
+<p>The following code snippet illustrates how to enable Google Analytics tracking for linear ads.</p>
+
+<pre class="prettyprint">
+{
+    "analytics": {
+        "google": {
+  	        "custom": {
+                  "accountId": "UA-10158120-1",
+                  "adCalls": {
+                        "enable": true,
+                        "fired": "/ova-example/ad-calls/fired",
+                        "complete": "/ova-example/ad-calls/complete",
+                        "failover": "/ova-example/ad-calls/failover",
+                        "error": "/ova-example/ad-calls/error",
+                        "timeout": "/ova-example/ad-calls/timeout",
+                        "deferred": "/ova-example/ad-calls/deferred"
+                  }
+            }
+        }
+    },               
+    "ads": {
+        ...
+</pre>
+
+<p>For further information on how to utilise Google Analytics with OVA, please consult the 
+<a href="/support/open-video-ads/22833/google-analytics">Using Google Analytics with OVA</a> guide.</p>					</article>	
+
+</body>
+</html>

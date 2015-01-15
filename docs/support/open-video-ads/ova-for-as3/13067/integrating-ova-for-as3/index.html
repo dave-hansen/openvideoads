@@ -1,0 +1,657 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/ova-for-as3/13067/integrating-ova-for-as3/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Integrating OVA for AS3 | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Integrating OVA for AS3</h1>						
+			
+			<p>This tutorial walks through at a high level, the steps required to integrate the OVA for AS3 framework into a custom player.</p>
+<h2>1. Recommended Reading</h2>
+<p>The following reading is recommended to accompany this tutorial</p>
+<ul>
+	<li><a href="/support/open-video-ads/13048/ova-configuration-guide ">The OVA Configuration Guide</a></li>
+	<li><a href="/support/open-video-ads/ova-for-as3/13068/how-to-build-the-release ">How to Build the OVA for AS3 Release</a></li>
+	<li><a href="/support/open-video-ads/ova-for-as3/13070/ova-json-configuration ">The OVA Approach to Configuration</a></li>
+	<li>An <a href="/support/open-video-ads/ova-for-as3/13063/getting-started ">Introductory Guide</a> to the OVA for AS3 framework</li>
+</ul>
+<h2>2. The Overall Model</h2>
+<p>The following diagram illustrates an end-to-end solution using OVA.</p>
+<p><img alt="" src="http://static.openvideoads.org/downloads/images/longtailvideo.com/ova-end-2-end.png" /></p>
+<p>A web-page contains a video player that embeds the OVA framework. Typically the framework is embedded via an ad streaming plugin that has been built for that player using the player&#39;s API. Examples of this are the <a href="/support/open-video-ads/ova-for-flowplayer">OVA for Flowplayer</a> and&nbsp;<a href="/support/open-video-ads/ova-for-jw-player-5">OVA for JW 5x</a> plugins.</p>
+<p>The OVA framework has attached to it a JSON configuration that identifies to the framework the type of video advertising to be delivered and the ad server source.</p>
+<p>For a detailed guide on the configuration options available, consult the <a href="/support/open-video-ads/13048/ova-configuration-guide ">OVA Configuration Guide</a>.</p>
+<p>The framework uses the JSON configuration data along with a specification of the show streams to play to construct an ad schedule. In doing so, one or more ad server requests are fired off to an identified VAST compliant ad server to obtain the details on the ad creatives to be served by the framework. These details are returned in the form of a VAST template.</p>
+<p>The framework parses the template, extracting and storing the details provided on each ad element.</p>
+<p>As the show streams play, the OVA framework triggers the display of the relevant video ads based on the information provided in the VAST response, firing off the required impression and tracking events.</p>
+<h2>3. Ad and Show Scheduling</h2>
+<p>Central to the design of the OVA for AS3 framework is the notion of a <b>Stream Sequence</b>.</p>
+<p>A <i>Stream Sequence</i> is an ad adorned playlist that results from merging a <i>Show Playlist</i> with an <i>Ad Schedule</i>. In essence, it defines the sequence of streams to be played back by the Video Player.&nbsp;</p>
+<p>The following diagram illustrates the notion of a Stream Schedule.</p>
+<p><img alt="" src="http://static.bouncingminds.com/images/open-video-ads/adschedule-streamsequence-model.png" style="width: 600px;" /></p>
+<p>The Ad Schedule is specified in the OVA Configuration. The following config snippet illustrates a typical Ad Schedule definition:</p>
+<pre>....
+   &quot;ads&quot;: {
+      &quot;servers&quot;: [
+         {
+            &quot;type&quot;: &quot;OpenX&quot;,
+            &quot;apiAddress&quot;: &quot;http://openx.openvideoads.org/openx/www/delivery/fc.php&quot;,
+         }
+      ],
+      &quot;schedule&quot;: [
+         {
+            &quot;zone&quot;: &quot;5&quot;,
+            &quot;position&quot;: &quot;pre-roll&quot;
+         },
+         {
+            &quot;zone&quot;: &quot;33&quot;,
+            &quot;position&quot;: &quot;bottom&quot;,
+            &quot;width&quot;: 450,
+            &quot;height&quot;: 50,
+            &quot;startTime&quot;: &quot;00:00:05&quot;,
+            &quot;duration&quot;: &quot;15&quot;
+         }
+      ],
+   },
+....
+</pre>
+<p>The Show Playlist can either be defined using the standard player playlist definition mechanism or the OVA configuration structure. The following config snippet illustrates a show playlist defined via OVA:</p>
+<pre>....
+   &quot;shows&quot;: {
+      &quot;streams&quot;: [
+         {
+            &quot;file&quot;:&quot;http://streaming.openvideoads.org/shows/the-black-hole.mp4&quot;,
+            &quot;duration&quot;:&quot;00:00:30&quot;
+         }
+      ]
+   },
+....
+</pre>
+<p>In the case of the OVA for JW Player implementations, show playlists are loaded via the &quot;<span style="font-family: courier new,courier,monospace;">file=</span>&quot; flashvar:</p>
+<pre>flashvars=&quot;plugins=ova&amp;file=http://streaming.openvideoads.org/shows/the-black-hole.mp4&quot;</pre>
+<p>In the OVA for Flowplayer case, the Flowplayer JSON based playlist configuration approach is used:</p>
+<pre>flowplayer(&quot;a.example&quot;, &quot;flowplayer-3.2.2.swf&quot;, {
+<span style="background-color: yellow;">    playlist: [
+       {
+           url: &quot;http://streaming.openvideoads.org/shows/the-black-hole.mp4&quot;,
+           duration: 20
+       },
+    ],
+</span>    
+    plugins: {
+        ova: {
+            url: &quot;ova.swf&quot;,
+            ....
+        }
+    }
+});
+</pre>
+<p>OVA relies on several key assumptions:</p>
+<ol>
+	<li>The player is responsible for playback of both show and ad streams via some type of playlist or clip API</li>
+	<li>The player will provide timing information to OVA so that it knows how far it is through ad and show streams at any given time</li>
+	<li>The player will provide an interface to enable/disable the player controls. OVA will provide notifications as to when the control bar state should be changed based on whether or not an ad is being played back</li>
+	<li>The player will provide a handle to it&#39;s display container (and sizing information) to allow OVA to layout messages and non-linear advertising on it</li>
+</ol>
+<h2><a name="overall-flow-of-control"></a>4. The Overall Flow of Control</h2>
+<p>Before we walk through the high levels steps that need to be taken to integrate the framework, a great way to understand how to integrate the OVA framework into your custom player is to look at the code of a working example - for instance, the <a href="/support/open-video-ads/ova-for-flowplayer">OVA for Flowplayer</a> or <a href="/support/open-video-ads/ova-for-jw-player-5">OVA for JW Player 5</a> plugins.</p>
+<p>Saying that, all player implementations that utilise the OVA framework will broadly work the same way.</p>
+<p>The following diagram illustrates the <i>OVA Flow of Control</i>&nbsp;- the sequence of steps that need to be implemented to deliver an OVA enabled custom player.</p>
+<p><img alt="" src="http://static.openvideoads.org/images/open-video-ads/ova-flow.png" style="width: 350px;" /></p>
+<p>The first step that is taken by a player is to load up the OVA configuration data. OVA configuration data is specified in JSON form and must be loaded into the OVA framework in either raw AS3 <span style="font-family: courier new,courier,monospace;">Object</span> or OVA <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config.Config</span>&nbsp;format.</p>
+<p>Once the configuration data is loaded, the next step is to initialise the framework. When initialising the framework:</p>
+<ol>
+	<li>General operational parameters are set</li>
+	<li>Listeners for OVA events are registered</li>
+	<li>Handlers for Player events are registered</li>
+	<li>Display parameters are set</li>
+	<li>The OVA configuration data is fed into the framework</li>
+</ol>
+<p>With the framework initialised, the programme schedule can be created by OVA. A Programme Schedule is an ad scheduled set of show clips that must be played back by the custom player. To create the programme schedule, the OVA framework makes the required ad server calls to get the VAST (ad) data before assessing and splicing the Ad Schedule specified in the OVA config into the playlist defined for the player to produce a unified sequence of ad and show clips (termed the <span style="font-family: courier new,courier,monospace;">StreamSequence</span>).</p>
+<p>Once the Stream Sequence is been created, an OVA custom player implementation is then responsible for coordinating the playback of that set of streams via the player mechanisms. In the case of both Flowplayer and JW Player, Clip based APIs are provided to allow an OVA implementation to facilitate the playback by loading each clip into the player &quot;on demand&quot; as the sequence progressively plays.&nbsp;</p>
+<p>In the course of managing the playback, the OVA custom implementation needs to:</p>
+<ol>
+	<li>Track the time of stream playback (so that ad playback can be tracked)</li>
+	<li>Respond to player events (such as fullscreen, start/stop/pause/resume/mute etc.)</li>
+	<li>Optionally respond to OVA ad events (such as start, stop etc.)&nbsp;</li>
+</ol>
+<h2><a name="key-integration-points"></a>5. The Key Integration Points</h2>
+<p>Breaking the flow of control down a little further, in broad terms there are nine key integration points that must be covered when embedding the framework into your custom player:</p>
+<ol>
+	<li><a href="#loading-configuration">Loading the Show and Ad Configuration Data</a></li>
+	<li><a href="#initialising-framework">Initialising the Framework</a></li>
+	<li><a href="#managing-playlist">Managing the Loading and Playback of Clips</a></li>
+	<li><a href="#time-management">Managing Time as Clips Playback</a></li>
+	<li><a href="#player-control-management">Managing Player Events as Ads Playback</a></li>
+	<li><a href="#managing-player-sizing">Managing Player Sizing</a></li>
+	<li><a href="#managing-ad-events">Managing Ad Events</a></li>
+	<li><a href="#handling-overlay-display">Handling Overlay Display</a></li>
+	<li><a href="#handling-companion-display">Handling Companion Ad Display</a></li>
+</ol>
+<p>A range of interfaces and APIs have been provided within the OVA for AS3 framework to help you navigate through these control points.</p>
+<h3><a name="loading-configuration"></a>5.1 Loading The Show and Ad Configuration Data</h3>
+<p>OVA ad and show configuration data is specified in JSON form.</p>
+<p>That data must be ingested before the framework is initialised.</p>
+<p>The JSON data can be passed to the OVA framework in either one of two forms - as a basic AS3 Object or a fully initiated OVA <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config.Config</span> object.</p>
+<p>For example, the following code snippet illustrates how the OVA for JW Player 5 plugin reads in the OVA configuration data:</p>
+<pre>...
+
+public function initializePlugin():void {	
+   doLog(&quot;Initialising plugin...&quot;, Debuggable.DEBUG_ALL);
+   var rawConfig:Object;
+   if(_config.json != undefined) {			
+      // Load up the config and configure the debugger
+      doLog(&quot;OVA config loaded as &quot; + _config.json, Debuggable.DEBUG_CONFIG);
+<span style="background-color: yellow;">      rawConfig = JParser.decode(_config.json);
+</span>   }
+   else doLog(&quot;No OVA configuration provided&quot;);
+   _vastController = new VASTController();
+   _vastController.endStreamSafetyMargin = 300;
+   loadExistingPlaylist(rawConfig);			
+<span style="background-color: yellow;">   _vastController.initialise(rawConfig, false, this);
+</span>}
+
+....
+</pre>
+<p>The OVA for JW Player plugin relies on the use of a third party JSON parser (JSwoon) to parse the raw JSON data string into an AS3 Object. Once that is done it can be passed into the <span style="font-family: courier new,courier,monospace;">VASTController</span> via the <span style="font-family: courier new,courier,monospace;">initialise()</span> method.</p>
+<p>The OVA for Flowplayer plugin takes a different approach as illustrated by the following code snippet:</p>
+<pre>...
+
+protected function initialiseVASTFramework():void {			
+   // load up the Open Ad Stream JSON config
+<span style="background-color: yellow;">   var config:Config = 
+           (new PropertyBinder(
+               new Config(null, this), null).copyProperties(_model.config) as Config
+           );
+</span>
+   // Initialise the VAST Controller
+   _vastController = new VASTController();
+   _vastController.startStreamSafetyMargin = 500;
+   _vastController.endStreamSafetyMargin = 300; 
+<span style="background-color: yellow;">   _vastController.initialise(config, false, this);
+</span>}
+...
+</pre>
+<p>The OVA for Flowplayer plugin uses the Flowplayer <span style="font-family: courier new,courier,monospace;">PropertyBinder</span> class to read in the OVA JSON configuration from the Flowplayer plugin configuration block.</p>
+<h4>5.1.1 Maintaining Externally Declared Playlists</h4>
+<p>At it&#39;s core, the OVA for AS3 framework is an ad scheduler. It is not possible for OVA to schedule a series of ads to play unless a set of one or more show streams are first declared.</p>
+<p>Show streams can be declared using either the standard player configuration mechanisms (e.g. playlist configuration for Flowplayer, <span style="font-family: courier new,courier,monospace;">file=</span> flashvar for JW Player etc.) or internally via the &quot;<span style="font-family: courier new,courier,monospace;">shows</span>&quot; configuration block within the OVA configuration data.</p>
+<p>The following configuration snippet illustrates a typical Flowplayer style playlist declaration.</p>
+<pre>flowplayer(&quot;a.example&quot;, &quot;flowplayer-3.2.2.swf&quot;, {
+<span style="background-color: yellow;">    playlist: [
+       {
+           url: &quot;images/logo.png&quot;,
+           scaling: &quot;orig&quot;
+       },
+       {
+           url: &quot;mp4:the-black-hole.mp4&quot;,
+           provider: &quot;rtmp&quot;,
+           duration: 15
+       },
+       {
+           url: &quot;http://streaming.openvideoads.org/shows/the-black-hole.mp4&quot;,
+           duration: 20
+       },
+    ],
+</span>    
+    plugins: {
+        rtmp: {
+            url: &quot;flowplayer.rtmp-3.1.3.swf&quot;,
+            netConnectionUrl: &quot;rtmp://ne7c0nwbit.rtmphost.com/videoplayer&quot;
+        },
+
+        ova: {
+            url: &quot;ova.swf&quot;,
+            
+            &quot;ads&quot;: {
+              &quot;servers&quot;: [
+                   {
+                      &quot;type&quot;: &quot;OpenX&quot;,
+                      &quot;apiAddress&quot;: &quot;http://openx.openvideoads.org/openx/www/delivery/fc.php&quot;,
+                   }
+              ],
+              &quot;schedule&quot;: [
+                  {
+                     &quot;zone&quot;: &quot;5&quot;,
+                     &quot;position&quot;: &quot;pre-roll&quot;,
+                     &quot;applyToParts&quot;: [1, 2]
+                  }
+              ]
+            }
+        }
+    }
+});
+</pre>
+<p>When the OVA for AS3 framework is initialised, any pre-declared playlist settings must be converted from the native player format to an internal OVA &quot;streams&quot; configuration.&nbsp;</p>
+<p>For example, the following abbreviated code snippet illustrates how this is achieved by the OVA for Flowplayer plugin.</p>
+<pre>protected function initialiseVASTFramework():void {			
+   // load up the Open Ad Stream JSON config
+   var config:Config = 
+        (new PropertyBinder(
+           new Config(null, this), null).copyProperties(_model.config) as Config
+        );
+
+   // Preserve the playlist if one has been specified and set that as the 
+   // &quot;shows&quot; config before initialising the VASTController
+			
+   if(_player.playlist.clips.length &gt; 0 &amp;&amp; _player.playlist.clips[0].url != null) {
+      if(config.hasStreams()) {
+         config.prependStreams(convertFlowplayerPlaylistToShowStreamConfig());
+      }
+      else <span style="background-color: yellow;">config.streams = convertFlowplayerPlaylistToShowStreamConfig()</span>;
+   }
+
+   ....
+}				
+
+protected function convertFlowplayerPlaylistToShowStreamConfig():Array {
+   var showStreams:Array = new Array();
+   for(var index:int=0; index &lt; _player.playlist.clips.length; index++) {
+<span style="background-color: yellow;">       showStreams.push(
+          new StreamConfig(
+                _player.playlist.clips[index].url,
+                ....
+          ); 
+</span>   }
+   return showStreams;
+}
+</pre>
+<p>Playlists are maintained by converting each clip in a playlist to a <span style="font-family: courier new,courier,monospace;">StreamConfig</span> object. The OVA config object has a property called &quot;streams&quot; that is an array of <span style="font-family: courier new,courier,monospace;">StreamConfig</span> objects. When the OVA framework initialises and starts the ad scheduling process, it takes the list of show streams from this &quot;streams&quot; property.</p>
+<h3><a name="initialising-framework"></a>5.2 Initialising the Framework</h3>
+<p>The OVA framework managed by a master controller class <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.VASTController</span></p>
+<p>To initialise the framework, that class must be initiated and several methods called to configure it for operation.</p>
+<p>Initialisation involves the following steps and decisions:</p>
+<ul>
+	<li>Instantiation of the <span style="font-family: courier new,courier,monospace;">VASTController</span></li>
+	<li>Supply of the OVA JSON configuration data (in AS3 <span style="font-family: courier new,courier,monospace;">Object</span> or <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config.Config</span> format) to the <span style="font-family: courier new,courier,monospace;">VASTController</span></li>
+	<li>Specification of the operation parameters for the controller. These include:
+		<ul>
+			<li>Whether a time offset safety margin should be set for events fired at the start and end of ads and show streams</li>
+			<li>Definition of the stage dimensions for the player (used by the <span style="font-family: courier new,courier,monospace;">OverlayController</span> to determine the sizing of the player)</li>
+		</ul>
+	</li>
+	<li>Registration of the required listener&nbsp;methods for player and ad related events</li>
+</ul>
+<h4>5.2.1 Being Notified When the Configuration Data Is Loaded</h4>
+<p>In both the Flowplayer and JW Player OVA plugins you will notice that two config related interfaces are implemented (as defined by&nbsp;<span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.config.ConfigLoadListener</span>).</p>
+<p>Both of these interfaces help support the loading of chained configuration within the OVA configuration block (e.g. externally referenced RSS, SMIL playlists etc. that may specified in the OVA &quot;shows&quot; configuration block and as such load asynchronously via HTTP calls triggered as the config is loaded)</p>
+<pre>isOVAConfigLoading():Boolean
+onOVAConfigLoaded():void</pre>
+<p><span style="font-family: courier new,courier,monospace;">isOVAConfigLoading()</span> can be called to identify if the configuration data is in the process of being loaded. Typically an implementation of this method will make a call to the <span style="font-family: courier new,courier,monospace;">VASTController.isOVAConfigLoading()</span> method to determine if the controller is in the process of loading the configuration data.</p>
+<p><span style="font-family: courier new,courier,monospace;">onOVAConfigLoaded()</span> is called by the VASTController when the configuration data is fully loaded.</p>
+<p>A detailed tutorial entitled <a href="/support/open-video-ads/ova-for-as3/13070/ova-json-configuration ">The OVA Approach to Configuration</a> is provided to help you understand how best to manage, parse and store the OVA configuration data prior to initialising the framework.</p>
+<h4>5.2.2 Specifying the Framework Operating Parameters</h4>
+<p>When the framework operates, many of the events are tied to timing events generated by the player as streams start and stop. In some players, it is best for OVA to offset the initial set of timing events by a small margin to ensure that the player can deal with all of these tasks occurring in rapid succession.</p>
+<p>For example, in the case of the OVA for Flowplayer implementation, the start of stream events are offset 500 milliseconds after the stream has started, while the end of stream events are required 300 milliseconds before the end of the stream. To support this type of offsetting, the following code is used when the OVA framework is initialised.</p>
+<pre>_vastController.startStreamSafetyMargin = 500;   // cuepoints at 0 for FLVs don&#39;t fire	
+_vastController.endStreamSafetyMargin = 300;     // SWF interactive linears don&#39;t fire correctly at end	
+</pre>
+<h4>5.2.3 Specifying the Player Stage Dimensions</h4>
+<p>OVA supports the notion of <i>StageDimensions </i>(<span style="font-family: courier new,courier,monospace;">org.openvideoads.regions.config.StageDimensions</span>)&nbsp;to specify the padding values that are to be applied at the bottom of the player screen to account for the presence or absence of the player control bar.</p>
+<p>When the control bar is visible, overlays should be shown just above the control bar on the player screen, however when the control bar is not visible, they should be shown a few pixels above the bottom of the screen.</p>
+<p>It is possible to specify the padding values to be used in the OVA configuration block. If they are not set however, the appropriate values for the custom player should be set on the framework during initialisation. For example, in the case of the <i>OVA for Flowplayer</i> plugin, the following code is used:</p>
+<pre>if(!_vastController.hasStageDimensions()) {
+   _vastController.stageDimensions = new StageDimensions(25, 5);
+}
+</pre>
+<h3><a name="managing-loading-and-clip-playback"></a>5.3 Managing the Loading and Playback of Clips</h3>
+<p>The bulk of an OVA custom player implementation revolves around the management of the loading and playback of the OVA constructed, ad injected programme schedule.</p>
+<p>Once the VASTController has been initialised and the OVA configuration data fully loaded, the programme schedule can be constructed by OVA.</p>
+<h4>5.3.1 Making the Ad Server Calls</h4>
+<p>Before the schedule can be constructed however, OVA must identify and make the required ad server calls to obtain the VAST response(s).&nbsp;</p>
+<p>The following code snippet illustrates how that is done in the OVA for Flowplayer plugin:</p>
+<pre><span style="background-color: yellow;">_vastController.load();	</span>
+
+....
+
+protected function onTemplateLoaded(event:TemplateEvent):void {
+    doLogAndTrace(&quot;NOTIFICATION: VAST data loaded - &quot;, event.template, Debuggable.DEBUG_FATAL);
+    _player.playlist.replaceClips2(_clipList);
+    _model.dispatchOnLoad();
+}
+</pre>
+<p>The OVA for Flowplayer plugin implements the <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.model.TemplateLoadListener</span> interface that declares:</p>
+<pre>protected function onTemplateLoaded(event:TemplateEvent):void;
+protected function onTemplateLoadError(event:TemplateEvent):void;</pre>
+<p>Calls to the ad server are triggered via the <span style="font-family: courier new,courier,monospace;">VASTController.load()</span> API. When called, the <span style="font-family: courier new,courier,monospace;">VASTController</span> constructs a request for the specified Ad Server, fires it off to the ad server, waits for a response (which should be the VAST data), processes the response, constructs an object model representing the VAST ad data before calling back the OVA plugin call via the method listening for the <span style="font-family: courier new,courier,monospace;">TemplateEvent.LOADED</span> event. A <span style="font-family: courier new,courier,monospace;">VideoAdServingTemplate</span> can be obtained from the <span style="font-family: courier new,courier,monospace;">TemplateEvent</span> via the attribute.</p>
+<p>In between constructing the original ad server request and the dispatch of the <span style="font-family: courier new,courier,monospace;">TemplateEvent.LOADED</span> event, a lot of processing occurs within the OVA framework. The four key activities undertaken by the framework during this period are:</p>
+<ol>
+	<li>The formation of the ad server request The parsing of the VAST response to create a <span style="font-family: courier new,courier,monospace;">VideoAdServingTemplate</span></li>
+	<li>The mapping of the Ads in the <span style="font-family: courier new,courier,monospace;">VideoAdServingTemplate</span> to the <span style="font-family: courier new,courier,monospace;">AdSchedule</span></li>
+	<li>The construction of a <span style="font-family: courier new,courier,monospace;">StreamSequence</span> based on the shows configuration and the streams identified in the <span style="font-family: courier new,courier,monospace;">AdSchedule</span></li>
+	<li>The dispatching and processing of Ad and Stream scheduling events back to the class implementing the <span style="font-family: courier new,courier,monospace;">org.openvideoads.vast.model.TemplateLoadListener</span> interface</li>
+</ol>
+<h4>5.3.2 Enabling/Disabling the Control Bar</h4>
+<p>When a linear ad stream plays, the control bar should be disabled to ensure that the viewer cannot fast forward or skip the ad stream.</p>
+<p>The custom player implementation must handle this functionality by registering a listener for the <span style="font-family: courier new,courier,monospace;">SeekerBarEvent.TOGGLE</span> event.</p>
+<pre>_vastController.addEventListener(SeekerBarEvent.TOGGLE, onToggleSeekerBar);
+</pre>
+<p>The following code snippet illustrates how the OVA for Flowplayer implementation handles this event:</p>
+<pre>public function onToggleSeekerBar(event:SeekerBarEvent):void {
+   if(_vastController.disableControls) {
+      if(!event.turnOff()) {
+	  turnOnControlBar();
+      }	 
+      else turnOffControlBar();
+   }
+   else doLog(&quot;NOTIFICATION: Ignoring request to change control bar state&quot;);
+}
+</pre>
+<h3><a name="time-management"></a>5.4 Managing Time As Clips Playback</h3>
+<p>Time management is a very important topic for the OVA framework. The IAB defines a series of impression and tracking events that must be fired as a video ad is played.</p>
+<p>To deliver this functionality, the <span style="font-family: courier new,courier,monospace;">VASTController</span>&nbsp;constructs a series of time <i>tracking tables</i> when it constructs the Ad and Stream schedules. Each stream in a Stream Sequence has a <span style="font-family: courier new,courier,monospace;">TrackingTable</span> attached. The tracking table identifies the tracking points that must be fired as the stream plays. These tracking points recorded for each stream include:</p>
+<ol>
+	<li>For Show streams
+		<ol>
+			<li>Stream start</li>
+			<li>Stream end</li>
+		</ol>
+	</li>
+	<li>For Ad Streams
+		<ol>
+			<li>Ad start and related events such as show ad notice</li>
+			<li>Companion start and end</li>
+			<li>Non-Linear start and end</li>
+			<li>Linear Ad first quartile</li>
+			<li>Linear&nbsp;Ad midpoint</li>
+			<li>Linear Ad third quartile</li>
+			<li>Linear Ad completion and related events</li>
+		</ol>
+	</li>
+</ol>
+<p>A point in time is recorded against each tracking point. When that point is hit as the stream plays back, the TrackingEvent is fired.&nbsp;The only way OVA knows when to fire a tracking point is via <span style="font-family: courier new,courier,monospace;">TimeEvents</span> that the Player must fire into the OVA framework via the <span style="font-family: courier new,courier,monospace;">VASTController.processTimeEvent()</span> method.</p>
+<p>For example, the <i>OVA for JW Player</i> plugins use the standard time tracking mechanism provided by the JW Player API which sees a time based event fired to a JW Plugin every 1/10th of a second. The following code snippet illustrates how a listener for the JW time event is setup, and how that time is forwarded onto the <span style="font-family: courier new,courier,monospace;">VASTController</span> to be processed by the framework:</p>
+<pre>public function onOVAConfigLoaded():void {	
+   ...
+<span style="background-color: yellow;">   _player.addEventListener(MediaEvent.JWPLAYER_MEDIA_TIME, timeHandler);
+</span>}
+
+private function timeHandler(evt:MediaEvent):void {
+   if(evt.position &gt; 0) {
+      ...
+      if(!_vastController.isActiveOverlayVideoPlaying()) {
+         _lastTimeTick = evt.position;
+<span style="background-color: yellow;">         _vastController.processTimeEvent(
+                 getActiveStreamIndex(), 
+                 new TimeEvent(evt.position * 1000, evt.duration)
+         );		
+</span>      }
+      else { 
+         _vastController.processOverlayLinearVideoAdTimeEvent(
+                 _activeOverlayAdSlotKey, 
+                 new TimeEvent(evt.position * 1000, evt.duration)
+         );
+      }
+   }				
+}
+</pre>
+<p>The <i>OVA for Flowplayer</i> plugin alternatively uses the standard Flowplayer <i>Cuepoint</i>&nbsp;Clip API that allows specific points in time on a clip to be registered with Flowplayer. When Flowplayer hits that point in time during the playback of a clip, a time event is fired into the Flowplayer plugin. A key operation then in the OVA for Flowplayer setup is the establishment of these Cuepoints. The OVA for Flowplayer plugin relies on the non-linear and linear scheduling events generated by the VASTController to trigger the registering of the appropriate Cuepoints based on the timings registered against Ad Slot tracking tables.</p>
+<p>The following code snippet illustrates how the <i>OVA for Flowplayer</i> plugin uses this cuepointing approach to notify the VASTController of a new point in time.</p>
+<pre>public function onOVAConfigLoaded():void {
+   ...
+}
+
+protected function setupTrackingCuepoints(clip:Clip, trackingTable:TrackingTable, scheduleIndex:int):void {
+   // Setup the flowplayer cuepoints based on the tracking points defined for this stream 
+   // (including companions attached to linear ads)
+   clip.removeCuepoints();
+   for(var i:int=0; i &lt; trackingTable.length; i++) {
+       var trackingPoint:TrackingPoint = trackingTable.pointAt(i);
+       if(trackingPoint.isLinear()) {
+<span style="background-color: yellow;">          clip.addCuepoint(
+             new Cuepoint(trackingPoint.milliseconds, 
+                          trackingPoint.label + &quot;:&quot; + scheduleIndex
+             )
+          );
+</span>          doLog(&quot;Flowplayer Linear CUEPOINT set at &quot; + trackingPoint.millisecond);						
+       }
+   }			
+}
+
+...
+<span style="background-color: yellow;">    clip.onCuepoint(processCuepoint);
+</span>...
+
+protected function processCuepoint(clipevent:ClipEvent):void {
+   var cuepoint:Cuepoint = clipevent.info as Cuepoint;
+   var streamIndex:int = parseInt(cuepoint.callbackId.substr(3));
+   var eventCode:String = cuepoint.callbackId.substr(0,2);
+   doLog(&quot;Cuepoint triggered &quot; + clipevent.toString() + &quot; - id: &quot; + cuepoint.callbackId);
+<span style="background-color: yellow;">   _vastController.processTimeEvent(
+       streamIndex, 
+       new TimeEvent(clipevent.info.time, 0, eventCode)
+</span>   );            	            
+}</pre>
+<h3><a name="player-control-management"></a>5.5 Managing the Player Events</h3>
+<p>A number of player related actions need to be tracked by the OVA for AS3 framework to ensure that the required IAB tracking events are triggered as ads are shown.</p>
+<p>These events include:</p>
+<ul>
+	<li>Start/Stop/Pause/Resume</li>
+	<li>Mute/Unmute</li>
+	<li>Change in volume</li>
+	<li>Fullscreen enter/exit</li>
+</ul>
+<p>To support the capture of player related events, a number of event methods are provided on the <span style="font-family: courier new,courier,monospace;">VASTController</span>. When an important event is picked up by a player implementation, the appropriate VASTController method should be called to register that event with the framework.&nbsp;</p>
+<p>For example, the OVA for JW Player 5 implementation uses the following code to capture a pause event on a stream and pass that where appropriate through to the VASTController.</p>
+<pre>...
+    _player.addEventListener(ViewEvent.JWPLAYER_VIEW_PAUSE, onPauseEvent);
+...
+
+private function onPauseEvent(evt:ViewEvent):void {
+       	if(_vastController != null) {
+		if(_vastController.isActiveOverlayVideoPlaying()) {
+      			_vastController.onPlayerPause(_activeOverlayAdSlotKey, true);
+      		}
+      		else _vastController.onPlayerPause(getActiveStreamIndex());
+       	}
+       	_playerPaused = true;
+}
+</pre>
+<h3><a name="managing-player-sizing"></a>5.6 Managing Player Sizing</h3>
+<p>Given that the OVA framework controls the display of ad notices and overlays, it is important that the framework always be aware of the latest player sizing. When the player sizing changes, the positioning and dimension of the pre-defined regions and active overlays needs to change.</p>
+<p>In the case of the <i>OVA for Flowplayer</i> plugin, resizing is implemented via the Flowplayer Plugin <span style="font-family: courier new,courier,monospace;">resize()</span> method as follows:</p>
+<pre>override protected function onResize():void {
+    super.onResize();
+    if(_vastController != null) {
+         _vastController.resizeOverlays(
+                new DisplayProperties(
+                         this, 
+                         width, 
+                         height, 
+                         _vastController.stageDimensions.withControlsPaddingBottom,
+                         _originalWidth, 
+                         _originalHeight
+                )
+        );
+    }
+}
+</pre>
+<p>You will notice that when the display properties are passed into the <span style="font-family: courier new,courier,monospace;">VASTController</span>, the padding value to use is passed. In the case above, the padding value when the control bar is active at the bottom is passed indicating that the control bar is visible.</p>
+<p>If the control bar was to disappear, overlays can be resized/positioned to take that into account by passing a new set of <span style="font-family: courier new,courier,monospace;">DisplayProperties</span> in that include<span style="font-family: courier new,courier,monospace;"> _vastController.stageDimensions.noControlsPaddingBottom</span>.&nbsp;</p>
+<h3><a name="managing-ad-events"></a>5.7 Managing Ad Events</h3>
+<p>As the OVA for AS3 framework processes ads, ad events are generated. It is possible to register listeners for a range of these events.</p>
+<p>The following code snippet illustrates how to implement these listeners. The listeners should be added when the <span style="font-family: courier new,courier,monospace;">VASTController</span> is initialised.</p>
+<pre>...
+
+<span style="background-color: yellow;">   _vastController.addEventListener(LinearAdDisplayEvent.STARTED, onLinearAdStarted);
+</span>   _vastController.addEventListener(LinearAdDisplayEvent.COMPLETE, onLinearAdComplete); 
+   _vastController.addEventListener(LinearAdDisplayEvent.CLICK_THROUGH, onLinearAdClickThrough);           
+   _vastController.addEventListener(CompanionAdDisplayEvent.DISPLAY, onDisplayCompanionAd);
+   _vastController.addEventListener(CompanionAdDisplayEvent.HIDE, onHideCompanionAd);
+   _vastController.addEventListener(OverlayAdDisplayEvent.DISPLAY, onDisplayOverlay);
+   _vastController.addEventListener(OverlayAdDisplayEvent.HIDE, onHideOverlay);
+   _vastController.addEventListener(OverlayAdDisplayEvent.DISPLAY_NON_OVERLAY, onDisplayNonOverlay);
+   _vastController.addEventListener(OverlayAdDisplayEvent.HIDE_NON_OVERLAY, onHideNonOverlay); 
+   _vastController.addEventListener(OverlayAdDisplayEvent.CLICKED, onOverlayClicked);
+   _vastController.addEventListener(OverlayAdDisplayEvent.CLOSE_CLICKED, onOverlayCloseClicked);
+   _vastController.addEventListener(AdNoticeDisplayEvent.DISPLAY, onDisplayNotice);
+   _vastController.addEventListener(AdNoticeDisplayEvent.HIDE, onHideNotice);
+
+...
+
+<span style="background-color: yellow;">public function onLinearAdStarted(linearAdDisplayEvent:LinearAdDisplayEvent):void {
+   doLog(&quot;NOTIFICATION: Event received that linear ad has started&quot;, Debuggable.DEBUG_DISPLAY_EVENTS);
+}</span>	
+
+...
+</pre>
+<h3><a name="handling-overlay-display"></a>5.8 Handling the Display of Overlays</h3>
+<p>One of the advantages of the OVA framework is that it can take care of the display of non-linear (overlay) advertising for the Video Player. The <i>OVA for Flowplayer</i>&nbsp;and <i>JW Player</i> plugins makes use of this.</p>
+<h4><a name="enabling-auto-display-of-overlays"></a>5.8.1 Enabling Auto Display of Overlays</h4>
+<p>To turn on control of the non-linear advertising, the plugin makes the following call to the <span style="font-family: courier new,courier,monospace;"><tt>VASTController</tt></span></p>
+<pre class="prettyprint">_vastController.enableNonLinearAdDisplay(new DisplayProperties(this, 640, 360, 25));</pre>
+<p>This call requires a<tt> DisplayProperties</tt> object to be passed into the <tt>VASTController</tt>. The <tt>DisplayProperties</tt> instance defines the size of the player and a reference to the player&#39;s DisplayContainer&nbsp;so that the overlay <tt>Sprite</tt> can be added to the display container and shown.</p>
+<p>For a detailed description of how to configure regions, please refer to the <a href="/support/open-video-ads/ova-for-as3/13067/integrating-ova-for-as3 ">Configuration Guide</a>.</p>
+<h4><a name="listening-for-overlay-events"></a>5.8.2 Listening for Overlay Events</h4>
+<p>It is possible to register listeners for Overlay display events.</p>
+<p>The following initialisation code illustrates how listeners for these events are registered:</p>
+<pre class="prettyprint">_vastController.addEventListener(OverlayAdDisplayEvent.DISPLAY, onDisplayOverlay);
+_vastController.addEventListener(OverlayAdDisplayEvent.HIDE, onHideOverlay);</pre>
+<p>The &quot;display&quot; event is fired when the framework determines that the overlay is to be shown while the &quot;hide&quot; is fired when the overlay is to be removed. The framework fires these events regardless of whether or not it is responsible for the display and hiding of overlays on the player.</p>
+<h4><a name="supporting-click-to-play"></a>5.8.3 Supporting Non-Linear (Overlay) &#39;Click to play a Video Ad&#39;</h4>
+<p>Non-linear advertising that supports the notion of &quot;click me to start a video ad&quot; has to be treated slightly differently by OVA custom player implementations than standard display or &quot;click through to a website&quot; overlays.</p>
+<p>The key difference is that a non-linear overlay that allows a video to be played in essence has a linear ad attached to it. From the perspective of the <i>OVA for Flowplayer</i> or <i>JW Player</i> plugins when the user clicks on an overlay to fire up the video, the player must insert the Video Ad &quot;instream&quot; to the current show clip.</p>
+<p>In the case of the <i>OVA for Flowplayer</i> plugin, the implementation captures the overlay &quot;click&quot; event via the <tt>OverlayAdDisplayEvent.CLICKED</tt> event listener and processes it accordingly.</p>
+<p>The following code snippet is from the Ad Streamer and is responsible for processing the click event on the overlay.</p>
+<pre class="prettyprint">...
+<span style="background-color: yellow;">_vastController.addEventListener(OverlayAdDisplayEvent.CLICKED, onOverlayClicked);</span>
+...
+
+public function onOverlayClicked(displayEvent:OverlayAdDisplayEvent):void {
+   doLog(&quot;NOTIFICATION: Event received - overlay has been clicked!&quot;);
+   if(displayEvent.ad.hasAccompanyingVideoAd()) {
+        var clip:ScheduledClip = new ScheduledClip();
+        var overlayAdSlot:AdSlot = _vastController.adSchedule.getSlot(displayEvent.adSlotKey);			
+        clip.type = ClipType.fromMimeType(overlayAdSlot.mimeType);
+        clip.start = 0;
+        clip.originalDuration = overlayAdSlot.getAttachedLinearAdDurationAsInt();
+        clip.duration = clip.originalDuration;
+        clip.key = displayEvent.adSlotKey;
+        clip.isOverlayLinear = true; 
+        clip.setCustomProperty(&quot;metaData&quot;, overlayAdSlot.metaData);
+        if(overlayAdSlot.isRTMP()) {
+            clip.url = overlayAdSlot.streamName;
+            clip.setCustomProperty(&quot;netConnectionUrl&quot;, overlayAdSlot.baseURL);
+            clip.provider = _vastController.getProvider(&quot;rtmp&quot;);
+        }
+        else {
+            clip.url = overlayAdSlot.url;
+            clip.provider = _vastController.getProvider(&quot;http&quot;);
+        }
+        PlayerConfig.setClipConfig(clip, overlayAdSlot.playerConfig);
+
+        // Setup the flowplayer cuepoints based on the tracking points defined for this 
+        // linear ad (including companions attached to linear ads)
+
+        clip.onCuepoint(processOverlayVideoAdCuepoint);
+        var trackingTable:TrackingTable = overlayAdSlot.getTrackingTable();
+	for(var i:int=0; i &lt; trackingTable.length; i++) {
+	     var trackingPoint:TrackingPoint = trackingTable.pointAt(i);
+	     if(trackingPoint.isLinear() &amp;&amp; trackingPoint.isForLinearChild) {
+		clip.addCuepoint(
+                   new Cuepoint(trackingPoint.milliseconds, 
+                                trackingPoint.label + &quot;:&quot; + displayEvent.adSlotKey
+                   )
+                );
+ 	     }
+	}
+	_player.playInstream(clip);
+    }
+    else _player.pause();
+}
+</pre>
+<p>Reviewing the code snippet there are a few interesting things to note about the way the <i>OVA for Flowplayer</i> implementations uses the <i>OVA for AS3</i> framework:</p>
+<ul>
+	<li>The model objects (in this case a <tt>NonLinearVideoAd</tt>) can be extracted directly from the events that are fired back to the listeners - as illustrated by the code <tt>displayEvent.ad</tt>. Once a model object has been obtained, calls can be made directly to the model to find out information about it. In this case the Ad Streamer needs to know if there is a Linear Video Ad attached to the Non-Linear overlay - if there is, then it needs to be played.</li>
+	<li>To configure a clip to play, various pieces of information are required about - what protocol is to be used (RTMP or HTTP), what&#39;s the name of the stream and the file type - all of this information is available in the <tt>AdSlot</tt> corresponding to the overlay that was clicked. To get hold of the <tt>AdSlot</tt>, a call can be made to the <tt>VASTController</tt> to <tt>getSlot()</tt> at a specific index (identified as the <tt>adSlotKey</tt> attribute provided in the <tt>OverlayAdDisplayEvent</tt>).</li>
+	<li>The ad tracking cuepoints for overlay &#39;click to play video&#39; ads aren&#39;t setup by default by the <tt>VASTController</tt> when the ads are original sequenced and scheduled. Before the &#39;click to play&#39; overlay video ad is fired up, the tracking cuepoints must be setup. The tracking points can be obtained from the AdSlot&nbsp;holding the overlay ad as the tracking table for that AdSlot&nbsp;will understand that it has a linear ad attached to the overlay and as such, will define the cuepoints necessary to track that ad when played. To make sure that only linear video ad tracking points are set in the player as the overlay video ad plays, the condition <tt>if(trackingPoint.isLinear())</tt> is used when setting the Flowplayer cuepoints.</li>
+	<li>Finally, the <i>OVA for Flowplayer</i> plugin uses the Flowplayer &quot;instream&quot; API to insert the newly formed video ad clip into the parent show stream. Once the clip has played, the original show stream resumes.</li>
+</ul>
+<h3><a name="handling-companion-display"></a>5.9 Handling the Display of Companions</h3>
+<p>The OVA framework is capable of handling the display of companions without the need for a custom player to implement the functionality to embed the companion code into a web page.</p>
+<p>If however you wish to implement this type of functionality, two callback events are fired when companion ads are to be shown:</p>
+<pre>public function onDisplayCompanionAd(ce:CompanionAdDisplayEvent):void;
+public function onHideCompanionAd(ce:CompanionAdDisplayEvent):void;</pre>
+<p>To receive these events, register the following listeners when initialising the <span style="font-family: courier new,courier,monospace;">VASTController</span>:</p>
+<pre>_vastController.addEventListener(CompanionAdDisplayEvent.DISPLAY, onDisplayCompanionAd);
+_vastController.addEventListener(CompanionAdDisplayEvent.HIDE, onHideCompanionAd);
+</pre>
+<h3><a name="ensuring-linear-ads-play-once"></a>5.10 Ensuring a Linear Ad plays only once</h3>
+<p>Finally, OVA can support playing ads just once. This is achieved by specifying the &quot;playOnce&quot; config option either at an Ad Slot or general Ad level:</p>
+<pre class="prettyprint">...
+    &quot;ads&quot;: {
+        &quot;deliveryType&quot;: &quot;streaming&quot;,
+<span style="background-color: yellow;">        &quot;playOnce&quot;: true,
+</span>        &quot;server&quot;: {
+            &quot;type&quot;: &quot;OpenX&quot;,
+            &quot;vastURL&quot;: &quot;http://openx.bouncingminds.com/openx/www/delivery/fc.php&quot;
+        },
+        &quot;schedule&quot;: [
+            {
+                &quot;zone&quot;: &quot;5&quot;,
+                &quot;position&quot;: &quot;pre-roll&quot;
+            }
+        ],
+    },
+...</pre>
+<p>In this instance the pre-roll ad will only be played once, but only if the OVA player implementation takes account of it as part of the overall playlist management code. For instance, the OVA for Flowplayer plugin achieves this by implementing specific handlers that are triggered before each clip plays - a check is done to see if the ad has already played - if it has, it is skipped as illustrated by the code snippet below:</p>
+<pre class="prettyprint">protected function registerPlayOnceHandlers():void {
+    // Before the clip plays, check if it has already been played
+    _player.playlist.onBegin(
+         function(clipevent:ClipEvent):void { 
+   	    if(_vastController.playOnce) {
+ 	        var currentClip:ScheduledClip = _player.currentClip as ScheduledClip;
+		if(currentClip.marked) {
+                    doLog(&quot;Skipped clip at playlist index &quot; 
+                          + _player.playlist.currentIndex 
+                          + &quot; as it&#39;s already been played&quot;, Debuggable.DEBUG_PLAYLIST);
+		    _player.next();		        			
+		}  
+            }
+         } 
+    );
+
+    // Before the clip finishes, mark is as having been played
+    _player.playlist.onBeforeFinish(
+         function(clipevent:ClipEvent):void { 
+            if(_vastController.playOnce) {
+		var currentClip:ScheduledClip = _player.currentClip as ScheduledClip;
+	 	if(_vastController.streamSequence.streamAt(_player.playlist.currentIndex) is AdSlot) {
+		   currentClip.marked = true;
+	 	   doLog(&quot;Marking the current clip (index &quot; 
+                         + _player.playlist.currentIndex 
+                         + &quot;) - it&#39;s an ad that has been played once&quot;, 
+                         Debuggable.DEBUG_PLAYLIST);
+	 	   }
+                }
+            }
+    );
+}</pre>
+<br />
+					</article>	
+
+</body>
+</html>

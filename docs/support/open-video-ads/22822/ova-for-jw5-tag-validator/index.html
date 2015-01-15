@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22822/ova-for-jw5-tag-validator/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>OVA for JW5 Tag Validator | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>OVA for JW5 Tag Validator</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="http://static.openvideoads.org/qa/latest/ova.jwplayer.5x/dist/js/jwplayer-5.9.js"></script>
+<!--<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer-5.9.js"></script>-->
+<!-- End OVA inclusions -->
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<script type="text/javascript">$(document).ready(function(){prettyPrint();});</script>
+<p>Try our your pre-roll ad tag - just pop your ad tag into the text field and press the "submit" button to watch your ad play.</p>
+<div id="tag_container" style="width:700px;padding-left:1px;border-style:solid;border-color:#EAE6E6;border-width:3px;font-family:helvetica,arial,sans-serif;padding-left:0px;">
+   <form name="tagform" style="width:700px;">
+      <input type="text" id="adtag" style="width:620px;" value="Enter your ad tag here" defaultValue="Enter your ad tag here" onClick="javascript:clearText(this);"/>
+      <input type="button" value="Submit" class="btn" style="color:#050;font:bold 84% 'trebuchet ms',helvetica,arial,sans-serif;background-color:#fed;border: 1px solid;border-color: #696 #363 #363 #696;filter:progid:DXImageTransform.Microsoft.Gradient (GradientType=0,StartColorStr='#ffffffff',EndColorStr='#ffeeddaa');" onClick="javascript:configureOVA();"> 
+   </form>
+</div>
+<div id="example_tag" style="width:648px;padding-left:1px;font-family:helvetica,arial,sans-serif;padding-left:1px;font-size:11px;padding-top:5px;padding-bottom:10px;">
+   <u>Examples:</u><br/>
+   &nbsp;&nbsp;Linear Stream: http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2<br/>
+
+   &nbsp;&nbsp;Linear VPAID: http://search.spotxchange.com/vast/2.00/74856?VPAID=1&content_page_url=mypage&cb=__random-number__<br/>
+</div>
+
+<div id="player_row" style="height:260px;width:700px;margin-left:20px;">
+  <div style="float:left;">
+    <div id="ova-player-container" style="width:320px;height:254px;float:left;background:#000000;padding-left:1px;font-family:helvetica,arial,sans serif;padding-left:1px;">
+    </div>
+  </div>
+  <div id="companion" style="width:300px;height:250px;float:left;margin-left:5px;background:#F1F1F1;border-style:solid;border-color:#EAE6E6;border-width:2px;">
+
+  </div>
+</div>
+<!--
+<br/>
+<div style="font-family:helvetica,arial,sans-serif;font-size:12px;">
+<form id="playerSizing">
+height: <input type="text" name="height" size="4" value="254"/>&nbsp;
+width: <input type="text" name="width" size="4" value="320"/>&nbsp;
+<button type="button" onClick="resizePlayer();">Resize Player</button>
+<form>
+</div>
+-->
+<script type="text/javascript">
+var JW_PLAYER_CONTAINER_ID = "ova-player-container";
+
+function resizePlayer(form) {
+   var width = document.forms["playerSizing"]["width"].value;
+   var height = document.forms["playerSizing"]["height"].value;
+   $("#player_row").css("width", width + "px");
+   $("#player_row").css("height", height + "px");
+   jwplayer(JW_PLAYER_CONTAINER_ID).resize(width, height);
+   debug("Have resized the player to " + width + "x" + height);
+}
+
+function clearText(field){
+    if (field.defaultValue == field.value) field.value = '';
+    return true;
+}
+
+function getAdTag() {
+    return document.tagform.adtag.value;
+}
+
+function formatConfig(config) {
+   var result = "<pre class='prettyprint'>";
+   result += "<br/>/*<br/>";
+   result += "&nbsp;* This OVA configuration plays a pre-roll and has a<br/>";
+   result += "&nbsp;* single 300x250 companion declared.<br/>";
+   result += "&nbsp;*/<br/><br/>";
+   config = config.replace(/`/gi,"<br/>");
+   config = config.replace(/ /gi,"&nbsp;");
+   return result + config + "<br/></code></pre>";
+}
+
+function configureOVA() {
+   newConfig =   '{`';
+   newConfig +=  '   "debug": { "levels": "fatal,config,vast_template,vpaid,http_calls" },`';
+   newConfig +=  '   "autoPlay": true,`';
+   newConfig +=  '   "ads": {`';
+   newConfig +=  '      "companions": {`';
+   newConfig +=  '          "regions": [`';
+   newConfig +=  '             { "id":"companion", "width":300, "height":250 }`';
+   newConfig +=  '          ]`';
+   newConfig +=  '      },`';
+   newConfig +=  '      "schedule": [`';
+   newConfig +=  '           {`';
+   newConfig +=  '               "position": "pre-roll",`';
+   newConfig +=  '               "tag": "' + getAdTag() + '"`';
+   newConfig +=  '           }`';
+   newConfig +=  '      ]`';
+   newConfig +=  '   }`';
+   newConfig +=  '}`';
+
+console.log(newConfig.replace(/`/gi," "));
+   jwplayer(JW_PLAYER_CONTAINER_ID).getPlugin("ova").scheduleAds(null, newConfig.replace(/`/gi," "));
+   
+   $("div.codebox").html(formatConfig(newConfig));
+   prettyPrint();
+   
+   return true;
+}
+
+jwplayer(JW_PLAYER_CONTAINER_ID).setup({
+       flashplayer: "/content/ova/jwplayer/player.swf", 
+       playlist: [
+	       {  
+	          file: "http://video.bitmedianetwork.com/ads/testpattern.mp4",
+	          duration: 20
+	       }
+       ],
+       "controlbar.position": "bottom",
+       plugins: {
+           "ova-jw": {
+              "ads": {
+              },
+              "debug": {
+                  "levels": "fatal, config, vast_template, vpaid, http_calls, tracking_events, playlist, api"
+              }
+           } 
+       },
+       height: 254,
+       width: 320
+});
+</script>
+<br/>
+<p>
+The configuration for this example is:
+</p>
+<div id="codebox" class="codebox">
+<pre class="prettyprint">
+
+/*
+ * The OVA configuration used by the player will 
+ * be printed here when an Ad Tag is specified
+ */
+<br/>
+</pre>
+</div>					</article>	
+
+</body>
+</html>

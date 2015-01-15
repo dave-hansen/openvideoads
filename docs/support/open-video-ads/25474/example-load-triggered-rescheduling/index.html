@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/25474/example-load-triggered-rescheduling/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Example - Load() Triggered Rescheduling | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Example - Load() Triggered Rescheduling</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<p>The following example illustrates how to force OVA to reschedule if a new clip/playlist is loaded into JW Player via player.load().</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+              "supportExternalPlaylistLoading": true,
+              "autoPlayOnExternalLoad": true,
+             
+               "ads": {
+                   "servers": [
+                       {
+                           "type": "OpenX",
+                           "apiAddress": "http://openx.openvideoads.org/openx/www/delivery/fc.php"
+                       }
+                   ],
+                   "notice": { "textStyle": "smalltext" },
+                   "schedule": [
+                       {
+                           "zone": "18",
+                           "position": "pre-roll"
+                       }
+                   ]
+               },
+          "debug": {
+              "levels": "fatal, config, vast_template, api"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM",
+                   "image": "OVA_HTTP_SHOW_STREAM_IMAGE"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<script type="text/javascript">
+function ovaPrintDebug(output) {
+	try {
+   		console.log(output);
+  	}
+  	catch(error) {}
+}
+
+function loadClip(clipIndex) {
+   var clips = [
+       { 
+           file: "http://streaming.openvideoads.org/shows/bbb-640x360.mp4",
+           image: "http://streaming.openvideoads.org/shows/bbb-image.jpg", 
+           'playlist.image': "http://streaming.openvideoads.org/shows/bbb-thumbnail.jpg",
+           title: "Big Buck Bunny Trailer",
+           description: "Big Buck Bunny is a short animated film by the Blender Institute",
+           duration: 10 
+       },
+       { 
+           file: "http://streaming.openvideoads.org/shows/sintel-1024-stereo.mp4",
+           image: "http://streaming.openvideoads.org/shows/sintel-image.jpg", 
+           'playlist.image': "http://streaming.openvideoads.org/shows/sintel-thumbnail.jpg",
+           title: "Sintel",
+           description: "Sintel is a fantasy computer generated short movie.",
+           duration: 11 
+       },
+       { 
+           file: "http://streaming.openvideoads.org/shows/the-black-hole.mp4",
+           image: "http://streaming.openvideoads.org/shows/the-black-hole-thumbnail.png", 
+           'playlist.image': "http://streaming.openvideoads.org/shows/the-black-hole-thumbnail.png",
+           title: "The Big Black Hole short film.",
+           description: "Short film by Future Shorts",
+           duration: 12 
+       }
+   ];
+
+   jwplayer("ova-jwplayer-container").load(clips[clipIndex]);
+}
+</script>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-output" style="margin-left:20px;margin-bottom:10px;height:300px;width:610px;">
+		<div id="ova-example-player" style="position:relative;height:100%;width:450px;float:left">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+        <div id="ova-event-status-blocks" style="width:150px;height:300px;background:#FFFFFF;float:right;">
+        	<div id="ova-scheduling-started" style="width:120px;height:30px;background:#DDDDDD;margin-bottom:1px;margin-top:2px;font-size:10px;padding-top:8px;text-align:center;"><a href="#" onclick="loadClip(0);">LOAD CLIP 1</a></div>
+        	<div id="ova-linear-scheduled" style="width:120px;height:30px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;"><a  href="#" onclick="loadClip(1);">LOAD CLIP 2</a></div>
+        	<div id="ova-nl-scheduled" style="width:120px;height:30px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;"><a  href="#" onclick="loadClip(2);">LOAD CLIP 3</a></div>
+        </div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->					</article>	
+
+</body>
+</html>

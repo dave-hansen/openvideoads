@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22820/supported-ova-ad-formats/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Supported Ad Formats | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Supported Ad Formats</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores the various ad formats that are supported by OVA.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#linear">Linear Ads</a></li>
+	<ol>
+	<li><a href="#non-interactive-linear">Non-Interactive Linear Ads</a></li>
+	<li><a href="#interactive-linear">Interactive Linear Ads</a></li>
+	</ol>
+	<li><a href="#non-linear">Non-Linear Ads</a></li>
+	<ol>
+	<li><a href="#non-linear-overlays">Non-Linear Overlay Ads</a></li>
+	<li><a href="#non-linear-non-overlays">Non-Linear Non-Overlay Ads</a></li>
+	</ol>
+	<li><a href="#companions">Companion Ads</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started Guide</a></li>
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started Guide</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/25255/delivering-non-linear-ads">Displaying Non-Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23689/delivering-companions">Including Companions Ads</a></li>
+<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID Linear and Overlay Ads</a></li>
+</ul>
+
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA supports VAST compliant <i>linear</i> and <i>non-linear</i> ads. Both ad types can have accompanying <i>companions</i>. Non-linear ads can be placed as 
+either <i>overlays</i> or <i>non-overlays</i>. <i>VPAID</i> ads are also supported in linear and non-linear overlay formats.</p>
+
+<h2><a name="introduction"></a>2. Linear Ads</h2>
+<p>Linear ads take the form of <i>pre</i>, <i>mid</i> or <i>post-roll</i> ads that can be either non-interactive ad streams (e.g. mp4, flv etc. formats), or interactive (VPAID SWF) ads.</p>
+
+<h3><a name="non-interactive-linear"></a>2.1 Non-Interactive Linear Ads</h3>
+
+<p>Non-Interactive linear ads are "progressive" or "streaming" ad clips that may have an optional "click-through" specified. 
+If a "click-through" is specified, a "click me" style ad notice will appear as the viewer mouses over the player during playback.</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25375/example-linear-ad-stream">
+<img src="/sites/default/files/linear-click.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view a linear ad stream example.</i></p>
+
+<p>For further information regarding OVA and Linear ads, please consult the <a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a> guide.</p>
+
+<h3><a name="interactive-linear"></a>2.2 Interactive Linear Ads</h3>
+
+<p>Interactive Linear ads are VPAID pre, mid or post-roll ads. VPAID ads are IAB compliant interactive ad types that support user interaction with the ad as it plays back.</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25377/example-linear-vpaid-ad">
+<img src="/sites/default/files/vpaid.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view a linear VPAID ad example.</i></p>
+
+<p>For further information regarding OVA and VPAID ads, please consult the <a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID and Linear Ads</a> guide.</p>
+
+<h2><a name="introduction"></a>3. Non-Linear Ads</h2>
+
+<p>Non-Linear ads are either placed on top of the player as "overlays" or placed around the player as "non-overlays".</p>
+
+<h3><a name="non-linear-overlays"></a>3.1 Non-Linear Overlay Ads</h3>
+
+<p>OVA supports non-linear overlay ads in various creative formats:</p>
+<ul>
+<li>Image</li>
+<li>HTML</li>
+<li>Text</li>
+<li>Non-VPAID SWF</li>
+<li>VPAID</li>
+<li>iFrame</li>
+<li>JavaScript</li>
+</ul>
+
+<p>A example image based overlay is illustrated below:</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25378/example-non-linear-flash-mode-overlay">
+<img src="/sites/default/files/image.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view an image overlay example.</i></p>
+
+<p>A text based overlay appears as follows:</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25378/example-non-linear-text">
+<img src="/sites/default/files/text-overlay.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view an text overlay example.</i></p>
+
+<p>A VPAID overlay is interactive and may appear as follows in minimized form:</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25378/example-non-linear-vpaid">
+<img src="/sites/default/files/vpaid-overlay-min.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view a VPAID overlay example.</i></p>
+
+<p>and as follows when expanded.</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25378/example-non-linear-vpaid">
+<img src="/sites/default/files/vpaid-overlay-max.jpg" border=0/>
+</a>
+</div>
+
+<p>For further information concerning non-linear pverlay ads, please consult the 
+<a href="/support/open-video-ads/25255/delivering-non-linear-ads">Delivering Non-Linear Ads</a> guide.</p>
+
+<h3><a name="non-linear-non-overlays"></a>3.2 Non-Linear Non-Overlay Ads</h3>
+
+<p>Non-linear non-overlay ads are also supported in various creative formats:</p>
+<ul>
+<li>Image</li>
+<li>HTML</li>
+<li>Text</li>
+<li>Non-VPAID SWF</li>
+<li>iFrame</li>
+<li>JavaScript</li>
+</ul>
+
+<p>For example, the illustration below demonstrates an iframe based non-linear non-overlay ad.</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25380/example-non-linear-non-overlay">
+<img src="/sites/default/files/non-overlay-image.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view an iframe non-overlay example.</i></p>
+
+<p>For further information concerning non-linear non-overlay ads, please consult the 
+<a href="/support/open-video-ads/25255/delivering-non-linear-ads">Delivering Non-Linear Ads</a> guide.</p>
+
+<h2><a name="introduction"></a>4. Companion Ads</h2>
+
+<p>Companion ads accompany linear and non-linear ad types and are displayed within DIV regions around the player. Companion ads can be of various formats from images to Flash SWF and script based creatives.</p>
+
+<div style="margin-bottom:20px;">
+<a href="/support/open-video-ads/25381/example-companion">
+<img src="/sites/default/files/companion.jpg" border=0/>
+</a>
+</div>
+
+<p><i>Click on the image to view a companion example.</i></p>
+
+<p>For further information on companion ads, please consult the <a href="/support/open-video-ads/23689/delivering-companions">Delivering Companions</a> guide.</p>					</article>	
+
+</body>
+</html>

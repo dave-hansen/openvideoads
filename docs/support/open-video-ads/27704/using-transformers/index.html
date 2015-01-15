@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/27704/using-transformers/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Using Transformers | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Using Transformers</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This short guide explores how to use "transformers" on VAST responses to modify the content of the response before OVA applies it.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">An Example</a></li>
+</ol>	
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/23117/working-with-dynamic-ad-tags">Working with Dynamic Ad Tags</a></li>
+</ul>	
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p><i>Ad Tag Transformers</i> allow regular expressions to be declared with an ad tag in the OVA config. When the VAST response is retrieved from the ad call the "transforming" regular expression is applied to the text in the response before it is passed back into OVA for use in the scheduling process.</p>
+
+<p>This can be useful if additional information has to be added to URLs etc. in the VAST response at runtime.</p>
+
+<h2><a name="example"></a>2. An Example - Tracking "Click to Play" and "Auto Start" with AdTech</h2>
+
+<p>For example, AdTech supports the ability to track playback "click to play" or "auto play" states via a number of VAST extensions in their responses. In the following XML snippet which is taken from an AdTech VAST response, the <span style="font-family: courier new,courier,monospace;">"myplaytype"</span> element of the Extension is to be replaced with <span style="font-family: courier new,courier,monospace;">"CTP"</span> if the user has clicked the player to start playback or <span style="font-family: courier new,courier,monospace;">"ATP"</span> if auto start has been used in the player config.</p>
+
+<pre class="prettyprint">
+&lt;Extensions>
+      &lt;Extension type="ad_playtype">
+            http://adserver.adtech.de/dtrack/;BnId=105;dnPlayType=<span style="background-color: yellow;">myplaytype</span>
+      &lt;/Extension>
+&lt;/Extensions>
+</pre>
+
+<p>To support the ability to replace that element of the URL at runtime, a "transformer" is declared for the ad tag as follows:</p>
+
+<pre class="prettyprint">
+...
+   "ads": {
+        "schedule": [
+             {
+                 "position": "pre-roll",
+                 "server": {
+                     "tag": "http://adserver.adtech.de/?advideo/...vidAS=pre_roll...",
+                     <span style="background-color: yellow;">"transformers": [ 
+                          { "pattern": "myplaytype", "command": "g", "replace": "CTP" } 
+                     ]</span>
+                 }
+            }
+        ]
+   }
+...
+</pre>
+
+<p>To declare a transformer a <span style="font-family: courier new,courier,monospace;">"pattern"</span> must be defined along with a <span style="font-family: courier new,courier,monospace;">"command"</span> and a <span style="font-family: courier new,courier,monospace;">"replace"</span> string.</p>
+
+<p>The <span style="font-family: courier new,courier,monospace;">"pattern"</span> is the string content to match. The <span style="font-family: courier new,courier,monospace;">"command"</span> is the scope of the replacement. This will most likely be <span style="font-family: courier new,courier,monospace;">"g"</span> for global in all cases.</p>
+
+<p>The <span style="font-family: courier new,courier,monospace;">"replace"</span> property is the string to <span style="font-family: courier new,courier,monospace;">"replace"</span> the pattern with when matched.</p>
+
+<p>Ultimately, these components combine to form a regular expression as follows:</p>
+
+<pre class="prettyprint">
+/pattern/replace/command
+</pre>
+
+<p>For example:</p>
+
+<pre class="prettyprint">
+/myplaytype/CTP/g
+</pre>					</article>	
+
+</body>
+</html>

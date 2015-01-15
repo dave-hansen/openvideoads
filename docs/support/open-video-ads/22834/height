@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22834/configuring-the-control-bar/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Configuring the Control Bar | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Configuring the Control Bar</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to enable/disable/hide elements of the control bar during OVA ad playback.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#enable">Enabling the Control Bar</a></li>
+	<li><a href="#disable">Disabling the Control Bar</a></li>
+	<li><a href="#bar">Configuring the Control Bar</a></li>
+	<li><a href="#hiding">Hiding the Control Bar</a></li>
+	<li><a href="height">Declaring the Control Bar Height</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started with OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started with OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/22820/supported-ad-formats">Supporting Formats</a></li>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23680/delivering-vpaid-ads">VPAID Linear and Overlay Ads</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25470/example-enabling-the-controls">Enabling the Controls During Ad Playback</a></li>
+<li><a href="/support/open-video-ads/25471/example-managing-the-controls">Fine Grained Control</a></li>
+<li><a href="/support/open-video-ads/25501/example-hiding-the-controls-during-linear-ad-streams">Hiding the Control Bar</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>By default, OVA disables elements such as the timeline on the control bar during linear ad playback.</p>
+
+<p>For <i>OVA for Flowplayer</i> it is possible to have fine grained control over which elements of the control bar are enabled/disabled during linear ad playback.</p>
+
+<p>For <i>OVA for JW5</i>, if a Skin based control bar is used, fine grained control is also possible over the control bar. The standard JW5 control bar cannot be enabled/disabled this way.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example illustrates how to disable all controls except the mute/volume button on the control bar.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "player": {
+             "modes": {
+                "linear": {
+                   "controls": { 
+                      "enableFullscreen": false,
+                      "enablePlay": false,
+                      "enablePause": false,
+                      "enableMute": true,
+                      "enableVolume": true
+                   }
+                }
+             }
+          },
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_AD_TAG_LINEAR_STREAM_WITH_80x300_COMPANION"
+                }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+        "skin": "OVA_JW5_SKIN",
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="enable"></a>3. Enabling All Controls</h2>
+
+<p>It is possible to enable all controls during linear ad playback via the <span style="font-family: courier new,courier,monospace;">"manage"</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+   "player": {
+      "modes": {
+         "linear": {
+            <span style="background-color: yellow;">"controls": { "manage": false }</span>
+         }
+      }
+   },
+   "ads": {
+      ....
+   }
+}
+</pre>
+
+<p>By setting the <span style="font-family: courier new,courier,monospace;">"manage"</span> option to false, OVA will not modify the control bar state during linear ad playback.</p>
+
+<p>An example of the control bar configuration group can be found <a href="/support/open-video-ads/25470/example-enabling-the-controls">here</a></p>
+
+<h2><a name="disable"></a>4. Disable All Controls</h2>
+
+<p>The following code snippet illustrates how to disable all control bar controls during linear ad playback.</p>
+
+<pre class="prettyprint">
+{
+   "player": {
+      "modes": {
+         "linear": {
+            <span style="background-color: yellow;">"controls": { "enable": false }</span>
+         }
+      }
+   },
+   "ads": {
+      ....
+   }
+}
+</pre>
+
+<h2><a name="bar"></a>5. Fine Grained Control</h2>
+
+<p>The control bar elements are enabled/disabled via the <span style="font-family: courier new,courier,monospace;">"player"</span> config group as illustrated by the 
+following code snippet:</p>
+
+<pre class="prettyprint">
+{
+    ...
+    "player": {
+       "modes": {
+          "linear": {
+             <span style="background-color: yellow;">"controls": { 
+                "enableFullscreen": false,
+                "enablePlay": false,
+                "enablePause": false,
+                "enableMute": true,
+                "enableVolume": true
+             }</span>
+          }
+       }
+    },
+    "ads": {
+       "schedule: {
+            ...
+       }
+       ...
+   }
+}
+</pre>
+
+<p>In this code snippet, only the <i>mute</i> and <i>fullscreen</i> controls are enabled.</p>
+
+<p>The full set of control bar enable/disable options are:</p>
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">manage</span> - when set to false, stops OVA manipulating the control bar. True by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enabled</span> - sets all individual control settings to this value (e.g. setting this to false will disable all controls in one go unless individually overridden)</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePlay</span> - the play button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePause</span> - the pause button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableStop</span> - the stop button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enablePlaylist</span> - the playlist buttons - false by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableTime</span> - the time/scrubber - false by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableVolume</span> - the volume controls - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableMute</span> - the mute button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableFullscreen</span> - the fullscreen button - true by default</li>
+<li><span style="font-family: courier new,courier,monospace;">enableLinearSkipAd</span> - the skip ad button - false by default</li>
+</ul>
+<p>An example of these options in action can be found <a href="/support/open-video-ads/25471/example-managing-the-controls">here</a></p>
+
+<h2><a name="hiding"></a>6. Hiding the Control Bar</h2>
+
+<p>It is possible to hide the control bar during linear ad playback by setting the <span style="font-family: courier new,courier,monospace;">"visible"</span> config option as follows:</p>
+
+<pre class="prettyprint">
+{
+   "player": {
+      "modes": {
+         "linear": {
+            <span style="background-color: yellow;">"controls": { "visible": false }</span>
+         }
+      }
+   },
+   "ads": {
+      ....
+   }
+}
+</pre>
+
+
+<p>An example of this option in action can be found <a href="/support/open-video-ads/25501/example-hiding-the-controls-during-linear-ad-streams">here</a></p>
+
+<h2><a name="height"></a>7. Declaring the Control Bar Height</h2>
+
+<p>It is possible to hard-code the control bar height by setting the <span style="font-family: courier new,courier,monospace;">"height"</span> config option as follows:</p>
+
+<pre class="prettyprint">
+{
+   "player": {
+      "modes": {
+         "linear": {
+            <span style="background-color: yellow;">"controls": { "height": 35 }</span>
+         }
+      }
+   },
+   "ads": {
+      ....
+   }
+}
+</pre>					</article>	
+
+</body>
+</html>

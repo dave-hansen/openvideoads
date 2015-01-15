@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23689/delivering-companions/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Delivering Companions | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Delivering Companions</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This tutorial explores how to deliver <i>Companion Ads</i> with Open Video Ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#static">Delivering Companion Ads via AS3 Insertion</a></li>
+	<li><a href="#dynamic">Delivering Companion Ads via an External Library</a></li>
+	<li><a href="#selection">Companion Ad Selection</a></li>
+	<li><a href="#retain">Retaining Companions</a></li>
+	<li><a href="#swf-settings">Adding Parameters to SWF Companions</a>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li>OVA for JW5 - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li> 
+<li>OVA for Flowplayer - <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/13048/ova-configuration-guide#configuration-general">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads/revisions/24116/view">Delivering Linear Ads</a></li>
+</ul>
+
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25464/example-companions-via-flash">Displaying Companions via AS3</a></li>
+<li><a href="/support/open-video-ads/25465/example-companions-via-jquery">Displaying Companions via an External Library</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a href="#introduction"></a>1. Introduction</h2>
+<p><i>Companion Ads</i> are graphical ads that are shown around the player as linear and non-linear advertising is displayed within the player.</p>
+<p><img alt="" src="http://static.openvideoads.org/images/open-video-ads/companion-illustration.png" /></p>
+
+<p>The code to display a companion ad is inserted by OVA into named DIV regions on a HTML page. To trigger the display of companion ads, the 
+companion DIV ids that are to contain companion ads must be specified within the OVA JSON configuration block.</p>
+
+<p>OVA will only be capable of displaying companion ads if:</p>
+<ul>
+<li>The VAST response contains the companion creative "inline" within the VAST structure</li>
+<li>The sizing information provided within the OVA configuration matches the sizing specified in a companion creative within the VAST response</li>
+</ul>
+
+<p>The following configuration snippet illustrates a typical companion ad specification:</p>
+<pre class="prettyprint">...
+  "ads": {
+      ...
+      <span style="background-color: yellow;">"companions": 
+         "regions": [
+             { "id":"my-companion-div-id", "width": 200, "height": 350 }
+         ]
+      },</span>
+      ...
+  },
+...
+</pre>
+<p>In this example, a single companion DIV is specified ("my-companion-div-id") - it has a width of 200 pixels and a height of 300 pixels.</p>
+<p>Companion ads can take any of the following formats:</p>
+<ul>
+	<li>Images - JPEG, GIF or PNG</li>
+	<li>HTML</li>
+	<li>Flash (non VPAID SWF)</li>
+	<li>Javascript</li>
+	<li>iFrame</li>
+</ul>
+<p>OVA supports two methods for inserting the companion code into a HTML page:</p>
+<ul>
+<li>AS3 insertion: Where the companion code is inserted directly by the OVA SWF into the HTML DIV region via AS3 ExternalInterface calls</li>
+<li>Insertion via an External Library: Where the companion code is inserted into the HTML DIV via a set of OVA specific JQuery functions housed in the 
+"<a href="http://developer.longtailvideo.com/ova/export/663/trunk/ova.jwplayer.5x/dist/js/ova-jquery.js">ova-jquery.js</a>" library</li>
+</ul>
+<h2><a href="#static"></a>2. Delivering Companion Ads via AS3 Insertion</h2>
+<p>Image, HTML and Flash companion ad types are considered by OVA to be&nbsp;<i>"static"</i>&nbsp;companion formats. 
+The OVA SWFs can insert these ad types into the DIV regions on HTML pages directly from the AS3 codebase without the need for supporting Javascript files to write the content.</p>
+<p>This is the default mode of operation for OVA.</p>
+<p>A worked example of static companions can be found <a href="/support/open-video-ads/25464/example-companions-via-flash">here</a>.</p>
+
+<h2><a href="#dynamic"></a>3. Delivering Companion Ads via an External Library</h2>
+<p>Javascript based companion ads require the support of the OVA JQuery library&nbsp;to insert the companion display code into the web page. 
+Javascript companion ads typically specify their companion ad content via a "<span style="font-family: courier new,courier,monospace;">document.write()</span>" javascript function.</p>
+<p>OVA provides a jQuery based OVA library called <span style="font-family: courier new,courier,monospace;">ova-jquery.js</span> to support the insertion of Javascript based companion ad types.
+It can also be used to insert all other companion ad types including images, HTML, Flash companions into the page.</p>
+<p>The "ova-jquery.js" library can be found in the OVA for JW5 or OVA for Flowplayer distributions within the <span style="font-family: courier new,courier,monospace;">/dist/js
+</span> directory in the zip or ".tar.gz" package, or it 
+can be downloaded directly from <a href="/content/ova/download/ova-jquery.zip">here</a> or from
+the <a href="http://developer.longtailvideo.com/ova">OVA Developer Site</a> (registration required).</p>
+<p>By default, the OVA SWF will try to insert the companions using the internal AS3 mechanism. To instruct OVA to use the JQuery based library instead, the <span style="font-family: courier new,courier,monospace;">"nativeDisplay"</span> companions option must be set as follows:</p>
+<pre class="prettyprint">&lt;script type="text/javascript" src="dist/js/jquery-1.3.1.js"&gt;&lt;/script&gt;
+<span style="background-color: yellow;">&lt;script type="text/javascript" src="dist/js/ova-jquery.js"&gt;&lt;/script&gt;</span>
+...
+{
+   ...
+   "ads": {
+        "companions": {
+            <span style="background-color: yellow;">"nativeDisplay": false,</span>
+            ...
+        }
+   }  
+   ...
+}
+</pre>
+<p>A worked example of the HTML5 companion insertion method can be found <a href="/support/open-video-ads/25465/example-companions-via-jquery">here</a>.</p>
+
+<h2><a href="#selection"></a>4. Companion Ad Selection</h2>
+<p>By default, OVA will attempt to match companion ads based on the sizing specified. For example, if a DIV is specified as 300x60, the first companion ad creative in a VAST response that has the sizing of 300x60 will be inserted into the named DIV.</p>
+<p>However when a VAST response returns multiple companion ad types for a given size it is possible to specify that either:</p>
+<ul>
+	<li>A specific resourceType be matched, or</li>
+	<li>A specific companion be matched (based on the index of the companion in the VAST response)</li>
+</ul>
+<p>The example config snippet below illustrates how to specifically match companions based on type and index.</p>
+<pre class="prettyprint">{
+  ...
+    "ads": {
+        "companions": {
+            "regions": [
+               {
+                  "id":"companion-300x60-static",
+                  "width":"300",
+                  "height":"60",
+                  <span style="background-color: yellow;">"resourceType": "static"</span>
+               },
+               {
+                  "id":"companion-728x90-static",
+                  "width":"728",
+                  "height":"90",
+                  <span style="background-color: yellow;">"index": 2</span>
+               }
+            ]
+        },
+    }
+  ...
+}        
+</pre>
+<p>In this example, only companions of resource type <span style="font-family: courier new,courier,monospace;">"static"</span> will be inserted into the DIV named "<span style="font-family: courier new,courier,monospace;">companion-300x60-static</span>". The first companion creative in the VAST response that matches this <i>type</i> will be matched. In addition, the 3rd companion in the VAST response will always be inserted into the DIV named <span style="font-family: courier new,courier,monospace;">"companion-728x90-static"</span>. 
+Companions are indexed from 0 in the VAST response so the first companion is always referred to as <span style="font-family: courier new,courier,monospace;">index: 0</span>.</p>
+
+<h2><a href="retain"></a>5. Retaining Companion Content</h2>
+
+<p>By default OVA will only show a companion during the playback of a linear or non-linear ad and once that ad has completed, the DIV region holding the companion will be restored to its original state.</p>
+
+<p>It is possible to instruct OVA to not restore companions once the ad has finished by setting the <span style="font-family: courier new,courier,monospace;">"restore"</span> config 
+option to <span style="font-family: courier new,courier,monospace;">false</span> as follows:</p>
+
+<pre class="prettyprint">
+...
+    "ads": {
+        "companions": {
+           <span style="background-color: yellow;">"restore": false,</span>
+           "regions" : [
+              { "id":"companion", "width": 300, "height": 250, "index": 1 }
+           ]
+        },
+        "schedule": [
+            {
+              "position": "pre-roll",
+              "tag": "http://openx.openvideoads.org/...."
+            }
+        ]
+    },
+...
+</pre>
+
+<p>You can view an example of the <span style="font-family: courier new,courier,monospace;">"restore"</span> option in 
+action <a href="/support/open-video-ads/25489/example-retaining-companions">here</a>.</p>
+
+<h2><a href="swf-settings"></a>6. Adding Parameters to SWF Companions</h2>
+<p>Occassionally, when SWF companions are written by OVA out to a HTML DIV region, additional OBJECT/EMBED parameters need to be set on the SWF insertion code to ensure that the
+companion displays properly.</p>
+<p>It is possible to manually set the additional parameters to be written by OVA as part of the OVA configuration. The following code snippet illustrates how to do this:</p>
+
+<pre class="prettyprint">
+...
+    "ads": {
+        "companions": {
+           <span style="background-color: yellow;">"additionalParamsForSWFCompanions": [
+               { "name": "wmode", value: "transparent" }
+           ],</span>
+           "regions" : [
+              { "id":"companion", "width": 300, "height": 250, "index": 1 }
+           ]
+        },
+        "schedule": [
+            {
+              "position": "pre-roll",
+              "tag": "http://openx.openvideoads.org/...."
+            }
+        ]
+    },
+...
+</pre>
+
+<p>In this example, a <span style="font-family: courier new,courier,monospace;">"wmode"</span> value <span style="font-family: courier new,courier,monospace;">"transparent"</span> is 
+set on the SWF OBJECT/EMBED code.</p>					</article>	
+
+</body>
+</html>

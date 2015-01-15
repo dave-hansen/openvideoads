@@ -1,0 +1,1030 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/25573/using-ova-with-openx-onramp/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Using OVA with OpenX OnRamp | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+article class="with_sidebar Document">
+		
+						
+			
+			<h1>Using OVA with OpenX OnRamp</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<link type="text/css" rel="stylesheet" media="all" href="/content/ova/css/drop-shadow.css" />
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+
+<p>This guide is a short "how to" that explores how to deliver ads with <a href="http://www.openx.org">OpenX</a> <b>OnRamp</b> and OVA.</p>
+
+<h2>Contents</h2>
+
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#onramp">Configuring OnRamp</a></li>
+	<ol>
+		<li><a href="#advertisers">Setting up an Advertiser</a>
+		<li><a href="#campaigns">Creating a Campaign</a>
+		<li><a href="#pre">Configuring a Pre, Mid or Post Roll Linear Ad</a>
+		<ol>
+			<li><a href="#linear">Setting up Linear Video Ad Banner</a>
+			<li><a href="#companion">Setting up Companion Ad Banner</a>
+			<li><a href="#zones">Assigning Banners to Zones</a>
+		</ol>
+		<li><a href="#overlays">Configuring Overlay Banners</a>
+		<li><a href="#test">Testing Your Setup With A Static Ad Tag</a>
+	</ol>
+	<li><a href="#ova">Setting Up OVA</li>
+	<ol>
+		<li><a href="#key-settings">Key Configuration Settings</a></li>
+		<ol>
+			<li><a href="#address">The OnRamp Server Address</a></li>
+			<li><a href="#ids">Zone IDs</a></li>
+		</ol>
+		<li><a href="#basic-linear">Basic Setup - Linear "Inline" Ads</a></li>
+		<li><a href="#basic-overlay">Basic Setup - Overlay Ads</a></li>
+		<li><a href="#constructing">Constructing the Full Ad Tag Request to OnRamp</a></li>
+		<ol>
+		<li><a href="#template">Using the OpenX Default Ad Call Template</a></li>
+		<li><a href="#overriding">Overriding the Default Ad Call Template</a></li>
+		<li><a href="#targeting">Delivering Targeted Advertising</a></li>
+		</ol>
+		<li><a href="#repetition">Allowing Ad Repetition</a></li>
+	</ol>
+</ol>
+
+<h2>Recommended Reading</h2>
+
+<ul>
+<li><a href="/support/open-video-ads/13047/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/25255/delivering-non-linear-ads">Delivering Non-Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23689/delivering-companions">Supporting Companions</a></li>
+<li><a href="http://www.openx.com/docs/2.8/userguide">OpenX OnRamp Documentation</a></li>
+</ul>
+
+<h2>Related Examples</h2>
+<ul>
+<li><a href="">OpenX OnRamp Linear Pre-Roll</a></li>
+<li><a href="">OpenX OnRamp Non-Linear Pre-Roll</a></li>
+</ul>
+
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OpenX <a href="http://www.openx.com/publishers/community-ad-server">OnRamp</a> is the entry level hosted ad server provided by the OpenX team. It is appropriate for hobbyists, bloggers and personal sites, and is free to use to a level but has a charge that applies for usage over the permitted "free" level.</p>
+
+<p>OpenX OnRamp supports the deliver of Video Ads - both in linear (pre/and non-linear non-interactive (e.g non-VPAID) formats. It also supports the delivery of companions that 
+accompany linear and non-linear ad types.</p>
+
+<p>This guide is meant as a supplementary guide to the OpenX and OVA documentation. Please ensure that you reference both sets of documentation as you use this guide.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example illustrates a pre-roll linear ad stream and overlay with an associated companions. Mouse over the pre-roll ad stream while it plays 
+to see the "click through" notice pop up. Click on the ad to be taken to the advertiser website. Also notice the "Skip Ad" button that is enabled 
+during the playback of the pre-roll. This ad is delivered with OpenX OnRamp.</p>
+
+<p>The overlay ad is displayed three seconds into the show stream for a duration of 10 seconds. Click on the overlay to be taken to the advertiser website.</p>
+
+<p>To illustrate how to use OpenX OnRamp, we will walk through the setup and delivery of this linear pre-roll and companion within this guide.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion_300x250="true">
+	{
+	    "ads": { 
+	       "skipAd": { "enabled": "true" },
+               "servers": [
+                   {
+                        "type": "OpenX",
+                        "apiAddress": "http://d1.openx.org/fc.php"
+                   }
+               ],
+	       "companions": {
+	          "regions": [
+	             { "id":"companion", "width": 300, "height":250 }
+	          ]
+	       },
+	       "schedule": [
+	          {
+	             "position": "pre-roll",
+	             "zone": "256355"
+	          },
+	          {
+	             "region": "auto:bottom",
+	             "zone": "256555",
+	             "startTime": "00:00:03",
+	             "duration": 10
+	          }
+	       ]
+	    },
+	    "debug": {
+	       "levels": "fatal, config, vast_template"
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 400,
+        "height": 250,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:0px;margin-bottom:10px;height:250px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:250px; width:400px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="onramp"></a>3. Configuring OpenX OnRamp</h2>
+
+<p>To use OpenX OnRamp to serve ads with OVA, you must have an OnRamp account. To create the account, to go the <a href="http://www.openx.com/publishers/community-ad-server">OpenX website</a> and register via the <a href="http://www.openx.com/publishers/community-ad-server">OnRamp</a> sign-up pages.</p>
+
+<p>Once you have an OnRamp login you can start to setup your video ads and prepare to serve them to an OVA enabled video player.</p>
+
+<p>To deliver video ads via OnRamp, a number of elements need to be setup via the OnRamp admin workbench. These include:</p>
+
+<ul>
+<li>Your <a href="#website">Website</a></li>
+<li>An <a href="#advertiser">Advertiser</a></li>
+<li>A <a href="#campaign">Campaign</a></li>
+<li>A Video Ad <a href="#banner">Banner</a></li>
+<li>An OpenX <a href="#zone">Zone</a></li>
+</ul>
+
+<p>Let's get started. <a href="https://adserver.openx.org/index.php">Login</a> to OpenX OnRamp with your account and we'll start from the beginning.</p>
+
+<h3><a name="website"></a>3.1 Creating a Website</h3>
+
+<p>Once logged into OnRamp, typically the first step to take is to create a representation of your "website" within OnRamp so that later on, amonst other things 
+you can identify the "zones" that will have advertising delivered to it.</p>
+
+<p>To create a record for your website, go to the "Websites" admin page via the left hand navigation menu.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/websites.jpg" width=500 border="0"/>
+	</div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>In our example, we have created an "Open Video Ads" website and assigned some general contact details to it.</p>
+
+<p>For further information on the "website" construct, please consult the <a href="http://www.openx.com/docs/2.8/userguide/websites">OpenX Website Guide.</p>
+
+<h3><a name="advertisers"></a>3.2 Setting up an Advertiser</h3>
+
+<p>Now that we have our website setup, the second step is to create an advertiser record that covers the video advertising that you wish to deliver on that website. 
+To create an advertiser, go into the "Inventory" tab and select the "Advertisers" option from the left hand menu. You will be presented with a page that allows 
+you to manage the advertisers that you are supporting on your OpenX instance.<p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/advertisers.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>To add a new advertiser, select the "Add A New Advertiser" link and you will be prompted with a form that allows you to specify your new advertiser details.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/create-advertiser-short.jpg" width=500 border="0"/>
+    </div>
+</div>
+
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>In our example, we have setup an advertiser called "Longtail Video" with the following properties:</p>
+
+<ul>
+<li>Name: Open Video Ads</li>
+<li>Contact: Paul Schulz</li>
+<li>Email: enquiries@openvideoads.org</li>
+</ul>
+
+<p>For further information on how to setup Advertisers on OpenX, consult the OpenX <a href="http://www.openx.com/docs/2.8/userguide/Adding%20an%20advertiser">Advertisers Setup Guide</a>.</p>
+
+<h3><a name="campaigns"></a>3.2 Setting up a Campaign</h3>
+
+<p>Once the advertiser is setup, the next step in the process is to setup a "campaign" that contains your video ads.</p>
+
+<p>To setup a campaign, select the "Add new campaign" link against your advertiser in the <i>Advertisers</i> management page.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/campaign-entry-short.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>Campaigns can take any one of three forms:</p>
+
+<ul>
+<li>Contract - Limited per day, distributed evenly until end date or inventory expires</li>
+<li>Contract Exclusive - Takes all impressions and is delivered before other campaigns</li>
+<li>Remnant - Standard campaign constrained by limit or end date</li>
+</ul>
+
+<p>You will need to decide which type of campaign you require and select the appropriate type. For further information on the campaign types, please consult the 
+OpenX documentation on <a href="http://www.openx.com/docs/2.8/userguide/Adding%20campaign">Campaign Management</a>.</p>
+
+<p>In our example, we have setup a "remnant" campaign that:
+
+<ul>
+<li>Starts immediately</li>
+<li>Does not expire</li>
+<li>CPM based pricing model for unlimited impressions</li>
+<li>Has a weight of 1</li>
+</ul>
+
+<p>We have chosen a "remnant" campaign because of the need to deliver Companion ads with our linear pre-roll. Only "remnant" and "exclusive contract" campaigns support that feature.</p>
+
+<p>A successfully setup campaign will have a "running" status. It is important that you check the status of your campaign after you have created it - 
+"inactive" campaigns will not serve ads.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/campaign-summary-highlight.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>The status of a campaign can be seen on the campaign management page.</p>
+
+<h3><a name="pre"></a>3.4 Configuring a Pre, Mid or Post Roll Linear Ad</h3>
+
+<p>With a campaign successfully created, it is time now to create the video banner(s) that you wish to serve.<p>
+
+<p>To add a <i>banner</i> to a campaign, select the "Add new banner" link listed against the campaign on the "Campaign Management" page and the "Banner Entry" page will appear.</p>
+
+<p>Two types of "video" banners can be created in OnRamp:</p>
+
+<ul>
+<li>OpenX <i>Inline Video</i> Ads (pre, mid, post-rolls)</li>
+<li>OpenX <i>Overlay</i> Video Ads</li>
+</ul>
+
+<p>When creating a banner on the banner entry page, you first specify the type of banner that you wish to create via the "banner type" dropdown list at the top of the entry form.<p>
+
+<h4><a name="linear">3.4.1 Setting up Linear Video Ad Banner</h4>
+
+<p>Banners of type "Inline Video Ads" are linear video ad streams that can be played in <i>Pre</i>, <i>Mid</i> or <i>Post-Roll</i> positions. Only video streams are supported. VPAID is not 
+supported by OnRamp at this time.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/add-linear-banner-highlight.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>In our example, a short linear pre-roll ad stream is played and an accompanying companion is displayed. To setup this ad, we create an "inline" banner and assign the following 
+properties to it:</p>
+
+<ul>
+<li>Name: OVA 10 second linear ad stream</li>
+<li>Delivery Method: HTTP</li>
+<li>Video URL: http://wpc.413C.edgecastcdn.net/00413C/content/conversions/Z8psmEBJ/videos/w7njcizq-1270135.mp4</li>
+<li>Video Type: MP4</li>
+<li>Video Duration in Seconds: 10</li>
+<li>Destination URL: http://www.openvideoads.org</li>
+</ul>
+
+<p>These properties indicate that we wish to play a 10 second MP4 video ad stream and when it is playing offer the user the ability to click-through on the ad to the OVA website (at 
+http://www.openvideoads.org).</p>
+
+<p>Towards the bottom of the Banned edit page is a prompt and drop-down list that allows a companion banner to be attached to the linear ad. Only companion banners that have already been 
+created will appear in that list.</p> 
+
+<h4><a name="companion">3.4.2 Adding Companion Ad Banners</h4>
+
+<p>Companion banners are created in the same manner as any other banner in OpenX, via the Banner edit page. Always add the banner to the same campaign as the linear or overlay to ensure that
+you can attach it to the primary ad.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/add-companion-banner.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>Companions banners can be of two types:</p>
+
+<ul>
+<li>Web - Uploaded to the OpenX server</li>
+<li>URL - Linked to an external banner</li>
+</ul>
+
+<p>In our case we have a URL to an image asset that we wish to serve as a companion ad so we'll create a banner of the "external" type and assign the following properties to it:</p>
+
+<ul>
+<li>Name: OVA promo 300x250 companion</li>
+<li>URL: http://www.longtailvideo.com/content/images/open-video-ads/ad_spot.png</li>
+<li>Destination URL: http://www.openvideoads.org</li>
+<li>Target: _blank</li>
+<li>Width: 300</li>
+<li>Height: 250</li>
+</ul>
+
+<p>These properties indicate that we have a 300x250 sized companion image that is to be deployed with a click-through to "www.openvideoads.org". When the user clicks on the 
+companion banner, the click-through URL should be opened in a new browser window.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/saved-companion-banner.jpg" width=500 border="0"/>
+    </div>
+</div>
+
+<p>Once saved, the companion banner will appear in banner's edit page and it will also be made available within the "companions" drop-down list on the linear and overlay banner edit pages. 
+To add our newly created companion banner to the linear ad that we created above, go back into the banner edit page for the linear banner and select the "OVA promo 300x250 companion" 
+from the companions drop-down list and save the setting to the linear banner record.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/companion-selection.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>Recapping where we are at, at this stage we have:</p>
+
+<ul>
+<li>Created a record for our website within OnRamp</li>
+<li>Created our advertiser record</li>
+<li>Created a campaign and ensured it is "running"</li>
+<li>Created a Linear Ad banner</li>
+<li>Created a 300x250 Companion banner and attached it to our Linear Ad</li>
+</ul>
+
+<p>The final step in our OnRamp setup process for a Linear Ad is to create an OpenX "zone" and associate that with our Linear Ad banner.<p>
+
+<h4><a name="zones"></a>3.4.3 Assigning Banners to Zones</h4>
+
+<p><i>Zones</i> are a critical element of the OnRamp setup. OVA requests ads for specific "zones" when it calls OnRamp. For an ad (banner) to be delivered by OnRamp back to OVA, it must be assigned to 
+the <i>zone</i> specified in the ad request. Banners can belong to one or more zones. Zones belong to a single "website" within OpenX.</p>
+
+<p>To create a zone for our linear ad, select "Zones" from the left hand navigation menu and then click on the "Add New Zone" link at the top left hand side of the zones table.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/zones-list.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>You will be prompted to define your new zone. In our example, we require a zone to be defined that covers the pre-roll linear ads that are to be served on the OVA Product pages. As 
+such, we have setup a zone with the following attributes:</p>
+
+<ul>
+<li>Name: OVA Product Site Linear</li>
+<li>Description: Pre-roll ads served on the OVA Product Site</li>
+<li>Category: Webtools</li>
+<li>Zone type: Inline Video Ad</li>
+</ul>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/zone-creation.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>The key value specified in that set of attributes is the "Zone Type". It is vital that you create a zone type that matches the type of banners that you are serving via that zone. In 
+our case, we are serving liner ad streams (OpenX Inline Video Ads) so we've specified the "Zone Type" to be "Inline Video Ad".</p>
+
+<p>Once we've created our zone, the next step is to link the banners to be served for that zone. In our case, we have a linear "inline" banner that has to be linked to the zone. The 
+linkage can be made either through the "Edit Zone" page or the "Edit Banner" page. We'll link the zone via the "Edit Banner" page. To bring up that page, select "Banners" from the 
+left navigation menu and then when the banned edit page appears, select the "Linked Zones" tab.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/banner-zone-linked.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>At the bottom of that page just under the video player you will see a list of the zones that you have created. Select the zone that you wish to link with this banner and then save 
+the setting.</p>
+
+<p>You are now ready to start serving the linear ad via OVA.</p>
+
+<h3><a name="overlays">3.5 Configuring Overlay Banners</h3>
+
+<p>Non-Linear overlays are configured in OpenX OnRamp in a similar manner to Linear "inline" video ads. A website, advertiser and campaign must first exist. Given that they do exist, 
+overlays are declared in OnRamp via the "Add New Banner" link that can be found on the Banner management page.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/create-overlay.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>Banners must be created as "OpenX Overlay Video Ad" banners. When creating a banner of that type, the following details must be provided:</p>
+
+<ul>
+<li>A name for the banner</li>
+<li>The creative type of the banner must be declared - image, swf (non-VPAID), text or html creatives are all supported</li>
+<li>In the case of image and SWF banners, the asset must be loaded up onto the OnRamp servers</li>
+<li>A "click through" action must be declared - it can be either a click through to a destination website or a click to start a linear video ad playing</li>
+<li>If the click through results in a linear video ad playing, the video ad stream and duration must all be declared</li>
+<li>An optional companion may also be attached to the overlay ad - this will be shown when the overlay is displayed</li>
+</ul>
+
+<p>In our case, an image based overlay with a click to a website and an associated companion has been created with the following properties:</p>
+
+<ul>
+<li>Name: OVA 468x60 Overlay</li>
+<li>Asset: An GIF image was loaded up - the image is 468x60 in size</li>
+<li>Click Action: Click through to a website - www.openvideoads.org</li>
+<li>Companion: The OVA 300x250 companion that was previous created is also attached to this overlay ad</li>
+</ul>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/overlay-zone.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>Like linear banners, overlay banners must also be linked to a valid OpenX "zone". Overlay banners can only be linked to zones that are of type "Overlay Video Ad". Create the overlay 
+zone via the "Zones" management page and then link the newly created "overlay zone" to your overlay banner via the "Linked Zones" tab on the "Banner Edit" page.</p>
+
+<h3><a name="test">3.6 Testing Your Setup With A Static Ad Tag</h3>
+
+<p>Once you've setup your ads in OnRamp and are ready to configure OVA, it's worth testing your OnRamp setup for readiness by firing a statically formed ad tag at OnRamp and see if it 
+responds with a valid VAST response. OVA requires a valid VAST response to operate.</p>
+
+<p>OnRamp ad tags take the following minimal format:</p>
+
+<pre class="prettyprint">
+http://d1.openx.org/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&nz=1&&zones=[PUT-YOUR-ZONES-IN-HERE]
+</pre>
+
+<p>where the pattern <span style="font-family: courier new,courier,monospace;">"[PUT-YOUR-ZONES-IN-HERE]"</span> is replaced with a specifically formatted "zones" 
+value that OpenX understands. The rules for forming this "zones" value are as follows:</p>
+
+<ul>
+<li>The final string is made up of key/value pairs with each key/value representing an ad unit that is required</li>
+<li>Each key is a unique identifier for a single ad to be served</li>
+<li>Each value is the "zone" from which that ad is to be served</li>
+<li>Each key/value pair is separated by an ampersand (&)</li>
+<li>Once formed, the entire "zones" string must be URL encoded to ensure that the ampersands do not break the ad tag URL structure</li>
+</ul>
+
+<p>When OVA operates, it forms an ad tag according to this structure based on the zone information that is provided in the OVA configuration.</p>
+
+<p>For example, in our case where we have a player serving two ads - a linear ad and an overlay with each ad coming from different zones (zone "256355" for the pre-roll and 
+"X" for the overlay), the "zones" string would be formed as follows (in an un-encoded format):</p>
+
+<pre class="prettyprint">
+pre-roll1=256355&overlay1=256555
+</pre>
+
+<p>When URLencoded, it would appear as follows:</p>
+
+<pre class="prettyprint">
+zones=pre-roll1%3D256355%7Coverlay1=256555
+</pre>
+
+<p>The full ad tag would therefore be as follows:</p>
+
+<pre class="prettyprint">
+http://d1.openx.org/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&nz=1&format=vast&zones=pre-roll1%3D256355%7Coverlay1=256555
+</pre>
+
+<p>To test your setup and check that OnRamp is returning a VAST response, all you need to do is to take that formed ad tag and pop it into a browser URL box and view the result.</p>
+
+<p>In our case, the response is along the lines of:</p>
+
+<pre class="prettyprint">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+    &lt;Ad id="pre-roll" >        
+        &lt;InLine>            
+            &lt;AdSystem>OpenX&lt;/AdSystem>
+            &lt;AdTitle><![CDATA[OVA 10 sec promo linear stream]]>&lt;/AdTitle>
+            &lt;Description><![CDATA[Inline Video Ad]]>&lt;/Description>
+            &lt;Impression>
+               ....
+</pre>
+
+<p>OnRamp returns a VAST1 response. If you do not see a fully populated/well formed XML response, then you know that either your ad tag is incorrectly formated or your OnRamp setup 
+is not quite right.</p>
+
+<p>For further information on VAST, please consult the <a href="">What is VAST</a> guide.</p>
+
+<h2><a name="ova"></a>4. Setting Up OVA</h2>
+
+<p>The working example at the start of this guide illustrates the setup required to serve both an OpenX Linear ad and an Overlay ad with accompanying companions via OVA and OnRamp.</p>
+
+<h3><a href="key-settings"></a>4.1 Key Configuration Settings</h3>
+
+<p>To configure OVA to delivery OnRamp video ads, two critial pieces of information are required:</p>
+
+<ul>
+<li>The OnRamp Ad Server <b>address</b> - termed "apiAddress" by OVA</li>
+<li>The ID of the OpenX <b>Zone</b> that requires ads to be served</li>
+</ul>
+
+<p>These values are reflected in an OVA configuration as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               <span style="background-color: yellow;">"apiAddress": "put-the-on-ramp-address-here"</span>
+            }
+        ],
+        "schedule": [
+            {
+                <span style="background-color: yellow;">"zone": "put-your-zone-id-in-here",</span>
+                ...
+            }
+        ]
+    ]
+}
+</pre>
+
+<h4><a href="address"></a>4.1.1 The OnRamp Ad Server Address</h4>
+
+<p>The OnRamp address is always <span style="font-family: courier new,courier,monospace;">"http://d1.openx.org/fc.php"</span>. 
+As such, you specify the OpenX connection in your OVA configuration as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               <span style="background-color: yellow;">"apiAddress": "http://d1.openx.org/fc.php"</span>
+            }
+        ...
+</pre>
+
+<h4><a href="ids"></a>4.1.2 Zone IDs</h4>
+
+<p>For each OnRamp ad position that you declare within an OVA ad schedule, the "zone" serving that ad position must be specified. Zones are declared within OVA configuration 
+using the unique ID that OpenX assigns to them.</p>
+
+<div class="drop-shadow-container">
+	<div class="drop-shadow raised">
+		<img src="/sites/default/files/get-zone-id-highlight.jpg" width=500 border="0"/>
+    </div>
+</div>
+<p><i>Click on the image to view a large version of it.</i></p>
+
+<p>The ID assigned by OpenX to a zone can be identified in several places in the OpenX admin pages:</p>
+
+<ul>
+<li>From the Zones list displayed in the "Zones" table accessible via the "Zones" left hand nav menu item (mouse over a zone URL and look at the ID that is displayed)</li>
+<li>From the URL that appears when you edit a "Zone" (e.g. <span style="font-family: courier new,courier,monospace;">https://adserver.openx.org/zone-edit.php?affiliateid=xxx&zoneid=256355</span>)</li>
+<li>From the "Zones" list that appears in the "Linked Zones" table on the Edit Banner page (see the graphic above)</li>
+</ul>
+
+<p>Once you have identified the ID for your zone(s), add them to the declared ad slots within the OVA configuration. For example, in our case where we have two zone IDs, 
+one for the pre-roll and one for the overlay, we would declare them as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+	          {
+	             "position": "pre-roll",
+	              <span style="background-color: yellow;">"zone": "256355"</span>
+	          },
+	          {
+	             "region": "auto:bottom",
+	              <span style="background-color: yellow;">"zone": "256555",</span>
+	             "startTime": "00:00:03",
+	             "duration": 10
+	          }
+        ]
+    ]
+}
+</pre>
+
+<h3><a name="basic-linear"></a>4.2 Basic Setup - Linear "Inline" Ad</h3>
+
+<p>Linear video ad streams are the easiest ad type to configure in OVA. To deliver a linear ad stream using OnRamp and OVA, configure the OVA ad slot as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+              <span style="background-color: yellow;">{
+                 "position": "SPECIFY-THE-PLAYBACK-POSITION",
+                 "zone": "DECLARE-THE-ZONE"
+              }</span>
+        }
+   }
+}
+</pre>
+
+<p>Three different playback positions are supported for Linear ad slots - <span style="font-family: courier new,courier,monospace;">"pre-roll", "mid-roll" and "post-roll"</span>. If a 
+<span style="font-family: courier new,courier,monospace;">"mid-roll"</span> is declared, add the <span style="font-family: courier new,courier,monospace;">"startTime"</span> to the 
+ad slot declaration as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+              <span style="background-color: yellow;">{
+                 "position": "mid-roll",
+                 "startTime": "00:01:00",
+                 "zone": "DECLARE-THE-ZONE"
+              }</span>
+        }
+   }
+}
+</pre>
+
+<p>In the example above, the mid-roll ad slot is scheduled to start one minute into the show stream.</p>
+
+<p>Any number and sequence of linear ad positions can be scheduled together. For example, the following ad schedule declares that a pre-roll, mid-roll and post-roll are all to be 
+played and each is to be served from the same "zone" in our OnRamp instance.</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+              {
+                 "position": "pre-roll",
+                 "zone": "256355"
+              },
+              {
+                 "position": "mid-roll",
+                 "startTime": "00:01:00",
+                 "zone": "256355"
+              },
+              {
+                 "position": "post-roll",
+                 "zone": "256355"
+              }
+        }
+   }
+}
+</pre>
+
+<p>When OVA forms the OnRamp ad tag for the ad schedule above, the request for all three ad positions will be made in one call, with the ad tag appearing as follows:</p>
+
+<pre class="prettyprint">
+http://d1.openx.org/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&nz=1&format=vast&zones=pre-roll1%3D256355%7Cmid-roll1%3D256355%7Cpost-roll1%3D256355
+</pre>
+
+<p>For a more detailed guide on configuring OVA to deliver Linear Ads, please consult the <a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a> guide.</p>
+
+<h3><a name="basic-overlay"></a>4.3 Basic Setup - Overlay Ads</h3>
+
+<p>To deliver an OnRamp overlay video ad via OVA, an "non-linear" ad slot has to be declared in the OVA schedule as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+              <span style="background-color: yellow;">{
+                 "startTime": "DECLARE-THE-TIME",
+                 "duration": DECLARE-THE-DURATION,
+                 "zone": "DECLARE-THE-ZONE",
+                 "region": "DECLARE-THE-DISPLAY-REGION"
+              }</span>
+        }
+   }
+}
+</pre>
+
+<p>The start time must be declared along with the display duration for the overlay. The OpenX "zone" must be identified along with the display "region" that identifies where 
+the overlay is to be displayed on the player screen. If required, you can also specify dimensions for the overlay and OVA will attempt to match the overlay asset to display based on 
+the sizing information provided.</p>
+
+<p>In our example, an overlay is to be shown 3 seconds into the show clip for a duration of 10 seconds. The overlay is to be displayed centered at the bottom of the player just above the 
+control bar. Overlays linked to OpenX zone "256555" are to be served. Accordingly our OVA configuration is declared as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php"
+            }
+        ],
+        "schedule": [
+            <span style="background-color: yellow;">{
+	           "region": "auto:bottom",
+	           "zone": "256555",
+	           "startTime": "00:00:03",
+	           "duration": 10
+            }</span>
+        }
+   }
+}
+</pre>
+
+<p>For a more detailed guide on configuring OVA to deliver Linear Ads, please consult the <a href="/support/open-video-ads/25255/delivering-non-linear-ads">Delivering Non-Linear Ads</a> guide.</p>
+
+<h3><a name="constructing"></a>4.4 Constructing the Full Ad Tag Request to OnRamp</h3>
+<p>A VAST request to an ad server will vary according to the ad server brand. Each ad server supported by the OVA framework has a "default ad server call template" from 
+which the final ad request is formed.</p>
+
+<h4><a name="template"></a>4.4.1 Using the OpenX Default Ad Call Template</h4>
+
+<p>Typically an OVA configuration entrt for an OpenX call is quite straight forward. In most cases, the only configuration parameters that need to be defined are 
+the "<span style="font-family: courier new,courier,monospace;">type</span>" (OpenX) and the "<span style="font-family: courier new,courier,monospace;">apiAddress</span>" 
+(the address of the OpenX server).</p>
+
+<p>These parameters are applied to the default ad call template for OpenX that is defined as follows:</p>
+
+<pre>
+    <span style="background-color: yellow;">__api-address__?</span>
+    script=__script__&amp;
+    zones=__zones__&amp;
+    nz=__nz__&amp;
+    source=__source__&amp;
+    r=__r__&amp;
+    block=__block__&amp;
+    format=__format__&amp;
+    charset=__charset__&amp;
+    __target__
+</pre>
+<p>The default properties defined for this template are as follows:</p>
+<pre>
+{
+   "script": "bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml",
+   "nz": "1",
+   "source": "",
+   "r": "__random-number__",
+   "block": "__allow-duplicates-as-binary__",
+   "format": "vast",
+   "charset": "UTF-8"
+}
+</pre>
+<p>The default settings for the template can be overridden at any time using the OVA ad server "<span style="font-family: courier new,courier,monospace;">customProperties</span>" 
+configuration parameter.</p>
+
+<p>With these settings and the settings provided in the OVA configuration, a standard call to OpenX is formed:</p>
+<pre>http://openx.openvideoads.com/openx/www/delivery/fc.php
+    ?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml
+    &amp;zones=pre-roll0-0%3D5%7Cbottom1-0%3D12&amp;nz=1
+    &amp;source=
+    &amp;r=3189404.425211251
+    &amp;block=1
+    &amp;format=vast
+    &amp;charset=UTF_8
+    &amp;key1=value1...&amp;keyN=valueN
+</pre>
+<p>There are several key parameters in that call:</p>
+<ul>
+	<li>"<span style="font-family: courier new,courier,monospace;">zones</span>" - identifies the number and type of ads requested (e.g. linear, non-linear)</li>
+	<li>"<span style="font-family: courier new,courier,monospace;">block</span>" - identifies whether or not ads can be repeated in the resulting set. By default repeats are not allowed - <span style="font-family: courier new,courier,monospace;">block=1</span> is the default setting &nbsp;</li>
+	<li>"<span style="font-family: courier new,courier,monospace;">key1=value1...&amp;keyN=valueN</span>" - identifies any specific key/value pair matching criteria to be used by OpenX to identify the ads to serve</li>
+</ul>
+<p>The "<span style="font-family: courier new,courier,monospace;">zones</span>" parameter is the more complex of the parameters. It has to effectively identify:</p>
+<ul>
+	<li>The number of ads requested</li>
+	<li>The type of each ad requested</li>
+	<li>A unique identifier for each ad requested</li>
+</ul>
+<p>In our example the "zones" parameter value is <span style="font-family: courier new,courier,monospace;">zones=pre-roll0-0%3D5%7Cbottom1-0%3D12.</span> Breaking this example down into it&#39;s parts:</p>
+<ul>
+	<li>There are two ads to be identified</li>
+	<li>The first ad is of OpenX zone type "<span style="font-family: courier new,courier,monospace;">5</span>" (as defined by our first Ad Slot)</li>
+	<li>The second ad is of OpenX zone type "<span style="font-family: courier new,courier,monospace;">12</span>" (as defined by our second Ad Slot)</li>
+	<li>The first ad has a unique identifier "<span style="font-family: courier new,courier,monospace;">pre-roll0-0</span>"</li>
+	<li>The second ad has a unique identifier "<span style="font-family: courier new,courier,monospace;">bottom1-0</span>"</li>
+</ul>
+<p>While the unique identifies for each ad zone are irrelevant for the OpenX server, they are very important for the internal processing algorithms of the OVA framework because multiple ads are being requested in a single call, the framework needs to be able to uniquely identify which ad maps back to which Ad Slot when the VAST response from the Ad Server is parsed by the framework. When the framework makes a request to an ad server, it generates a unique identifier for each ad slot and requires that the identifier is passed back in the VAST response unchanged so that this mapping can be completed. Below is a cut-down example VAST response for our OpenX ad call - you can see how the unique identifiers are provided in the response:</p>
+<pre>&lt;VideoAdServingTemplate&gt;
+    &lt;Ad id="pre-roll0-0"&gt;        
+        &lt;InLine&gt;            
+            &lt;AdSystem&gt;openx&lt;/AdSystem&gt;                
+            &lt;AdTitle&gt;
+            &lt;/AdTitle&gt; 
+              .....             
+         &lt;/InLine&gt;
+     &lt;/Ad&gt;
+    &lt;Ad id="bottom1-0"&gt;        
+         &lt;InLine&gt;            
+             &lt;AdSystem&gt;openx&lt;/AdSystem&gt;                
+             &lt;AdTitle&gt;                    
+             &lt;/AdTitle&gt;       
+              .....             
+        &lt;/InLine&gt;
+    &lt;/Ad&gt;
+&lt;/VideoAdServingTemplate&gt;
+</pre>
+<p>It is possible to override any of the pre-defined settings for the default OpenX ad call using the "<span style="font-family: courier new,courier,monospace;">customProperties</span>" configuration parameter.</p>
+<p>The following configuration snippet illustrates how to achieve this:</p>
+<pre>...
+  "ads": {
+      "servers": [
+          {
+             "type": "OpenX",
+             "apiAddress": "http://d1.openx.org/fc.php",
+             "allowAdRepetition": true
+             <span style="background-color: yellow;">"customProperties": {
+                  "script": "new-value1",
+                  "nz": "new-value2",
+                  "source": "new-value3",
+                  "format": "new-value4"
+             }</span>
+          }
+      ],
+      "schedule": [
+          {
+             "zone": "5",
+             "position": "pre-roll"
+          }
+      ]
+  },
+...</pre>
+<h4><a name="overriding"></a>4.4.2 Overriding the Default Ad Call Template</h4>
+<p>If for any reason, the entire ad call template for OpenX has to change, it is possible to specify a new template via the OVA configuration.</p>
+<p>The following configuration snippet illustrates how to override the default template:</p>
+<pre>
+...
+  "ads": {
+      "servers": [
+          {
+             "type": "OpenX",
+             "apiAddress": "http://d1.openx.org/fc.php",
+             <span style="background-color: yellow;">"requestTemplate" "specify-the-new-template-here"</span>
+          }      
+      ],
+      ...
+  }
+...
+</pre>
+
+<h4><a name="targeting"></a>4.4.3 Delivering Targeted Advertising</h4>
+
+<p>It is possible to add targeting information to an OpenX call. By specifying "target" key value pairs via the "customProperties" element of the OVA ad 
+server configuration block, a number of key value pairs can be added to the end of the standard OpenX call.</p>
+
+<p>For example, consider the following configuration snippet:</p>
+
+<pre>
+{  
+   "ads": {
+      "servers": [
+          {
+             "type": "OpenX",
+             "apiAddress": "http://d1.openx.org/fc.php",
+              <span style="background-color: yellow;">"customProperties": {
+                  "target": [ "category=food", "gender=male" ]
+             }</span>
+          }
+      ],
+      "schedule": [
+          {
+             "zone": "5",
+             "position": "pre-roll"
+          }
+      ]
+  },
+...
+</pre>
+<p>In this example, <span style="font-family: courier new,courier,monospace;">&amp;category=food&amp;gender=male</span> will be added to the end of the OpenX call.</p>
+
+<h3><a name="repetition"></a>4.5 Allowing Ad Repetition</h3>
+
+<p>By default, if a request is received by OpenX for more ad positions than it can fill, it won't allow repetition of ads in the response to cover the full requirement.</p>
+<p>The "<span style="font-family: courier new,courier,monospace;">allowAdRepetition</span>" configuration option should be used to instruct OpenX to support ad
+ repetition in the matching. When set to "true", the "block" element of the OpenX call will be set to "0" (<span style="font-family: courier new,courier,monospace;">block=0</span>). 
+ By default, <span style="font-family: courier new,courier,monospace;">block=1</span> (no repetition allowed).</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+        "servers": [
+            {
+               "type": "OpenX",
+               "apiAddress": "http://d1.openx.org/fc.php",
+               <span style="background-color: yellow;">"allowAdRepetition": true</span>
+            }
+        ],
+        "schedule": [
+            ....
+    }
+}
+</pre>					</article>	
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="part-1" >
+        <InLine>
+            <AdSystem>AdTech</AdSystem>
+            <AdTitle><![CDATA[Part 1]]></AdTitle>
+            <Description><![CDATA[Part 1]]></Description>
+            <Impression>
+            </Impression>
+            <Video>
+                <Duration>00:00:04</Duration>
+                <AdID><![CDATA[1]]></AdID>
+                <MediaFiles>
+                    <MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/x-flv">
+                        <URL><![CDATA[http://streaming.openvideoads.org/ads/brands/adtech/4secs/pre-roll_green.flv]]></URL>
+                    </MediaFile>
+                </MediaFiles>
+             </Video>
+             <TrackingEvents>
+             </TrackingEvents>
+         </InLine>
+    </Ad>
+    <Ad id="part-2" >
+        <InLine>
+            <AdSystem>AdTech</AdSystem>
+            <AdTitle><![CDATA[Part 2]]></AdTitle>
+            <Description><![CDATA[Part 2]]></Description>
+            <Impression>
+            </Impression>
+            <Video>
+                <Duration>00:00:04</Duration>
+                <AdID><![CDATA[2]]></AdID>
+                <MediaFiles>
+                    <MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/x-flv">
+                        <URL><![CDATA[http://streaming.openvideoads.org/ads/brands/adtech/4secs/pre-roll_cyan.flv]]></URL>
+                    </MediaFile>
+                </MediaFiles>
+             </Video>
+             <TrackingEvents>
+             </TrackingEvents>
+         </InLine>
+    </Ad>
+    <Ad id="part-3" >
+        <InLine>
+            <AdSystem>AdTech</AdSystem>
+            <AdTitle><![CDATA[Part 3]]></AdTitle>
+            <Description><![CDATA[Part 3]]></Description>
+            <Impression>
+            </Impression>
+            <Video>
+                <Duration>00:00:04</Duration>
+                <AdID><![CDATA[3]]></AdID>
+                <MediaFiles>
+                    <MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/x-flv">
+                        <URL><![CDATA[http://streaming.openvideoads.org/ads/brands/adtech/4secs/pre-roll_purple.flv]]></URL>
+                    </MediaFile>
+
+                </MediaFiles>
+             </Video>
+             <TrackingEvents>
+             </TrackingEvents>
+         </InLine>
+    </Ad>
+</VideoAdServingTemplate>

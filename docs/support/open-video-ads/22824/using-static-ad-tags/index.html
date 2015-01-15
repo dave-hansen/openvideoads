@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22824/using-static-ad-tags/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Using Static Ad Tags | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Using Static Ad Tags</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Contents</h2>
+<p>This guide describes how to use static ad tags with OVA to deliver IAB compliant video advertising</p>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#example">Working Example</a></li>
+<li><a href="#configuring">Configuring Static Ad Tags</a></li>
+<li><a href="#supporting">Supporting Companion Ads</a></li>
+<li><a href="#loading">Loading Ad Tags 'On-Demand'</a></li>
+<li><a href="#refreshing">Refreshing Ad Tags 'On-Replay'</a></li>
+</ol>
+<h2>Further Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/13047/getting-started">Getting Started Guides</a>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23120/what-is-vast">What is VAST?</a></li>
+<li><a href="/support/open-video-ads/22825/using-ad-tag-variables">Ad Tag Variables</a></li>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Try your Ad Tags OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Try your Ad Tags OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads/edit">Ad Formats - Linear Ads</a></li>
+<li><a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading 'On Demand' and 'Refreshing'</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>In most cases, ad providers supply static ad tags for use with OVA. This is by far the easiest way to configure OVA to deliver video creatives.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>Consider the following example which plays a linear pre-roll ad stream before the main show stream:</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="true">
+	{
+	    "ads": { 
+	       "companions": {
+	          "regions": [
+	             { "id":"companion", "width":80, "height":300 }
+	          ]
+	       },
+	       "schedule": [
+	          {
+	             "position": "pre-roll",
+	             "tag": "OVA_AD_TAG_LINEAR_STREAM_WITH_80x300_COMPANION"
+	          }
+	       ]
+	    },
+	    "debug": {
+	       "levels": "fatal, config, vast_template, http_calls"
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="configuring"></a>3. Configuring Static Ad Tags</h2>
+
+<p>In this example, the ad provider has provided the following static ad tag:<p>
+
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll:0.0-0%3D50&nz=1&source=&r=R0.05822725687175989&block=1&format=vast&charset=UTF-8
+</pre>
+
+<p>To configure OVA with that ad tag, the following configuration can be used:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+       "schedule": [ 
+          {
+             "position": "pre-roll",
+             <span style="background-color: yellow;">"tag": "http://openx.openvideoads.org/....format=vast&charset=UTF-8"</span>
+          } 
+       ]
+    }
+}
+</pre>
+
+<p>When OVA calls that ad tag, the ad provider returns a VAST response. OVA parses the response extracting the impression, tracking and video creative elements. If you pop that ad tag into the URL box within a browser, you will see the full XML based VAST response that the ad provider returns.</p>
+
+<p>Sometimes static ad tags have special characters in them that have to be pre-processed when configuring the ad tag with OVA. Two such special characters are:</p>
+
+<ul>
+<li>Ampersands</li>
+<li>Quotes</li>
+</ul> 
+
+<h3>3.1 Dealing with Ampersands</h3>
+
+<p>If you are running <i>OVA for Flowplayer</i> and your static ad tag has ampersands in it, then those ampersands need to be replaced with 
+<span style="font-family: courier new,courier,monospace;">__amp__</span> when declaring that ad tag to OVA. This is required becauses the ampersands break the Flowplayer JSON parser.</p>
+
+<p>For example, if your ad tag appears as follows:</p>
+
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll:0.0-0%3D50&nz=1&source=&r=R0.05822725687175989&block=1&format=vast&charset=UTF-8
+</pre>
+
+<p>It needs to be declared to OVA as follows:</p>
+
+<pre class="prettyprint">
+http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml<span style="background-color: yellow;">__amp__</span>zones=pre-roll:0.0-0%3D50<span style="background-color: yellow;">__amp__</span>nz=1<span style="background-color: yellow;">__amp__</span>source=<span style="background-color: yellow;">__amp__</span>r=R0.05822725687175989<span style="background-color: yellow;">__amp__</span>block=1<span style="background-color: yellow;">__amp__</span>format=vast<span style="background-color: yellow;">__amp__</span>charset=UTF-8
+</pre>
+
+<h3>3.2 Dealing with Quotes</h3>
+
+<p>Quotes in ad tags have a habit of breaking the OVA JSON parser. If you have specified an ad tag that breaks the OVA parser, you typically see OVA 
+complain with the following line of debug being printed in the Javascript console:</p>
+
+<pre class="prettyprint">
+OVA Configuration parsing exception on 5.9.2118 - Unexpected s encountered
+</pre>
+
+<p>The follow tag with quotes within it will break the OVA JSON parser:</p>
+
+<pre class="prettyprint">
+http://ads.adap.tv/vastvpaid?pageUrl=xxx&key=xxx&spot=preroll&artEid=vast_2_0_vpaid&context=<span style="background-color: yellow;">{"site_id":"xxx"}</span>&creativeType=vast_video&cb=__timestamp__
+</pre>
+
+<p>To work around this, we need to "escape" the quote characters as follows:</p>
+
+<pre class="prettyprint">
+http://ads.adap.tv/vastvpaid?pageUrl=xxx&key=xxx&spot=preroll&artEid=vast_2_0_vpaid&context=<span style="background-color: yellow;">{&#92;"site_id&#92;":&#92;"xxx&#92;"}</span>&creativeType=vast_video&cb=__timestamp__
+</pre>
+
+<h2><a name="supporting"></a>4. Supporting Companion Ads</h2>
+
+<p>A companion ad is also declared within the VAST response - this 80x300 GIF banner is to be shown as the linear ad stream is played.</p>
+
+<pre class="prettyprint">
+&lt;Companion id="companion" width="80" height="300" resourceType="HTML">
+    &lt;Code>
+       &lt;![CDATA[&lt;a href='http://openx.openvideoads.org/openx-2.8.2/www/delivery/ck.php?
+       oaparams=2__bannerid=83__zoneid=0__cb=db8422365e__oadest=http%3A%2F%2F
+       www.openvideoads.org' target='_blank'>&lt;img src='http://openx.openvideoads.
+       org/openx-2.8.2/www/images/9ca5d435f0ec37230d2beb388d2f376f.jpg' 
+       width='80' height='300' alt='' title='' border='0' />
+       &lt;/a>&lt;div id='beacon_db8422365e' style='position: absolute; left: 
+       0px; top: 0px; visibility: hidden;'>&lt;img src='http://openx.openvideoads.org
+       /openx-2.8.2/www/delivery/lg.php?bannerid=83&amp;campaignid=12&amp;
+       zoneid=0&amp;loc=1&amp;cb=db8422365e' width='0' height='0' alt='' 
+       style='width: 0px; height: 0px;' />
+       &lt;/div>]]>
+    &lt;/Code>
+    &lt;CompanionClickThrough>
+        &lt;URL>&lt;![CDATA[http://www.openvideoads.org]]>&lt;/URL>
+    &lt;/CompanionClickThrough>
+&lt;/Companion>
+</pre>
+
+<p>If you wish to display the companions along with the main video ad creative, the companions should be configured as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": { 
+       <span style="background-color: yellow;">"companions": {
+          "regions": [
+             { "id":"companion", "width":80, "height":300 }
+          ]
+       },</span>
+       "schedule": [
+          ....
+}
+</pre>
+
+
+<h2><a name="loading"></a>5. Loading Ad Tags "On-Demand"</h2>
+
+<p>By default, OVA will pre-load all ad tags when the plugin is configured. While this helps optimize playback, it is often not optimal for ad providers as it pre-fetches the inventory even though the inventory may not be viewed by the user. Alternatively, ad tags can be configured to load <i>on-demand</i> as they are required during playback.</p>
+
+<p>For example, if a player has two show streams configured and each show stream is to have a pre-roll creative shown before the actual show stream, the ad tag for the pre-roll can be called just before each pre-roll. This ensures that the player only gets the ad creative as it is required.</p>
+
+<p>To configure <i>on-demand</i> ad slots with OVA, the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> configuration option should be used as follows:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+<span style="background-color: yellow;">                  "loadOnDemand": true,</span>
+                  "tag": "http://ad3.liverail.com/?...ID=229&LR_SCHEMA=vast2"
+             } 
+         ]
+    }
+}
+</pre>
+
+<p>For more detailed information regarding <span style="font-family: courier new,courier,monospace;">loadOnDemand</span>, please consult the <a href="/support/open-video-ads/22840/loading-on-demand-and-refreshing">Loading 'On Demand' and 'Refreshing'</a> guide.</p>
+
+<h2><a name="refreshing"></a>6.Refreshing Ad Tags "On-Replay"</h2>
+
+<p>As ad slots are replayed, they may be refreshed with new ad content by forcing OVA to re-call the ad tag before the ad position is played. By default, once an ad is loaded, OVA will just replay the same ad again if the playlist is replayed within the player.</p>
+
+<p>To instruct OVA to refresh an ad slot on each replay, the <span style="font-family: courier new,courier,monospace;">refreshOnReplay</span> option should be used as follows:</p>
+
+<pre class="prettyprint">
+{
+    "debug": { "levels": "fatal, config, vast_template" },
+    "ads": {
+         "schedule": [ 
+             {
+                  "position": "pre-roll",
+                  "loadOnDemand": true,                
+<span style="background-color: yellow;">                  "refreshOnReplay": true,</span> 
+                  "tag": "http://ad3.liverail.com/?LR...AIGN_ID=229&LR_SCHEMA=vast2"
+             } 
+         ]
+    }
+}
+</pre>
+<p>
+<span style="font-family: courier new,courier,monospace;">refreshOnReplay</span> should be used in conjunction with the <span style="font-family: courier new,courier,monospace;">loadOnDemand</span> option.</p>					</article>	
+
+</body>
+</html>

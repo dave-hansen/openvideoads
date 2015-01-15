@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23680/delivering-vpaid-ads/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Delivering VPAID Ads | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Delivering VPAID Ads</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to configure OVA to deliver VPAID linear and non-linear (overlay) ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#holding-clip">Holding Clips</a></li>
+	<li><a href="#ova">Enabling VPAID for OVA for JW5</a></li>
+		<ol>	
+			<li><a href="#showing">Showing the Control Bar during VPAID Linear Playback</a></li>
+		</ol>
+	<li><a href="#flowplayer">Enabling VPAID for OVA for Flowplayer</a></li>
+		<ol>	
+			<li><a href="#vpaid">VPAID and Flowplayer 3.2.6 Control Bars</a></li>
+			<li><a href="#enabling">VPAID Ads and "always" autoHide Control Bars</a></li>
+		</ol>
+	<li><a href="#instructing">Instructing OVA to pass a Referrer URL to the VPAID Ads</a></li>
+	<li><a href="#setting">Setting the Maximum Timeout Option</a></li>
+	<li><a href="#expandable">Expandable Regions</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="http://www.iab.net/vpaid">IAB VPAID Specification</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads/revisions/24116/view">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13060/configuring-ova-to-deliver-overlay-ads">Delivering Overlay Ads</a></li> 
+</ul>
+
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25377/example-linear-vpaid-ad">VPAID Linear Pre-Roll Ad</a></li>
+<li><a href="/support/open-video-ads/25378/example-non-linear-vpaid">VPAID Non-Linear Ad</a></li>
+</ul>
+<br/>
+<hr/>
+
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>Video Player-Ad API definition (<a href="http://www.iab.net/vpaid">VPAID</a>) standardizes the communication between video
+ players and in-stream video advertising. This standard has been produced by the Interactive Advertising Bureau (<a href="http://www.iab.net/">IAB</a>) to meet the 
+ needs of emerging in-stream ad formats such as:</a></li>
+
+<ul>
+<li>Interactive non-linear video ads (overlays)</li>
+<li>Interactive video ads</li>
+</ul>
+<p>Details on the VPAID standard can be found at <a href="http://www.iab.net/vpaid">www.iab.net/vpaid</a></li>
+
+<p>Support has been added to OVA for Flowplayer, OVA for JW5 and OVA for AS3 for VPAID 1.1 linear and non-linear ads.</p>
+
+<p>The following example illustrates a VPAID pre-roll. Interact with the ad as it plays:</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_AD_TAG_VPAID"
+                }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template, vpaid"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<h2><a name="holding-clip"></a>2 Holding Clips</h2>
+
+<p>For VPAID Linear Ads to work with OVA for JW5 and OVA for Flowplayer, a <i>holding</i> clip must be placed in the position of the linear ad within the playlist. A holding clip is 
+a <i>minimal</i> clip that sits in the background in the player while the VPAID ad plays in the foreground - for example, a 1 second black FLV or MP4 stream.</p>
+
+<p>OVA automatically places this <i>holding</i> clip into the player when it schedules a VPAID ad to play. The default holding clip is loaded from the OVA CDN.</p>
+
+<p>If you wish to configure your own holding clip, we have provided a default (1 second black MP4) clip that you can download and use <a href="http://lp.longtailvideo.com/5/ova/blank.mp4">here</a></p>
+
+<p>The holding clip must be hosted on a server of your choice. Never reference the holding clip from the OVA QA servers as the file cannot be guaranteed to always be available.<p>
+
+<p>Declare your own VPAID holding clip location as follows:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        "vpaid": {
+            <span style="background-color: yellow;">"holdingClipUrl": http://content.xxx.com/videos/xxxxx.mp4",</span>
+        },
+        "schedule": [
+            .....
+        ]
+    }
+}
+</pre>
+
+<p>It is also possible to declare the holding clip as follows - if you are deploying <i>on demand loading</i>, the same holding clip can be used for "on demand" ad slots 
+as well as VPAID ads:</p>
+
+<pre class="prettyprint">
+{
+    "ads": {
+        <span style="background-color: yellow;">"holdingClipUrl": "http://content.xxx.com/videos/xxxxx.mp4",</span>
+        "schedule": [
+               .....
+        ]
+    }
+}
+</pre>
+
+<h2><a name="enabling"></a>3. Enabling VPAID for OVA for JW5</h2>
+
+<p>VPAID ads will be played by default with OVA for JW5. No VPAID specific addition configuration is required to enable VPAID ads to run with OVA for JW5.</p>
+
+<h3><a name="showing"></a>3.1 Showing the Control Bar during VPAID Linear Playback</h3> 
+
+<p>OVA for JW5 hides the control bar by default during VPAID Linear Ad playback.</p>
+
+<p>OVA can be instructed to show the control bar during playback via the following configuration:</p>
+
+<pre class="prettyprint">
+{
+    "player": {
+        "controls": {
+           "vpaid": {
+               <span style="background-color: yellow;">"visible": true</span>
+           }
+        }
+    },
+    "ads": {
+        ...
+}
+</pre>
+
+<h2><a name="enabling"></a>4. Enabling VPAID for OVA for Flowplayer</h2>
+
+<p>VPAID ads will be played by default with OVA for Flowplayer. No VPAID specific addition configuration is required to enable VPAID ads to run with OVA for Flowplayer.</p>
+
+<h3><a name="flowplayer"></a>4.1 VPAID and Flowplayer 3.2.6 Control Bars</h3>
+
+<p>The standard Flowplayer 3.2.6 Control Bars currently have a small issue that may cause problems with the sizing of VPAID linear ads.</p>
+
+<p>Flowplayer 3.2.6 when used with flowplayer-controls.3.2.4 or flowplayer-controls.3.2.5 will report the height of the controls as 0.</p>
+
+<p>OVA uses the sizing information for the control bars when configuring VPAID ads. Incorrect sizing information will result in the VPAID ad not displaying correctly 
+around the control bar area.</p>
+
+<p>To force the sizing of the control bar to be correctly recognised by OVA, a control bar <span style="font-family: courier new,courier,monospace;">height</span> option 
+has been introduced.</p>
+
+<p>Use this option as follows:</p>
+
+<pre class="prettyprint">
+{
+   ...
+   "player": {
+        "controls": {
+             <span style="background-color: yellow;">"height": 30</span>
+        }
+   }
+</pre>
+
+<h3><a name="vpaid"></a>4.2 VPAID Ads and "always" autoHide control bars</h3>
+
+<p>By default, VPAID ads will attempt to cover <i>always</i> autoHide configured control bars.</p>
+
+<p>For some reason however, the control bar may occasionally appear over the VPAID ad when the mouse is moved over the control bar area. This is not a consistent bug and seems to happen randomly.</p>
+
+<p>If you notice this behaviour and wish to size the VPAID ad so that it is not appearing over the control bar area, use the following option in conjunction with 
+the <span style="font-family: courier new,courier,monospace;">"autoHide": "always"</span> Flowplayer player configuration:</p>
+
+<pre class="prettyprint">
+{
+    ..
+    "player": {
+        "controls": {
+            "vpaid": {
+                "controls": { "visible": true }
+            }
+        }
+    }
+}
+</pre>
+
+<h2><a name="instructing"></a>5. Instructing OVA to pass a Referrer URL to the VPAID Ads</h2> 
+
+<p>Sometimes VPAID ads require a <i>referrer</i> URL to be passed to them.</p>
+
+<p>To enable this information to be passed, configure OVA as follows:</p>
+
+<pre class="prettyprint">
+{
+      ...
+          "ads": {
+             "vpaid": {
+                 <span style="background-color: yellow;">"supplyReferrer": true</span>
+             },
+     ....
+}
+</pre>
+
+<p>It is also possible to manually specify the value of the <i>referrer</i> string that is passed into a VPAID ad. The following config snippet 
+illustrates how to achieve this:</p>
+
+<pre class="prettyprint">
+{
+      ...
+          "ads": {
+            "vpaid": {
+                 "supplyReferrer": true,
+                 <span style="background-color: yellow;">"referrer": "www.my-domain.com"</span>
+             },
+     ....
+}
+</pre>
+
+<h2><a name="setting"></a>6. Setting the Maximum Timeout Option</h2>
+
+<p>If a VPAID ad has an internal exception that cannot be caught by OVA, a default timer can be set to ensure that OVA will eventually close down 
+the VPAID ad and continue on to the next clip.</p>
+
+<p>The following configuration sets the default timer to 30 seconds. The timer is disabled by default.</p>
+
+<pre class="prettyprint">
+{
+   ...
+       "ads": {
+            "vpaid": {
+                  <span style="background-color: yellow;">"enableMaxDurationTimeout": true,
+                  "maxDurationTimeout": 30</span>
+            },
+   ...
+}
+</pre>
+
+<h2><a name="expandable"></a>7. Expandable Regions</h2>
+
+<p>If a non-linear VPAID ad has expanded sizing specified in the VAST response, OVA will create an auto-sizing/expandable region to display the VPAID ad - this allows clicks on the player display outside of the VPAID ad area to be passed into the player enabling standard player controls on the display (e.g pausing by clicking on the player display). An example of a VAST response with expanded sizing is as follows:</p>
+
+<pre class="prettyprint">
+&lt;NonLinearAds> 
+    &lt;NonLinear width="300" height="50" <span style="background-color: yellow;">expandedWidth="300" expandedHeight="250"</span> scalable="false" apiFramework="VPAID"> 
+         &lt;StaticResource creativeType="application/x-shockwave-flash"> 
+                &lt;![CDATA[http://localhost/ova/ova.vpaid.ads/dist/vpaid-expandable-example.swf]]> 
+         &lt;/StaticResource> 
+    &lt;/NonLinear> 
+&lt;/NonLinearAds>
+</pre>					</article>	
+
+</body>
+</html>

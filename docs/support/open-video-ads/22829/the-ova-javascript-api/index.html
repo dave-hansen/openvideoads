@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22829/the-ova-javascript-api/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>The OVA Javascript API | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>The OVA Javascript API</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide outlines how to use the Javascript API provided by OVA.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#callback">Using the Callback API</a></li>
+	<li><a href="#external">Using the External API</a></li>
+	<li><a href="#clip">OVA Clip Properties</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started with OVA for Flowplayer</a></li>
+<li><a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started with OVA for JW5</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide">Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/22830/javascript-callbacks">Javascript Callbacks</a></li>
+<li><a href="/support/open-video-ads/22831/calling-ova-from-javascript">Calling OVA from Javascript</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25476/example-javascript-callbacks">Javascript Callbacks</a></li>
+<li><a href="/support/open-video-ads/25474/example-load-triggered-rescheduling">Triggering OVA for JW5 to Schedule via Load()</a></li>
+<li><a href="/support/open-video-ads/25475/example-dynamic-rescheduling">Dynamically Changing the OVA Schedule</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA provides a Javascript API that bridges the gap between a HTML page and OVA running within a Flash player SWF.</p>
+
+<p>The API has two discrete categories of functionality:</p>
+<ul>
+<li><i>Callbacks</i> from the OVA SWF into Javascript</li>
+<li><i>Calls into</i> the OVA SWF from Javascript</li>
+</ul>
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following example illustrates the OVA Javascript API in action. This example illustrates the OVA tracking events as they fire.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="false">
+	{
+	    "canFireEventAPICalls": true,
+	    "ads": { 
+	       "schedule": [
+	          {
+	             "position": "pre-roll",
+	             "tag": "OVA_AD_TAG_LINEAR_WITH_CLICK_TRACKING"
+	          }
+	       ]
+	    }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<script type="text/javascript">
+function ovaPrintDebug(output) {
+	try {
+   		console.log(output);
+  	}
+  	catch(error) {}
+}
+
+function onImpressionEvent(event, forced) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-impression").css("background", "#9ACD32");
+   }
+}
+
+function onTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-" + event.eventType).css("background", "#9ACD32");
+   }
+}
+
+function onClickTrackingEvent(event) {
+   if(event != null) {
+	   ovaPrintDebug(event);
+       $("#ova-tracking-click").css("background", "#9ACD32");
+   }
+}
+</script>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-output" style="margin-left:20px;margin-bottom:10px;height:300px;width:610px;">
+		<div id="ova-example-player" style="position:relative;height:100%;width:450px;float:left">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+        <div id="ova-event-status-blocks" style="width:150px;height:300px;background:#FFFFFF;float:right;">
+        	<div id="ova-tracking-impression" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;margin-top:2px;font-size:10px;padding-top:8px;text-align:center;">IMPRESSION</div>
+        	<div id="ova-tracking-start" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">START</div>
+        	<div id="ova-tracking-firstQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">1ST QUARTILE</div>
+        	<div id="ova-tracking-midpoint" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MIDPOINT</div>
+        	<div id="ova-tracking-thirdQuartile" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">3RD QUARTILE</div>
+        	<div id="ova-tracking-complete" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">COMPLETE</div>
+        	<div id="ova-tracking-click" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">CLICK</div>
+        	<div id="ova-tracking-mute" style="width:120px;height:28px;background:#DDDDDD;margin-bottom:1px;font-size:10px;padding-top:8px;text-align:center;">MUTE</div>
+        </div>
+	</div>
+</div>
+<!-- END OVA SPECIFIC HTML -->
+
+<br/>
+<p>Each event fires a Javascript callback event that is captured by a Javascript function. As the Javascript captures the event, the matching DIV region matching that event is colored 
+green. The following code snippet presents the Javascript callback event functions that have been implemented for this example.</p>
+
+<pre class="prettyprint">
+function ovaPrintDebug(output) {
+   try {
+      console.log(output);
+   }
+   catch(error) {}
+}
+
+function onImpressionEvent(event, forced) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-impression").css("background", "#9ACD32");
+   }
+}
+
+function onTrackingEvent(event) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-" + event.eventType).css("background", "#9ACD32");
+   }
+}
+
+function onClickTrackingEvent(event) {
+   if(event != null) {
+       ovaPrintDebug(event);
+       $("#ova-tracking-click").css("background", "#9ACD32");
+   }
+}
+</pre>
+
+<h2><a name="callback"></a>3. Using the Callback API</h2>
+
+<p>OVA provides a fairly extensive API that calls back into Javascript as the OVA SWF operates.</p> 
+
+<p>The callback API covers the following:</p>
+<ul>
+<li>Ad scheduling</li>
+<li>Template loading</li>
+<li>On-Demand" ad slot loading</li>
+<li>Linear ad playback updates</li>
+<li>Non-Linear ad playback updates</li>
+<li>Companion ad display updates</li>
+<li>VPAID ad playback updates</li>
+<li>Ad notice display updates</li>
+</ul>
+
+<p>For a detailed description of each of these callback functions please consult the <a href="/support/open-video-ads/22830/javascript-callbacks">Callbacks from the OVA SWF to Javascript</a> guide.</p> 
+
+<h2><a name="external"></a>4. Using the External API</h2>
+
+<p>At this stage, the OVA external API is fairly limited - it currently provides functions to:</p>
+<ul>
+<li>Allow a new ad schedule/ova configuration to be loaded</li>
+<li>Force OVA to reschedule ads against the current or a new playlist</li>
+<li>Get the OVA SWF plugin version number</li>
+<li>Get the ad schedule active within OVA</li>
+</ul>
+<p>For a detailed description of the OVA External API please consult the <a href="/support/open-video-ads/22829/the-ova-javascript-api">Calling OVA from Javascript</a> guide.</p>
+
+<h2><a name="clip"></a>5. OVA Clip Properties</h2>
+
+<p><i>OVA for JW5</i> and <i>OVA for Flowplayer</i> set a number of OVA specific properties on playlist clips as they are scheduled, loaded and played back. This allows OVA specific ad streams to be identified by Javascript by interrogating the player playlist.</p>
+
+<p>The properties set by OVA on each ad clip are as follows:</p>
+
+<ul>
+<li><span style="font-family: courier new,courier,monospace;">ovaAd</span> - is true if the clip is an OVA ad stream</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaZone</span> - the "zone" set in the ad slot associated with this clip</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaAdSlotId</span> - the internal OVA ad slot ID associated with this clip</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaPlaylistIndex</span> - the index of this clip in the playlist</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaAssociatedStreamIndex</span> - the index of the show stream that this ad clip is associated with</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaAdType</span> - pre-roll, mid-roll or post-roll</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaInteractive</span> - true if this is a VPAID ad</li>
+<li><span style="font-family: courier new,courier,monospace;">ovaUID</span> - the internal unique OVA ID for this clip</li>
+</ul>					</article>	
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0">
+  <Ad id="longtail-ova">
+  <Wrapper>
+    <AdSystem>Static Wrapper for OnRamp Hosted OVA Pre-Roll Ad Tag</AdSystem>
+    <VASTAdTagURI>http://openx.openvideoads.org/openx/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll:0.0-0%3D52&nz=1&source=&r=R0.5911759017035365&block=1&format=vast&charset=UTF-8</VASTAdTagURI>
+    <Impression></Impression>
+	<Creatives>
+		<Creative AdID="602833">
+			<Linear>
+				<TrackingEvents>
+				</TrackingEvents>
+			</Linear>
+		</Creative>
+	</Creatives>
+  </Wrapper>
+  </Ad>
+</VAST>

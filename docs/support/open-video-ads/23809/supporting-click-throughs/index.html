@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/23809/supporting-click-throughs/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Supporting Click-Throughs | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Supporting Click-Throughs</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how OVA supports <i>click-throughs</i> on linear ad streams.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#example">Working Example</a></li>
+	<li><a href="#delaying">Modifying the click-through message</a></li>
+	<li><a href="#loading">Pausing on click-through</a></li>
+	<li><a href="#holding">Modifying the target window</a></li>
+	<li><a href="#blocking">Turning off the click-through</a></li>
+	<li><a href="#playlists">Tracking clicks</a></li>
+</ol>
+<h2>Recommended Reading</h2>
+<ul>
+<li>JW Player 5 - <a href="/support/open-video-ads/ova-for-jw-player-5/13162/getting-started">Getting Started</a></li>
+<li>Flowplayer <a href="/support/open-video-ads/ova-for-flowplayer/13166/getting-started">Getting Started</a></li>
+<li><a href="/support/open-video-ads/open-video-ads/13048/ova-configuration-guide/">OVA Configuration Guide</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/22833/google-analytics">Using Google Analytics with OVA</a></li>
+<li><a href="/support/open-video-ads/23679/delivering-linear-ads">Customising Display Regions</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25468/example-default-click-through-notice">The Default Click-Through Notice</a></li>
+<li><a href="/support/open-video-ads/25469/example-custom-click-through-notice">Customising the Click-Through Notice</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introductions</h2>
+
+<p>By default, OVA supports <i>click-throughs</i> on linear ads streams.</p> 
+
+<p>A <i>click-through</i> is a call to action made to the user as they watch the linear ad. For non-interactive ad streams the call to action comes in 
+the form of a <i>"Click for More Information"</i> notice that appears on the player screen when the user mouses over the player.</p> 
+
+<p>For interactive (VPAID) linear ads, the call to action may come in a more obvious manner via some type of interactive display on the player as the ad progresses.</p>
+
+<p>No additional configuration is required to enable <i>click-throughs</i> - OVA automatically configures the click-through process based on the detail 
+provided in the VAST response to an ad call.</p>
+
+<h2><a name="example"></a>2. Working Example</h2>
+
+<p>The following instance illustrates the standard click-through notice <i>"Click for More Information"</i> as it appears when the view mouses over the 
+linear ad stream.</p>
+
+<!--- START OVA SPECIFIC HTML -->
+<div id="ova-example-input" style="display:none;">
+	<div id="ova-config" companion="true">
+	{
+          "ads": {
+             "schedule": [
+                {
+                   "position": "pre-roll",
+                   "tag": "OVA_AD_TAG_LINEAR_STREAM_WITH_80x300_COMPANION"
+                }
+             ]
+          },
+          "debug": {
+              "levels": "fatal, config, vast_template"
+          }
+	}
+	</div>
+	<div id="ova-flowplayer-config">
+	{
+	    "playlist": [
+	        {
+	           "url": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+	    "plugins": {
+	        "controls": {
+	           "autoHide": "never"
+	        },
+	        "ova": {
+	           "url": "OVA_FLOWPLAYER_PLUGIN_SWF"
+	        }
+	    }
+	}
+	</div>
+	<div id="ova-jw5-config" active="true">
+	{
+        "flashplayer": "OVA_JW5_PLAYER_SWF",
+	    "playlist": [
+	        {
+	           "file": "OVA_HTTP_SHOW_STREAM"
+	        }
+	    ],
+        "width": 450,
+        "height": 300,
+	    "controlbar": { "position": "bottom" },
+	    "plugins": {
+	    }
+	}
+	</div>
+</div>
+<div>
+	<div>
+		<h3>Embed code:</h3>
+	</div>
+	<div id="ova-example-output" style="">
+		<ul class="example_tabs">
+			<li id="ova-tab-jw5" style="display:inline-block;">
+				<a class="current">JW Player 5</a>
+			</li>	
+			<li id="ova-tab-flowplayer" style="display:inline-block;">
+				<a class="">Flowplayer</a>
+			</li>
+			<li id="ova-tab-json" style="display:inline-block;">
+				<a class="">OVA JSON</a>
+			</li>
+		</ul>
+		<div class="player_examples" style="">
+			<div class="example" id="ova-example-config" style="visibility:visible;">
+				<!-- SELECTED CONFIG TO GO HERE -->
+			</div>
+		</div>
+	</div>
+	<div>
+		<h3>Resulting player:</h3>
+	</div>
+	<div id="ova-example-player-container" style="margin-left:20px;margin-bottom:10px;height:300px;width:450px;">
+		<div id="ova-example-player" style="position:relative;">
+			<div id="ova-player-instance" loaded="false" style="background:#000000; height:300px; width:450px; visibility:visible;">
+			     <!-- SELECTED PLAYER INSTANCE GOES IN HERE -->
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<!-- END OVA SPECIFIC HTML -->
+
+<p>Mouse over the player as the ad progresses to see the notice. Click on the player when the notice appears to activate the <b>"call to action"</b>. In this example, the viewer is directed to a third party website in a new browser tab.</p>
+
+<h2><a name="message"></a>3. Modifying the Click-Through Message</h2>
+
+<p>The appearance of the click-through message can be modified via the <span style="font-family: courier new,courier,monospace;">clickSign</span> configuration block as follows:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "ads": {
+          "clickSign": {
+                 "enabled": true, 
+                 "verticalAlign": "center",
+                 "horizontalAlign": "center",
+                 "width": 150,
+                 "height": 32,
+                 "opacity": 0.5,
+                 "borderRadius": 20,
+                 "backgroundColor": "#000000",
+                 "style": ".smalltext { font-size:12; }",
+                 <span style="background-color: yellow;">"html": "&lt;p class="smalltext" align="center">CLICK ME!&lt;/p>",</span>
+                 "scaleRate": 0.75
+          },
+          .....
+}
+</pre>
+
+<p>The click-through message is presented as a display <span style="font-family: courier new,courier,monospace;">region</span> on the player screen. As such, it can 
+be fully customised by declaring the standard properties of a region within a <span style="font-family: courier new,courier,monospace;">clickSign</span> block. For 
+more information on customising a region, please refer to the <a href="/support/open-video-ads/23833/customising-display-regions">Customising Display Regions</a> guide.</p>
+
+<p>In the example config above, the wording of the click-through message is changed to <span style="font-family: courier new,courier,monospace;">"CLICK ME!"</span> and 
+that wording is placed in the center of the player screen with a slightly tinted black background.</p>
+
+<p>An example of a customised click-through message can be found <a href="/support/open-video-ads/25469/example-custom-click-through-notice"<here></a>.</p>
+
+<h2><a name="pausing"></a>4. Pausing on Click-Through</h2>
+
+<p>By default playback is paused when the user clicks through on linear ad.</p>
+
+<p>OVA be instructed to keep playing after the viewer clicks-through via the <span style="font-family: courier new,courier,monospace;">pauseOnClickThrough</span> configuration variable.</p>
+
+<p>The following code snippet illustrates how to use <span style="font-family: courier new,courier,monospace;">pauseOnClickThrough</span>:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "ads": {
+          <span style="background-color: yellow;">"pauseOnClickThrough": false</span>
+          .....
+}
+</pre>
+
+<h2><a name="modifying"></a>5. Modifying the Target Window</h2>
+
+<p>When the viewer clicks through, the click-through URL that has been declared in the VAST response will be loaded in a new tab in the browser. It is possible to 
+modify the <span style="font-family: courier new,courier,monospace;">target</span> window used to load that click-through URL via the 
+<span style="font-family: courier new,courier,monospace;">clickSign.target</span> configuration variable. The following code snippet 
+illustrates how to change the target window to the one containing the player:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "ads": {
+          "clickSign": {
+               <span style="background-color: yellow;">"target": "_self"</span>
+          }
+          .....
+}
+</pre>
+
+<p>This option can be seen in action <a href="/support/open-video-ads/25469/example-custom-click-through-notice">here</a>.</p>
+
+<p>Valid options are <span style="font-family: courier new,courier,monospace;">"_self"</span>, <span style="font-family: courier new,courier,monospace;">"_blank"</span>, 
+<span style="font-family: courier new,courier,monospace;">"_parent"</span> and <span style="font-family: courier new,courier,monospace;">"_top"</span>. 
+The default setting is <span style="font-family: courier new,courier,monospace;">"_blank"</span>.</p>
+
+<h2><a name="turning"></a>6. Turning off the Click-Through</h2>
+
+<p>The click-through mechanism can be turned off via the <span style="font-family: courier new,courier,monospace;">"clickSign.enabled"</span> option as follows:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "ads": {
+          "clickSign": {
+               <span style="background-color: yellow;">"enabled": false</span>
+          }
+          .....
+}
+</pre>
+
+<h2><a name="tracking"></a>7. Tracking Clicks</h2>
+
+<p>By default, all click-through actions are tracked by OVA in accordance with the specification provided in the VAST response.</p>
+
+<p>It is possible to also track the actions via Google Analytics using the OVA GA customisations - please refer to 
+the <a href="/support/open-video-ads/22833/google-analytics">Using Google Analytics with OVA guide</a> for further information.</p>					</article>
+
+</body>
+</html>

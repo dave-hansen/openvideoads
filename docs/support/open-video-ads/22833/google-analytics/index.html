@@ -1,0 +1,717 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/support/open-video-ads/22833/google-analytics/" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//s0-www.ltvimg.com http" />
+<link rel="shortcut icon" href="/sites/all/themes/community/favicon.ico" type="image/x-icon" />
+
+	<title>Google Analytics | JW Player | Best HTML5 & Flash Online Video Player</title>
+	<!-- CSS aggregated by CDN module. -->
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/wmzJ7BnfsVcDQ2e6S69vfBNDLzSceRs7IAzgiyydhPo/mtime:1397750588/sites/default/files/css/cdn_css_http_027ac30aeaf3710aa69643a37bc67518_codefilter.css" />
+<link type="text/css" rel="stylesheet" media="all" href="http://s1-www.ltvimg.com/cdn/farfuture/VSm-TZ9MhVwPMPQ2E78ntxHLQmdddsS92PUnz0nTwCU/mtime:1397750588/sites/default/files/css/cdn_css_027ac30aeaf3710aa69643a37bc67518.css" />
+<!-- CSS aggregated by CDN module. -->
+	<script type="text/javascript" src="http://s0-www.ltvimg.com/cdn/farfuture/wWHyHWXVTl2kw9xChPbXx-AKUWxfF-y4EMDMFh0vcys/mtime:1397750603/sites/default/files/js/js_5c9e088d9254d90ae8cf5a298ac3e950.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "googleanalytics": { "trackOutgoing": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" } });
+//--><!]]>
+</script>
+	<!--[if lt IE 9]><script src="/sites/all/themes/community/js/html5.js"></script><![endif]-->
+	<!-- TPL: support item | Type: Support Document -->
+</head>
+<body class="section_support support_item with_sidebar_on_left">
+<article class="with_sidebar Document">
+		
+						
+			
+			<h1>Google Analytics</h1>						
+			
+			<!-- OVA inclusions to support insertion of player examples -->
+<script type="text/javascript" src="/content/ova/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript" src="http://player.longtailvideo.com/jwplayer.js"></script>
+<script type="text/javascript" src="/content/ova/js/json2.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-jquery.js"></script>
+<script type="text/javascript" src="/content/ova/js/ova-examplifier.js"></script>
+<script type="text/javascript" src="/content/ova/js/prettify.js"></script>
+<!-- End OVA inclusions -->
+
+<h2>Purpose</h2>
+<p>This guide explores how to enable Google Analytics tracking for your OVA served ads.</p>
+<h2>Contents</h2>
+<ol>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#using">Using a Custom Account</a></li>
+	<li><a href="#specifying">Specifying additional tracking parameters</a></li>
+	<li><a href="#impressions">Tracking Impressions</a></li>
+	<li><a href="#calls">Tracking Ad Calls</a></li>
+	<li><a href="#template">Tracking Template Loads</a></li>
+	<li><a href="#slot">Tracking Ad Slot Loads</a></li>
+	<li><a href="#events">Tracking Playback Events</a></li>
+<ol>	<li><a href="#progress">Tracking Progress Events</a></li>
+	<li><a href="#click">Tracking Click Events</a></li></ol>
+	<li><a href="#vpaid">Tracking VPAID Events</a></li>
+        <li><a href="#tracking-tags">Turning on Ad Tag Information</a></li>
+        <li><a href="#stopping">Stopping OVA Params Being Appended To Tracking URLs</a></li>
+        <li><a href="#selective">Selective Firing of Tracking Events</a></li>
+</ol>
+
+<h2>Recommended Reading</h2>
+<ul>
+<li><a href="/support/open-video-ads/23120/what-is-vast">What is VAST</a></li>
+<li><a href="/support/open-video-ads/23120/what-is-vastd">Delivering Linear Ads</a></li>
+<li><a href="/support/open-video-ads/23688/delivering-overlay-ads/revisions/24126/view">Delivering Overlay Ads</a></li>
+<li><a href="/support/open-video-ads/22824/using-static-ad-tags">Using Static Ad Tags</a></li>
+<li><a href="/support/open-video-ads/22832/vast-tracking">VAST Tracking</a></li>
+</ul>
+<h2>Related Examples</h2>
+<ul>
+<li><a href="/support/open-video-ads/25466/example-google-analytics-and-impressions">Tracking Impressions with Google Analytics</a></li>
+<li><a href="/support/open-video-ads/25467/example-google-analytics-and-everything">Tracking Everything with Google Analytics</a></li>
+</ul>
+<br/>
+<hr/>
+<h2><a name="introduction"></a>1. Introduction</h2>
+
+<p>OVA supports the use of Google Analytics to provide additional tracking outside of the standard VAST inline tracking tags. Enabling Google Analytics within OVA will not impact the internal VAST tracking - both operate independently.</p>
+
+<p>The following VAST/VPAID events can be tracked via Google Analytics:</p>
+<ul>
+<li>Linear, Non-Linear and Companion Impressions</li>
+<li>Ad calls - succeed, failed, timed out, deferred</li>
+<li>Template loads - succeeded, failed, timed out, deferred</li>
+<li>Ad slot loads - succeeded, deferred, timed out, failed</li>
+<li>Linear Ad progress tracking - first quartile, midpoint, third-quartile, complete</li>
+<li>Player pause, resume, mute, fullscreen during Linear ad playback</li>
+<li>Linear and non-linear click throughs</li>
+<li>VPAID events - ad loaded, ad started, ad stopped, ad linear change, ad expanded change, ad remaining time change, ad volume change, ad video start, ad video first quartile, ad video midpoint, ad video third quartile, ad video complete, ad user accept invitation, ad user close, ad paused, ad playing, error</li>
+</ul>
+
+<h2><a name="using"></a>2. Using a Custom Account</h2>
+
+<p>To configure a custom account ID, use the following configuration approach:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 <span style="background-color: yellow;">"custom": {
+                        "enable": true,
+                        "accountId": "UA-10158120-1",</span>
+                        "impressions": {
+                              "linear": "put-your-custom-url-here",
+                              "nonLinear": "put-your-custom-url-here",
+                              "companion": "put-your-custom-url-here"</span>
+                        }
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>In the example above, a custom GA account with an id of "US-10158120-1" is used and the linear, non-linear and companion impressions are tracked to that account using the URLs specified.</p>
+
+<h2><a name="specifying"></a>3. Specifying Additional Tracking Parameters</h2>
+
+<p>It is possible to declare additional parameters to be added to the GA calls ad runtime.</p>
+
+<p>The following code snippet illustrates how this can be achieved:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "enable": true,
+                        "accountId": "UA-10158120-1",</span>
+                        <span style="background-color: yellow;">"additionalParams": {
+                              param1: "value1",
+                              param2: "value2"
+                        }</span>
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>The config above results in both <span style="font-family: courier new,courier,monospace;">param1=value1</span> and <span style="font-family: courier new,courier,monospace;">param2=value2</span> being appended to all of the custom GA calls that OVA makes.</p>
+
+<h2><a name="impressions"></a>4. Tracking Impressions</h2>
+
+<p>Linear, non-linear and companion impressions can be tracked via Google Analytics.</p>
+
+<p>To activate impression tracking to your GA account, use the following configuration structure:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "enable": true,
+                        "accountId": "UA-10158120-1",
+                        <span style="background-color: yellow;">"impressions": {
+                              "linear": "put-your-custom-url-here",
+                              "nonLinear": "put-your-custom-url-here",
+                              "companion": "put-your-custom-url-here"
+                        }</span>
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>When OVA makes GA calls, different URLs are used for linear, non-linear and companion impression tracking events.<p>
+
+<p>By default, the following URL structure is applied:</p>
+
+<ul>
+<li>linear - "/ova/impression-counter/custom/linear"</li>
+<li>non-linear - "/ova/impression-counter/custom/nonLinear"</li>
+<li>companion - "/ova/impression-counter/custom/companion"</li>
+</ul>
+
+<p>A different set of tracking URLs can be specified at any time using the declaring the required URL against the appropriate configuration option. For example, 
+if a path of <span style="font-family: courier new,courier,monospace;">/ova/impression-counter/ova-test/XXX</span> is to be used, you can configure this as follows:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "ova": {
+                        "accountId": "UA-10158120-1",
+                        "impressions": {
+                              "linear": "/ova/impression-counter/ova-test/linear",
+                              "nonLinear": "/ova/impression-counter/ova-test/nonLinear",
+                              "companion": "/ova/impression-counter/ova-test/companion"
+                        }
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>A number of parameters are automatically added to the end of a tracking URL before OVA fires it to Google Analytics.</p> 
+
+<p>For <i>linear</i> ads, these parameters include:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_type</i> - linear, linear interactive</li>
+<li><i>ova_slot_position</i> - pre, mid or post-roll</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_media_url</i> - the url of the media displayed</li>
+<li><i>ova_media_bitrate</i> - the bitrate of the media displayed</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<p>For <i>non-linear</i> ads, the parameters added to the tracking URL include:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_type</i> - linear, linear interactive</li>
+<li><i>ova_slot_position</i> - the region used to display the overlay</li>
+<li><i>ova_slot_start_time</i> - the start time for this overlay</li>
+<li><i>ova_slot_duration</i> - the display duration of the overlay</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_creative_type</i> - the creative type of the media being displayed</li>
+<li><i>ova_creative_width</i> - the width of the creative</li>
+<li><i>ova_creative_height</i> - the height of the creative</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<p>For <i>companion</i> ads, the following parameters are added to the tracking URL:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_companion_width</i> - the width of the companion</li>
+<li><i>ova_companion_height</i> - the height of the companion</li>
+<li><i>ova_companion_type</i> - the companion media type</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<h2><a name="calls"></a>5. Tracking Ad Calls</h2>
+
+<p>Ad calls may be tracked via Google Analytics. If an ad call returns a VAST wrapper, the subsequent ad call will be tracked with a parameter identifying the ad call 
+as <i>wrapped</i>.<p>
+
+<p>A number of ad call states may be tracked:</p>
+<ul>
+<li><i>Fired</i> - logged when the ad call is fired off to the ad server</li>
+<li><i>Complete</i> - recorded when the ad call successfully completes</li>
+<li><i>Timed out</i> - logged if the ad call times out</li>
+<li><i>Error</i> - logged if an error is recorded as the ad call is made</li>
+<li><i>Failed Over</i> - will be tracked if the ad call fails over because no ads are returned</li>
+<li><i>Deferred</i> - logged if the ad call is deferred because the ad slot is "load on demand"</li>
+</ul>
+
+<p>By default, the following URL structure is applied across these states:</p>
+<ul>
+<li><i>Fired</i> - /ova/ad-calls/custom/fired</li>
+<li><i>Complete</i> - /ova/ad-calls/custom/complete</li>
+<li><i>Timed out</i> - /ova/ad-calls/custom/timed-out</li>
+<li><i>Error</i> - /ova/ad-calls/custom/error</li>
+<li><i>Failed Over</i> - /ova/ad-calls/custom/failed over</li>
+<li><i>Deferred</i> - /ova/ad-calls/custom/deferred</li>
+</ul>
+<p>The following code snippet illustrates how to enable ad call tracking using the custom GA account setting:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "accountId": "UA-10158122-2",
+                        <span style="background-color: yellow;">"adCalls": {
+                              "enable": true
+                        }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>The default URLs for each ad call state can be overridden via the <span style="font-family: courier new,courier,monospace;">"adCalls"</span> config option as follows:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "accountId": "UA-10158122-2",
+                        <span style="background-color: yellow;">"adCalls": {
+                              "enable": true,</span>
+                              "fired": "/ova/ad-calls/action=fired",
+                              "complete": "/ova/ad-calls/action=complete",
+                              "timeout": "/ova/ad-calls/action=timed-out",
+                              "error": "/ova/ad-calls/action=error",
+                              "failover": "/ova/ad-calls/action=fired",
+                              "deferred": "/ova/ad-calls/action=fired"
+                        }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>Tracking of ad calls is turned off within OVA by default.</p>
+
+<p>A number of additional parameters are recorded with each ad call tracking URL. These include:</p>
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_position</i> - the region used to display the overlay</li>
+<li><i>ova_slot_start_time</i> - overlays only - the start time for the overlay</li>
+<li><i>ova_slot_duration</i> - overlays only - the display duration of the overlay</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li><i>ova_wrapped_ad_tag</i>- true if the ad tag has been specified in a VAST wrapper</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+<h2><a name="template"></a>6. Tracking Template Loads</h2>
+
+<p>It is possible to track the load status of VAST templates as they result from ad calls made by OVA.</p>
+
+<p>The following template load events can be tracked:</p>
+<ul>
+<li>loaded - successfully loaded after an ad call</li>
+<li>error - an error resulted during the ad call</li>
+<li>deferred - deferred because there are on-demand ad slots in the schedule</li>
+<li>timeout - the ad call timed out</li>
+</ul>
+<p>The following code snippet illustrates how to enable template tracking:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "accountId": "UA-10158122-2",
+                        <span style="background-color: yellow;">"templates": {
+                              "enable": true,</span>
+                              "loaded": "/ova-example/templates/loaded",
+                              "error": "/ova-example/templates/error",
+                              "timeout": "/ova-example/templates/timeout",
+                              "deferred": "/ova-example/templates/deferred"
+                        }</span>
+	         }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>Each GA call has the following fields added to the URL:</p>
+<ul>
+<li><i>ova_ad_count</i> - the number of ads recorded in the parsed template</li>
+<li>Any <i>additional</i> tracking parameters configured via OVA</li>
+</ul>
+<h2><a name="ad"></a>7. Tracking Ad Slot Loads</h2>
+
+<p>The status of <i>on-demand</i> ad slot loading can be tracked via Google Analytics.</p> 
+
+<p>The following <i>on-demand</i> ad slot load events can be tracked:</p>
+<ul>
+<li><i>loaded</i> - successfully loaded after an ad call</li>
+<li><i>error</i> - an error resulted during the ad call</li>
+<li><i>deferred</i> - deferred because there are on-demand ad slots in the schedule</li>
+<li><i>timeout</i> - the ad call timed out</li>
+</ul>
+<p>The following code snippet illustrates how to enable template tracking:<p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                        "accountId": "UA-10158122-2",
+                        <span style="background-color: yellow;">"templates": {
+                              "enable": true,
+                              "loaded": "/ova-example/adslot/loaded",
+                              "error": "/ova-example/adslot/error",
+                              "timeout": "/ova-example/adslot/timeout",
+                              "deferred": "/ova-example/adslot/deferred"</span>
+                        }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>Each GA call has the following fields added to the URL:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_position</i> - the region used to display the overlay</li>
+<li><i>ova_slot_start_time</i> - overlays only - the start time for the overlay</li>
+<li><i>ova_slot_duration</i> - overlays only - the display duration of the overlay</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li><i>ova_wrapped_ad_tag</i> - true if the ad tag has been specified in a VAST wrapper</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<h2><a name="events"></a>8. Tracking Playback Events</h2>
+
+<p>As OVA ads are played, a number of events can be tracked using Google Analytics. These events include:</p>
+<ul>
+<li>Linear Ad progress tracking - first quartile, midpoint, third-quartile, complete</li>
+<li>Player pause, resume, mute, fullscreen during Linear ad playback</li>
+<li>Linear and non-linear click throughs</li>
+</ul>
+
+<h2><a name="progress"></a>8.1 Tracking Linear Ad Progress Events</h2>
+
+<p>The following non-interactive linear ad playback progress events can be tracked via Google Analytics:</p>
+
+<ul>
+<li>first quartile complete</li>
+<li>midpoint complete</li>
+<li>third-quartile complete</li>
+<li>playback complete</li>
+<li>player events such as going fullscreen, pause, resume, mute, close etc.</li>
+</ul>
+
+<p>The following code snippet illustrates how to enable these events to be tracked:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                       "accountId": "UA-10158122-2",
+                       <span style="background-color: yellow;">"progress": {
+                            "enable": true,
+                            "start": "/ova-example/progress/start",
+                            "firstQuartile": "/ova-example/progress/firstQuartile",
+                            "midpoint": "/ova-example/progress/midpoint",
+                            "thirdQuartile": "/ova-example/progress/thirdQuartile",
+                            "complete": "/ova-example/progress/complete",
+                            "pause": "/ova-example/progress/pause",
+                            "resume": "/ova-example/progress/resume",
+                            "fullscreen": "/ova-example/progress/fullscreen",
+                            "mute": "/ova-example/progress/mute",
+                            "unmute": "/ova-example/progress/unmute",
+                            "expand": "/ova-example/progress/expand",
+                            "collapse": "/ova-example/progress/collapse",
+                            "acceptInvitation": "/ova-example/progress/acceptInvitation",
+                            "close": "/ova-example/progress/close"</span>
+                       }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>Each GA call has the following fields added to the URL:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_type</i> - linear, linear interactive</li>
+<li><i>ova_slot_position</i> - pre, mid or post-roll</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_media_url</i> - the url of the media displayed</li>
+<li><i>ova_media_bitrate</i> - the bitrate of the media displayed</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<h2><a name="click"></a>8.2 Tracking Click Events</h2>
+
+<p>Ad click through events can be tracked via Google Analytics.</p>
+
+<p>The following code snippet illustrates how to enable this:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                       "accountId": "UA-10158122-2",
+                       <span style="background-color: yellow;">"clicks": {
+                            "enable": true,</span>
+                            "linear": "/ova-example/clicks/linear",
+                            "nonLinear": "/ova-example/clicks/linear", 
+                            "VPAID": "/ova-example/clicks/linear"
+                       }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>For linear ads, these parameters include:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_type</i> - linear, linear interactive</li>
+<li><i>ova_slot_position</i> - pre, mid or post-roll</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_media_url</i> - the url of the media displayed</li>
+<li><i>ova_media_bitrate</i> - the bitrate of the media displayed</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<p>For non-linear ads, the parameters added to the tracking URL include:</p>
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_slot_type</i> - linear, linear interactive</li>
+<li><i>ova_slot_position</i> - the region used to display the overlay</li>
+<li><i>ova_slot_start_time</i> - the start time for this overlay</li>
+<li><i>ova_slot_duration</i> - the display duration of the overlay</li>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_creative_type</i> - the creative type of the media being displayed</li>
+<li><i>ova_creative_width</i> - the width of the creative</li>
+<li><i>ova_creative_height</i> - the height of the creative</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<p>For companion ads, the following parameters are added to the tracking URL:</p>
+
+<ul>
+<li><i>ova_slot_id</i> - the unique ID for this ad slot</li>
+<li><i>ova_companion_</i>width - the width of the companion</li>
+<li><i>ova_companion_height</i> - the height of the companion</li>
+<li><i>ova_companion_type</i> - the companion media type</li>
+<li><i>vova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_ad_provider</i> - the provider of the ad tag</li>
+<li>Any additional tracking parameters configured via OVA</li>
+</ul>
+
+<h2><a name="vpaid"></a>9. Tracking VPAID Events</h2>
+
+<p>The full set of VPAID events can be tracked via Google Analytics. These events include:</p>
+
+<ul>
+<li>loaded, started, stopped</li>
+<li>linear changed</li>
+<li>expanded changed</li>
+<li>remaining time change</li>
+<li>volume changed</li>
+<li>video started, video first quartile complete, video midpoint complete, video third quartile complete, video complete</li>
+<li>user accepted invitation</li>
+<li>user closed the ad</li>
+<li>playback paused, resumed</li>
+<li>error conditions</li>
+</ul>
+
+<p>The following code snippet illustrates how to setup tracking for VPAID linear and non-linear (overlay) ads:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                       "accountId": "UA-10158122-2",
+                       <span style="background-color: yellow;">"vpaid": {
+                            "enable": true,
+                            "loaded": "/ova-example/vpaid/loaded",
+                            "started": "/ova-example/vpaid/started",
+                            "stopped": "/ova-example/vpaid/stopped",
+                            "linearChange": "/ova-example/vpaid/linearChange",
+                            "expandedChange": "/ova-example/vpaid/expandedChange",
+                            "remainingTimeChange": "/ova-example/vpaid/remainingTime",
+                            "volumeChange": "/ova-example/vpaid/volumeChange",
+                            "videoStart": "/ova-example/vpaid/videoStart",
+                            "videoFirstQuartile": "/ova-example/vpaid/videoFirstQuartile",
+                            "videoMidpoint": "/ova-example/vpaid/videoMidpoint",
+                            "videoThirdQuartile": "/ova-example/vpaid/videoThirdQuartile",
+                            "videoComplete": "/ova-example/vpaid/videoComplete",
+                            "userAcceptInvitation": "/ova-example/vpaid/userAccept",
+                            "userClose": "/ova-example/vpaid/userClose",
+                            "paused": "/ova-example/vpaid/paused",
+                            "playing": "/ova-example/vpaid/playing",
+                            "error": "/ova-example/vpaid/error"
+                       }</span>
+                 }
+          }
+     },
+     "ads": {
+           ....
+     }
+}
+</pre>
+
+<p>For each VPAID tracking event fired, the following attributes are appended to the GA tracking URL:</b>
+
+<ul>
+<li><i>ova_ad_id</i> - the ad ID taken from the VAST response</li>
+<li><i>ova_ad_system</i> - the ad system take from the VAST response</li>
+<li><i>ova_ad_title</i> - the ad title taken from the VAST response</li>
+<li><i>ova_ad_description</i> - the ad description taken from the VAST response</li>
+<li><i>ova_creative_type</i> - the creative type of the media being displayed</li>
+<li><i>ova_creative_width</i> - the width of the creative</li>
+<li><i>ova_creative_height</i> - the height of the creative</li>
+</ul>
+
+<h2><a name="tracking-tags"></a>10. Turning on Ad Tag Information</h2>
+
+<p>By default, OVA will not add the "ad tag" used to the tracking URLs. When the ad tag is added, it has the consequence of potentially creating a new tracking URL for each tracking item as ad tags typically have unique items within them such as cache-busting random number.</p>
+
+<p>You can turn on "ad tag tracking" so that the ad tag is added to each Tracking URL. To do so, apply the following config:</p>
+
+<pre class="prettyprint">
+{
+     ...
+     "analytics": {
+          "google": {
+                 "custom": {
+                       "accountId": "UA-xxxxxx-x",
+                       <span style="background-color: yellow;">"trackAdTags": true,</span>
+                       ....
+}
+</pre>
+
+<h2><a name="stopping"></a>11. Stopping OVA Params Being Appended To Tracking URLs</h2>
+
+<p>It is possible to stop OVA adding a bunch of parameters to tracking URLs by setting the <span style="font-family: courier new,courier,monospace;">addParamsToTrackingURL</span> config option to <span style="font-family: courier new,courier,monospace;">false</span> as follows:</p>
+
+<pre class="prettyprint">
+...
+               "analytics": {
+                   "google": {
+                      "custom": {
+                          "accountId": "UA-10158120-1",
+                          <span style="background-color: yellow;">"addParamsToTrackingURL": false,</span>
+                          "impressions": {
+                             "enable": true
+                          }
+                      }
+                   }
+               },
+...
+</pre>
+
+<h2><a name="selective"></a>12. Selective Firing of Tracking Events</h2>
+
+<p>It is possible to only fire tracking events for those that have been declared. The <span style="font-family: courier new,courier,monospace;">useDefaultPaths</span> option must be set to <span style="font-family: courier new,courier,monospace;">false</span> as follows:</p>
+
+<pre class="prettyprint">
+...
+            "analytics": {
+                "google": {
+	                "custom": {
+                        "accountId": "UA-10158120-1",
+                        <span style="background-color: yellow;">"useDefaultPaths": false,</span>
+                        "vpaid": {
+                            "enable": true,
+                            "started": "/ova-example/vpaid/started",
+                            "complete": "/ova-example/vpaid/complete"
+                        }
+                    }
+                }
+            },
+...
+</pre>
+
+<h2>13. The Master OVA GA Account</h2>
+
+<p>OVA uses Google Analytics to collect cursory operational data as it runs to help with support, testing and backward compatibility decisions made during the ongoing development of the OVA for Flowplayer and JW5 plugins. This data is sent to a master OVA GA account "UA-4011032-6".</p>					</article>	
+
+</body>
+</html>
